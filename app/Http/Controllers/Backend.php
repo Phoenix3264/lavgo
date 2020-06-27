@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+    use App\dmha_1;
     use App\dmha_2;
     use App\dmha_3;
     use App\dmha_4;
-    use App\dmha_5;
-    use App\dmha_7;
 
 class Backend extends Controller
 {
@@ -26,46 +25,33 @@ class Backend extends Controller
                 $data = array();
                   
   			// then, we check your link
-                $INIT_param_1 = dmha_7::let_me_check_what_is_your_dmha_id($PARAM_1);
-                    $data['id']            = $INIT_param_1['id'];
-                    $ID_for_dmha_2      = $INIT_param_1['dmha_2'];
-                        $data['dmha_2']            = $ID_for_dmha_2;
-                    $ID_for_dmha_3      = $INIT_param_1['dmha_3'];
-                    $ID_for_dmha_4      = $INIT_param_1['dmha_4'];
-                        $data['dmha_4']            = $ID_for_dmha_4;
-                    $ID_for_dmha_5      = $INIT_param_1['dmha_5'];
-                        $data['dmha_5']            = $ID_for_dmha_5; 
-                    $ID_for_dmha_7      = $INIT_param_1['dmha_7'];   
-                        $data['dmha_7']            = $ID_for_dmha_7;    
-                    $data['has_sub']            = $INIT_param_1['has_sub'];
-                    $data['additional_script']  = $INIT_param_1['additional_script'];
+                $data['id']         = dmha_1::link_check_col($PARAM_1,'id');
+                $data['dmha_1']     = dmha_1::link_check_col($PARAM_1,'dmha_1');
+                $data['dmha_2']     = dmha_1::link_check_col($PARAM_1,'dmha_2');
+                $data['dmha_3']     = dmha_1::link_check_col($PARAM_1,'dmha_3');
+                $data['dmha_4']     = dmha_1::link_check_col($PARAM_1,'dmha_4');
 
   			// We check your Template
-                $temp = dmha_2::let_me_check_your_details($ID_for_dmha_2);
-                $template           = $temp['nama'];
-                $data['template']   = $template;
+                $template           = dmha_2::id_check_col(dmha_1::link_check_col($PARAM_1,'dmha_2'),'nama');
+                $data['template']   = replace_to_underscore($template);
               
   			// We check your Controller
-                $temp = dmha_3::let_me_check_your_details($ID_for_dmha_3);
-                $controller = $temp['nama'];
-                $data['controller']   = $controller;
+                $controller         = dmha_3::id_check_col(dmha_1::link_check_col($PARAM_1,'dmha_3'),'nama');
+                $data['controller'] = $controller;
 
   			// We check your Page
-                $temp = dmha_4::let_me_check_your_details($ID_for_dmha_4);
-                $page           = str_replace(' ','_',$temp['nama']);
-                $data['page']   = $page;
+                $page               = dmha_4::id_check_col(dmha_1::link_check_col($PARAM_1,'dmha_3'),'nama');
+                $data['page']       = replace_to_underscore($page);
 
-  			// We check your Script
-                $temp = dmha_5::let_me_check_your_details($ID_for_dmha_5);
-                $script           = str_replace(' ','_',$temp['nama']);
-                $data['script']   = $script;
+            // We check your script
+                $script             = dmha_4::id_check_col(dmha_1::link_check_col($PARAM_1,'dmha_3'),'nama');
+                $data['script']     = replace_to_underscore($script);
 
   			// Let me help you generate sidebar
-                $temp_7 = dmha_7::let_me_generate_sidebar('level_1',NULL);
-                $data['sidebar_data']   = $temp_7;
+                $data['sidebar_data'] = dmha_1::let_me_generate_sidebar('level_1',NULL);
 
         // Show View
-            $final_view = $template.'.layout_'.$template.'_'.$controller;
+            $final_view = rules_for_layout($PARAM_1);$template.'.layout_'.$template.'_'.$controller;
 	        return view($final_view,$data);
 
     }

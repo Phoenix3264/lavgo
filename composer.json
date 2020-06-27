@@ -53,6 +53,8 @@
             "app/Helper/dmha/helper_dmha_32.php",
             "app/Helper/dmha/helper_dmha_36.php",
 
+            "app/Helper/php/helper_php_modification.php",
+
             "app/Helper/UI/helper_UI_button.php",
             "app/Helper/UI/helper_UI_dropdown.php",
             "app/Helper/UI/helper_UI_form.php",
