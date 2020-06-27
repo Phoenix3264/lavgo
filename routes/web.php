@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 //web worker data general routes
 Route::any('/wwdata/generate', 'wwdata@generate');
 
@@ -26,3 +28,5 @@ Route::any('/', 'backend@index');
 
 Route::any('/{param_1}', 'backend@index');
 Route::any('/{param_1}/{param_2}', 'backend@index');
+
+Route::get('/home', 'HomeController@index')->name('home');

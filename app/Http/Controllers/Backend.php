@@ -16,6 +16,8 @@ class Backend extends Controller
     public function index($PARAM_1=NULL,$PARAM_2=NULL)
   	{
         // Set Rules
+            // Unknown Param, Redirect to
+                if($PARAM_1 == ''){return redirect('dashboard');}
             // Timezone
                 date_default_timezone_set('Asia/Jakarta');
 
