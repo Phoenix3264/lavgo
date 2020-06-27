@@ -12,7 +12,7 @@
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>
-                        Sean Ngu
+                            {{ Auth::user()->name }} 
                         <small>Front end developer</small>
                     </div>
                 </a>
@@ -27,32 +27,6 @@
         </ul>
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
-        <ul class="nav">            
-            @foreach($sidebar_data as $row)
-                <li class="{{is_has_sub($row->has_sub)}} {{check_active($row->id,$id,'level_1')}} ">
-                    @if($row->link == 'javascript:;')
-                        <a href="{{$row->link}}">
-                    @else                
-                        <a href="{{url('/').'/'.$row->link}}">
-                    @endif
-                        @if($row->has_sub == 1)                     
-                        <b class="caret"></b>
-                        @endif
-                        {!!id_check_col_dmha_6($row->dmha_2,'fa')!!}
-                        {{$row->nama}} :
-                        {{$row->id}} - 
-                        {{$id}}
-                    </a>
-
-                    @if($row->has_sub == 1)
-                        {!!sidebar_level_2($row->dmha_2,$row->id,$id)!!}
-                    @endif
-                </li>
-            @endforeach
-            <!-- begin sidebar minify button -->
-            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
-            <!-- end sidebar minify button -->
-        </ul>
         <!-- end sidebar nav -->
     </div>
     <!-- end sidebar scrollbar -->

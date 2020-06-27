@@ -41,14 +41,9 @@
             	@include($template.'.page_header')
 			<!-- end page-header -->
 			<!-- begin panel -->				
-				{!!button_panel_header($dmha_2,$id)!!}
 
             	@include($template.'.panel.panel_'.$page)
 
-				
-			id : {{$id}}<br/>
-			page : {{$dmha_4}}<br/>
-			script : {{$dmha_5}}<br/>
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->

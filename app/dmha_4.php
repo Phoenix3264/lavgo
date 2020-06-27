@@ -31,7 +31,7 @@ class dmha_4 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_2::where('id','=',$ID)
+            $isi    = dmha_4::where('id','=',$ID)
                         ->whereNull('deleted_at')
                         ->value($COL);
 

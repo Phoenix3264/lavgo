@@ -2,7 +2,7 @@
 
 	use App\dmha_3;
 
-    function id_check_col_dmha_3($ID,$COL)
+    function dmha_3_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';

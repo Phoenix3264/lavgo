@@ -42,6 +42,7 @@
             "app/Helper/ajax/helper_ajax_data.php",
             "app/Helper/ajax/helper_ajax_form.php",
 
+            "app/Helper/dmha/helper_dmha_1.php",
             "app/Helper/dmha/helper_dmha_2.php",
             "app/Helper/dmha/helper_dmha_3.php",
             "app/Helper/dmha/helper_dmha_4.php",
@@ -54,6 +55,7 @@
             "app/Helper/dmha/helper_dmha_36.php",
 
             "app/Helper/php/helper_php_modification.php",
+            "app/Helper/system/helper_rules_general.php",
 
             "app/Helper/UI/helper_UI_button.php",
             "app/Helper/UI/helper_UI_dropdown.php",
