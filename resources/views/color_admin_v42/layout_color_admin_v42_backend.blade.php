@@ -44,6 +44,7 @@
 
             	@include($template.'.panel.panel_'.$page)
 
+				id : {{$id}}
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->

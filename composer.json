@@ -62,7 +62,9 @@
             "app/Helper/UI/helper_UI_form.php",
             "app/Helper/UI/helper_UI_input_type.php",
             "app/Helper/UI/helper_UI_sidebar.php",
-            "app/Helper/UI/helper_UI_table.php"     
+            "app/Helper/UI/helper_UI_table.php",
+
+            "app/Helper/template/helper_color_admin_v42.php"     
                          
         ],
         "classmap": [

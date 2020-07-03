@@ -11,21 +11,11 @@ class wwdata extends Controller
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';            
-            $ID    = $_GET['id'];
-
-            $DMHA_2 = id_check_col_dmha_7($ID,'dmha_2');
+            $DMHA_1         = $_GET['id'];
+            $AUTH_ID        = $_GET['ida'];
 
         // ------------------------------------------------------------------------- ACTION
-            if($ID == 2) { $isi .= data_table_dmha_2($DMHA_2,$ID);}
-            elseif($ID == 3) { $isi .= data_table_dmha_3($DMHA_2,$ID);}
-            elseif($ID == 4) { $isi .= data_table_dmha_4($DMHA_2,$ID);}
-            elseif($ID == 5) { $isi .= data_table_dmha_5($DMHA_2,$ID);}
-            elseif($ID == 6) { $isi .= data_table_dmha_6($DMHA_2,$ID);}
-            elseif($ID == 7) { $isi .= data_table_dmha_7($DMHA_2,$ID);}
-            elseif($ID == 9) { $isi .= data_table_dmha_9($DMHA_2,$ID);}
-            elseif($ID == 28) { $isi .= data_table_dmha_28($DMHA_2,$ID);}
-            elseif($ID == 32) { $isi .= data_table_dmha_32($DMHA_2,$ID);}
-            elseif($ID == 36) { $isi .= data_table_dmha_36($DMHA_2,$ID);}
+            if($DMHA_1 == 1) { $isi .= dmha_1_data_table($AUTH_ID,$DMHA_1);}
 
         // ------------------------------------------------------------------------- SEND
             die(json_encode(array(

@@ -30,43 +30,41 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function data_table_dmha_1($dmha_1,$DMHA_7)
+    function dmha_1_data_table($AUTH_ID,$DMHA_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1::let_me_show_all();
+            $class_th = 'text-center bold';
+            $model = dmha_1::let_me_generate_data_array($AUTH_ID,'data_table',NULL);
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(1).'
+            general_colgroup(8).'
             <thead>
                 <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Nama
-                    </th>
-                    <th>
-                        Action
-                    </th>
+                    '.th_me('ID', $class_th).'
+                    '.th_me('Nama', $class_th).'
+                    '.th_me('Template', $class_th).'
+                    '.th_me('Controller', $class_th).'
+                    '.th_me('Page', $class_th).'
+                    '.th_me('Icon', $class_th).'
+                    '.th_me('Kategori', $class_th).'
+                    '.th_me('Action', $class_th).'
                 </tr>
             </thead>
             <tbody>
-            ';
-            
+            ';            
             foreach($model as $row)
             {
                 $isi .= '
-                    <td>
-                        '.$row->id.'
-                    </td>
-                    <td>
-                        '.$row->nama.'
-                    </td>
-                    <td class="text-center">
-                        '.dropdown_table($dmha_1,$DMHA_7,$row->id).'
-                    </td>
+                '.td_me($row->id, 'text-center').'
+                '.td_me($row->nama, '').'
+                '.td_me(dmha_2_id_check_col($row->dmha_2,'nama'), '').'
+                '.td_me(dmha_3_id_check_col($row->dmha_3,'nama'), '').'
+                '.td_me(dmha_4_id_check_col($row->dmha_4,'nama'), '').'
+                '.td_me(dmha_5_id_check_col($row->dmha_5,'nama'), '').'
+                '.td_me(dmha_9_id_check_col($row->dmha_9,'nama'), '').'
+                '.td_me(color_admin_v42_dropdown($AUTH_ID,$DMHA_1,$row->id), 'text-center').'
                 </tr>
                 ';
             }
@@ -80,13 +78,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_1_let_me_generate_sidebar($TIPE,$ID)
+    function dmha_1_let_me_generate_data_array($AUTH_ID,$TIPE,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_1::let_me_generate_sidebar($TIPE,$ID);
+            $isi    = dmha_1::let_me_generate_data_array($AUTH_ID,$TIPE,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Backend extends Controller
 {
@@ -23,6 +24,10 @@ class Backend extends Controller
   		// Initialize
   			// lets start the array
                 $data = array();
+
+  			// Whats ur name, again            
+    		    $data['AUTH_NAME']      = Auth::user()->name;
+    		    $data['AUTH_ID']        = Auth::user()->id;
                   
   			// then, we check your link
                 $data['id']         = dmha_1_link_check_col($PARAM_1,'id');
@@ -47,8 +52,6 @@ class Backend extends Controller
                 $script             = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_3'),'nama');
                 $data['script']     = replace_to_underscore($script);
 
-  			// Let me help you generate sidebar
-                $data['sidebar_data'] = dmha_1_let_me_generate_sidebar('level_1',NULL);
 
         // Show View
             $final_view = rules_for_layout($PARAM_1);

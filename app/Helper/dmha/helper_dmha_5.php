@@ -2,7 +2,7 @@
 
 	use App\dmha_5;
 
-    function id_check_col_dmha_5($ID,$COL)
+    function dmha_5_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -15,8 +15,8 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-    
-    function data_table_dmha_5($DMHA_2,$DMHA_7)
+
+    function data_table_dmha_5($dmha_5,$DMHA_7)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -51,7 +51,7 @@
                         '.$row->nama.'
                     </td>
                     <td class="text-center">
-                        '.dropdown_table($DMHA_2,$DMHA_7,$row->id).'
+                        '.dropdown_table($dmha_5,$DMHA_7,$row->id).'
                     </td>
                 </tr>
                 ';

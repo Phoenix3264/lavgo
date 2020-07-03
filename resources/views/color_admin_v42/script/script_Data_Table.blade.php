@@ -18,5 +18,5 @@
 </script>
 
 <script type="text/javascript">
-    {!!ajax_data_table($id)!!}
+    {!!ajax_data_table($AUTH_ID,$id)!!}
 </script>

@@ -63,26 +63,30 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    
-        
-    public static function let_me_generate_sidebar($TIPE,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$TIPE,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            if($TIPE == 'level_1')
+            if($TIPE == 'sidebar_1')
             {
                 $isi = dmha_1::whereNull('deleted_at')
                     ->whereNull('dmha_1')										
                     ->orderBy('id','asc')
                     ->get();
             }
-            elseif($TIPE == 'level_2')
+            elseif($TIPE == 'sidebar_2')
             {
                 $isi = dmha_1::whereNull('deleted_at')
                     ->where('dmha_1','=',$ID)										
                     ->orderBy('nama','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'data_table')
+            {
+                $isi = dmha_1::whereNull('deleted_at')					
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'button_panel_header')
@@ -95,7 +99,7 @@ class dmha_1 extends Model
             }
             elseif($TIPE == 'dropdown_table')
             {
-                $isi = dmha_7::whereNull('deleted_at')
+                $isi = dmha_1::whereNull('deleted_at')
                     ->where('dmha_1','=',$ID)		
                     ->where('dmha_9','=',3)											
                     ->orderBy('urutan','asc')

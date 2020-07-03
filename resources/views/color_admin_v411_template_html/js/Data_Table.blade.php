@@ -1,1 +1,0 @@
-<script src="{{ asset('/public/back/color_admin_v411') }}/assets/plugins/pace/pace.min.js"></script>
