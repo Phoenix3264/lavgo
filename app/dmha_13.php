@@ -7,23 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $nama
+ * @property string $name
+ * @property int $dmha_14
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_2 extends Model
+class dmha_13 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_2';
+    protected $table = 'dmha_13';
 
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'name', 'dmha_14', 'created_at', 'update_at', 'deleted_at'];
 
     public static function id_check_col($ID,$COL)
     {
@@ -31,7 +33,7 @@ class dmha_2 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_2::where('id','=',$ID)
+            $isi = dmha_13::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -47,7 +49,7 @@ class dmha_2 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_2::whereNull('deleted_at')
+            $isi = dmha_13::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -56,5 +58,4 @@ class dmha_2 extends Model
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }
-
 }

@@ -105,6 +105,14 @@ class dmha_1 extends Model
                     ->orderBy('urutan','asc')
                     ->get();
             }
+            elseif($TIPE == 'button')
+            {
+                $isi = dmha_1::whereNull('deleted_at')
+                    ->where('dmha_1','=',$ID)		
+                    ->where('dmha_9','=',2)												
+                    ->orderBy('urutan','asc')
+                    ->get();
+            }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

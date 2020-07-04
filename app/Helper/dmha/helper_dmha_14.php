@@ -1,58 +1,47 @@
 <?php
 
-	use App\dmha_6;
+	use App\dmha_14;
 
-    function id_check_col_dmha_6($ID,$COL)
+    function dmha_14_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_6::id_check_col($ID,$COL);
+            $isi    = dmha_14::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-    
-    function data_table_dmha_6($DMHA_2,$DMHA_7)
+
+    function dmha_14_data_table($AUTH_ID,$dmha_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_6::let_me_show_all();
+            $class_th = 'text-center bold';
+            $model = dmha_14::let_me_generate_data_array($AUTH_ID,NULL);
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(1).'
+            general_colgroup(3).'
             <thead>
                 <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Nama
-                    </th>
-                    <th>
-                        Action
-                    </th>
+                    '.th_me('ID', $class_th).'
+                    '.th_me('Nama', $class_th).'
+                    '.th_me('Action', $class_th).'
                 </tr>
             </thead>
             <tbody>
-            ';
-            
+            ';            
             foreach($model as $row)
             {
                 $isi .= '
-                    <td>
-                        '.$row->id.'
-                    </td>
-                    <td>
-                        '.$row->nama.'
-                    </td>
-                    <td class="text-center">
-                        '.dropdown_table($DMHA_2,$DMHA_7,$row->id).'
-                    </td>
+                <tr>
+                '.td_me($row->id, 'text-center').'
+                '.td_me($row->nama, '').'
+                '.td_me(color_admin_v42_dropdown($AUTH_ID,$dmha_1,$row->id), 'text-center').'
                 </tr>
                 ';
             }
@@ -64,18 +53,23 @@
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
-	}
+    }
     
-    function is_has_sub($value)
+    function dmha_14_generate_input_type($ID,$CLASS)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
-		// ------------------------------------------------------------------------- ACTION
-            if($value == 1)
+        // ------------------------------------------------------------------------- ACTION
+            if($ID == 1)
             {
-                $isi = 'has-sub';
+                $isi .= '<input 
+                    type="text" 
+                    class="'.$CLASS.'"
+                    name="'.dmha_13_id_check_col($ID,'name').'"
+                    >';
             }
+
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

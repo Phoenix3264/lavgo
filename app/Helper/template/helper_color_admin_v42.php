@@ -99,3 +99,61 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    function color_admin_v42_button($AUTH_ID,$DMHA_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'button',$DMHA_1);
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= '
+            <div class="text-center m-b-15 m-bt-15">';
+
+            foreach($model as $row)
+            {
+                $isi .= '
+                <a href="'.rules_link_sidebar($row->link,NULL).'" 
+                    class="btn btn-primary">
+                    '.$row->nama.'
+                </a>
+                ';
+            }
+                
+            $isi  .= ' 
+            </div>
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }  
+
+    function color_admin_v42_form($AUTH_ID,$DMHA_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'form-control';
+
+            $model = dmha_15_generate_daftar_pertanyaan($AUTH_ID,$DMHA_1);
+
+        // ------------------------------------------------------------------------- ACTION
+            foreach($model as $row)
+            {
+                $isi .= '
+                <div class="form-group row">
+                    <label class="'.rules_for_label_form().' col-form-label">
+                        '.dmha_13_id_check_col($row->dmha_13,'nama').'
+                    </label>
+                    <div class="col-md-'.dmha_13_id_check_col($row->dmha_13,'panjang').'">
+                        '.dmha_14_generate_input_type($row->dmha_13,$class).'
+                    </div>
+                </div>
+                ';
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

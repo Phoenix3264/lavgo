@@ -45,11 +45,11 @@ class Backend extends Controller
                 $data['controller'] = $controller;
 
   			// We check your Page
-                $page               = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_3'),'nama');
+                $page               = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_4'),'nama');
                 $data['page']       = replace_to_underscore($page);
 
             // We check your script
-                $script             = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_3'),'nama');
+                $script             = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_4'),'nama');
                 $data['script']     = replace_to_underscore($script);
 
 

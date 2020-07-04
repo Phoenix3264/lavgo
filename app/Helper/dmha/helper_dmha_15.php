@@ -1,14 +1,14 @@
 <?php
 
-	use App\dmha_3;
+	use App\dmha_15;
 
-    function dmha_3_id_check_col($ID,$COL)
+    function dmha_15_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_3::id_check_col($ID,$COL);
+            $isi    = dmha_15::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,12 +16,12 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_3_data_table($AUTH_ID,$dmha_1)
+    function dmha_15_data_table($AUTH_ID,$dmha_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class_th = 'text-center bold';
-            $model = dmha_3::let_me_generate_data_array($AUTH_ID,NULL);
+            $model = dmha_15::let_me_generate_data_array($AUTH_ID,NULL);
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
@@ -53,4 +53,18 @@
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
-	}
+    }
+    
+    function dmha_15_generate_daftar_pertanyaan($AUTH_ID,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$ID);            
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

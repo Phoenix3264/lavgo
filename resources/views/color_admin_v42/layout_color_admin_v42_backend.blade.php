@@ -41,10 +41,10 @@
             	@include($template.'.page_header')
 			<!-- end page-header -->
 			<!-- begin panel -->				
-
+				{!!color_admin_v42_button($AUTH_ID,$id)!!}
             	@include($template.'.panel.panel_'.$page)
 
-				id : {{$id}}
+				{!!dev_mode_show_page_detail($AUTH_ID,$id)!!}
 			<!-- end panel -->
 		</div>
 		<!-- end #content -->

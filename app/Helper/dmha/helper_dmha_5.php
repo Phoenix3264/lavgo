@@ -16,43 +16,32 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function data_table_dmha_5($dmha_5,$DMHA_7)
+    function dmha_5_data_table($AUTH_ID,$dmha_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_5::let_me_show_all();
+            $class_th = 'text-center bold';
+            $model = dmha_5::let_me_generate_data_array($AUTH_ID,NULL);
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(1).'
+            general_colgroup(3).'
             <thead>
                 <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Nama
-                    </th>
-                    <th>
-                        Action
-                    </th>
+                    '.th_me('ID', $class_th).'
+                    '.th_me('Nama', $class_th).'
+                    '.th_me('Action', $class_th).'
                 </tr>
             </thead>
             <tbody>
-            ';
-            
+            ';            
             foreach($model as $row)
             {
                 $isi .= '
-                    <td>
-                        '.$row->id.'
-                    </td>
-                    <td>
-                        '.$row->nama.'
-                    </td>
-                    <td class="text-center">
-                        '.dropdown_table($dmha_5,$DMHA_7,$row->id).'
-                    </td>
+                <tr>
+                '.td_me($row->id, 'text-center').'
+                '.td_me($row->nama, '').'
+                '.td_me(color_admin_v42_dropdown($AUTH_ID,$dmha_1,$row->id), 'text-center').'
                 </tr>
                 ';
             }

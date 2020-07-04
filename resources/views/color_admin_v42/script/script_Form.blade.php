@@ -45,5 +45,5 @@
 </script>
 
 <script type="text/javascript">
-    {!!ajax_form($dmha_7)!!}
+    {!!ajax_form($AUTH_ID,$dmha_1)!!}
 </script>
