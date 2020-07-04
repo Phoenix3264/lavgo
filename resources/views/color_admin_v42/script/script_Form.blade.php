@@ -46,4 +46,49 @@
 
 <script type="text/javascript">
     {!!ajax_form($AUTH_ID,$dmha_1)!!}
+    
+   
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+   
+   
+    $(document).ready(function(){
+        $("#submit").click(function(){
+            alert("The paragraph was clicked.");
+            
+   
+            var name = $("input[name=name]").val();
+   
+            $.ajax({
+                type:'POST',
+                url:"{{ url('/') }}/wwform/post",
+                data:{name:name},
+                success:function(data){
+                    alert(data.success);
+                }
+            });
+        });
+    });
+
+
+
+    $("submitaaaaaaaaa").click(function(e){
+        alert("Hello! I am an alert box!!");
+        e.preventDefault();
+   
+        var name = $("input[name=name]").val();
+   
+        $.ajax({
+           type:'POST',
+           url:"{{ url('/') }}/wwform/post",
+           data:{name:name},
+           success:function(data){
+              alert(data.success);
+           }
+        });
+  
+	});  
 </script>

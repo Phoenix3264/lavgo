@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\dmha_5;
+
 use Illuminate\Http\Request;
 
 class wwform extends Controller
@@ -27,5 +29,18 @@ class wwform extends Controller
                 "isi" => $isi
             )));
         ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public function post(Request $request)
+    {
+        dmha_5::create($request->all());
+        
+
+        $isi = 'OKEEEEEEEEEEE';
+        
+        die(json_encode(array(
+            "isi" => $isi
+        )));
+
     }
 }

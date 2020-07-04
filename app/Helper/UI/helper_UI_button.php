@@ -34,29 +34,22 @@
     }
 
 
-    function button_submit_form($VALUE,$SUBMIT,$NAME,$LABEL)
+    function button_submit_form($VALUE,$SUBMIT,$NAME,$LABEL,$CLASS)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
             $isi    .= ' 
-            <div class="row">  
-                <div class="col-md-8 offset-md-2">
-                
-                    <button 
-                    type="submit" 
-                    class="btn btn-lg btn-block btn-success"
-                    value="'.$VALUE.'"
-                    id="'.$SUBMIT.'"
-                    name="'.$NAME.'">
-                        '.$LABEL.'
-                    </button>
-                    <button type="button" class="btn btn-success btn-lg btn-block">
-                        Submit
-                    </button>
-                </div>
-            </div>';
+            <button 
+                type="submit" 
+                class="'.$CLASS.'"
+                value="'.$VALUE.'"
+                id="'.$SUBMIT.'"
+                name="'.$NAME.'">
+                    '.$LABEL.'
+            </button>
+            ';
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

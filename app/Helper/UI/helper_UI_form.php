@@ -1,9 +1,9 @@
 <?php
     
  
-    function open_form(){
+    function open_form($class){
         // ------------------------------------------------------------------------- INITIALIZE
-    		$isi = '<form class="form-horizontal form-bordered" action="" method="POST">';
+            $isi = '<form class="'.$class.'" action="" method="POST">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND
