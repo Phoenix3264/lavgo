@@ -56,16 +56,22 @@
    
    
     $(document).ready(function(){
-        $("#submit").click(function(){
-            alert("The paragraph was clicked.");
+        $("#submit").click(function(e){
             
    
-            var name = $("input[name=name]").val();
+            e.preventDefault();
+            var nama = $("input[name=nama]").val();
+            var id = $("input[name=id]").val();
+            let _token   = $('meta[name="csrf-token"]').attr('content');
    
             $.ajax({
                 type:'POST',
-                url:"{{ url('/') }}/wwform/post",
-                data:{name:name},
+                url:"{{ url('/') }}/wwform/postdata",
+                data:{
+                    nama:nama,    
+                    id:id,                     
+                    _token: _token
+                    },
                 success:function(data){
                     alert(data.success);
                 }
@@ -73,22 +79,4 @@
         });
     });
 
-
-
-    $("submitaaaaaaaaa").click(function(e){
-        alert("Hello! I am an alert box!!");
-        e.preventDefault();
-   
-        var name = $("input[name=name]").val();
-   
-        $.ajax({
-           type:'POST',
-           url:"{{ url('/') }}/wwform/post",
-           data:{name:name},
-           success:function(data){
-              alert(data.success);
-           }
-        });
-  
-	});  
 </script>

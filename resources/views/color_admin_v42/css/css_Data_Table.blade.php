@@ -6,3 +6,8 @@
 <link href="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/css/default/style.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/css/default/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/css/default/theme/default.css" rel="stylesheet" id="theme" />
+
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link href="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL STYLE ================== -->

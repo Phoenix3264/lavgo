@@ -1,6 +1,6 @@
 <?php
 
-    function ajax_data_table($AUTH_ID,$ID)
+    function ajax_data_table($AUTH_ID,$ID,$table_id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -14,9 +14,12 @@
             $isi    .= ' "id": "'.$ID.'" ' ;
             $isi    .= ' }, ' ;
             $isi    .= ' dataType: "json", ' ;
+            
+            $isi    .= ' "dataSrc": "tableData", ' ;
+            
             $isi    .= ' cache: false, ' ;
             $isi    .= ' success: function(data){ ' ;
-            $isi    .= ' $("#table").html(data.isi); ' ;
+            $isi    .= ' $("#'.$table_id.'").html(data.isi); ' ;
             $isi    .= ' } ' ;
             $isi    .= ' }); ' ;
             $isi    .= ' }); ' ;

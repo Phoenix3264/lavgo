@@ -1,4 +1,4 @@
-{!!color_admin_v42_open_form()!!}	
+{!!color_admin_v42_open_form()!!}
 @csrf
 
 <div class="panel panel-inverse">
@@ -11,6 +11,6 @@
 </div>
 
 
-{!!color_admin_v42_submit('submit','submit','submit','Submit')!!}
+{!!color_admin_v42_submit('submit','submit','submit','submit')!!}
 
 {!!close_form()!!}

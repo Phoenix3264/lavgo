@@ -20,7 +20,7 @@ Route::any('/wwdata/generate', 'wwdata@generate');
 
 //web worker form general routes
 Route::any('/wwform/generate', 'wwform@generate');
-Route::post('/wwform/post', 'wwform@post');
+Route::post('/wwform/postdata', 'wwform@postdata');
 
 // default routes
 Route::any('/', 'backend@index');

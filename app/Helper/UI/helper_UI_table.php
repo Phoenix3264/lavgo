@@ -1,22 +1,14 @@
 <?php
 
-	function data_tabel_open(){
+	function UI_table_open_table_with_id($class,$id){
 	    // ------------------------------------------------------------------------- INITIALIZE
-	      return '
-	        <div class="table-responsive">
-				<!-- begin widget-table -->
-				<table class="table table-bordered widget-table widget-table-rounded table-striped table-hover" id="table">
-	      ';
+            return '<table class="'.$class.'"  id="'.$id.'" >';
 	    ////////////////////////////////////////////////////////////////////////////
   	}
 
-  	function data_tabel_close(){
+  	function UI_tabel_close(){
 	    // ------------------------------------------------------------------------- INITIALIZE
-	      return '
-				</table>
-				<!-- end widget-table -->
-			</div>
-	      ';
+	      	return '</table>';
 	    ////////////////////////////////////////////////////////////////////////////
   	}
 

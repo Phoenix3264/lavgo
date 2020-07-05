@@ -11,12 +11,21 @@
 <script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/js/theme/default.min.js"></script>
 <script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/js/apps.min.js"></script>
 
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+<script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('/public/').'/'.$controller.'/'.$template }}/assets/js/demo/table-manage-default.demo.min.js"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+
 <script>
     $(document).ready(function() {
         App.init();
+        TableManageDefault.init();
     });
 </script>
 
+
 <script type="text/javascript">
-    {!!ajax_data_table($AUTH_ID,$id)!!}
+    {!!ajax_data_table($AUTH_ID,$id,'data-table-default')!!}
 </script>

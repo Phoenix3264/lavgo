@@ -99,7 +99,7 @@
                 
             $isi .= '
             </tbody>'.
-            data_tabel_close();
+            UI_tabel_close();
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
