@@ -76,18 +76,17 @@
             $model = dmha_1_let_me_generate_data_array($AUTH_ID,'dropdown_table',$DMHA_1);
 
         // ------------------------------------------------------------------------- ACTION
+                  
             $isi    .= '
             <ul class="sub-menu">
                 <div class="btn-group ">
                     <a href="javascript:;" data-toggle="dropdown" class="btn btn-white dropdown-toggle"></a>
                     <ul class="dropdown-menu">';
-
                     foreach($model as $row)
                     {
                         $isi .= '
                         <li><a href="'.rules_link_sidebar($row->link,$ID).'">'.$row->nama.'</a></li>';
-                    }
-                        
+                    }                        
                     $isi  .= '    
                     </ul>
                 </div>
@@ -103,17 +102,19 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
+            $class  = 'btn btn-info';
+
             $model = dmha_1_let_me_generate_data_array($AUTH_ID,'button',$DMHA_1);
 
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '
-            <div class="text-center m-b-15 m-bt-15">';
-
+            <div class="text-right m-b-15 m-bt-15">';
             foreach($model as $row)
             {
                 $isi .= '
                 <a href="'.rules_link_sidebar($row->link,NULL).'" 
-                    class="btn btn-primary">
+                    class="'.$class.'" 
+                    id="'.$row->nama.'-'.$row->id.'">
                     '.$row->nama.'
                 </a>
                 ';
@@ -135,7 +136,7 @@
             $isi    = '';
             $class  = 'form-control';
 
-            $model = dmha_15_generate_daftar_pertanyaan($AUTH_ID,$DMHA_1);
+            $model = dmha_15_generate_daftar_pertanyaan($AUTH_ID,$DMHA_1,'default');
 
         // ------------------------------------------------------------------------- ACTION
             foreach($model as $row)
@@ -146,7 +147,7 @@
                         '.dmha_13_id_check_col($row->dmha_13,'nama').'
                     </label>
                     <div class="col-md-'.dmha_13_id_check_col($row->dmha_13,'panjang').'">
-                        '.dmha_14_generate_input_type($row->dmha_13,$class).'
+                        '.dmha_13_generate_pertanyaan($row->dmha_13,$class).'
                     </div>
                 </div>
                 ';
@@ -216,6 +217,21 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi = UI_table_open_table_with_id($class,$id);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }  
+
+    function color_admin_v42_modal_dialog_form($AUTH_ID,$id_dmha,$dmha_2,$id_modal)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'table table-striped table-bordered';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = UI_modal_dialog_form($AUTH_ID,$id_dmha,$dmha_2,$id_modal);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

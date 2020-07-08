@@ -12,8 +12,10 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -42,15 +44,40 @@
             "app/Helper/ajax/helper_ajax_data.php",
             "app/Helper/ajax/helper_ajax_form.php",
 
-            "app/Helper/dmha/helper_dmha_1.php",
-            "app/Helper/dmha/helper_dmha_2.php",
-            "app/Helper/dmha/helper_dmha_3.php",
-            "app/Helper/dmha/helper_dmha_4.php",
-            "app/Helper/dmha/helper_dmha_5.php",
-            "app/Helper/dmha/helper_dmha_9.php",
-            "app/Helper/dmha/helper_dmha_13.php",
-            "app/Helper/dmha/helper_dmha_14.php",
-            "app/Helper/dmha/helper_dmha_15.php",
+            "app/Helper/dmha/system/helper_dmha_1.php",
+            "app/Helper/dmha/system/helper_dmha_2.php",
+            "app/Helper/dmha/system/helper_dmha_3.php",
+            "app/Helper/dmha/system/helper_dmha_4.php",
+            "app/Helper/dmha/system/helper_dmha_5.php",
+            "app/Helper/dmha/system/helper_dmha_8.php",
+            "app/Helper/dmha/system/helper_dmha_9.php",
+            "app/Helper/dmha/system/helper_dmha_13.php",
+            "app/Helper/dmha/system/helper_dmha_14.php",
+            "app/Helper/dmha/system/helper_dmha_15.php",
+            "app/Helper/dmha/system/helper_dmha_40.php",
+
+            "app/Helper/dmha/additional/helper_dmha_69.php",
+            "app/Helper/dmha/additional/helper_dmha_73.php",
+            "app/Helper/dmha/additional/helper_dmha_77.php",
+            "app/Helper/dmha/additional/helper_dmha_81.php",
+
+            "app/Helper/dmha/additional/helper_dmha_69.php",
+            "app/Helper/dmha/additional/helper_dmha_73.php",
+            "app/Helper/dmha/additional/helper_dmha_77.php",
+            "app/Helper/dmha/additional/helper_dmha_81.php",
+            
+            "app/Helper/dmha/acadion/helper_dmha_87.php",
+            "app/Helper/dmha/acadion/helper_dmha_91.php",
+            "app/Helper/dmha/acadion/helper_dmha_95.php",
+            "app/Helper/dmha/acadion/helper_dmha_99.php",
+            "app/Helper/dmha/acadion/helper_dmha_103.php",
+            "app/Helper/dmha/acadion/helper_dmha_107.php",
+
+            "app/Helper/dmha/notarion/helper_dmha_47.php",
+            "app/Helper/dmha/notarion/helper_dmha_51.php",
+            "app/Helper/dmha/notarion/helper_dmha_56.php",
+            "app/Helper/dmha/notarion/helper_dmha_60.php",
+            "app/Helper/dmha/notarion/helper_dmha_64.php",
 
             "app/Helper/php/helper_php_modification.php",
             "app/Helper/system/helper_rules_general.php",
@@ -59,10 +86,12 @@
             "app/Helper/UI/helper_UI_dropdown.php",
             "app/Helper/UI/helper_UI_form.php",
             "app/Helper/UI/helper_UI_input_type.php",
+            "app/Helper/UI/helper_UI_modal_dialog.php",
             "app/Helper/UI/helper_UI_sidebar.php",
             "app/Helper/UI/helper_UI_table.php",
 
-            "app/Helper/template/helper_color_admin_v42.php"     
+            "app/Helper/template/helper_color_admin_v42.php",   
+            "app/Helper/template/helper_color_admin_material_v42.php"      
                          
         ],
         "classmap": [

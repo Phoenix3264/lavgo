@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Jenssegers\Agent\Agent;
+
 class Backend extends Controller
 {
     public function __construct()
@@ -25,20 +27,27 @@ class Backend extends Controller
   			// lets start the array
                 $data = array();
 
+            // Define User agent                
+                $agent = new Agent();
+                $template_agent = 'browser';
+
   			// Whats ur name, again            
     		    $data['AUTH_NAME']      = Auth::user()->name;
     		    $data['AUTH_ID']        = Auth::user()->id;
                   
   			// then, we check your link
+    		    $data['PARAM_1']    = $PARAM_1;
                 $data['id']         = dmha_1_link_check_col($PARAM_1,'id');
                 $data['dmha_1']     = dmha_1_link_check_col($PARAM_1,'dmha_1');
                 $data['dmha_2']     = dmha_1_link_check_col($PARAM_1,'dmha_2');
                 $data['dmha_3']     = dmha_1_link_check_col($PARAM_1,'dmha_3');
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
 
-  			// We check your Template
+  			// We check your root and template
+                $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');
+                $data['root']   = replace_to_underscore($root);
                 $template           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'nama');
-                $data['template']   = replace_to_underscore($template);
+                $data['template']   = 'template_'.replace_to_underscore($template);
               
   			// We check your Controller
                 $controller         = dmha_3_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_3'),'nama');
@@ -54,7 +63,7 @@ class Backend extends Controller
 
 
         // Show View
-            $final_view = rules_for_layout($PARAM_1);
+            $final_view = rules_for_layout($PARAM_1,$template_agent);
 	        return view($final_view,$data);
 
     }

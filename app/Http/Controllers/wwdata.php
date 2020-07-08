@@ -7,30 +7,48 @@ use Illuminate\Http\Request;
 class wwdata extends Controller
 {
     //
-    public function generate()
+    public function generate(Request $request,$param_1,$param_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';            
-            $DMHA_1         = $_GET['id'];
-            $AUTH_ID        = $_GET['ida'];
+            $isi = '';     
+            $AUTH_ID = $param_1;  
+            $DMHA_1 = $param_2;  
+            $data = array();
+            $data['AUTH_ID'] = $param_1;  
+            $data['DMHA_1'] = $param_2;  
+            
+            $modify_datatable = false;
 
         // ------------------------------------------------------------------------- ACTION
-            if($DMHA_1 == 1) { $isi .= dmha_1_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 2) { $isi .= dmha_2_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 3) { $isi .= dmha_3_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 4) { $isi .= dmha_4_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 5) { $isi .= dmha_5_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 9) { $isi .= dmha_9_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 13) { $isi .= dmha_13_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 14) { $isi .= dmha_14_data_table($AUTH_ID,$DMHA_1);}
-            elseif($DMHA_1 == 15) { $isi .= dmha_15_data_table($AUTH_ID,$DMHA_1);}
-            
-            elseif($DMHA_1 == 13) { $isi .= dmha_1_data_table($AUTH_ID,$DMHA_1);}
+            if($request->ajax())
+            {
+                if($DMHA_1 == 1) { $isi_model = dmha_1_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 2) { $isi_model = dmha_2_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 3) { $isi_model = dmha_3_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 4) { $isi_model = dmha_4_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 5) { $isi_model = dmha_5_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 9) { $isi_model = dmha_9_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 13) { $isi_model = dmha_13_let_me_generate_data_array($AUTH_ID, $DMHA_1,'joined'); }
+                elseif($DMHA_1 == 14) { $isi_model = dmha_14_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 15) { $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 40) { $isi_model = dmha_40_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+            }
+
 
         // ------------------------------------------------------------------------- SEND
-            die(json_encode(array(
-                "isi" => $isi
-            )));
+            if($modify_datatable == false)
+            {
+                return datatables()
+                    ->of($isi_model)
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1){                        
+                        $dropdown = color_admin_v42_dropdown($AUTH_ID,$DMHA_1,$data->id);
+                        return $dropdown;
+                    })
+                    ->rawColumns(['action'])
+                    ->addIndexColumn()
+                    ->make(true);
+            }
+
         ////////////////////////////////////////////////////////////////////////////
     }
 }

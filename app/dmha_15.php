@@ -44,16 +44,36 @@ class dmha_15 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_15::where('dmha_1','=',$ID)
-                ->whereNull('deleted_at')
-                ->orderBy('id','asc')
-                ->get();
+            if($TIPE == 'default')
+            {
+                $isi = dmha_15::where('dmha_1','=',$ID)
+                    ->whereNull('deleted_at')
+                    ->orderBy('id','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'joined')
+            {
+
+                $isi = dmha_15::selectRaw('
+                    dmha_13.name
+                    ')
+                    ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
+                    ->where('dmha_15.dmha_1','=',$ID)                                 
+                    ->orderBy('dmha_15.id','asc')
+                    ->get();
+            }
+
+
+
+
+                
+
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

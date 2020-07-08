@@ -1,0 +1,1 @@
+<h1 class="page-header">Blank Page <small>header small text goes here{{ asset('/public/').'/'.$controller.'/'.$root }}.</small></h1>

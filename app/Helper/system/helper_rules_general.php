@@ -1,15 +1,15 @@
 <?php
 
-    function rules_for_layout($link)
+    function rules_for_layout($link,$template_agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             
-            $template           = dmha_2_id_check_col(dmha_1_link_check_col($link,'dmha_2'),'nama');            
-            $controller         = dmha_3_id_check_col(dmha_1_link_check_col($link,'dmha_3'),'nama');
+            $template           = replace_to_underscore(dmha_2_id_check_col(dmha_1_link_check_col($link,'dmha_2'),'nama'));            
+            $controller         = replace_to_underscore(dmha_3_id_check_col(dmha_1_link_check_col($link,'dmha_3'),'nama'));
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    .= $template.'.layout_'.$template.'_'.$controller;
+            $isi    .= 'template_'.$template.'.layout_'.$template.'_'.$controller.'_'.$template_agent;
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -22,9 +22,10 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $isi    =  $link;
-
-        // ------------------------------------------------------------------------- ACTION
-            if($link != 'javascript:;')
+    
+            $exc_link = array("javascript:;", "javascript:void(0)");
+        // ------------------------------------------------------------------------- ACTION    
+            if (!in_array($link, $exc_link)) 
             {
                 $isi = url('/').'/'.$link;
                 if(!is_null($ID)){$isi .= '/'.$ID;}
@@ -71,7 +72,7 @@
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
             data_tabel_open_with_id('dev-mode-'.$DMHA_1).
-            general_colgroup(7).'
+            general_colgroup(8).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
@@ -81,6 +82,7 @@
                     '.th_me('Page', $class_th).'
                     '.th_me('Icon', $class_th).'
                     '.th_me('Kategori', $class_th).'
+                    '.th_me('Load Time', $class_th).'
                 </tr>
             </thead>
             <tbody>
@@ -94,6 +96,7 @@
                 '.td_me(dmha_4_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_4'),'nama'), '').'
                 '.td_me(dmha_5_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_5'),'nama'), '').'
                 '.td_me(dmha_9_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_9'),'nama'), '').'
+                '.td_me((microtime(true) - LARAVEL_START), 'text-center').'
                 </tr>
                 ';
                 

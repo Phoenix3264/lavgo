@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\dmha_5;
+use App\dmha_13;
 
 use Illuminate\Http\Request;
 
@@ -44,24 +45,13 @@ class wwform extends Controller
     {       
         // ------------------------------------------------------------------------- INITIALIZE
         // ------------------------------------------------------------------------- SUBMITTING DATA
-            if( !empty( request()->all() ) )
-            {
-                $isi = 'kesini la'.$request->id.'a';
+            
+            $id = $request->id;
+            
+            $post   =   dmha_5::create($request->all());
 
-                //dmha_5::create(request()->all());
-                dmha_5::insert(
-                        ['nama' => $request->nama,   ]
-                    );
-                if( !empty(request('submit'))) 
-                {         
-                    //session()->flash('Success',flash_messages(1));
-                    $isi = 'kesini';
-
-                    // dmha_5::insert(
-                    //     ['name' => $request->name,   ]
-                    // );
-                }
-            }     
+            //return response()->json($post);  
+            return redirect('dashboard');
         // ------------------------------------------------------------------------- SEND
         
 

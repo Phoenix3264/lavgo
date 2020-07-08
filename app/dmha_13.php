@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nama
  * @property string $name
  * @property int $dmha_14
+ * @property string $panjang
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
@@ -25,7 +26,9 @@ class dmha_13 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'name', 'dmha_14', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'name', 'dmha_14','panjang', 'created_at', 'update_at', 'deleted_at'];
+
+    public $timestamps = false;
 
     public static function id_check_col($ID,$COL)
     {
@@ -43,7 +46,7 @@ class dmha_13 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -53,6 +56,28 @@ class dmha_13 extends Model
                 ->orderBy('id','asc')
                 ->get();
 
+            if($TIPE == 'default')
+            {
+                $isi = dmha_13::where('dmha_1','=',$ID)
+                    ->whereNull('deleted_at')
+                    ->orderBy('id','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'joined')
+            {
+
+                $isi = dmha_13::selectRaw('
+                    dmha_13.id,
+                    dmha_13.nama,
+                    dmha_13.name,
+                    dmha_14.nama as dmha_14,
+                    dmha_13.panjang
+                    ')
+                    ->join('dmha_14', 'dmha_14.id', '=', 'dmha_13.dmha_14')                    
+                    ->orderBy('dmha_14.id','asc')
+                    ->get();
+            }
+    
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;

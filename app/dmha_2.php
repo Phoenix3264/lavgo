@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $nama
+ * @property string $root
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
@@ -23,7 +24,7 @@ class dmha_2 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'root', 'created_at', 'update_at', 'deleted_at'];
 
     public static function id_check_col($ID,$COL)
     {
