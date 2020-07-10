@@ -4,7 +4,7 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'sidebar_1',$PARAM_ID);
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$PARAM_ID,'sidebar_1');
 
         // ------------------------------------------------------------------------- ACTION
             foreach ($model as $row) 
@@ -46,7 +46,7 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'sidebar_2',$ID);
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$ID,'sidebar_2');
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<ul class="sub-menu">';
@@ -73,7 +73,7 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'dropdown_table',$DMHA_1);
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_1,'dropdown_table');
 
         // ------------------------------------------------------------------------- ACTION
                   
@@ -104,7 +104,7 @@
             $isi    = '';
             $class  = 'btn btn-info';
 
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'button',$DMHA_1);
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_1,'button');
 
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '

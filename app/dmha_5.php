@@ -26,6 +26,7 @@ class dmha_5 extends Model
     protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE

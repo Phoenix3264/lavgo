@@ -52,7 +52,7 @@ class LoginController extends Controller
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');
                 $data['root']   = replace_to_underscore($root);
                 $template           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'nama');
-                $data['template']   = replace_to_underscore($template);
+                $data['template']   =  'template_'.replace_to_underscore($template);
 
             // We check your Page
                 $page               = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_4'),'nama');

@@ -63,7 +63,7 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$TIPE,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -85,9 +85,29 @@ class dmha_1 extends Model
             }
             elseif($TIPE == 'data_table')
             {
-                $isi = dmha_1::whereNull('deleted_at')					
-                    ->orderBy('id','asc')
-                    ->get();
+                    
+                $isi = dmha_1::
+                    selectRaw('
+                        dmha_1.id,
+                        dmha_1.nama,
+                        dmha_1.link,
+                        dmha_1.urutan,
+                        dmha_1.has_sub,
+                        dmha_2.nama as dmha_2,
+                        dmha_3.nama as dmha_3,
+                        dmha_4.nama as dmha_4,
+                        dmha_5.nama as dmha_5,
+                        dmha_9.nama as dmha_9
+
+                    ')
+                ->join('dmha_2', 'dmha_2.id', '=', 'dmha_1.dmha_2')   
+                ->join('dmha_3', 'dmha_3.id', '=', 'dmha_1.dmha_3')   
+                ->join('dmha_4', 'dmha_4.id', '=', 'dmha_1.dmha_4')   
+                ->join('dmha_5', 'dmha_5.id', '=', 'dmha_1.dmha_5')   
+                ->join('dmha_9', 'dmha_9.id', '=', 'dmha_1.dmha_9')        
+                ->whereNull('dmha_1.deleted_at')	            
+                ->orderBy('dmha_1.id','asc')
+                ->get();
             }
             elseif($TIPE == 'button_panel_header')
             {

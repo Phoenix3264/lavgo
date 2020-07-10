@@ -7,7 +7,7 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="{{ asset('/public/').'/'.$controller.'/'.$root }}/assets/img/user/user-14.jpg" alt="" />
+                        <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-14.jpg" alt="" />
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>
