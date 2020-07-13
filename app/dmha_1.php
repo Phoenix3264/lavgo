@@ -73,7 +73,8 @@ class dmha_1 extends Model
         // ------------------------------------------------------------------------- ACTION
             if($TIPE == 'sidebar_1')
             {
-                $isi = dmha_1::whereNull('deleted_at')
+                $isi = dmha_1::where('dmha_3','=',1)
+                    ->whereNull('deleted_at')	
                     ->whereNull('dmha_1')										
                     ->orderBy('id','asc')
                     ->get();
@@ -154,7 +155,7 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_subdata($nama)
+    public static function create_sub_fitur($nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -166,13 +167,87 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_subdata_complete($nama)
+    public static function create_sub_fitur_complete($nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
             dmha_1::create([ 'nama' => $nama, 'link' => 'javascript:;', 'urutan' => 1, 'has_sub' => 1, 'dmha_2' => 2, 'dmha_5' => 1, ]);
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function create_fitur_complete($nama)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            // create data
+            dmha_1::create(
+                [ 
+                    'nama' => $nama, 
+                    'link' => 'Data_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 1,
+                    'dmha_5' => 1, 
+                    'dmha_9' => 1,
+                ]);
+
+            $dmha_1 = dmha_1::getPdo()->lastInsertId();
+
+            // create Create
+            dmha_1::create(
+                [ 
+                    'nama' => 'Create', 
+                    'link' => 'Create_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 2, 
+                    'dmha_9' => 2,
+                ]);
+
+            // create Edit
+            dmha_1::create(
+                [ 
+                    'nama' => 'Edit', 
+                    'link' => 'Edit_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 3, 
+                    'dmha_9' => 3,
+                ]);
+
+            // create Delete
+            dmha_1::create(
+                [ 
+                    'nama' => 'Delete', 
+                    'link' => 'Delete_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 4,
+                    'dmha_9' => 3, 
+                ]);
+
+            // create Table
+            Schema::create('dmha_'.$dmha_1, function (Blueprint $table) {
+                $table->string('email')->index();
+                $table->string('token');
+                $table->timestamp('created_at')->nullable();
+            });
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

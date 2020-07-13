@@ -25,13 +25,7 @@ class dmha_8 extends Model
      */
     protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
     public $timestamps = false;
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     
     public static function id_check_col($ID,$COL)
     {
@@ -64,9 +58,6 @@ class dmha_8 extends Model
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
     public static function create_me($array_data)
     {
@@ -108,7 +99,4 @@ class dmha_8 extends Model
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 }

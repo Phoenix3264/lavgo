@@ -5,9 +5,7 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$ID,'joined');
-
-            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$ID);
-
+            
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '   
             $(document).ready(function () {
@@ -28,11 +26,7 @@
     
                     ],
                     order: [
-<<<<<<< Updated upstream
-                        [0, "asc"]
-=======
                         [0, "desc"]
->>>>>>> Stashed changes
                     ]
                 });
             });        

@@ -93,10 +93,13 @@ class wwform extends Controller
                 elseif($DMHA_9 == 3) { dmha_14_update_me($ID,$request->all()); }
             }
             elseif($DMHA_1 == 112) {     
-                dmha_1_create_subdata($request->nama);
+                dmha_1_create_sub_fitur($request->nama);
             }
             elseif($DMHA_1 == 113) {     
-                dmha_1_create_subdata_complete($request->nama);
+                dmha_1_create_sub_fitur_complete($request->nama);
+            }
+            elseif($DMHA_1 == 118) {     
+                dmha_1_create_fitur_complete($request->nama);
             }
 
         // ------------------------------------------------------------------------- SEND
