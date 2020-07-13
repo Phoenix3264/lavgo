@@ -31,9 +31,7 @@
         App.init();
         TableManageDefault.init();
     });
-<<<<<<< Updated upstream
     
-<<<<<<< Updated upstream
         //CSRF TOKEN PADA HEADER
         //Script ini wajib krn kita butuh csrf token setiap kali mengirim request post, patch, put dan delete ke server
         $(document).ready(function () {
@@ -52,12 +50,4 @@
 
 
         
-=======
-    {!!ajax_data_table($AUTH_ID,$id,$PARAM_1)!!}
->>>>>>> Stashed changes
-=======
-
-    
-    {!!ajax_data_table_CRUD($AUTH_ID,$id,$PARAM_1)!!}
->>>>>>> Stashed changes
 </script>

@@ -53,7 +53,11 @@ class LoginController extends Controller
                 $data['root']   = replace_to_underscore($root);
                 $template           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'nama');
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 $data['template']   =  'template_'.replace_to_underscore($template);
+=======
+                $data['template']   = 'template_'.replace_to_underscore($template);
+>>>>>>> Stashed changes
 =======
                 $data['template']   = 'template_'.replace_to_underscore($template);
 >>>>>>> Stashed changes
