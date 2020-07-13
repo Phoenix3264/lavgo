@@ -114,6 +114,6 @@
 
 <div class="search-form">
     <button class="search-btn" type="submit"><i class="material-icons">search</i></button>
-    <input type="text" class="form-control" placeholder="Search Something{{ asset('/public/').'/'.$controller.'/'.$root }}." />
+    <input type="text" class="form-control" placeholder="Search Something{{ asset('/public/').'/'.$root }}." />
     <a href="#" class="close" data-dismiss="navbar-search"><i class="material-icons">close</i></a>
 </div>

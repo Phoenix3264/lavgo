@@ -1,6 +1,6 @@
 <?php
 
-    function ajax_form($AUTH_ID,$ID)
+    function ajax_form($AUTH_ID,$DMHA_1,$DMHA_9,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -10,8 +10,10 @@
             $isi    .= ' $.ajax({ ' ;
             $isi    .= ' url: "'.url('/').'/wwform/generate", ' ;
             $isi    .= ' data: { ' ;
-            $isi    .= ' "ida": "'.$AUTH_ID.'", ' ;
-            $isi    .= ' "id": "'.$ID.'" ' ;
+            $isi    .= ' "a": "'.$AUTH_ID.'", ' ;
+            $isi    .= ' "p": "'.$DMHA_1.'", ' ;
+            $isi    .= ' "c": "'.$DMHA_9.'", ' ;
+            $isi    .= ' "i": "'.$PARAM_2.'" ' ;
             $isi    .= ' }, ' ;
             $isi    .= ' dataType: "json", ' ;
             $isi    .= ' cache: false, ' ;

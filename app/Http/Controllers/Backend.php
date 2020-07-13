@@ -20,6 +20,7 @@ class Backend extends Controller
         // Set Rules
             // Unknown Param, Redirect to
                 if($PARAM_1 == ''){return redirect('dashboard');}
+                elseif($PARAM_1 == 'logout'){ Auth::logout(); return redirect('login');}
             // Timezone
                 date_default_timezone_set('Asia/Jakarta');
 
@@ -37,11 +38,15 @@ class Backend extends Controller
                   
   			// then, we check your link
     		    $data['PARAM_1']    = $PARAM_1;
+    		    $data['PARAM_2']    = $PARAM_2;
                 $data['id']         = dmha_1_link_check_col($PARAM_1,'id');
+                $data['nama']         = dmha_1_link_check_col($PARAM_1,'nama');
                 $data['dmha_1']     = dmha_1_link_check_col($PARAM_1,'dmha_1');
                 $data['dmha_2']     = dmha_1_link_check_col($PARAM_1,'dmha_2');
                 $data['dmha_3']     = dmha_1_link_check_col($PARAM_1,'dmha_3');
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
+                $data['dmha_5']     = dmha_1_link_check_col($PARAM_1,'dmha_5');
+                $data['dmha_9']     = dmha_1_link_check_col($PARAM_1,'dmha_9');
 
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');

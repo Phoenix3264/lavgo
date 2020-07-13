@@ -57,7 +57,7 @@ class wwdata extends Controller
                 return datatables()
                     ->of($isi_model)
                     ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1){                        
-                        $dropdown = color_admin_v42_dropdown($AUTH_ID,$DMHA_1,$data->id);
+                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$data->id);
                         return $dropdown;
                     })
                     ->rawColumns(['action'])

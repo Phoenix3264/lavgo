@@ -14,44 +14,40 @@
 <!-- ================== END BASE JS ================== -->
 
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
-<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
-<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/table-manage-default.demo.min.js"></script>
-
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/highlight/highlight.common.js"></script>
 <script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/render.highlight.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"
-    integrity="sha256-sPB0F50YUDK0otDnsfNHawYmA5M0pjjUf4TvRJkGFrI=" crossorigin="anonymous"></script>
-    
 <script>
     $(document).ready(function() {
         App.init();
-        TableManageDefault.init();
+        Highlight.init();
     });
+
     
-<<<<<<< Updated upstream
-        //CSRF TOKEN PADA HEADER
-        //Script ini wajib krn kita butuh csrf token setiap kali mengirim request post, patch, put dan delete ke server
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    {!!ajax_form($AUTH_ID,$id,$dmha_9,$PARAM_2)!!}
+    
+   
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+   
+   
+    $(document).ready(function(){
+        $("#submit").click(function(e){
+            
+   
+            e.preventDefault();
+   
+            $.ajax({
+                type:'POST',
+                url:"{{ url('/') }}/wwform/postdata",
+                data: $('#{{$PARAM_1}}').serialize(),
+                success:function(data){
+                    window.location.href = "{{ url('/') }}/{{dmha_1_id_check_col($dmha_1,'link')}}";
                 }
             });
         });
-
-        
-        {!!ajax_data_table_CRUD($AUTH_ID,$id,$PARAM_1)!!}
-
-        
-
-
-
-        
-=======
-    {!!ajax_data_table($AUTH_ID,$id,$PARAM_1)!!}
->>>>>>> Stashed changes
+    });
 </script>

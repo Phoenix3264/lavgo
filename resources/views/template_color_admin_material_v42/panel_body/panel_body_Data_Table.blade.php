@@ -2,4 +2,8 @@
 
 <table class="table table-striped table-bordered" id="{{$PARAM_1}}">
     {!!general_colgroup_thead($id)!!}
+<<<<<<< Updated upstream
 </table>
+=======
+</table>
+>>>>>>> Stashed changes

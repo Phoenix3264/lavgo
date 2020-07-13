@@ -15,7 +15,7 @@
                     // has_sub?
                     if ($row->has_sub == 1) { $isi .= ' has-sub '; }
 
-                    $isi .= rules_active_sidebar($PARAM_ID,$row->id);
+                    $isi .= rules_active_sidebar($PARAM_ID,$row->id,'level1');
                     $isi .= '
                     ">
                         <a href="'.rules_link_sidebar($row->link).'">';
@@ -28,6 +28,7 @@
 
                             $isi .= '   
                             <span>
+                                '.dmha_5_id_check_col($row->dmha_5,'fa').'
                                 '.$row->nama.'
                             </span>
                         </a>
@@ -53,7 +54,7 @@
             foreach ($model as $row) 
             {
                 $isi .= '
-                    <li class="'.rules_active_sidebar($PARAM_ID,$row->id).'">
+                    <li class="'.rules_active_sidebar($PARAM_ID,$row->id,'level2').'">
                         <a href="'.rules_link_sidebar($row->link).'">
                             '.$row->nama.'
                         </a>
@@ -85,7 +86,10 @@
                     foreach($model as $row)
                     {
                         $isi .= '
-                        <li><a href="'.rules_link_sidebar($row->link,$ID).'">'.$row->nama.'</a></li>';
+                        <li><a href="'.rules_link_sidebar($row->link,$ID).'">
+                            '.dmha_5_id_check_col($row->dmha_5,'fa').' 
+                            '.$row->nama.'
+                            </a></li>';
                     }                        
                     $isi  .= '    
                     </ul>
@@ -115,6 +119,7 @@
                 <a href="'.rules_link_sidebar($row->link,NULL).'" 
                     class="'.$class.'" 
                     id="'.$row->nama.'-'.$row->id.'">
+                    '.dmha_5_id_check_col($row->dmha_5,'fa').'
                     '.$row->nama.'
                 </a>
                 ';
@@ -130,7 +135,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_material_v42_form($AUTH_ID,$DMHA_1)
+    function color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -147,7 +152,7 @@
                         '.dmha_13_id_check_col($row->dmha_13,'nama').'
                     </label>
                     <div class="col-md-'.dmha_13_id_check_col($row->dmha_13,'panjang').'">
-                        '.dmha_13_generate_pertanyaan($row->dmha_13,$class).'
+                        '.dmha_13_generate_pertanyaan($row->dmha_13,$class,$DMHA_1,$DMHA_9,$ID).'
                     </div>
                 </div>
                 ';
@@ -159,15 +164,16 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_material_v42_hidden($AUTH_ID,$DMHA_1)
+    function color_admin_material_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class  = 'form-control';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= dmha_14_generate_input_hidden($class, 'ida', $AUTH_ID);
-            $isi .= dmha_14_generate_input_hidden($class, 'id', $DMHA_1);
+            $isi .= dmha_14_generate_input_hidden($class, 'p', $DMHA_1);
+            $isi .= dmha_14_generate_input_hidden($class, 'c', $DMHA_9);
+            $isi .= dmha_14_generate_input_hidden($class, 'i', $PARAM_2);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -202,6 +208,21 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi    = open_form($class);
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_material_v42_open_form_with_id($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'form-horizontal form-bordered';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = UI_FORM_open_form_with_id($class,$id);
             
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
