@@ -113,7 +113,7 @@
 
             $hasil = ' checked="checked" ';
 
-            $id_termasuk_id_check_col = array(1,157);
+            $id_termasuk_id_check_col = array(1);
 
         // ------------------------------------------------------------------------- ACTION        
             if (in_array($DMHA_1, $id_termasuk_id_check_col)) {
@@ -124,10 +124,10 @@
 
 
             else {                 
-                if($DMHA_1 == 157) { $COL = dmha_157_id_check($ID,$name); }  
-                elseif($DMHA_1 == 162) { $COL = dmha_162_id_check($ID,$name); }  
+                if($DMHA_1 == 162) { $COL = dmha_162_id_check($ID,$name);}  
+                elseif($DMHA_1 == 157) { $COL = dmha_162_id_check($ID,$name); }  
 
-                if($COL == TRUE) { $isi .= $hasil; }
+                if($COL == 1) { $isi .= $hasil; }
             }
             
 

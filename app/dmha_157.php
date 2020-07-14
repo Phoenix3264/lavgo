@@ -45,7 +45,7 @@ class dmha_157 extends Model
 
     
     public static function id_check($dmha_8,$dmha_1)
-    {
+    {        
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = false;
 
@@ -56,13 +56,14 @@ class dmha_157 extends Model
             
             if(!empty($temp))
             {
-                $isi = true;
+                $isi = 1;
             }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;
         ////////////////////////////////////////////////////////////////////////////
+
     }
 
     public static function let_me_generate_data_array($AUTH_ID,$ID)
