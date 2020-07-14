@@ -51,6 +51,8 @@ class wwform extends Controller
     public function postdata(Request $request)
     {       
         // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
             $DMHA_1 = $request->p;
             $DMHA_9 = $request->c;
             $ID = $request->i;
@@ -101,6 +103,10 @@ class wwform extends Controller
             elseif($DMHA_1 == 118) {     
                 dmha_1_create_fitur_complete($request->nama);
             }
+            elseif($DMHA_1 == 122) {     
+                if($DMHA_9 == 2) { dmha_122_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_122_update_me($ID,$request->all()); }
+            }
             elseif($DMHA_1 == 126) {     
                 if($DMHA_9 == 2) { dmha_126_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_126_update_me($ID,$request->all()); }
@@ -121,9 +127,28 @@ class wwform extends Controller
                 if($DMHA_9 == 2) { dmha_144_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_144_update_me($ID,$request->all()); }
             }
+            elseif($DMHA_1 == 157) {     
+                dmha_157_delete_me($ID);
+                for ($i=0; $i<count($_POST['dmha_1']); $i++)
+                {
+                    $POST_dmha_1           = $_POST['dmha_1'][$i];
+                    dmha_157_create_me($ID,$POST_dmha_1);
+                }
+            }
+            elseif($DMHA_1 == 158) {     
+                if($DMHA_9 == 2) { user_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { user_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 162) {     
+                dmha_162_delete_me($ID);
+                for ($i=0; $i<count($_POST['dmha_1']); $i++)
+                {
+                    $POST_dmha_1           = $_POST['dmha_1'][$i];
+                    dmha_162_create_me($ID,$POST_dmha_1);
+                }
+            }
 
         // ------------------------------------------------------------------------- SEND
-        
 
     }
 }

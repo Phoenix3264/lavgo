@@ -35,6 +35,7 @@ class Backend extends Controller
   			// Whats ur name, again            
     		    $data['AUTH_NAME']      = Auth::user()->name;
     		    $data['AUTH_ID']        = Auth::user()->id;
+    		    $data['AUTH_ROLE']        = dmha_122_id_check_col(user_id_check_col(Auth::user()->id,'dmha_122'),'nama');
                   
   			// then, we check your link
     		    $data['PARAM_1']    = $PARAM_1;

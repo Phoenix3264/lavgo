@@ -11,8 +11,10 @@
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>
-                            {{ Auth::user()->name }} 
-                        <small>Front end developer</small>
+                            {{ $AUTH_NAME }} 
+                        <small>                        
+                            {{ $AUTH_ROLE }} 
+                        </small>
                     </div>
                 </a>
             </li>

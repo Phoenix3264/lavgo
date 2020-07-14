@@ -56,7 +56,11 @@
             "app/Helper/dmha/system/helper_dmha_13.php",
             "app/Helper/dmha/system/helper_dmha_14.php",
             "app/Helper/dmha/system/helper_dmha_15.php",
-            "app/Helper/dmha/system/helper_dmha_40.php",            
+            "app/Helper/dmha/system/helper_dmha_40.php",   
+            "app/Helper/dmha/system/helper_dmha_122.php",  
+            "app/Helper/dmha/system/helper_dmha_157.php",   
+            "app/Helper/dmha/system/helper_dmha_158.php",    
+            "app/Helper/dmha/system/helper_dmha_162.php",             
 
             "app/Helper/dmha/additional/helper_dmha_69.php",
             "app/Helper/dmha/additional/helper_dmha_73.php",

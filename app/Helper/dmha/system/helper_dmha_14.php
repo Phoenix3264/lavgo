@@ -111,15 +111,28 @@
             $isi    = '';
             $COL = '';
 
-        // ------------------------------------------------------------------------- ACTION
-            if($DMHA_1 == 1) { $COL = dmha_1_id_check_col($ID,$name);  }  
-            
-            if($VALUE == $COL)
-            {
-                $isi .= 'checked';
+            $hasil = ' checked="checked" ';
+
+            $id_termasuk_id_check_col = array(1,157);
+
+        // ------------------------------------------------------------------------- ACTION        
+            if (in_array($DMHA_1, $id_termasuk_id_check_col)) {
+                if($DMHA_1 == 1) { $COL = dmha_1_id_check_col($ID,$name); }  
+
+                if($VALUE == $COL) { $isi .= $hasil; }
             }
 
-            //$isi .= $ID.'--'.$name.'---'.$COL.'----'.$DMHA_1;
+
+            else {                 
+                if($DMHA_1 == 157) { $COL = dmha_157_id_check($ID,$name); }  
+                elseif($DMHA_1 == 162) { $COL = dmha_162_id_check($ID,$name); }  
+
+                if($COL == TRUE) { $isi .= $hasil; }
+            }
+            
+
+            $isi .= '('.$ID.'-'.$name.'-'.$VALUE.'-'.$COL.'-'.$DMHA_1.')';
+            //$isi .= '('.$VALUE.'-'.$COL.')';
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
@@ -181,7 +194,7 @@
             elseif($dmha_14 == 4) { $isi .= dmha_14_generate_radio_horizontal($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); }  
             elseif($dmha_14 == 5) { $isi .= dmha_14_generate_input_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); }  
             elseif($dmha_14 == 6) { $isi .= dmha_14_generate_switcher($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); }  
-            elseif($dmha_14 == 7) { $isi .= dmha_14_generate_input_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); }  
+            elseif($dmha_14 == 7) { $isi .= dmha_14_generate_checkboxes($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); }  
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -193,8 +206,8 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            // $type = 'type';
-             $type = 'hidden';
+             $type = 'type';
+            // $type = 'hidden';
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="'.$type.'" class="'.$class.'"  name="'.$name.'"  value="'.$value.'"  >';       
@@ -335,4 +348,63 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+    
+    function dmha_14_generate_checkboxes($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
 
+        // ------------------------------------------------------------------------- ACTION        
+            if($dmha_13 == 30) { 
+                $isi_model = dmha_1_let_me_generate_data_array(null,null,'level1'); 
+
+                foreach ($isi_model as $row) {
+                    $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
+                    
+                    $isi_model2 = dmha_1_let_me_generate_data_array(null,$row->id,'level2'); 
+
+                    foreach ($isi_model2 as $row2) {
+                        $isi .= dmha_14_generate_checkboxes_field($row2->id,$name,'&nbsp; &nbsp; '.$row2->nama,$DMHA_1,$ID);
+                        
+                        $isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
+                        
+                        foreach ($isi_model3 as $row3) {
+                            $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
+                            
+                            //$isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
+                        }
+                    }
+                }
+
+            }
+
+           //  $isi = count($isi_model);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }   
+    
+    function dmha_14_generate_checkboxes_field($row_id,$name,$label,$DMHA_1,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '
+            <div class="checkbox checkbox-css">
+                <input type="checkbox" id="form-'.$row_id.'" value="'.$row_id.'"  name="'.$name.'[]" '.dmha_14_generate_value_checked($row_id,$DMHA_1,$ID,$row_id).'>
+                <label for="form-'.$row_id.'">'.$label.'</label>
+            </div>
+            ';     
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+
+
+
+										

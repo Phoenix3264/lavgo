@@ -74,13 +74,57 @@ class dmha_1 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            if($TIPE == 'sidebar_1')
+            if($TIPE == 'level1')
             {
-                $isi = dmha_1::where('dmha_3','=',1)
-                    ->whereNull('deleted_at')	
+                $isi = dmha_1::whereNull('deleted_at')		
                     ->whereNull('dmha_1')										
                     ->orderBy('id','asc')
                     ->get();
+            }
+            elseif($TIPE == 'level2')
+            {
+                $isi = dmha_1::where('dmha_1','=',$ID)			
+                    ->whereNull('deleted_at')										
+                    ->orderBy('id','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'sidebar_1')
+            {
+                // $isi = dmha_1::where('dmha_3','=',1)
+                //     ->whereNull('deleted_at')	
+                //     ->whereNull('dmha_1')										
+                //     ->orderBy('id','asc')
+                //     ->get();
+
+                
+                $isi = dmha_1::
+                    selectRaw('
+                        dmha_1.id,
+                        dmha_1.nama,
+                        dmha_1.link,
+                        dmha_1.urutan,
+                        dmha_1.has_sub,
+                        dmha_1.dmha_5
+                    ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active
+                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->whereNull('dmha_1.deleted_at')	
+                ->whereNull('dmha_1.dmha_1')	
+
+
+                ->get();
+
+
             }
             elseif($TIPE == 'sidebar_2')
             {

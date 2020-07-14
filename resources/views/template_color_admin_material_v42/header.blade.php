@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
     </button>
     <a href="index.html" class="navbar-brand">
-        Color Admin Material
+        {{dmha_8_what_is_my_app_mode()}}
     </a>
 </div>
 <!-- end navbar-header -->
@@ -97,7 +97,9 @@
     </li>
     <li class="dropdown navbar-user">
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="d-none d-md-inline">Hi, John Smith</span>
+            <span class="d-none d-md-inline">
+                {{ $AUTH_NAME }} 
+            </span>
             <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-14.jpg" alt="" /> 
         </a>
         <div class="dropdown-menu dropdown-menu-right">
@@ -106,7 +108,7 @@
             <a href="javascript:;" class="dropdown-item">Calendar</a>
             <a href="javascript:;" class="dropdown-item">Setting</a>
             <div class="dropdown-divider"></div>
-            <a href="javascript:;" class="dropdown-item">Log Out</a>
+            <a href="{{url('/')}}/logout" class="dropdown-item">Log Out</a>
         </div>
     </li>
 </ul>

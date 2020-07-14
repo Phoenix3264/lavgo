@@ -2,51 +2,62 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+/**
+ * @property int $id
+ * @property int $dmha_8
+ * @property int $dmha_1
+ * @property string $created_at
+ * @property string $update_at
+ * @property string $deleted_at
+ */
+class dmha_157 extends Model
 {
-    use Notifiable;
+    /**
+     * The table associated with the model.
+     * 
+     * @var string
+     */
+    protected $table = 'dmha_157';
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password', 'user22',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $fillable = ['dmha_8', 'dmha_1', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
-
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = user::where('id','=',$ID)
+            $isi = dmha_157::where('dmha_8','=',$ID)
                 ->value($COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    
+    public static function id_check($dmha_8,$dmha_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = false;
+
+        // ------------------------------------------------------------------------- ACTION
+            $temp = dmha_157::where('dmha_8','=',$dmha_8)
+                ->where('dmha_1','=',$dmha_1)
+                ->first();
+            
+            if(!empty($temp))
+            {
+                $isi = true;
+            }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -60,15 +71,8 @@ class User extends Authenticatable
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-                $isi = user::
-                    selectRaw('
-                        users.id,
-                        users.name,
-                        users.email,
-                        dmha_122.nama as dmha_122
-                    ')
-                ->join('dmha_122', 'dmha_122.id', '=', 'users.dmha_122')             
-                ->orderBy('users.id','desc')
+            $isi = dmha_157::whereNull('deleted_at')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -77,13 +81,18 @@ class User extends Authenticatable
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($dmha_8,$dmha_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            user::create($array_data);
+            //foreach ($array_data as $row) {
+                dmha_157::create([
+                    'dmha_8' => $dmha_8, 
+                    'dmha_1' => $dmha_1
+                ]);
+            //}
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -95,11 +104,7 @@ class User extends Authenticatable
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            user::where('id','=', $id)
-            ->update(
-                [
-                    'nama'     => $array_data['nama']
-                ]);
+            dmha_157::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -111,10 +116,11 @@ class User extends Authenticatable
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            user::where('id','=', $id)
-                ->softDeletes();
+            dmha_157::where('dmha_8','=', $id)
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
+
 }
