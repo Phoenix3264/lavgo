@@ -111,6 +111,11 @@
 			elseif($DMHA_ID == 99){ $isi = dmha_99_data_table(); }
 			elseif($DMHA_ID == 103){ $isi = dmha_103_data_table(); }
 			elseif($DMHA_ID == 107){ $isi = dmha_107_data_table(); }
+			elseif($DMHA_ID == 126){ $isi = dmha_126_data_table(); }
+			elseif($DMHA_ID == 130){ $isi = dmha_130_data_table(); }
+			elseif($DMHA_ID == 134){ $isi = dmha_134_data_table(); }
+			elseif($DMHA_ID == 138){ $isi = dmha_138_data_table(); }
+			elseif($DMHA_ID == 144){ $isi = dmha_144_data_table(); }
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

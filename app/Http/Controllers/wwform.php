@@ -101,6 +101,26 @@ class wwform extends Controller
             elseif($DMHA_1 == 118) {     
                 dmha_1_create_fitur_complete($request->nama);
             }
+            elseif($DMHA_1 == 126) {     
+                if($DMHA_9 == 2) { dmha_126_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_126_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 130) {     
+                if($DMHA_9 == 2) { dmha_130_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_130_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 134) {     
+                if($DMHA_9 == 2) { dmha_134_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_134_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 138) {     
+                if($DMHA_9 == 2) { dmha_138_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_138_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 144) {     
+                if($DMHA_9 == 2) { dmha_144_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_144_update_me($ID,$request->all()); }
+            }
 
         // ------------------------------------------------------------------------- SEND
         

@@ -193,8 +193,8 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-             $type = 'type';
-            // $type = 'hidden';
+            // $type = 'type';
+             $type = 'hidden';
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="'.$type.'" class="'.$class.'"  name="'.$name.'"  value="'.$value.'"  >';       
@@ -252,6 +252,16 @@
                 elseif($dmha_13 == 9) { $isi_model = dmha_3_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 10) { $isi_model = dmha_4_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+
+                
+                elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 22) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 23) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 24) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 25) { $isi_model = dmha_126_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 26) { $isi_model = dmha_130_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 27) { $isi_model = dmha_134_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 28) { $isi_model = dmha_138_let_me_generate_data_array(null,null); }
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 

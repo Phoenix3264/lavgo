@@ -25,7 +25,8 @@
         "laravel/ui": "^2.0",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "phpunit/phpunit": "^8.5",
+        "xethron/migrations-generator": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -55,7 +56,7 @@
             "app/Helper/dmha/system/helper_dmha_13.php",
             "app/Helper/dmha/system/helper_dmha_14.php",
             "app/Helper/dmha/system/helper_dmha_15.php",
-            "app/Helper/dmha/system/helper_dmha_40.php",
+            "app/Helper/dmha/system/helper_dmha_40.php",            
 
             "app/Helper/dmha/additional/helper_dmha_69.php",
             "app/Helper/dmha/additional/helper_dmha_73.php",
@@ -73,6 +74,12 @@
             "app/Helper/dmha/acadion/helper_dmha_99.php",
             "app/Helper/dmha/acadion/helper_dmha_103.php",
             "app/Helper/dmha/acadion/helper_dmha_107.php",
+
+            "app/Helper/dmha/data_pendukung_ktp/helper_dmha_126.php",
+            "app/Helper/dmha/data_pendukung_ktp/helper_dmha_130.php",
+            "app/Helper/dmha/data_pendukung_ktp/helper_dmha_134.php",
+            "app/Helper/dmha/data_pendukung_ktp/helper_dmha_138.php",
+            "app/Helper/dmha/data_pendukung_ktp/helper_dmha_144.php",
 
             "app/Helper/dmha/notarion/helper_dmha_47.php",
             "app/Helper/dmha/notarion/helper_dmha_51.php",

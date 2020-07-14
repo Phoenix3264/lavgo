@@ -48,6 +48,13 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 99) { $isi_model = dmha_99_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 103) { $isi_model = dmha_103_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 107) { $isi_model = dmha_107_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                
+                elseif($DMHA_1 == 126) { $isi_model = dmha_126_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 130) { $isi_model = dmha_130_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 134) { $isi_model = dmha_134_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 138) { $isi_model = dmha_138_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 144) { $isi_model = dmha_144_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
             }
 
 

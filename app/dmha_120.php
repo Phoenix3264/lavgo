@@ -24,14 +24,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_87 extends Model
+class dmha_120 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_87';
+    protected $table = 'dmha_120';
 
     /**
      * @var array

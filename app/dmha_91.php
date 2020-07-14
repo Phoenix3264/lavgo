@@ -6,7 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
+ * @property string $nik
  * @property string $nama
+ * @property string $tempat_lahir
+ * @property string $tanggal_lahir
+ * @property string $jenis_kelamin
+ * @property string $alamat
+ * @property string $rt
+ * @property string $rw
+ * @property string $desa_kelurahan
+ * @property string $kecamatan
+ * @property string $kabupaten_kota
+ * @property string $agama
+ * @property string $status_perkawinan
+ * @property string $pekerjaan
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
@@ -23,38 +36,6 @@ class dmha_91 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'rt', 'rw', 'desa_kelurahan', 'kecamatan', 'kabupaten_kota', 'agama', 'status_perkawinan', 'pekerjaan', 'created_at', 'update_at', 'deleted_at'];
 
-    
-    public static function id_check_col($ID,$COL)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_91::where('id','=',$ID)
-                ->whereNull('deleted_at')
-                ->value($COL);
-
-        // ------------------------------------------------------------------------- SEND
-            $words = $isi;
-            return $words;
-        ////////////////////////////////////////////////////////////////////////////
-    }
-
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_91::whereNull('deleted_at')
-                ->orderBy('id','asc')
-                ->get();
-
-        // ------------------------------------------------------------------------- SEND
-            $words = $isi;
-            return $words;
-        ////////////////////////////////////////////////////////////////////////////
-    }
 }

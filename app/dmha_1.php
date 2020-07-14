@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $nama
  * @property string $link
+ * @property int $urutan
+ * @property boolean $has_sub
  * @property int $dmha_1
  * @property int $dmha_2
  * @property int $dmha_3
  * @property int $dmha_4
- * @property string $has_sub
+ * @property int $dmha_5
+ * @property int $dmha_9
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
@@ -29,7 +32,7 @@ class dmha_1 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'link', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'has_sub', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -186,7 +189,7 @@ class dmha_1 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             // create data
-            dmha_1::create(
+            $model = dmha_1::create(
                 [ 
                     'nama' => $nama, 
                     'link' => 'Data_'.replace_to_underscore($nama), 
@@ -198,7 +201,7 @@ class dmha_1 extends Model
                     'dmha_9' => 1,
                 ]);
 
-            $dmha_1 = dmha_1::getPdo()->lastInsertId();
+            $dmha_1 = $model->id;
 
             // create Create
             dmha_1::create(
@@ -243,11 +246,11 @@ class dmha_1 extends Model
                 ]);
 
             // create Table
-            Schema::create('dmha_'.$dmha_1, function (Blueprint $table) {
-                $table->string('email')->index();
-                $table->string('token');
-                $table->timestamp('created_at')->nullable();
-            });
+            // Schema::create('dmha_'.$dmha_1, function (Blueprint $table) {
+            //     $table->string('email')->index();
+            //     $table->string('token');
+            //     $table->timestamp('created_at')->nullable();
+            // });
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
