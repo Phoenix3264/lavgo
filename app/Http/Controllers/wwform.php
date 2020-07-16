@@ -148,6 +148,19 @@ class wwform extends Controller
                 }
             }
 
+
+            // Additional
+            elseif($DMHA_1 == 247) {     
+                if($DMHA_9 == 2) { dmha_247_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_247_update_me($ID,$request->all()); }
+            }
+
+            // acadion
+            elseif($DMHA_1 == 171) {     
+                if($DMHA_9 == 2) { dmha_171_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_171_update_me($ID,$request->all()); }
+            }
+
         // ------------------------------------------------------------------------- SEND
 
     }

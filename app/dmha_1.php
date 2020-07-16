@@ -90,13 +90,6 @@ class dmha_1 extends Model
             }
             elseif($TIPE == 'sidebar_1')
             {
-                // $isi = dmha_1::where('dmha_3','=',1)
-                //     ->whereNull('deleted_at')	
-                //     ->whereNull('dmha_1')										
-                //     ->orderBy('id','asc')
-                //     ->get();
-
-                
                 $isi = dmha_1::
                     selectRaw('
                         dmha_1.id,
@@ -111,8 +104,7 @@ class dmha_1 extends Model
                 ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
 
                 ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
-                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active
-                
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
 
                 ->where('users.id','=',$AUTH_ID)
                 ->where('dmha_8.active','=',1)
@@ -121,10 +113,7 @@ class dmha_1 extends Model
                 ->whereNull('dmha_1.deleted_at')	
                 ->whereNull('dmha_1.dmha_1')	
 
-
                 ->get();
-
-
             }
             elseif($TIPE == 'sidebar_2')
             {
@@ -134,8 +123,7 @@ class dmha_1 extends Model
                     ->get();
             }
             elseif($TIPE == 'data_table')
-            {
-                    
+            {                    
                 $isi = dmha_1::
                     selectRaw('
                         dmha_1.id,
@@ -182,6 +170,29 @@ class dmha_1 extends Model
                     ->where('dmha_9','=',2)												
                     ->orderBy('urutan','asc')
                     ->get();
+            }
+            elseif($TIPE == 'kelas')
+            {          
+                $isi = dmha_1::
+                    selectRaw('
+                        dmha_1.id,
+                        dmha_1.nama
+                    ')
+                    
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->where('dmha_1.dmha_1','=',171)
+                ->whereNull('dmha_1.deleted_at')	
+
+                ->get();
             }
 
         // ------------------------------------------------------------------------- SEND
@@ -236,7 +247,7 @@ class dmha_1 extends Model
             $model = dmha_1::create(
                 [ 
                     'nama' => $nama, 
-                    'link' => 'Data_'.replace_to_underscore($nama), 
+                    'link' => 'Data_'.replace_to_underscore(strtolower($nama)), 
                     'urutan' => 1,  
                     'dmha_2' => 2, 
                     'dmha_3' => 1,
@@ -251,7 +262,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Create', 
-                    'link' => 'Create_'.replace_to_underscore($nama), 
+                    'link' => 'Create_'.replace_to_underscore(strtolower($nama)), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 
@@ -265,7 +276,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Edit', 
-                    'link' => 'Edit_'.replace_to_underscore($nama), 
+                    'link' => 'Edit_'.replace_to_underscore(strtolower($nama)), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 
@@ -279,7 +290,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Delete', 
-                    'link' => 'Delete_'.replace_to_underscore($nama), 
+                    'link' => 'Delete_'.replace_to_underscore(strtolower($nama)), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 

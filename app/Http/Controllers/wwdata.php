@@ -55,6 +55,12 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 138) { $isi_model = dmha_138_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 144) { $isi_model = dmha_144_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 158) { $isi_model = user_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                // additional
+                elseif($DMHA_1 == 247) { $isi_model = dmha_247_let_me_generate_data_array($AUTH_ID, $DMHA_1); } // status dalam keluarga
+
+                // acadion
+                elseif($DMHA_1 == 171) { $isi_model = dmha_1_let_me_generate_data_array($AUTH_ID, $DMHA_1,'kelas'); }
             }
 
 

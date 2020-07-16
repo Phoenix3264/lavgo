@@ -119,6 +119,12 @@
 			elseif($DMHA_ID == 144){ $isi = dmha_144_data_table(); }
 			elseif($DMHA_ID == 158){ $isi = user_data_table(); }
 
+			//additional
+			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table(); }
+
+			// acadion
+			elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
+
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

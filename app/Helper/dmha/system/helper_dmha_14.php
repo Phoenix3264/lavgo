@@ -69,6 +69,10 @@
                 elseif($DMHA_1 == 9) { $isi .= ' value="'.dmha_9_id_check_col($ID,$name).'" ';  }  
                 elseif($DMHA_1 == 13) { $isi .= ' value="'.dmha_13_id_check_col($ID,$name).'" ';  }  
                 elseif($DMHA_1 == 14) { $isi .= ' value="'.dmha_14_id_check_col($ID,$name).'" ';  }  
+
+                // acadion
+                elseif($DMHA_1 == 171) { $isi .= ' value="'.dmha_171_id_check_col($ID,$name).'" ';  }  
+
                 else{ $isi .= ' value="please set dmha_14_generate_value" '; }
             }
 
