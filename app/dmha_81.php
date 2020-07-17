@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string $id
- * @property string $kecamatan_id
+ * @property int $id
+ * @property string $kode_kecamatan
+ * @property string $kode_desa_kelurahan
  * @property string $nama
  * @property string $keterangan
  * @property integer $nomor_wilayah
@@ -31,24 +32,9 @@ class dmha_81 extends Model
     protected $table = 'dmha_81';
 
     /**
-     * The "type" of the auto-incrementing ID.
-     * 
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['kecamatan_id', 'nama', 'keterangan', 'nomor_wilayah', 'kode_surat', 'nomor_surat', 'alamat', 'telepon', 'kodepos', 'berkas_data_id', 'nilai_tanah', 'created_at', 'updated_at', 'deleted_at'];
-
+    protected $fillable = ['kode_kecamatan', 'kode_desa_kelurahan', 'nama', 'keterangan', 'nomor_wilayah', 'kode_surat', 'nomor_surat', 'alamat', 'telepon', 'kodepos', 'berkas_data_id', 'nilai_tanah', 'created_at', 'updated_at', 'deleted_at'];
     
     public static function id_check_col($ID,$COL)
     {
@@ -78,6 +64,23 @@ class dmha_81 extends Model
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public static function generate_data($COL,$CUSTOM_ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_81::where('kode_kecamatan','like',$CUSTOM_ID)
+                ->whereNull('deleted_at')
+                ->inRandomOrder()
+                ->first();
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi[$COL];
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }

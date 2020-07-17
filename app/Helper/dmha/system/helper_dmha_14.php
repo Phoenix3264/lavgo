@@ -70,6 +70,9 @@
                 elseif($DMHA_1 == 13) { $isi .= ' value="'.dmha_13_id_check_col($ID,$name).'" ';  }  
                 elseif($DMHA_1 == 14) { $isi .= ' value="'.dmha_14_id_check_col($ID,$name).'" ';  }  
 
+                // system
+                elseif($DMHA_1 == 122) { $isi .= ' value="'.dmha_122_id_check_col($ID,$name).'" ';  }  
+
                 // acadion
                 elseif($DMHA_1 == 171) { $isi .= ' value="'.dmha_171_id_check_col($ID,$name).'" ';  }  
 
@@ -97,6 +100,7 @@
             elseif($DMHA_1 == 8) { $COL = dmha_8_id_check_col($ID,$name);  }  
             elseif($DMHA_1 == 9) { $COL = dmha_9_id_check_col($ID,$name);  }  
             elseif($DMHA_1 == 13) { $COL = dmha_13_id_check_col($ID,$name);  }  
+
             
             if($VALUE == $COL)
             {

@@ -12,6 +12,6 @@ class dmha_163Seeder extends Seeder
     public function run()
     {
         // Siswa
-        factory(App\dmha_163::class, 100)->create();
+        factory(App\dmha_163::class, 30)->create();
     }
 }

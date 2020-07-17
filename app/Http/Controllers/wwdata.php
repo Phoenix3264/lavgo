@@ -19,6 +19,8 @@ class wwdata extends Controller
             
             $modify_datatable = false;
 
+            $isi_model = array();
+
         // ------------------------------------------------------------------------- ACTION
             if($request->ajax())
             {
@@ -38,10 +40,7 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 56) { $isi_model = dmha_56_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 64) { $isi_model = dmha_64_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 69) { $isi_model = dmha_69_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 73) { $isi_model = dmha_73_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 77) { $isi_model = dmha_77_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 81) { $isi_model = dmha_81_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
                 elseif($DMHA_1 == 87) { $isi_model = dmha_87_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 91) { $isi_model = dmha_91_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 95) { $isi_model = dmha_95_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -58,9 +57,50 @@ class wwdata extends Controller
 
                 // additional
                 elseif($DMHA_1 == 247) { $isi_model = dmha_247_let_me_generate_data_array($AUTH_ID, $DMHA_1); } // status dalam keluarga
+                
+                elseif($DMHA_1 == 69) { $isi_model = dmha_69_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 73) { $isi_model = dmha_73_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 77) { $isi_model = dmha_77_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 81) { $isi_model = dmha_81_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 // acadion
+                elseif($DMHA_1 == 167) { $isi_model = dmha_167_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 171) { $isi_model = dmha_1_let_me_generate_data_array($AUTH_ID, $DMHA_1,'kelas'); }
+
+                elseif($DMHA_1 == 175) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,175); } // Kelas X1
+                elseif($DMHA_1 == 179) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,179); } // Kelas X2
+                elseif($DMHA_1 == 183) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,183); } // Kelas X3
+                elseif($DMHA_1 == 187) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,187); } // Kelas X4
+                elseif($DMHA_1 == 191) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,191); } // Kelas X5
+                elseif($DMHA_1 == 195) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,195); } // Kelas X6
+                elseif($DMHA_1 == 199) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,199); } // Kelas X7
+                elseif($DMHA_1 == 203) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,203); } // Kelas X8
+                elseif($DMHA_1 == 207) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,207); } // Kelas X9
+
+                elseif($DMHA_1 == 211) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,211); } // Kelas XI MIPA 1
+                elseif($DMHA_1 == 215) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,215); } // Kelas XI MIPA 2
+                elseif($DMHA_1 == 219) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,219); } // Kelas XI MIPA 3
+
+                elseif($DMHA_1 == 223) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,223); } // Kelas XI IIS 1
+                elseif($DMHA_1 == 227) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,227); } // Kelas XI IIS 2
+                elseif($DMHA_1 == 231) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,231); } // Kelas XI IIS 3
+
+                elseif($DMHA_1 == 235) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,235); } // Kelas XI IBB 1
+                elseif($DMHA_1 == 239) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,239); } // Kelas XI IBB 2
+                elseif($DMHA_1 == 243) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,243); } // Kelas XI IBB 3
+
+                
+                elseif($DMHA_1 == 251) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,251); } // Kelas XII MIPA 1
+                elseif($DMHA_1 == 255) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,255); } // Kelas XII MIPA 2
+                elseif($DMHA_1 == 259) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,259); } // Kelas XII MIPA 3
+
+                elseif($DMHA_1 == 263) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,263); } // Kelas XII IIS 1
+                elseif($DMHA_1 == 267) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,267); } // Kelas XII IIS 2
+                elseif($DMHA_1 == 271) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,271); } // Kelas XII IIS 3
+
+                elseif($DMHA_1 == 275) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,275); } // Kelas XII IBB 1
+                elseif($DMHA_1 == 279) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,279); } // Kelas XII IBB 2
+                elseif($DMHA_1 == 283) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,283); } // Kelas XII IBB 3
             }
 
 

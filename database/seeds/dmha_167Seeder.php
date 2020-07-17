@@ -11,6 +11,7 @@ class dmha_167Seeder extends Seeder
      */
     public function run()
     {
-        //
+        // Orang Tua Wali        
+        factory(App\dmha_167::class, 270)->create();
     }
 }

@@ -247,7 +247,7 @@ class dmha_1 extends Model
             $model = dmha_1::create(
                 [ 
                     'nama' => $nama, 
-                    'link' => 'Data_'.replace_to_underscore(strtolower($nama)), 
+                    'link' => 'Data_'.replace_to_underscore($nama), 
                     'urutan' => 1,  
                     'dmha_2' => 2, 
                     'dmha_3' => 1,
@@ -262,7 +262,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Create', 
-                    'link' => 'Create_'.replace_to_underscore(strtolower($nama)), 
+                    'link' => 'Create_'.replace_to_underscore($nama), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 
@@ -276,7 +276,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Edit', 
-                    'link' => 'Edit_'.replace_to_underscore(strtolower($nama)), 
+                    'link' => 'Edit_'.replace_to_underscore($nama), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 
@@ -290,7 +290,7 @@ class dmha_1 extends Model
             dmha_1::create(
                 [ 
                     'nama' => 'Delete', 
-                    'link' => 'Delete_'.replace_to_underscore(strtolower($nama)), 
+                    'link' => 'Delete_'.replace_to_underscore($nama), 
                     'urutan' => 1,  
                     'dmha_1' => $dmha_1, 
                     'dmha_2' => 2, 
@@ -346,6 +346,28 @@ class dmha_1 extends Model
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public static function generate_data($COL,$type)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+            if($type == 'kelas')
+            {
+                $ID = 171;
+            }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_69::where('dmha_id','=',$ID)
+                ->whereNull('deleted_at')
+                ->inRandomOrder()
+                ->first();
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi[$COL];
+            return $words;
         ////////////////////////////////////////////////////////////////////////////
     }
 }

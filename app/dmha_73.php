@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property string $id
- * @property string $provinsi_id
+ * @property int $id
+ * @property string $kode_provinsi
+ * @property string $kode_kabupaten_kota
  * @property string $nama
  * @property string $keterangan
  * @property string $status
@@ -26,23 +27,9 @@ class dmha_73 extends Model
     protected $table = 'dmha_73';
 
     /**
-     * The "type" of the auto-incrementing ID.
-     * 
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     * 
-     * @var bool
-     */
-    public $incrementing = false;
-
-    /**
      * @var array
      */
-    protected $fillable = ['provinsi_id', 'nama', 'keterangan', 'status', 'set_wilayah', 'dihapus', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['kode_provinsi', 'kode_kabupaten_kota', 'nama', 'keterangan', 'status', 'set_wilayah', 'dihapus', 'created_at', 'updated_at', 'deleted_at'];
 
     
     public static function id_check_col($ID,$COL)
@@ -73,6 +60,23 @@ class dmha_73 extends Model
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public static function generate_data($COL,$CUSTOM_ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_73::where('kode_provinsi','like',$CUSTOM_ID)
+                ->whereNull('deleted_at')
+                ->inRandomOrder()
+                ->first();
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi[$COL];
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }

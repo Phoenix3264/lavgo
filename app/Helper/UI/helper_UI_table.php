@@ -123,7 +123,38 @@
 			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table(); }
 
 			// acadion
+			elseif($DMHA_ID == 167){ $isi = dmha_167_data_table(); }
 			elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
+			elseif($DMHA_ID == 175){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 179){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 183){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 187){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 191){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 195){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 199){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 203){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 207){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+
+			elseif($DMHA_ID == 211){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 215){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 219){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 223){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 227){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 231){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 235){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 239){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 243){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+
+			elseif($DMHA_ID == 251){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 255){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 259){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 275){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 279){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 283){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 263){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 267){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			elseif($DMHA_ID == 271){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
