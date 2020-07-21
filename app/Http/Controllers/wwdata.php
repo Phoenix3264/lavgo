@@ -101,6 +101,13 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 275) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,275); } // Kelas XII IBB 1
                 elseif($DMHA_1 == 279) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,279); } // Kelas XII IBB 2
                 elseif($DMHA_1 == 283) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,283); } // Kelas XII IBB 3
+
+                
+                // paperone
+                elseif($DMHA_1 == 287) { $isi_model = dmha_287_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 288) { $isi_model = dmha_288_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 292) { $isi_model = dmha_292_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 296) { $isi_model = dmha_296_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
             }
 
 

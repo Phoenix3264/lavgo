@@ -24,7 +24,7 @@
     });
 
     
-    {!!ajax_form($AUTH_ID,$id,$dmha_9,$PARAM_2)!!}
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2)!!}
     
    
     $.ajaxSetup({
@@ -35,11 +35,9 @@
    
    
     $(document).ready(function(){
-        $("#submit").click(function(e){
-            
+        $("#submit").click(function(e){           
    
-            e.preventDefault();
-   
+            e.preventDefault();   
             $.ajax({
                 type:'POST',
                 url:"{{ url('/') }}/wwform/postdata",

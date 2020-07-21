@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_1;
+	use App\Models\system\dmha_1;
 
     function dmha_1_link_check_col($ID,$COL)
     {

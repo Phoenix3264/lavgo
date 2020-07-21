@@ -1,34 +1,37 @@
 <?php
 
-namespace App;
+namespace App\Models\paperone;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property int $dmha_1
- * @property int $dmha_13
+ * @property int $dmha_292
+ * @property int $dmha_296
+ * @property string $nama
+ * @property string $author
+ * @property string $publish
+ * @property string $keyword
+ * @property string $filename
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_15 extends Model
+class dmha_288 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_15';
+    protected $table = 'dmha_288';
 
     /**
-     * @var array 
+     * @var array
      */
-    protected $fillable = ['dmha_1', 'dmha_13', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['dmha_292', 'dmha_296', 'nama', 'author', 'publish', 'keyword', 'filename', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
-
-    // CUSTOMIZED
 
     public static function id_check_col($ID,$COL)
     {
@@ -36,7 +39,7 @@ class dmha_15 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_15::where('id','=',$ID)
+            $isi = dmha_288::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -46,30 +49,15 @@ class dmha_15 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
+    public static function let_me_generate_data_array($AUTH_ID,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            if($TIPE == 'default')
-            {
-                $isi = dmha_15::where('dmha_1','=',$ID)
-                    ->whereNull('deleted_at')
-                    ->orderBy('id','asc')
-                    ->get();
-            }
-            elseif($TIPE == 'joined')
-            {
-
-                $isi = dmha_15::selectRaw('
-                    dmha_13.name
-                    ')
-                    ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
-                    ->where('dmha_15.dmha_1','=',$ID)                                 
-                    ->orderBy('dmha_15.id','asc')
-                    ->get();
-            }      
+            $isi = dmha_288::whereNull('deleted_at')
+                ->orderBy('id','asc')
+                ->get();
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -77,13 +65,21 @@ class dmha_15 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($dmha_292,$dmha_296,$nama,$author,$publish,$keyword,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_15::create($array_data);
+            dmha_288::insert([
+                'dmha_292' => $dmha_292, 
+                'dmha_296' => $dmha_296, 
+                'nama' => $nama, 
+                'author' => $author, 
+                'publish' => $publish, 
+                'keyword' => $keyword, 
+                'filename' => $filename, 
+            ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -95,12 +91,11 @@ class dmha_15 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_15::where('id','=', $id)
-                ->update(
-                    [
-                        'dmha_1'     => $array_data['dmha_1'],
-                        'dmha_13'     => $array_data['dmha_13']
-                    ]);
+            dmha_288::where('id','=', $id)
+            ->update(
+                [
+                    'nama'     => $array_data['nama']
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -112,10 +107,11 @@ class dmha_15 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_15::where('id','=', $id)
+            dmha_288::where('id','=', $id)
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
+
 }

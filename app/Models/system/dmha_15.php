@@ -1,43 +1,45 @@
 <?php
 
-namespace App;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
- * @property string $name
- * @property int $dmha_14
- * @property string $panjang
+ * @property int $dmha_1
+ * @property int $dmha_13
+ * @property int $urutan
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_13 extends Model
+class dmha_15 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_13';
+    protected $table = 'dmha_15';
 
     /**
-     * @var array
+     * @var array 
      */
-    protected $fillable = ['nama', 'name', 'dmha_14','panjang', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
+
+    // CUSTOMIZED
 
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
+            $temp_ex = explode('#',$ID);
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_13::where('id','=',$ID)
-                ->whereNull('deleted_at')
+            $isi = dmha_15::where('dmha_1','=',$temp_ex[0])
+                ->where('dmha_13','=',$temp_ex[1])
                 ->value($COL);
 
         // ------------------------------------------------------------------------- SEND
@@ -52,43 +54,45 @@ class dmha_13 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_13::whereNull('deleted_at')
-                ->orderBy('id','asc')
-                ->get();
-
             if($TIPE == 'default')
             {
-                $isi = dmha_13::orderBy('id','asc')
+                $isi = dmha_15::where('dmha_1','=',$ID)
+                    ->whereNull('deleted_at')
+                    ->orderBy('urutan','asc')
                     ->get();
             }
             elseif($TIPE == 'joined')
             {
 
-                $isi = dmha_13::selectRaw('
-                    dmha_13.id,
-                    dmha_13.nama,
-                    dmha_13.name,
-                    dmha_14.nama as dmha_14,
-                    dmha_13.panjang
+                $isi = dmha_15::selectRaw('
+                    dmha_13.name
                     ')
-                    ->join('dmha_14', 'dmha_14.id', '=', 'dmha_13.dmha_14')                    
-                    ->orderBy('dmha_14.id','asc')
+                    ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
+                    ->where('dmha_15.dmha_1','=',$ID)                                 
+                    ->orderBy('dmha_15.id','asc')
                     ->get();
-            }
-    
+            }      
+
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }
+    
 
-    public static function create_me($array_data)
+    public static function create_me($dmha_1,$dmha_13,$urutan)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_13::create($array_data);
+                dmha_15::create([
+                    'dmha_1' => $dmha_1, 
+                    'dmha_13' => $dmha_13, 
+                    'urutan' => $urutan
+                ]);
+
+            
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -100,13 +104,11 @@ class dmha_13 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_13::where('id','=', $id)
+            dmha_15::where('id','=', $id)
                 ->update(
                     [
-                        'nama'     => $array_data['nama'],
-                        'name'     => $array_data['name'],
-                        'dmha_14'     => $array_data['dmha_14'],
-                        'panjang'     => $array_data['panjang']
+                        'dmha_1'     => $array_data['dmha_1'],
+                        'dmha_13'     => $array_data['dmha_13']
                     ]);
 
         // ------------------------------------------------------------------------- SEND
@@ -119,8 +121,8 @@ class dmha_13 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_13::where('id','=', $id)
-                ->softDeletes();
+            dmha_15::where('dmha_1','=', $id)
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

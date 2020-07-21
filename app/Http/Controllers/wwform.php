@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\dmha_8;
-use App\dmha_13;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -40,7 +39,7 @@ class wwform extends Controller
                 $isi .= color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID);
             }
             
-            //$isi .= $DMHA_1;
+            $isi .= $DMHA_1;
         // ------------------------------------------------------------------------- SEND
             die(json_encode(array(
                 "isi" => $isi
@@ -93,6 +92,24 @@ class wwform extends Controller
             elseif($DMHA_1 == 14) {     
                 if($DMHA_9 == 2) { dmha_14_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_14_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 15) {                     
+                dmha_15_delete_me($ID);
+                
+                for ($i=0; $i<count($_POST['urutan']); $i++)
+                {
+                    $POST_dmha_13           = $_POST['dmha_13'][$i];
+                    $POST_urutan            = $_POST['urutan'][$i];
+
+                    if($POST_urutan != '')
+                    {
+                        dmha_15_create_me($ID,$POST_dmha_13,$POST_urutan);
+                    }
+                }
+            }
+            elseif($DMHA_1 == 40) {     
+                if($DMHA_9 == 2) { dmha_40_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_40_update_me($ID,$request->all()); }
             }
             elseif($DMHA_1 == 112) {     
                 dmha_1_create_sub_fitur($request->nama);
@@ -161,7 +178,40 @@ class wwform extends Controller
                 elseif($DMHA_9 == 3) { dmha_171_update_me($ID,$request->all()); }
             }
 
-        // ------------------------------------------------------------------------- SEND
 
+            // paperone
+            elseif($DMHA_1 == 287) {     
+                if($DMHA_9 == 2) { dmha_287_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_287_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 288) { // Detail Library   
+                $dmha_292 = $request->dmha_292;
+                $dmha_296 = $request->dmha_296;
+                $nama = $request->nama;
+                $author = $request->author;
+                $publish = $request->publish;
+                $keyword = $request->keyword;
+
+                $exp_nama = explode(' ',$author);
+
+                $filename = $exp_nama[0].'_'.$publish.'_-_'.replace_to_underscore($nama).'.'.$request->filename->getClientOriginalExtension();
+                
+                $request->filename->storeAs('public/storage/dmha_288',$filename);
+
+                dmha_288_create_me($dmha_292,$dmha_296,$nama,$author,$publish,$keyword,$filename);
+
+                    
+            }
+            elseif($DMHA_1 == 292) {     
+                if($DMHA_9 == 2) { dmha_292_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_292_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 296) {     
+                if($DMHA_9 == 2) { dmha_296_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_296_update_me($ID,$request->all()); }
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            //return redirect($DMHA_1);
     }
 }

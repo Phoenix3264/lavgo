@@ -4,12 +4,17 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
+            $additional = '';
             
             $template           = replace_to_underscore(dmha_2_id_check_col(dmha_1_link_check_col($link,'dmha_2'),'nama'));            
             $controller         = replace_to_underscore(dmha_3_id_check_col(dmha_1_link_check_col($link,'dmha_3'),'nama'));
 
+            if($link == 'welcome')
+            {
+                $additional = '_'.replace_to_underscore(dmha_8_what_is_my_app_mode());
+            } 
         // ------------------------------------------------------------------------- ACTION
-            $isi    .= 'template_'.$template.'.layout_'.$template.'_'.$controller.'_'.$template_agent;
+            $isi    .= 'template_'.$template.'.layout_'.$template.'_'.$controller.$additional.'_'.$template_agent;
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -122,6 +127,24 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi    .= 'col-md-2';
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+    
+    
+    function rules_transform_ID($ID,$SUPPORTED_ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';            
+
+        // ------------------------------------------------------------------------- ACTION
+            if($SUPPORTED_ID == 1) { $isi = $ID;}
+            elseif($SUPPORTED_ID == 2) { $isi = dmha_1_id_check_col($ID,'dmha_1'); }
+            elseif($SUPPORTED_ID == 3) { $isi = dmha_1_id_check_col(dmha_1_id_check_col($ID,'dmha_1'),'dmha_1'); }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

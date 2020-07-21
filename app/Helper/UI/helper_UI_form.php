@@ -14,7 +14,7 @@
  
     function UI_FORM_open_form_with_id($class,$id){
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '<form class="'.$class.'"  method="POST" id="'.$id.'">';
+            $isi = '<form class="'.$class.'" method="POST" id="'.$id.'">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND
@@ -23,9 +23,9 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function UI_FORM_open_form_enctype(){
+    function UI_FORM_open_form_enctype($class,$id){
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '<form class="form-horizontal form-bordered" action="" method="POST" enctype="multipart/form-data">';
+            $isi = '<form class="'.$class.'" method="POST" id="'.$id.'" enctype="multipart/form-data">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND

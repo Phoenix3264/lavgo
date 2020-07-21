@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_4
  * @property int $dmha_5
  * @property int $dmha_9
+ * @property int $dmha_300
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
@@ -32,7 +33,7 @@ class dmha_1 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
 

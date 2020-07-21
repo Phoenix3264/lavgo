@@ -39,15 +39,24 @@ class Backend extends Controller
                   
   			// then, we check your link
     		    $data['PARAM_1']    = $PARAM_1;
-    		    $data['PARAM_2']    = $PARAM_2;
-                $data['id']         = dmha_1_link_check_col($PARAM_1,'id');
+                $data['PARAM_2']    = $PARAM_2;
+                
+                $id                 = dmha_1_link_check_col($PARAM_1,'id');
+                $data['id']         = $id;
+
                 $data['nama']         = dmha_1_link_check_col($PARAM_1,'nama');
-                $data['dmha_1']     = dmha_1_link_check_col($PARAM_1,'dmha_1');
+
+                $dmha_1             = dmha_1_link_check_col($PARAM_1,'dmha_1');
+                    $data['dmha_1']     = $dmha_1;
+
                 $data['dmha_2']     = dmha_1_link_check_col($PARAM_1,'dmha_2');
                 $data['dmha_3']     = dmha_1_link_check_col($PARAM_1,'dmha_3');
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
                 $data['dmha_5']     = dmha_1_link_check_col($PARAM_1,'dmha_5');
                 $data['dmha_9']     = dmha_1_link_check_col($PARAM_1,'dmha_9');
+
+                $dmha_300           = dmha_1_link_check_col($PARAM_1,'dmha_300');
+                    $data['dmha_300']   = $dmha_300;
 
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');
@@ -67,7 +76,8 @@ class Backend extends Controller
                 $script             = dmha_4_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_4'),'nama');
                 $data['script']     = replace_to_underscore($script);
 
-
+            // Transform ID
+                $data['transform_ID'] = rules_transform_ID($id,$dmha_300);
         // Show View
             $final_view = rules_for_layout($PARAM_1,$template_agent);
 	        return view($final_view,$data);

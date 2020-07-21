@@ -17,6 +17,9 @@
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/highlight/highlight.common.js"></script>
 <script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/render.highlight.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
+
+
+
 <script>
     $(document).ready(function() {
         App.init();
@@ -24,7 +27,7 @@
     });
 
     
-    {!!ajax_form($AUTH_ID,$dmha_1,$dmha_9,$PARAM_2)!!}
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2)!!}
     
    
     $.ajaxSetup({
@@ -32,22 +35,31 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-   
-   
+
+    
+
+  
     $(document).ready(function(){
-        $("#submit").click(function(e){
+        $("form#Create_Details_Library").submit(function(e) {          
+            e.preventDefault();   
             
-   
-            e.preventDefault();
-   
+            var formData = new FormData(this);
+            
+
             $.ajax({
                 type:'POST',
+                enctype: 'multipart/form-data',
                 url:"{{ url('/') }}/wwform/postdata",
-                data: $('#{{$PARAM_1}}').serialize(),
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
                 success:function(data){
+                    console.log(data);
                     window.location.href = "{{ url('/') }}/{{dmha_1_id_check_col($dmha_1,'link')}}";
                 }
             });
         });
     });
+
 </script>
