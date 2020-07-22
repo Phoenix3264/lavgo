@@ -1,1 +1,1 @@
-<h1 class="page-header">{{$nama}}</small></h1>
+<h1 class="page-header">{{$nama}} <small>{{replace_to_space($PARAM_2)}}</small></h1>

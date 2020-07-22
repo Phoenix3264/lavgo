@@ -38,11 +38,13 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(5).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
+                    '.th_me('Publish', $class_th).'
+                    '.th_me('Title', $class_th).'
+                    '.th_me('Keyword', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';
@@ -52,13 +54,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_288_create_me($dmha_292,$dmha_296,$nama,$author,$publish,$keyword,$filename)
+    function dmha_288_create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_288::create_me($dmha_292,$dmha_296,$nama,$author,$publish,$keyword,$filename);
+            $isi    = dmha_288::create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

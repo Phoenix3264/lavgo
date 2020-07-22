@@ -1,48 +1,72 @@
 <?php
 
-namespace App\Models\paperone;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property int $dmha_292
- * @property int $dmha_296
- * @property int $dmha_287
  * @property string $nama
- * @property string $author
- * @property string $publish
- * @property string $keyword
- * @property string $filename
  * @property string $created_at
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_288 extends Model
+class dmha_8 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_288';
+    protected $table = 'dmha_8';
 
     /**
      * @var array
      */
-    protected $fillable = ['dmha_292', 'dmha_296', 'dmha_287', 'nama', 'author', 'publish', 'keyword', 'filename', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
-
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_288::where('id','=',$ID)
+            $isi = dmha_8::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function nama_check_col($ID,$COL)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_8::where('nama','like',$ID)
+                ->whereNull('deleted_at')
+                ->value($COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public static function what_is_my_app_mode()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_8::where('active','=',1)
+                ->value('nama');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -56,7 +80,7 @@ class dmha_288 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_288::whereNull('deleted_at')
+            $isi = dmha_8::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -66,22 +90,13 @@ class dmha_288 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename)
+    public static function create_me($array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_288::insert([
-                'dmha_292' => $dmha_292, 
-                'dmha_296' => $dmha_296, 
-                'dmha_287' => $dmha_287, 
-                'nama' => $nama, 
-                'author' => $author, 
-                'publish' => $publish, 
-                'keyword' => $keyword, 
-                'filename' => $filename, 
-            ]);
+            dmha_8::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -93,11 +108,7 @@ class dmha_288 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_288::where('id','=', $id)
-            ->update(
-                [
-                    'nama'     => $array_data['nama']
-                ]);
+            dmha_8::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -109,11 +120,10 @@ class dmha_288 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_288::where('id','=', $id)
+            dmha_8::where('id','=', $id)
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
-
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Storage;
+
     function rules_for_layout($link,$template_agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -22,7 +24,7 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function rules_link_sidebar($link,$ID=NULL)
+    function rules_link($link,$DMHA_1,$ID_DATA,$PARAM_2,$DMHA_4)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -32,8 +34,19 @@
         // ------------------------------------------------------------------------- ACTION    
             if (!in_array($link, $exc_link)) 
             {
-                $isi = url('/').'/'.$link;
-                if(!is_null($ID)){$isi .= '/'.$ID;}
+                if($DMHA_4 == 10)
+                {
+                    if($DMHA_1 == 288)
+                    {
+                        $name = 'filename';
+                    }
+                    $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.$PARAM_2.'/'.dmha_14_generate_value(NULL,$name,$DMHA_1,3,$ID_DATA));
+                }
+                else
+                {
+                    $isi = url('/').'/'.$link;
+                    if(!is_null($ID_DATA)){$isi .= '/'.$ID_DATA;}
+                }
             }                
 
         // ------------------------------------------------------------------------- SEND
@@ -73,7 +86,7 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function dev_mode_show_page_detail($AUTH_ID,$DMHA_1)
+    function dev_mode_show_page_detail($AUTH_ID,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -81,31 +94,36 @@
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            data_tabel_open_with_id('dev-mode-'.$DMHA_1).
-            general_colgroup(8).'
+            data_tabel_open_with_id('dev-mode-'.$ID).
+            general_colgroup(10).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+                    '.th_me('Transform ID', $class_th).'
                     '.th_me('Nama', $class_th).'
                     '.th_me('Template', $class_th).'
                     '.th_me('Controller', $class_th).'
                     '.th_me('Page', $class_th).'
                     '.th_me('Icon', $class_th).'
                     '.th_me('Kategori', $class_th).'
+                    '.th_me('Support ID', $class_th).'
                     '.th_me('Load Time', $class_th).'
                 </tr>
             </thead>
             <tbody>
             ';     
+                $dmha_300 = dmha_1_id_check_col($ID,'dmha_300');
                 $isi .= '
                 <tr>
-                '.td_me($DMHA_1, 'text-center').'
-                '.td_me(dmha_1_id_check_col($DMHA_1,'nama'), '').'
-                '.td_me(dmha_2_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_2'),'nama'), '').'
-                '.td_me(dmha_3_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_3'),'nama'), '').'
-                '.td_me(dmha_4_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_4'),'nama'), '').'
-                '.td_me(dmha_5_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_5'),'nama'), '').'
-                '.td_me(dmha_9_id_check_col(dmha_1_id_check_col($DMHA_1,'dmha_9'),'nama'), '').'
+                '.td_me($ID, 'text-center').'
+                '.td_me(rules_transform_ID($ID,$dmha_300), '').'
+                '.td_me(dmha_1_id_check_col($ID,'nama'), '').'
+                '.td_me(dmha_2_id_check_col(dmha_1_id_check_col($ID,'dmha_2'),'nama'), '').'
+                '.td_me(dmha_3_id_check_col(dmha_1_id_check_col($ID,'dmha_3'),'nama'), '').'
+                '.td_me(dmha_4_id_check_col(dmha_1_id_check_col($ID,'dmha_4'),'nama'), '').'
+                '.td_me(dmha_5_id_check_col(dmha_1_id_check_col($ID,'dmha_5'),'nama'), '').'
+                '.td_me(dmha_9_id_check_col(dmha_1_id_check_col($ID,'dmha_9'),'nama'), '').'
+                '.td_me(dmha_300_id_check_col(dmha_1_id_check_col($ID,'dmha_300'),'nama'), '').'
                 '.td_me((microtime(true) - LARAVEL_START), 'text-center').'
                 </tr>
                 ';
@@ -133,7 +151,27 @@
             return $words;
         ////////////////////////////////////////////////////////////////////////////        
     }
+    
+    function rules_link_target_blank($DMHA_4)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            if($DMHA_4 == 10)
+            {
+                $isi    .= ' target="_blank" ';
+            }
 
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+
+
+    
     
     
     function rules_transform_ID($ID,$SUPPORTED_ID)

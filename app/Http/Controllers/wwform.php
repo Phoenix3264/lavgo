@@ -187,6 +187,9 @@ class wwform extends Controller
             elseif($DMHA_1 == 288) { // Detail Library   
                 $dmha_292 = $request->dmha_292;
                 $dmha_296 = $request->dmha_296;
+
+                $dmha_287 = $ID;
+
                 $nama = $request->nama;
                 $author = $request->author;
                 $publish = $request->publish;
@@ -196,10 +199,17 @@ class wwform extends Controller
 
                 $filename = $exp_nama[0].'_'.$publish.'_-_'.replace_to_underscore($nama).'.'.$request->filename->getClientOriginalExtension();
                 
-                $request->filename->storeAs('public/storage/dmha_288',$filename);
+                $storage_files = 'public/storage/dmha_288/'.$ID;
 
-                dmha_288_create_me($dmha_292,$dmha_296,$nama,$author,$publish,$keyword,$filename);
+                $filename_exist  = public_path($storage_files).$filename;
+                if (Storage::exists($filename_exist)) {
+                    Storage::delete($filename_exist);
+                }
+                
+                $request->filename->storeAs($storage_files,$filename);
 
+                if($DMHA_9 == 2) { dmha_288_create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
+                elseif($DMHA_9 == 3) { dmha_288_update_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
                     
             }
             elseif($DMHA_1 == 292) {     

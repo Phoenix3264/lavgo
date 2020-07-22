@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_8 extends Model
+class dmha_14 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_8';
+    protected $table = 'dmha_14';
 
     /**
      * @var array
@@ -26,31 +26,16 @@ class dmha_8 extends Model
     protected $fillable = ['nama', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
-    
+
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_8::where('id','=',$ID)
+            $isi = dmha_14::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
-
-        // ------------------------------------------------------------------------- SEND
-            $words = $isi;
-            return $words;
-        ////////////////////////////////////////////////////////////////////////////
-    }
-
-    public static function what_is_my_app_mode()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_8::where('active','=',1)
-                ->value('nama');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -64,7 +49,7 @@ class dmha_8 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_8::whereNull('deleted_at')
+            $isi = dmha_14::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -80,7 +65,7 @@ class dmha_8 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_8::create($array_data);
+            dmha_14::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -92,7 +77,11 @@ class dmha_8 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_8::create($array_data);
+            dmha_14::where('id','=', $id)
+            ->update(
+                [
+                    'nama'     => $array_data['nama']
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -104,7 +93,7 @@ class dmha_8 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_8::where('id','=', $id)
+            dmha_14::where('id','=', $id)
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND

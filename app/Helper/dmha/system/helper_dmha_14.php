@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_14;
+    use App\Models\system\dmha_14;
 
     function dmha_14_id_check_col($ID,$COL)
     {
@@ -65,11 +65,13 @@
                 elseif($DMHA_1 == 3) { $isi .= dmha_3_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 4) { $isi .= dmha_4_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 5) { $isi .= dmha_5_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 8) { $isi .= dmha_8_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 8) { $isi .= dmha_8_id_check_col(dmha_8_nama_check_col($ID,'id'),$name);  }  
                 elseif($DMHA_1 == 9) { $isi .= dmha_9_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 13) { $isi .= dmha_13_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 14) { $isi .= dmha_14_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 15) { $isi .= $ID;  }  
+                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col($ID,$name);  }  
+                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col(dmha_15_nama_check_col($ID,'id'),$name);  }  
 
                 // system
                 elseif($DMHA_1 == 40) { $isi .= dmha_40_id_check_col($ID,$name);  }  

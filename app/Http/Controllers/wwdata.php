@@ -7,15 +7,13 @@ use Illuminate\Http\Request;
 class wwdata extends Controller
 {
     //
-    public function generate(Request $request,$param_1,$param_2)
+    public function generate(Request $request,$param_1,$param_2,$param_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';     
             $AUTH_ID = $param_1;  
             $DMHA_1 = $param_2;  
-            $data = array();
-            $data['AUTH_ID'] = $param_1;  
-            $data['DMHA_1'] = $param_2;  
+            $PARAM_2 = $param_3;  
             
             $modify_datatable = false;
 
@@ -88,8 +86,7 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 235) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,235); } // Kelas XI IBB 1
                 elseif($DMHA_1 == 239) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,239); } // Kelas XI IBB 2
                 elseif($DMHA_1 == 243) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,243); } // Kelas XI IBB 3
-
-                
+            
                 elseif($DMHA_1 == 251) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,251); } // Kelas XII MIPA 1
                 elseif($DMHA_1 == 255) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,255); } // Kelas XII MIPA 2
                 elseif($DMHA_1 == 259) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,259); } // Kelas XII MIPA 3
@@ -102,7 +99,6 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 279) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,279); } // Kelas XII IBB 2
                 elseif($DMHA_1 == 283) { $isi_model = dmha_163_let_me_generate_data_array($AUTH_ID, $DMHA_1,283); } // Kelas XII IBB 3
 
-                
                 // paperone
                 elseif($DMHA_1 == 287) { $isi_model = dmha_287_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 288) { $isi_model = dmha_288_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -116,8 +112,8 @@ class wwdata extends Controller
             {
                 return datatables()
                     ->of($isi_model)
-                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1){                        
-                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$data->id);
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
+                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$data->id,$PARAM_2);
                         return $dropdown;
                     })
                     ->rawColumns(['action'])

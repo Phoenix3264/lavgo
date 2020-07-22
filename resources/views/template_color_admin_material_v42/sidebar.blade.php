@@ -30,7 +30,7 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            {!!color_admin_material_v42_sidebar($AUTH_ID,$id)!!}
+            {!!color_admin_material_v42_sidebar($AUTH_ID,$transform_ID,NULL,$PARAM_2)!!}
 
             <li class="has-sub">
                 <a href="javascript:;">

@@ -1,10 +1,10 @@
 <?php
 
-    function color_admin_material_v42_sidebar($AUTH_ID,$PARAM_ID)
+    function color_admin_material_v42_sidebar($AUTH_ID,$DMHA_ID,$ID_DATA,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$PARAM_ID,'sidebar_1');
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_ID,'sidebar_1');
 
         // ------------------------------------------------------------------------- ACTION
             foreach ($model as $row) 
@@ -15,10 +15,10 @@
                     // has_sub?
                     if ($row->has_sub == 1) { $isi .= ' has-sub '; }
 
-                    $isi .= rules_active_sidebar($PARAM_ID,$row->id,'level1');
+                    $isi .= rules_active_sidebar($DMHA_ID,$row->id,'level1');
                     $isi .= '
                     ">
-                        <a href="'.rules_link_sidebar($row->link).'">';
+                        <a href="'.rules_link($row->link,$DMHA_ID,$ID_DATA,$PARAM_2,$row->dmha_4).'">';
                         
                         // has_sub? caret
                         if ($row->has_sub == 1) { $isi .= '<b class="caret"></b>'; }
@@ -32,7 +32,7 @@
                                 '.$row->nama.'
                             </span>
                         </a>
-                        '.color_admin_material_v42_sidebar2($AUTH_ID,$PARAM_ID,$row->id).'
+                        '.color_admin_material_v42_sidebar2($AUTH_ID,$DMHA_ID,$row->id,$PARAM_2,$row->dmha_4).'
                     </li>                
                 ';
             }
@@ -43,19 +43,19 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_material_v42_sidebar2($AUTH_ID,$PARAM_ID,$ID)
+    function color_admin_material_v42_sidebar2($AUTH_ID,$DMHA_ID,$ID_DATA,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$ID,'sidebar_2');
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_ID,'sidebar_2');
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<ul class="sub-menu">';
             foreach ($model as $row) 
             {
                 $isi .= '
-                    <li class="'.rules_active_sidebar($PARAM_ID,$row->id,'level2').'">
-                        <a href="'.rules_link_sidebar($row->link).'">
+                    <li class="'.rules_active_sidebar($ID_DATA,$row->id,'level2').'">
+                        <a href="'.rules_link($row->link,$DMHA_ID,$ID_DATA,$PARAM_2,$row->dmha_4).'">
                             '.$row->nama.'
                         </a>
                     </li>                          
@@ -70,7 +70,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$ID)
+    function color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$ID_DATA,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -86,7 +86,10 @@
                     foreach($model as $row)
                     {
                         $isi .= '
-                        <li><a href="'.rules_link_sidebar($row->link,$ID).'">
+                        <li><a href="'.rules_link($row->link,$DMHA_1,$ID_DATA,$PARAM_2,$row->dmha_4).'"
+                        
+                        '.rules_link_target_blank($row->dmha_4).'
+                        >
                             '.dmha_5_id_check_col($row->dmha_5,'fa').' 
                             '.$row->nama.'
                             </a></li>';
@@ -102,7 +105,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_material_v42_button($AUTH_ID,$DMHA_1)
+    function color_admin_material_v42_button($AUTH_ID,$DMHA_1,$ID_DATA,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -116,9 +119,12 @@
             foreach($model as $row)
             {
                 $isi .= '
-                <a href="'.rules_link_sidebar($row->link,NULL).'" 
+                <a href="'.rules_link($row->link,$DMHA_1,NULL,$PARAM_2,$row->dmha_4).'" 
                     class="'.$class.'" 
-                    id="'.$row->nama.'-'.$row->id.'">
+                    id="'.$row->nama.'-'.$row->id.'"
+
+
+                    >
                     '.dmha_5_id_check_col($row->dmha_5,'fa').'
                     '.$row->nama.'
                 </a>

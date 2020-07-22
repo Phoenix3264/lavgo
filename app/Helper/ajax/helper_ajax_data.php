@@ -1,11 +1,15 @@
 <?php
 
-    function ajax_data_table($AUTH_ID,$ID,$table_id)
+    function ajax_data_table($AUTH_ID,$DMHA_ID,$table_id,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$ID,'joined');
+            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$DMHA_ID,'joined');
             
+            if($PARAM_2 == '')
+            {
+                $PARAM_2 = 'NULL';
+            }
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '   
             $(document).ready(function () {
@@ -13,7 +17,7 @@
                     processing: true,
                     serverSide: true,
                     ajax: {
-                        url: " '.url('/').'/wwdata/generate/'.$AUTH_ID.'/'.$ID.'",
+                        url: " '.url('/').'/wwdata/generate/'.$AUTH_ID.'/'.$DMHA_ID.'/'.$PARAM_2.'",
                         type: "GET"
                     },
                     columns: [                        

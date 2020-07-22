@@ -25,7 +25,7 @@ class dmha_15 extends Model
     /**
      * @var array 
      */
-    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'urutan_tabel', 'created_at', 'update_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -40,6 +40,22 @@ class dmha_15 extends Model
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_15::where('dmha_1','=',$temp_ex[0])
                 ->where('dmha_13','=',$temp_ex[1])
+                ->value($COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function nama_check_col($ID,$COL)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_8::where('nama','like',$ID)
+                ->whereNull('deleted_at')
                 ->value($COL);
 
         // ------------------------------------------------------------------------- SEND
@@ -63,13 +79,13 @@ class dmha_15 extends Model
             }
             elseif($TIPE == 'joined')
             {
-
                 $isi = dmha_15::selectRaw('
                     dmha_13.name
                     ')
                     ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
-                    ->where('dmha_15.dmha_1','=',$ID)                                 
-                    ->orderBy('dmha_15.id','asc')
+                    ->where('dmha_15.dmha_1','=',$ID)     
+                    ->whereNotNull('urutan_tabel')                            
+                    ->orderBy('dmha_15.urutan_tabel','asc')
                     ->get();
             }      
 
