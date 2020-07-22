@@ -162,6 +162,9 @@
 			elseif($DMHA_ID == 288){ $isi = dmha_288_data_table(); }
 			elseif($DMHA_ID == 292){ $isi = dmha_292_data_table(); }
 			elseif($DMHA_ID == 296){ $isi = dmha_296_data_table(); }
+			elseif($DMHA_ID == 310){ $isi = dmha_310_data_table(); }
+			elseif($DMHA_ID == 314){ $isi = dmha_314_data_table(); }
+			elseif($DMHA_ID == 318){ $isi = dmha_318_data_table(); }
 
 
         // ------------------------------------------------------------------------- SEND

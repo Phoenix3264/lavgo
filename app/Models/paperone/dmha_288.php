@@ -56,10 +56,23 @@ class dmha_288 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_288::whereNull('deleted_at')
-                ->orderBy('id','asc')
-                ->get();
+                
+            $isi = dmha_288::
+                    selectRaw('
+                        dmha_288.id,
+                        dmha_288.publish,
+                        dmha_288.nama,
+                        dmha_288.keyword,
+                        dmha_292.nama as dmha_292,
+                        dmha_296.nama as dmha_296
+                    ')
 
+                ->join('dmha_292', 'dmha_292.id', '=', 'dmha_288.dmha_292')       
+                ->join('dmha_296', 'dmha_296.id', '=', 'dmha_288.dmha_296')             
+                ->whereNull('dmha_288.deleted_at')	
+                ->orderBy('dmha_288.id','asc')
+
+                ->get();
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;
@@ -87,7 +100,7 @@ class dmha_288 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -96,7 +109,14 @@ class dmha_288 extends Model
             dmha_288::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'dmha_292' => $dmha_292, 
+                    'dmha_296' => $dmha_296, 
+                    'dmha_287' => $dmha_287, 
+                    'nama' => $nama, 
+                    'author' => $author, 
+                    'publish' => $publish, 
+                    'keyword' => $keyword, 
+                    'filename' => $filename, 
                 ]);
 
         // ------------------------------------------------------------------------- SEND

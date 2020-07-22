@@ -15,7 +15,7 @@ class Backend extends Controller
     }
     
     //
-    public function index($PARAM_1=NULL,$PARAM_2=NULL)
+    public function index($PARAM_1=NULL,$PARAM_2=NULL,$PARAM_3=NULL)
   	{
         // Set Rules
             // Unknown Param, Redirect to
@@ -38,8 +38,19 @@ class Backend extends Controller
     		    $data['AUTH_ROLE']        = dmha_122_id_check_col(user_id_check_col(Auth::user()->id,'dmha_122'),'nama');
                   
   			// then, we check your link
-    		    $data['PARAM_1']    = $PARAM_1;
+                $data['PARAM_1']    = $PARAM_1;
+
                 $data['PARAM_2']    = $PARAM_2;
+                if($PARAM_2 == '')
+                {
+                    $data['PARAM_2']    = 'NULL';
+                }
+
+                $data['PARAM_3']    = $PARAM_3;
+                if($PARAM_3 == '')
+                {
+                    $data['PARAM_3']    = 'NULL';
+                }
                 
                 $id                 = dmha_1_link_check_col($PARAM_1,'id');
                 $data['id']         = $id;

@@ -104,6 +104,10 @@ class wwdata extends Controller
                 elseif($DMHA_1 == 288) { $isi_model = dmha_288_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 292) { $isi_model = dmha_292_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 296) { $isi_model = dmha_296_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                elseif($DMHA_1 == 310) { $isi_model = dmha_310_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 314) { $isi_model = dmha_314_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                elseif($DMHA_1 == 318) { $isi_model = dmha_318_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
             }
 
 
@@ -113,12 +117,11 @@ class wwdata extends Controller
                 return datatables()
                     ->of($isi_model)
                     ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$DMHA_1,$data->id,$PARAM_2);
+                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
                         return $dropdown;
                     })
                     ->rawColumns(['action'])
                     ->addIndexColumn()
-                    //->make(true);
                     ->toJson();
             }
 

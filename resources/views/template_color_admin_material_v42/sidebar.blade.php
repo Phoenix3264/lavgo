@@ -30,39 +30,7 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            {!!color_admin_material_v42_sidebar($AUTH_ID,$transform_ID,NULL,$PARAM_2)!!}
-
-            <li class="has-sub">
-                <a href="javascript:;">
-                    <b class="caret"></b>
-                    <i class="material-icons">list</i>
-                    <span>Menu Level</span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="has-sub">
-                        <a href="javascript:;">
-                            <b class="caret"></b>
-                            Menu 1.1
-                        </a>
-                        <ul class="sub-menu">
-                            <li class="has-sub">
-                                <a href="javascript:;">
-                                    <b class="caret"></b>
-                                    Menu 2.1
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href="javascript:;">Menu 3.1</a></li>
-                                    <li><a href="javascript:;">Menu 3.2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="javascript:;">Menu 2.2</a></li>
-                            <li><a href="javascript:;">Menu 2.3</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="javascript:;">Menu 1.2</a></li>
-                    <li><a href="javascript:;">Menu 1.3</a></li>
-                </ul>
-            </li>
+            {!!color_admin_material_v42_sidebar($AUTH_ID,NULL,$id,NULL)!!}
             <!-- begin sidebar minify button -->
             <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
             <!-- end sidebar minify button -->

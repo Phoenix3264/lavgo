@@ -25,22 +25,17 @@
         App.init();
         Highlight.init();
     });
-
     
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2)!!}
-    
-   
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$PARAM_3)!!}
+       
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
-    
-
   
     $(document).ready(function(){
-        $("form#Create_Details_Library").submit(function(e) {          
+        $("form#{{$PARAM_1}}").submit(function(e) {          
             e.preventDefault();   
             
             var formData = new FormData(this);

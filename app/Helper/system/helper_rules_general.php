@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Storage;
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function rules_link($link,$DMHA_1,$ID_DATA,$PARAM_2,$DMHA_4)
+    function rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -45,7 +45,8 @@ use Illuminate\Support\Facades\Storage;
                 else
                 {
                     $isi = url('/').'/'.$link;
-                    if(!is_null($ID_DATA)){$isi .= '/'.$ID_DATA;}
+                    if($PARAM_2 != 'NULL'){$isi .= '/'.$PARAM_2;}
+                    if($ID_DATA != 'NULL'){$isi .= '/'.$ID_DATA;} 
                 }
             }                
 

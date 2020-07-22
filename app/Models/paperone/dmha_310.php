@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\paperone;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_3 extends Model
+class dmha_310 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_3';
+    protected $table = 'dmha_310';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class dmha_3 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_3::where('id','=',$ID)
+            $isi = dmha_310::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,7 +49,7 @@ class dmha_3 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_3::whereNull('deleted_at')
+            $isi = dmha_310::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -65,7 +65,7 @@ class dmha_3 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_3::create($array_data);
+            dmha_310::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -77,11 +77,10 @@ class dmha_3 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_3::where('id','=', $id)
+            dmha_310::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
-                    'updated_at'     => now()
+                    'nama'     => $array_data['nama']
                 ]);
 
         // ------------------------------------------------------------------------- SEND
@@ -94,7 +93,7 @@ class dmha_3 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_3::where('id','=', $id)
+            dmha_310::where('id','=', $id)
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND

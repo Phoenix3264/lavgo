@@ -24,7 +24,7 @@
     });
 
     
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2)!!}
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$PARAM_3)!!}
     
    
     $.ajaxSetup({

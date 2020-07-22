@@ -52,77 +52,6 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
     
-    function dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_9,$ID)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            if($DMHA_9 == 3)
-            {
-                if($DMHA_1 == 1) { $isi .= dmha_1_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 2) { $isi .= dmha_2_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 3) { $isi .= dmha_3_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 4) { $isi .= dmha_4_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 5) { $isi .= dmha_5_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 8) { $isi .= dmha_8_id_check_col(dmha_8_nama_check_col($ID,'id'),$name);  }  
-                elseif($DMHA_1 == 9) { $isi .= dmha_9_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 13) { $isi .= dmha_13_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 14) { $isi .= dmha_14_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 15) { $isi .= $ID;  }  
-                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col($ID,$name);  }  
-                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col(dmha_15_nama_check_col($ID,'id'),$name);  }  
-
-                // system
-                elseif($DMHA_1 == 40) { $isi .= dmha_40_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 122) { $isi .= dmha_122_id_check_col($ID,$name);  }  
-
-                // acadion
-                elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
-
-                // paperone
-                elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
-
-                else{ $isi .= ' value="'.dmha_40_id_check_col(6,'nama').'" '; }
-                
-            }
-
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
-    
-    function dmha_14_generate_value_selected($VALUE,$DMHA_1,$ID,$name)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $COL = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            if($DMHA_1 == 1) { $COL = dmha_1_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 2) { $COL = dmha_2_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 3) { $COL = dmha_3_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 4) { $COL = dmha_4_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 5) { $COL = dmha_5_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 8) { $COL = dmha_8_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 9) { $COL = dmha_9_id_check_col($ID,$name);  }  
-            elseif($DMHA_1 == 13) { $COL = dmha_13_id_check_col($ID,$name);  }  
-
-            
-            if($VALUE == $COL)
-            {
-                $isi .= 'selected';
-            }
-
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
-    
     function dmha_14_generate_value_checked($VALUE,$DMHA_1,$ID,$name)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -247,7 +176,52 @@
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_9,$ID).'" >';      
+            $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name).'" >';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    
+    
+    function dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            if($DMHA_9 == 3)
+            {
+                if($DMHA_1 == 1) { $isi .= dmha_1_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 2) { $isi .= dmha_2_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 3) { $isi .= dmha_3_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 4) { $isi .= dmha_4_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 5) { $isi .= dmha_5_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 8) { $isi .= dmha_8_id_check_col(dmha_8_nama_check_col($ID,'id'),$name);  }  
+                elseif($DMHA_1 == 9) { $isi .= dmha_9_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 13) { $isi .= dmha_13_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 14) { $isi .= dmha_14_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 15) { $isi .= $ID;  }  
+                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col($ID,$name);  }  
+                // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col(dmha_15_nama_check_col($ID,'id'),$name);  }  
+
+                // system
+                elseif($DMHA_1 == 40) { $isi .= dmha_40_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 122) { $isi .= dmha_122_id_check_col($ID,$name);  }  
+
+                // acadion
+                elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
+
+                // paperone
+                elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
+
+                else{ $isi .= ' value="'.dmha_40_id_check_col(6,'nama').'" '; }
+                
+            }
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -263,7 +237,7 @@
             // $type = 'hidden';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= '<input type="number" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_9,$ID).'" >';      
+            $isi .= '<input type="number" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name).'" >';      
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -281,13 +255,15 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
                 <select class="'.$class.'"  id="form-'.$dmha_13.'"  name="'.$name.'">';
-
+                //system
                 if($dmha_13 == 3) { $isi_model = dmha_14_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 9) { $isi_model = dmha_3_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 10) { $isi_model = dmha_4_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 14) { $isi_model = dmha_1_let_me_generate_data_array(null,null,'select'); }
+                elseif($dmha_13 == 44) { $isi_model = dmha_300_let_me_generate_data_array(null,null); }
 
                 
                 elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
@@ -305,10 +281,45 @@
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 
-                foreach ($isi_model as $row) { $isi .= '<option value="'.$row->id.'" '.dmha_14_generate_value_selected($row->id,$DMHA_1,$ID,$name).'>'.$row->nama.'</option>'; }
+                foreach ($isi_model as $row) { $isi .= '<option value="'.$row->id.'" 
+                    '.dmha_14_generate_value_selected($row->id,dmha_14_generate_value(3,$DMHA_1,$ID,$name)).'>'.$row->nama.'</option>'; }
 
             $isi .= '
                 </select>'; 
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_14_generate_value_selected($ROW_ID,$VALUE)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION            
+            if($ROW_ID == $VALUE)
+            {
+                $isi .= 'selected';
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_14_generate_value_checked_checked($ROW_ID,$VALUE)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION            
+            if($ROW_ID == $VALUE)
+            {
+                $isi .= ' checked="checked" ';
+            }
+
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
@@ -319,17 +330,24 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-
+            // fa-2x"></i>
             if($dmha_13 == 11) { $isi_model = dmha_5_let_me_generate_data_array(null,null); }
 
         // ------------------------------------------------------------------------- ACTION
+            $isi .= '            
+            <div class="row">';
             foreach ($isi_model as $row) {
             $isi .= '            
-            <div class="radio radio-css radio-inline">
-                <input type="radio" name="'.$name.'" id="form'.$dmha_13.$row->id.'" value="'.$row->id.'" checked="'.dmha_14_generate_value_checked($row->id,$DMHA_1,$ID,$name).'" '.dmha_14_generate_value_checked($row->id,$DMHA_1,$ID,$name).'>
-                <label for="inlineCssRadio1">'.$row->fa.'</label>
+            <div class="col-md-3">
+                <div class="radio radio-css radio-inline col-md-1">
+                    <input type="radio" name="'.$name.'" id="form'.$dmha_13.$row->id.'" value="'.$row->id.'"
+                    '.dmha_14_generate_value_checked_checked($row->id,dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name)).' >
+                    <label for="form'.$dmha_13.$row->id.'">'.str_replace('"></i>',' fa-2x"></i>',$row->fa) .'</label>
+                </div>
             </div>';
             }
+            $isi .= '            
+            </div>';
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -362,12 +380,11 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
-            <div class="col-md-9 p-t-3">
                 <div class="switcher">
-                    <input type="checkbox" name="switcher_checkbox_1" id="switcher_checkbox_1" checked="" value="1">
-                    <label for="switcher_checkbox_1"></label>
+                    <input type="checkbox" name='.$name.' id="form-'.$ID.'" 
+                    '.dmha_14_generate_value_checked_checked(1,dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name)).' value="1">
+                    <label for="form-'.$ID.'"></label>
                 </div>
-            </div>
             ';      
 
         // ------------------------------------------------------------------------- SEND
@@ -398,7 +415,11 @@
                         foreach ($isi_model3 as $row3) {
                             $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
                             
-                            //$isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
+                            $isi_model4 = dmha_1_let_me_generate_data_array(null,$row3->id,'level2'); 
+
+                            foreach ($isi_model4 as $row4) {
+                                $isi .= dmha_14_generate_checkboxes_field($row4->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '.$row4->nama,$DMHA_1,$ID);
+                            }
                         }
                     }
                 }
@@ -467,7 +488,7 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
-            <textarea class="'.$class.'" rows="3" id="form-'.$dmha_13.'" name="'.$name.'" >'.dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_9,$ID).'</textarea>';
+            <textarea class="'.$class.'" rows="3" id="form-'.$dmha_13.'" name="'.$name.'" >'.dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name).'</textarea>';
             
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

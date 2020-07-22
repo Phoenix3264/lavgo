@@ -23,7 +23,8 @@ class wwform extends Controller
             $AUTH_ID    = $_GET['a'];
             $DMHA_1     = $_GET['p'];
             $DMHA_9     = $_GET['c'];
-            $ID         = $_GET['i'];
+            $PARAM_2         = $_GET['i'];
+            $PARAM_3         = $_GET['i2'];
 
             $dmha_2  = dmha_1_id_check_col($DMHA_1,'dmha_2');
         // ------------------------------------------------------------------------- ACTION
@@ -35,11 +36,13 @@ class wwform extends Controller
             }
             elseif($dmha_2 == 2)
             {
-                $isi .= color_admin_material_v42_hidden($DMHA_1,$DMHA_9,$ID);
+                $isi .= color_admin_material_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3);
+                
+                if($PARAM_3 != 'NULL') { $ID = $PARAM_3; }
+                else{ $ID = $PARAM_2; }
                 $isi .= color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID);
             }
             
-            $isi .= $DMHA_1;
         // ------------------------------------------------------------------------- SEND
             die(json_encode(array(
                 "isi" => $isi
@@ -55,9 +58,10 @@ class wwform extends Controller
             $DMHA_1 = $request->p;
             $DMHA_9 = $request->c;
             $ID = $request->i;
+            $ID2 = $request->i2;
 
         // ------------------------------------------------------------------------- SUBMITTING DATA
-            if($DMHA_1 == 1) {     
+            if($DMHA_1 == 1) {   
                 if($DMHA_9 == 2) { dmha_1_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_1_update_me($ID,$request->all()); }
             }
@@ -120,6 +124,15 @@ class wwform extends Controller
             elseif($DMHA_1 == 118) {     
                 dmha_1_create_fitur_complete($request->nama);
             }
+            // System            
+            elseif($DMHA_1 == 308) {     
+                dmha_1_create_fitur_complete_details($request->nama);
+            }       
+            elseif($DMHA_1 == 309) {     
+                dmha_1_create_fitur_complete_sub_detail($request->nama);
+            }
+
+
             elseif($DMHA_1 == 122) {     
                 if($DMHA_9 == 2) { dmha_122_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_122_update_me($ID,$request->all()); }
@@ -197,7 +210,9 @@ class wwform extends Controller
 
                 $exp_nama = explode(' ',$author);
 
-                $filename = $exp_nama[0].'_'.$publish.'_-_'.replace_to_underscore($nama).'.'.$request->filename->getClientOriginalExtension();
+                $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", "", $nama);
+
+                $filename = $exp_nama[0].'_'.$publish.'_-_'.replace_to_underscore($pra_nama).'.'.$request->filename->getClientOriginalExtension();
                 
                 $storage_files = 'public/storage/dmha_288/'.$ID;
 
@@ -209,7 +224,7 @@ class wwform extends Controller
                 $request->filename->storeAs($storage_files,$filename);
 
                 if($DMHA_9 == 2) { dmha_288_create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
-                elseif($DMHA_9 == 3) { dmha_288_update_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
+                elseif($DMHA_9 == 3) { dmha_288_update_me($ID2,$dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
                     
             }
             elseif($DMHA_1 == 292) {     
@@ -219,6 +234,18 @@ class wwform extends Controller
             elseif($DMHA_1 == 296) {     
                 if($DMHA_9 == 2) { dmha_296_create_me($request->all()); }
                 elseif($DMHA_9 == 3) { dmha_296_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 310) {     
+                if($DMHA_9 == 2) { dmha_310_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_310_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 314) {     
+                if($DMHA_9 == 2) { dmha_314_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_314_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 318) {     
+                if($DMHA_9 == 2) { dmha_318_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_318_update_me($ID,$request->all()); }
             }
 
         // ------------------------------------------------------------------------- SEND

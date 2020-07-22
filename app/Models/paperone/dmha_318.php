@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\paperone;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $update_at
  * @property string $deleted_at
  */
-class dmha_9 extends Model
+class dmha_318 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_9';
+    protected $table = 'dmha_318';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class dmha_9 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_9::where('id','=',$ID)
+            $isi = dmha_318::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,7 +49,7 @@ class dmha_9 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_9::whereNull('deleted_at')
+            $isi = dmha_318::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -65,7 +65,7 @@ class dmha_9 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_9::create($array_data);
+            dmha_318::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ class dmha_9 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_9::where('id','=', $id)
+            dmha_318::where('id','=', $id)
             ->update(
                 [
                     'nama'     => $array_data['nama']
@@ -93,11 +93,10 @@ class dmha_9 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_9::where('id','=', $id)
+            dmha_318::where('id','=', $id)
                 ->softDeletes();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
-
 }

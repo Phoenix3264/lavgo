@@ -39,7 +39,7 @@
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(11).'
+            general_colgroup(13).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
@@ -47,11 +47,13 @@
                     '.th_me('Link', $class_th).'
                     '.th_me('Urutan', $class_th).'
                     '.th_me('Has Sub', $class_th).'
+                    '.th_me('DMHA 1', $class_th).'
                     '.th_me('Template', $class_th).'
                     '.th_me('Controller', $class_th).'
                     '.th_me('Page', $class_th).'
                     '.th_me('Icon', $class_th).'
                     '.th_me('Kategori', $class_th).'
+                    '.th_me('Supported ID', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';
@@ -117,6 +119,35 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dmha_1_create_fitur_complete_detail($nama)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_1::create_fitur_complete_detail($nama);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_1_create_fitur_complete_sub_detail($nama)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_1::create_fitur_complete_sub_detail($nama);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+    
 
     function dmha_1_update_me($id,$array_data)
     {

@@ -1,6 +1,6 @@
 <?php
 
-    function ajax_form($AUTH_ID,$DMHA_1,$DMHA_9,$PARAM_2)
+    function ajax_form($AUTH_ID,$DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -13,7 +13,8 @@
             $isi    .= ' "a": "'.$AUTH_ID.'", ' ;
             $isi    .= ' "p": "'.$DMHA_1.'", ' ;
             $isi    .= ' "c": "'.$DMHA_9.'", ' ;
-            $isi    .= ' "i": "'.$PARAM_2.'" ' ;
+            $isi    .= ' "i": "'.$PARAM_2.'", ' ;
+            $isi    .= ' "i2": "'.$PARAM_3.'" ' ;
             $isi    .= ' }, ' ;
             $isi    .= ' dataType: "json", ' ;
             $isi    .= ' cache: false, ' ;

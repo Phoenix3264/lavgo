@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_9
  * @property int $dmha_300
  * @property string $created_at
- * @property string $update_at
+ * @property string $updated_at
  * @property string $deleted_at
  */
 class dmha_1 extends Model
@@ -33,7 +33,7 @@ class dmha_1 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -89,6 +89,12 @@ class dmha_1 extends Model
                     ->orderBy('id','asc')
                     ->get();
             }
+            elseif($TIPE == 'select')
+            {
+                $isi = dmha_1::whereNull('deleted_at')										
+                    ->orderBy('id','asc')
+                    ->get();
+            }
             elseif($TIPE == 'sidebar_1')
             {
                 $isi = dmha_1::
@@ -132,18 +138,21 @@ class dmha_1 extends Model
                         dmha_1.link,
                         dmha_1.urutan,
                         dmha_1.has_sub,
+                        dmha_1.dmha_1,
                         dmha_2.nama as dmha_2,
                         dmha_3.nama as dmha_3,
                         dmha_4.nama as dmha_4,
                         dmha_5.nama as dmha_5,
-                        dmha_9.nama as dmha_9
+                        dmha_9.nama as dmha_9,
+                        dmha_300.nama as dmha_300
 
                     ')
                 ->join('dmha_2', 'dmha_2.id', '=', 'dmha_1.dmha_2')   
                 ->join('dmha_3', 'dmha_3.id', '=', 'dmha_1.dmha_3')   
                 ->join('dmha_4', 'dmha_4.id', '=', 'dmha_1.dmha_4')   
                 ->join('dmha_5', 'dmha_5.id', '=', 'dmha_1.dmha_5')   
-                ->join('dmha_9', 'dmha_9.id', '=', 'dmha_1.dmha_9')        
+                ->join('dmha_9', 'dmha_9.id', '=', 'dmha_1.dmha_9')  
+                ->join('dmha_300', 'dmha_300.id', '=', 'dmha_1.dmha_300')         
                 ->whereNull('dmha_1.deleted_at')	            
                 ->orderBy('dmha_1.id','asc')
                 ->get();
@@ -301,12 +310,207 @@ class dmha_1 extends Model
                     'dmha_9' => 3, 
                 ]);
 
-            // create Table
-            // Schema::create('dmha_'.$dmha_1, function (Blueprint $table) {
-            //     $table->string('email')->index();
-            //     $table->string('token');
-            //     $table->timestamp('created_at')->nullable();
-            // });
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    
+
+    public static function create_fitur_complete_sub_detail($nama)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            // create data
+            $model = dmha_1::create(
+                [ 
+                    'nama' => $nama, 
+                    'link' => 'Data_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 1,
+                    'dmha_5' => 1, 
+                    'dmha_9' => 1,
+                    'dmha_300' => 1,
+                ]);
+
+            $dmha_1 = $model->id;
+
+            // create Create
+            dmha_1::create(
+                [ 
+                    'nama' => 'Create', 
+                    'link' => 'Create_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 2, 
+                    'dmha_9' => 2,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Edit
+            dmha_1::create(
+                [ 
+                    'nama' => 'Edit', 
+                    'link' => 'Edit_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 3, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Delete
+            dmha_1::create(
+                [ 
+                    'nama' => 'Delete', 
+                    'link' => 'Delete_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 4,
+                    'dmha_9' => 3, 
+                    'dmha_300' => 2,
+                ]);
+            
+            //////////////////////////////////////////////////////////////////////////////////////
+            $nama_2 = 'Details_'.replace_to_underscore($nama);
+            // create Details Library
+            $model2 = dmha_1::create(
+                [ 
+                    'nama' => 'Details', 
+                    'link' => $nama_2, 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 8, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 1,
+                ]);
+
+            $dmha_1_2nd = $model->id;
+
+            // create Create
+            dmha_1::create(
+                [ 
+                    'nama' => 'Create', 
+                    'link' => 'Create_'.replace_to_underscore($nama_2), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_2nd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 2, 
+                    'dmha_9' => 2,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Edit
+            dmha_1::create(
+                [ 
+                    'nama' => 'Edit', 
+                    'link' => 'Edit_'.replace_to_underscore($nama_2), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_2nd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 3, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Delete
+            dmha_1::create(
+                [ 
+                    'nama' => 'Delete', 
+                    'link' => 'Delete_'.replace_to_underscore($nama_2), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_2nd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 4,
+                    'dmha_9' => 3, 
+                    'dmha_300' => 2,
+                ]);
+            ///////////////////////////////////////////////////////////////////////////////////
+            
+            $nama_3 = 'Sub_'.replace_to_underscore($nama_2);
+
+            // create Details Library
+            $model2 = dmha_1::create(
+                [ 
+                    'nama' => 'Sub Details', 
+                    'link' =>  $nama_3, 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_2nd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 8, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 1,
+                ]);
+
+            $dmha_1_3rd = $model->id;
+
+            // create Create
+            dmha_1::create(
+                [ 
+                    'nama' => 'Create', 
+                    'link' => 'Create_'.replace_to_underscore($nama_3), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_3rd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 2, 
+                    'dmha_9' => 2,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Edit
+            dmha_1::create(
+                [ 
+                    'nama' => 'Edit', 
+                    'link' => 'Edit_'.replace_to_underscore($nama_3), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_3rd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 3, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Delete
+            dmha_1::create(
+                [ 
+                    'nama' => 'Delete', 
+                    'link' => 'Delete_'.replace_to_underscore($nama_3), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1_3rd, 
+                    'dmha_2' => 2, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 4,
+                    'dmha_9' => 3, 
+                    'dmha_300' => 2,
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -317,6 +521,12 @@ class dmha_1 extends Model
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
+            $has_sub = NULL;
+
+            if(isset($array_data['has_sub']))
+            {
+                $has_sub = $array_data['has_sub'];
+            }
         // ------------------------------------------------------------------------- ACTION
             dmha_1::where('id','=', $id)
                 ->update(
@@ -324,13 +534,14 @@ class dmha_1 extends Model
                         'nama'     => $array_data['nama'],
                         'link'     => $array_data['link'],
                         'urutan'     => $array_data['urutan'],
-                        'has_sub'     => $array_data['has_sub'],
+                        'has_sub'     => $has_sub,
                         'dmha_1'     => $array_data['dmha_1'],
                         'dmha_2'     => $array_data['dmha_2'],
                         'dmha_3'     => $array_data['dmha_3'],
                         'dmha_4'     => $array_data['dmha_4'],
                         'dmha_5'     => $array_data['dmha_5'],
-                        'dmha_9'     => $array_data['dmha_9']
+                        'dmha_9'     => $array_data['dmha_9'],
+                        'updated_at'     => now()
                     ]);
 
         // ------------------------------------------------------------------------- SEND
