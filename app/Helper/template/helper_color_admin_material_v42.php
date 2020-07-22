@@ -109,7 +109,7 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $class  = 'btn btn-info';
+            $class  = 'btn btn-white';
 
             $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_1,'button');
 

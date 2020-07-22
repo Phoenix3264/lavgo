@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -80,7 +80,8 @@ class dmha_300 extends Model
             dmha_300::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'nama'     => $array_data['nama'],
+                    'updated_at'     => now()
                 ]);
 
         // ------------------------------------------------------------------------- SEND
