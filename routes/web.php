@@ -31,3 +31,7 @@ Route::any('/{param_1}/{param_2}', 'backend@index');
 Route::any('/{param_1}/{param_2}/{param_3}', 'backend@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
