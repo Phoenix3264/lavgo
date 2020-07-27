@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_87;
+	use App\Models\acadion\dmha_87;
 
     function dmha_87_id_check_col($ID,$COL)
     {
@@ -38,10 +38,11 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+                    '.th_me('NIP', $class_th).'
                     '.th_me('Nama', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>

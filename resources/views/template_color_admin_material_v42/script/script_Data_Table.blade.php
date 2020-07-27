@@ -32,7 +32,6 @@
         TableManageDefault.init();
     });
 
-    //Script ini wajib krn kita butuh csrf token setiap kali mengirim request post, patch, put dan delete ke server
     $(document).ready(function () {
         $.ajaxSetup({
             headers: {

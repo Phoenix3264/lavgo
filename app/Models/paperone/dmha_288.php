@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $keyword
  * @property string $filename
  * @property string $created_at
- * @property string $update_at
+ * @property string $updated_at
  * @property string $deleted_at
  */
 class dmha_288 extends Model
@@ -30,7 +30,7 @@ class dmha_288 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['dmha_292', 'dmha_296', 'dmha_287', 'nama', 'author', 'publish', 'keyword', 'filename', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['dmha_292', 'dmha_296', 'dmha_287', 'nama', 'author', 'publish', 'keyword', 'filename', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -50,7 +50,7 @@ class dmha_288 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -68,7 +68,8 @@ class dmha_288 extends Model
                     ')
 
                 ->join('dmha_292', 'dmha_292.id', '=', 'dmha_288.dmha_292')       
-                ->join('dmha_296', 'dmha_296.id', '=', 'dmha_288.dmha_296')             
+                ->join('dmha_296', 'dmha_296.id', '=', 'dmha_288.dmha_296')           
+                ->where('dmha_288.dmha_287', '=', $PARAM_2)	          
                 ->whereNull('dmha_288.deleted_at')	
                 ->orderBy('dmha_288.id','asc')
 

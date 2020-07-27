@@ -92,13 +92,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_1_create_sub_fitur_complete($nama)
+    function dmha_1_create_sub_fitur_complete($id,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_1::create_sub_fitur_complete($nama);
+            $isi    = dmha_1::create_sub_fitur_complete($id,$nama);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

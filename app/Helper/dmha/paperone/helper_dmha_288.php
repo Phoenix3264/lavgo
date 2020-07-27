@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_288_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_288_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$PARAM_2)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_288::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_288::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$PARAM_2);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

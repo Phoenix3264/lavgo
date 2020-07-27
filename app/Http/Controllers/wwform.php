@@ -39,8 +39,19 @@ class wwform extends Controller
                 $isi .= color_admin_material_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3);
                 
                 if($PARAM_3 != 'NULL') { $ID = $PARAM_3; }
+                elseif($PARAM_3 == 'NULL') { $ID = NULL; }
                 else{ $ID = $PARAM_2; }
                 $isi .= color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID);
+            }
+            elseif($dmha_2 == 4)
+            {
+                $isi .= color_admin_apple_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3);
+                
+                if($PARAM_3 == 'NOP') { $ID = $PARAM_2; }
+                elseif($PARAM_3 != 'NULL') { $ID = $PARAM_3; }
+                elseif($PARAM_3 == 'NULL') { $ID = NULL; }
+                else{ $ID = $PARAM_2; }
+                $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID);
             }
             
         // ------------------------------------------------------------------------- SEND
@@ -119,7 +130,7 @@ class wwform extends Controller
                 dmha_1_create_sub_fitur($request->nama);
             }
             elseif($DMHA_1 == 113) {     
-                dmha_1_create_sub_fitur_complete($request->nama);
+                dmha_1_create_sub_fitur_complete($request->dmha_1, $request->nama);
             }
             elseif($DMHA_1 == 118) {     
                 dmha_1_create_fitur_complete($request->nama);
@@ -130,6 +141,14 @@ class wwform extends Controller
             }       
             elseif($DMHA_1 == 309) {     
                 dmha_1_create_fitur_complete_sub_detail($request->nama);
+            }
+            elseif($DMHA_1 == 322) {     
+                if($DMHA_9 == 2) { dmha_322_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_322_update_me($ID,$request->all()); }
+            }
+            elseif($DMHA_1 == 326) {     
+                if($DMHA_9 == 2) { dmha_326_create_me($request->all()); }
+                elseif($DMHA_9 == 3) { dmha_326_update_me($ID,$request->all()); }
             }
 
 
@@ -185,11 +204,31 @@ class wwform extends Controller
                 elseif($DMHA_9 == 3) { dmha_247_update_me($ID,$request->all()); }
             }
 
-            // acadion
-            elseif($DMHA_1 == 171) {     
-                if($DMHA_9 == 2) { dmha_171_create_me($request->all()); }
-                elseif($DMHA_9 == 3) { dmha_171_update_me($ID,$request->all()); }
-            }
+            //////////////////////////////////////////////////////////////////////////////////////////// acadion
+                elseif($DMHA_1 == 87) {     
+                    if($DMHA_9 == 2) { dmha_87_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_87_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 111) {     
+                    if($DMHA_9 == 2) { dmha_111_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_111_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 114) {     
+                    if($DMHA_9 == 2) { dmha_114_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_114_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 171) {     
+                    if($DMHA_9 == 2) { dmha_171_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_171_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 175) {     
+                    if($DMHA_9 == 2) { dmha_175_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_175_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 330) {     
+                    if($DMHA_9 == 2) { dmha_330_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_330_update_me($ID,$request->all()); }
+                }
 
 
             // paperone
@@ -210,7 +249,7 @@ class wwform extends Controller
 
                 $exp_nama = explode(' ',$author);
 
-                $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", "", $nama);
+                $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", " ", $nama);
 
                 $filename = $exp_nama[0].'_'.$publish.'_-_'.replace_to_underscore($pra_nama).'.'.$request->filename->getClientOriginalExtension();
                 

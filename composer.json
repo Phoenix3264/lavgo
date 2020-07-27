@@ -59,7 +59,9 @@
             "app/Helper/dmha/system/helper_dmha_157.php",   
             "app/Helper/dmha/system/helper_dmha_158.php",    
             "app/Helper/dmha/system/helper_dmha_162.php",   
-            "app/Helper/dmha/system/helper_dmha_300.php",              
+            "app/Helper/dmha/system/helper_dmha_300.php",  
+            "app/Helper/dmha/system/helper_dmha_322.php",   
+            "app/Helper/dmha/system/helper_dmha_326.php",               
 
             "app/Helper/dmha/additional/helper_dmha_69.php",
             "app/Helper/dmha/additional/helper_dmha_73.php",
@@ -76,20 +78,19 @@
             "app/Helper/dmha/paperone/helper_dmha_314.php",
             "app/Helper/dmha/paperone/helper_dmha_318.php",
 
-            "app/Helper/dmha/additional/helper_dmha_69.php",
-            "app/Helper/dmha/additional/helper_dmha_73.php",
-            "app/Helper/dmha/additional/helper_dmha_77.php",
-            "app/Helper/dmha/additional/helper_dmha_81.php",
-            
             "app/Helper/dmha/acadion/helper_dmha_87.php",
             "app/Helper/dmha/acadion/helper_dmha_91.php",
             "app/Helper/dmha/acadion/helper_dmha_95.php",
             "app/Helper/dmha/acadion/helper_dmha_99.php",
             "app/Helper/dmha/acadion/helper_dmha_103.php",
             "app/Helper/dmha/acadion/helper_dmha_107.php",
+            "app/Helper/dmha/acadion/helper_dmha_114.php",
+            "app/Helper/dmha/acadion/helper_dmha_111.php",
             "app/Helper/dmha/acadion/helper_dmha_163.php",
             "app/Helper/dmha/acadion/helper_dmha_167.php",
             "app/Helper/dmha/acadion/helper_dmha_171.php",
+            "app/Helper/dmha/acadion/helper_dmha_175.php",
+            "app/Helper/dmha/acadion/helper_dmha_330.php",
 
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_126.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_130.php",
@@ -115,7 +116,10 @@
             "app/Helper/UI/helper_UI_table.php",
 
             "app/Helper/template/helper_color_admin_v42.php",   
-            "app/Helper/template/helper_color_admin_material_v42.php"      
+            "app/Helper/template/helper_color_admin_material_v42.php",   
+            "app/Helper/template/helper_color_admin_apple_v42.php",     
+            "app/Helper/template/helper_unify_v263.php"       
+            
                          
         ],
         "classmap": [

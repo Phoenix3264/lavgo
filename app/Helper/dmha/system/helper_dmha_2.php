@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_2;
+	use App\Models\system\dmha_2;
 
     function dmha_2_id_check_col($ID,$COL)
     {
@@ -38,11 +38,12 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
                     '.th_me('Nama', $class_th).'
+                    '.th_me('Root', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';

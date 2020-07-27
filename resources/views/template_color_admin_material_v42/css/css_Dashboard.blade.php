@@ -7,3 +7,5 @@
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/material/style.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/material/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/material/theme/default.css" rel="stylesheet" id="theme" />
+
+<link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />

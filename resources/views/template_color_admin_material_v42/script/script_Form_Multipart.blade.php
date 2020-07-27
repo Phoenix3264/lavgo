@@ -51,7 +51,7 @@
                 processData: false,
                 success:function(data){
                     console.log(data);
-                    window.location.href = "{{ url('/') }}/{{dmha_1_id_check_col($dmha_1,'link')}}";
+                    window.location.href = "{{url()->previous()}} ";
                 }
             });
         });

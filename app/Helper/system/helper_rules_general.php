@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Storage;
                     {
                         $name = 'filename';
                     }
-                    $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.$PARAM_2.'/'.dmha_14_generate_value(NULL,$name,$DMHA_1,3,$ID_DATA));
+                    $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.$PARAM_2.'/'.dmha_14_generate_value(3,$DMHA_1,$ID_DATA,$name));
                 }
                 else
                 {

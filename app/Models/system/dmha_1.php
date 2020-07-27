@@ -235,19 +235,7 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_sub_fitur_complete($nama)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            dmha_1::create([ 'nama' => $nama, 'link' => 'javascript:;', 'urutan' => 1, 'has_sub' => 1, 'dmha_2' => 2, 'dmha_5' => 1, ]);
-
-        // ------------------------------------------------------------------------- SEND
-        ////////////////////////////////////////////////////////////////////////////
-    }
-
-    public static function create_fitur_complete($nama)
+    public static function create_sub_fitur_complete($id,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -259,6 +247,7 @@ class dmha_1 extends Model
                     'nama' => $nama, 
                     'link' => 'Data_'.replace_to_underscore($nama), 
                     'urutan' => 1,  
+                    'dmha_1' => $id, 
                     'dmha_2' => 2, 
                     'dmha_3' => 1,
                     'dmha_4' => 1,
@@ -314,7 +303,76 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    
+    public static function create_fitur_complete($nama)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            // create data
+            $model = dmha_1::create(
+                [ 
+                    'nama' => $nama, 
+                    'link' => 'Data_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_2' => 4, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 1,
+                    'dmha_5' => 1, 
+                    'dmha_9' => 1,
+                    'dmha_300' => 1,
+                ]);
+
+            $dmha_1 = $model->id;
+
+            // create Create
+            dmha_1::create(
+                [ 
+                    'nama' => 'Create', 
+                    'link' => 'Create_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 4, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 2, 
+                    'dmha_9' => 2,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Edit
+            dmha_1::create(
+                [ 
+                    'nama' => 'Edit', 
+                    'link' => 'Edit_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 4, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 3, 
+                    'dmha_9' => 3,
+                    'dmha_300' => 2,
+                ]);
+
+            // create Delete
+            dmha_1::create(
+                [ 
+                    'nama' => 'Delete', 
+                    'link' => 'Delete_'.replace_to_underscore($nama), 
+                    'urutan' => 1,  
+                    'dmha_1' => $dmha_1, 
+                    'dmha_2' => 4, 
+                    'dmha_3' => 1,
+                    'dmha_4' => 2,
+                    'dmha_5' => 4,
+                    'dmha_9' => 3, 
+                    'dmha_300' => 2,
+                ]);
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }    
 
     public static function create_fitur_complete_sub_detail($nama)
     {
@@ -541,6 +599,7 @@ class dmha_1 extends Model
                         'dmha_4'     => $array_data['dmha_4'],
                         'dmha_5'     => $array_data['dmha_5'],
                         'dmha_9'     => $array_data['dmha_9'],
+                        'dmha_300'     => $array_data['dmha_300'],
                         'updated_at'     => now()
                     ]);
 

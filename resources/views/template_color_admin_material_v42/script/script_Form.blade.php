@@ -43,7 +43,7 @@
                 url:"{{ url('/') }}/wwform/postdata",
                 data: $('#{{$PARAM_1}}').serialize(),
                 success:function(data){
-                    window.location.href = "{{ url('/') }}/{{dmha_1_id_check_col($dmha_1,'link')}}";
+                    window.location.href = "{{url()->previous()}} ";
                 }
             });
         });

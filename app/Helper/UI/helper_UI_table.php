@@ -85,6 +85,7 @@
             $isi    = $DMHA_ID;
 
 		// ------------------------------------------------------------------------- ACTION
+			// System
 			if($DMHA_ID == 1){ $isi = dmha_1_data_table(); }
 			elseif($DMHA_ID == 2){ $isi = dmha_2_data_table(); }
 			elseif($DMHA_ID == 3){ $isi = dmha_3_data_table(); }
@@ -96,6 +97,10 @@
 			elseif($DMHA_ID == 14){ $isi = dmha_14_data_table(); }
 			elseif($DMHA_ID == 15){ $isi = dmha_15_data_table(); }
 			elseif($DMHA_ID == 40){ $isi = dmha_40_data_table(); }
+			elseif($DMHA_ID == 322){ $isi = dmha_322_data_table(); }
+			elseif($DMHA_ID == 326){ $isi = dmha_326_data_table(); }
+
+
 			elseif($DMHA_ID == 47){ $isi = dmha_47_data_table(); }
 			elseif($DMHA_ID == 51){ $isi = dmha_51_data_table(); }
 			elseif($DMHA_ID == 56){ $isi = dmha_56_data_table(); }
@@ -105,7 +110,6 @@
 			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table(); }
 			elseif($DMHA_ID == 77){ $isi = dmha_77_data_table(); }
 			elseif($DMHA_ID == 81){ $isi = dmha_81_data_table(); }
-			elseif($DMHA_ID == 87){ $isi = dmha_87_data_table(); }
 			elseif($DMHA_ID == 91){ $isi = dmha_91_data_table(); }
 			elseif($DMHA_ID == 95){ $isi = dmha_95_data_table(); }
 			elseif($DMHA_ID == 99){ $isi = dmha_99_data_table(); }
@@ -123,38 +127,14 @@
 			//additional
 			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table(); }
 
-			// acadion
-			elseif($DMHA_ID == 167){ $isi = dmha_167_data_table(); }
-			elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
-			elseif($DMHA_ID == 175){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 179){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 183){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 187){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 191){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 195){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 199){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 203){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 207){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-
-			elseif($DMHA_ID == 211){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 215){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 219){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 223){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 227){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 231){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 235){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 239){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 243){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-
-			elseif($DMHA_ID == 251){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 255){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 259){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 275){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 279){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 283){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 263){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 267){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
-			elseif($DMHA_ID == 271){ $isi = dmha_171_data_table_data_siswa_per_kelas(); }
+			///////////////////////////////////////////////////////////////////////////////// acadion
+				elseif($DMHA_ID == 87){ $isi = dmha_87_data_table(); }
+				elseif($DMHA_ID == 111){ $isi = dmha_111_data_table(); }
+				elseif($DMHA_ID == 114){ $isi = dmha_114_data_table(); }
+				elseif($DMHA_ID == 167){ $isi = dmha_167_data_table(); }
+				elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
+				elseif($DMHA_ID == 175){ $isi = dmha_175_data_table(); }
+				elseif($DMHA_ID == 330){ $isi = dmha_330_data_table(); }
 
 			
 			// paperone			

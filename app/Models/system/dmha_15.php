@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_13
  * @property int $urutan
  * @property string $created_at
- * @property string $update_at
+ * @property string $updated_at
  * @property string $deleted_at
  */
 class dmha_15 extends Model
@@ -25,7 +25,7 @@ class dmha_15 extends Model
     /**
      * @var array 
      */
-    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'urutan_tabel', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'urutan_tabel', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 

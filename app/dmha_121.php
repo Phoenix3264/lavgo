@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $status_perkawinan
  * @property string $pekerjaan
  * @property string $created_at
- * @property string $update_at
+ * @property string $updated_at
  * @property string $deleted_at
  */
 class dmha_121 extends Model
@@ -36,6 +36,6 @@ class dmha_121 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'rt', 'rw', 'desa_kelurahan', 'kecamatan', 'kabupaten_kota', 'agama', 'status_perkawinan', 'pekerjaan', 'created_at', 'update_at', 'deleted_at'];
+    protected $fillable = ['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'rt', 'rw', 'desa_kelurahan', 'kecamatan', 'kabupaten_kota', 'agama', 'status_perkawinan', 'pekerjaan', 'created_at', 'updated_at', 'deleted_at'];
 
 }

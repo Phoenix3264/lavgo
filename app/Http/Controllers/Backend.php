@@ -49,7 +49,7 @@ class Backend extends Controller
                 $data['PARAM_3']    = $PARAM_3;
                 if($PARAM_3 == '')
                 {
-                    $data['PARAM_3']    = 'NULL';
+                    $data['PARAM_3']    = 'NOP';
                 }
                 
                 $id                 = dmha_1_link_check_col($PARAM_1,'id');

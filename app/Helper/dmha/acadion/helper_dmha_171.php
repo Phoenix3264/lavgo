@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_171;
+	use App\Models\acadion\dmha_171;
 
     function dmha_171_id_check_col($ID,$COL)
     {
