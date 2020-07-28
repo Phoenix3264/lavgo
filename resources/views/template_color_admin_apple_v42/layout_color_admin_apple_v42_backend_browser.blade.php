@@ -9,7 +9,7 @@
     @include('general_layout.meta_backend')
     @include($template.'.css.css_'.$page)    
     <link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />
-    @include($template.'.js.js_'.$page)	
+	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/pace/pace.min.js"></script>
 </head>
 <body>
 	<!-- begin #page-loader -->
