@@ -23,14 +23,14 @@
                         // has_sub? caret
                         if ($row->has_sub == 1) { $isi .= '<b class="caret"></b>'; }
     
-                            $isi .= '                            
-                            <i class="'.dmha_5_id_check_col($row->dmha_5,'nama').'"></i> ';
-
+                            
+                            $temp_icon_1 = str_replace('<i class="','',dmha_5_id_check_col($row->dmha_5,'fa')) ;
+                            $icon = str_replace('"></i>','',$temp_icon_1) ;
+                            $bg_color = dmha_322_id_check_col($row->dmha_322,'nama') ;
                             $isi .= '   
                             <span>
-                                '.dmha_5_id_check_col($row->dmha_5,'fa').'
-                                '.$row->nama.' -
-                                '.$row->id.'
+                                <i class="'.$icon.' '.$bg_color.'"></i> 
+                                '.$row->nama.'
                             </span>
                         </a>
                         '.color_admin_apple_v42_sidebar2($AUTH_ID,$row->id,$DMHA_1,$PARAM_2).'
@@ -57,8 +57,7 @@
                 $isi .= '
                     <li class="'.rules_active_sidebar($DMHA_1,$row->id,'level2').'">
                         <a href="'.rules_link($row->link,$row->dmha_4,'NULL',$DMHA_1,'NULL').'">
-                            '.$row->nama.' -
-                            '.$row->id.'
+                            '.$row->nama.' 
                         </a>
                     </li>                          
                 ';

@@ -1,1 +1,1 @@
-<h1 class="page-header">Page with Wide Sidebar <small>header small text goes here{{ asset('/public/').'/'.$root }}.</small></h1>
+<h1 class="page-header">{{$nama}}</h1>

@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_5
  * @property int $dmha_9
  * @property int $dmha_300
+ * @property int $dmha_322
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -33,7 +34,7 @@ class dmha_1 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'dmha_322', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -95,7 +96,7 @@ class dmha_1 extends Model
                     ->orderBy('id','asc')
                     ->get();
             }
-            elseif($TIPE == 'sidebar_1')
+            elseif($TIPE == 'pertanyaan_hak_akss_app_mode')
             {
                 $isi = dmha_1::
                     selectRaw('
@@ -105,6 +106,33 @@ class dmha_1 extends Model
                         dmha_1.urutan,
                         dmha_1.has_sub,
                         dmha_1.dmha_5
+                    ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('dmha_8.active','=',1)
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->whereNull('dmha_1.deleted_at')	
+                ->whereNull('dmha_1.dmha_1')	
+
+                ->get();
+            }
+            elseif($TIPE == 'sidebar_1')
+            {
+                $isi = dmha_1::
+                    selectRaw('
+                        dmha_1.id,
+                        dmha_1.nama,
+                        dmha_1.link,
+                        dmha_1.urutan,
+                        dmha_1.has_sub,
+                        dmha_1.dmha_5,
+                        dmha_1.dmha_322
                     ')
 
                 ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
@@ -600,6 +628,7 @@ class dmha_1 extends Model
                         'dmha_5'     => $array_data['dmha_5'],
                         'dmha_9'     => $array_data['dmha_9'],
                         'dmha_300'     => $array_data['dmha_300'],
+                        'dmha_322'     => $array_data['dmha_322'],
                         'updated_at'     => now()
                     ]);
 

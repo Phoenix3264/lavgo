@@ -43,7 +43,9 @@
             	@include($template.'.panel.panel_'.$page) 
 			<!-- end panel -->
             
-			{!!dev_mode_show_page_detail($AUTH_ID,$id)!!}
+			<?php
+			  echo dev_mode_show_page_detail($AUTH_ID,$id);
+			?>
 		</div>
 		<!-- end #content -->
 		

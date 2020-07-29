@@ -212,15 +212,16 @@
                 elseif($DMHA_1 == 122) { $isi .= dmha_122_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 322) { $isi .= dmha_322_id_check_col($ID,$name);  }  
                 elseif($DMHA_1 == 326) { $isi .= dmha_326_id_check_col($ID,$name);  }  
+                elseif($DMHA_1 == 322) { $isi .= dmha_322_id_check_col($ID,$name);  }  
 
                 ///////////////////////////////////////////////////////////////////////////////// acadion
                     elseif($DMHA_1 == 111) { $isi .= dmha_111_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
 
-                // paperone
-                elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
-                elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
+                ///////////////////////////////////////////////////////////////////////////////// paperone
+                    elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
 
                 else{ $isi .= dmha_40_id_check_col(6,'nama'); }
                 
@@ -277,6 +278,7 @@
                 elseif($dmha_13 == 26) { $isi_model = dmha_130_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 27) { $isi_model = dmha_134_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 28) { $isi_model = dmha_138_let_me_generate_data_array(null,null); }
+                elseif($dmha_13 == 49) { $isi_model = dmha_322_let_me_generate_data_array(null,null); }
                 
                 ////////////////////////////////////////////////////////////////////////////////////////////// ACADION                    
                     elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array(null,null); }
@@ -407,32 +409,36 @@
         // ------------------------------------------------------------------------- ACTION        
             if($dmha_13 == 30) { 
                 $isi_model = dmha_1_let_me_generate_data_array(null,null,'level1'); 
+            }
+            elseif($dmha_13 == 48) { 
+                $isi_model = dmha_1_let_me_generate_data_array(null,null,'pertanyaan_hak_akss_app_mode'); 
+            }
+            
 
-                foreach ($isi_model as $row) {
-                    $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
+            foreach ($isi_model as $row) {
+                $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
+                
+                $isi_model2 = dmha_1_let_me_generate_data_array(null,$row->id,'level2'); 
+
+                foreach ($isi_model2 as $row2) {
+                    $isi .= dmha_14_generate_checkboxes_field($row2->id,$name,'&nbsp; &nbsp; '.$row2->nama,$DMHA_1,$ID);
                     
-                    $isi_model2 = dmha_1_let_me_generate_data_array(null,$row->id,'level2'); 
-
-                    foreach ($isi_model2 as $row2) {
-                        $isi .= dmha_14_generate_checkboxes_field($row2->id,$name,'&nbsp; &nbsp; '.$row2->nama,$DMHA_1,$ID);
+                    $isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
+                    
+                    foreach ($isi_model3 as $row3) {
+                        $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
                         
-                        $isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
-                        
-                        foreach ($isi_model3 as $row3) {
-                            $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
-                            
-                            $isi_model4 = dmha_1_let_me_generate_data_array(null,$row3->id,'level2'); 
+                        $isi_model4 = dmha_1_let_me_generate_data_array(null,$row3->id,'level2'); 
 
-                            foreach ($isi_model4 as $row4) {
-                                $isi .= dmha_14_generate_checkboxes_field($row4->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '.$row4->nama,$DMHA_1,$ID);
-                            }
+                        foreach ($isi_model4 as $row4) {
+                            $isi .= dmha_14_generate_checkboxes_field($row4->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '.$row4->nama,$DMHA_1,$ID);
                         }
                     }
                 }
-
             }
 
-           //  $isi = count($isi_model);
+
+            // $isi = count($isi_model);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

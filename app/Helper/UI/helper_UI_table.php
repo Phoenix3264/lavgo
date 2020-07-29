@@ -81,8 +81,9 @@
 
     function general_colgroup_thead($DMHA_ID)
     {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = $DMHA_ID;
+		// ------------------------------------------------------------------------- INITIALIZE
+			$isi = '';
+            //$isi    = $DMHA_ID;
 
 		// ------------------------------------------------------------------------- ACTION
 			// System
@@ -99,7 +100,6 @@
 			elseif($DMHA_ID == 40){ $isi = dmha_40_data_table(); }
 			elseif($DMHA_ID == 322){ $isi = dmha_322_data_table(); }
 			elseif($DMHA_ID == 326){ $isi = dmha_326_data_table(); }
-
 
 			elseif($DMHA_ID == 47){ $isi = dmha_47_data_table(); }
 			elseif($DMHA_ID == 51){ $isi = dmha_51_data_table(); }
@@ -134,6 +134,7 @@
 				elseif($DMHA_ID == 167){ $isi = dmha_167_data_table(); }
 				elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
 				elseif($DMHA_ID == 175){ $isi = dmha_175_data_table(); }
+				elseif($DMHA_ID == 203){ $isi = dmha_203_data_table(); }
 				elseif($DMHA_ID == 330){ $isi = dmha_330_data_table(); }
 
 			

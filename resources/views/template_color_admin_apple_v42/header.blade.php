@@ -1,7 +1,7 @@
 
 <!-- begin navbar-header -->
 <div class="navbar-header">
-    <a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Color</b> Admin</a>
+    <a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>School</b> Admin</a>
     <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -12,14 +12,6 @@
 
 <!-- begin header-nav -->
 <ul class="navbar-nav navbar-right">
-    <li>
-        <form class="navbar-form">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter keyword" />
-                <button type="submit" class="btn btn-search"><i class="ion-ios-search"></i></button>
-            </div>
-        </form>
-    </li>
     <li class="dropdown">
         <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle icon">
             <i class="ion-ios-notifications"></i>
