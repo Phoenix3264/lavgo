@@ -37,11 +37,6 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 326) { $isi_model = dmha_326_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     
                 elseif($DMHA_1 == 40) { $isi_model = dmha_40_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 47) { $isi_model = dmha_47_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 51) { $isi_model = dmha_51_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 56) { $isi_model = dmha_56_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 64) { $isi_model = dmha_64_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 elseif($DMHA_1 == 91) { $isi_model = dmha_91_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                 elseif($DMHA_1 == 95) { $isi_model = dmha_95_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -75,6 +70,18 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 203) { $isi_model = dmha_203_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 330) { $isi_model = dmha_330_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Notarion
+                    elseif($DMHA_1 == 46) { $isi_model = dmha_46_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 47) { $isi_model = dmha_47_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 55) { $isi_model = dmha_55_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 119) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 148) { $isi_model = dmha_148_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 152) { $isi_model = dmha_152_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 255) { $isi_model = dmha_255_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 259) { $isi_model = dmha_259_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 263) { $isi_model = dmha_263_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PAPERONE
                     elseif($DMHA_1 == 287) { $isi_model = dmha_287_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 288) { $isi_model = dmha_288_let_me_generate_data_array($AUTH_ID, $DMHA_1, $PARAM_2); }
@@ -94,7 +101,7 @@ class wwdata extends Controller
                 return datatables()
                     ->of($isi_model)
                     ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_material_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
                         return $dropdown;
                     })
                     ->rawColumns(['action'])

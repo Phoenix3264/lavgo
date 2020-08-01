@@ -4,3 +4,6 @@ body{
 .form-control{
     font-size:13px;
 }
+.display-none{
+    display: none;
+}

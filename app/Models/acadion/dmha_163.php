@@ -80,7 +80,7 @@ class dmha_163 extends Model
             if($TIPE == 'default')
             {
                 $isi = dmha_163::whereNull('deleted_at')
-                    ->orderBy('id','asc')
+                    ->orderBy('nama','asc')
                     ->get();
             }
             else

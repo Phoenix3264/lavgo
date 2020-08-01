@@ -66,7 +66,7 @@ class dmha_77 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_77::whereNull('deleted_at')
-                ->orderBy('id','asc')
+                ->orderBy('nama','asc')
                 ->get();
 
 

@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_130;
+    use App\Models\data_pendukung_ktp\dmha_130;
 
     function dmha_130_id_check_col($ID,$COL)
     {

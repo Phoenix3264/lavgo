@@ -1,0 +1,1 @@
+@include($template.'.panel_body.custom_dashboard.dashboard_'.replace_to_underscore($AUTH_ROLE))

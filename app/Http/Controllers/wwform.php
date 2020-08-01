@@ -210,8 +210,26 @@ class wwform extends Controller
                     elseif($DMHA_9 == 3) { dmha_87_update_me($ID,$request->all()); }
                 }
                 elseif($DMHA_1 == 111) {     
-                    if($DMHA_9 == 2) { dmha_111_create_me($request->all()); }
-                    elseif($DMHA_9 == 3) { dmha_111_update_me($ID,$request->all()); }
+                    
+                    $nama = $request->nama;
+                    $dmha_175 = $request->dmha_175;
+                    $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", " ", $nama);
+                    $filename = replace_to_underscore($pra_nama).'.'.$request->filename->getClientOriginalExtension();
+
+                    $storage_files = 'public/storage/dmha_111/';
+
+                    $filename_exist  = public_path($storage_files).$filename;
+
+                    if (Storage::exists($filename_exist)) {
+                        Storage::delete($filename_exist);
+                    }     
+
+                    if (!is_null($filename_exist)) {
+                        $request->filename->storeAs($storage_files,$filename);    
+                    }  
+
+                    if($DMHA_9 == 2) { dmha_111_create_me($nama,$dmha_175,$filename); }
+                    elseif($DMHA_9 == 3) { dmha_111_update_me($ID,$nama,$dmha_175,$filename); }
                 }
                 elseif($DMHA_1 == 114) {     
                     if($DMHA_9 == 2) { dmha_114_create_me($request->all()); }
@@ -228,6 +246,49 @@ class wwform extends Controller
                 elseif($DMHA_1 == 330) {     
                     if($DMHA_9 == 2) { dmha_330_create_me($request->all()); }
                     elseif($DMHA_9 == 3) { dmha_330_update_me($ID,$request->all()); }
+                }
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////// Notarion
+                elseif($DMHA_1 == 46) {     
+                    if($DMHA_9 == 2) { dmha_46_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_46_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 47) {     
+                    if($DMHA_9 == 2) { dmha_47_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_47_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 55) {     
+                    if($DMHA_9 == 2) { dmha_55_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_55_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 60) {     
+                    if($DMHA_9 == 2) { dmha_60_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_60_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 60) {     
+                    if($DMHA_9 == 2) { dmha_60_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_60_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 119) {     
+                    if($DMHA_9 == 2) { dmha_119_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_119_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 148) {     
+                    if($DMHA_9 == 2) { dmha_148_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_148_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 152) {     
+                    if($DMHA_9 == 2) { dmha_152_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_152_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 255) {     
+                    if($DMHA_9 == 2) { dmha_255_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_255_update_me($ID,$request->all()); }
+                }
+                elseif($DMHA_1 == 259) {     
+                    if($DMHA_9 == 2) { dmha_259_create_me($request->all()); }
+                    elseif($DMHA_9 == 3) { dmha_259_update_me($ID,$request->all()); }
                 }
 
 
@@ -258,8 +319,7 @@ class wwform extends Controller
                 $filename_exist  = public_path($storage_files).$filename;
                 if (Storage::exists($filename_exist)) {
                     Storage::delete($filename_exist);
-                }
-                
+                }                
                 $request->filename->storeAs($storage_files,$filename);
 
                 if($DMHA_9 == 2) { dmha_288_create_me($dmha_292,$dmha_296,$dmha_287,$nama,$author,$publish,$keyword,$filename); }
