@@ -39,7 +39,7 @@
 
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(13).'
+            general_colgroup(12).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
@@ -51,7 +51,6 @@
                     '.th_me('Template', $class_th).'
                     '.th_me('Controller', $class_th).'
                     '.th_me('Page', $class_th).'
-                    '.th_me('Icon', $class_th).'
                     '.th_me('Kategori', $class_th).'
                     '.th_me('Supported ID', $class_th).'
                     '.th_me('Action', $class_th).'
