@@ -17,6 +17,9 @@ class Backend extends Controller
     //
     public function index($PARAM_1=NULL,$PARAM_2=NULL,$PARAM_3=NULL)
   	{
+        // Make me Smooth
+            if($PARAM_1 == 'js'){ return redirect('dashboard'); }
+            
         // Set Rules
             // Unknown Param, Redirect to
                 if($PARAM_1 == ''){return redirect('dashboard');}
