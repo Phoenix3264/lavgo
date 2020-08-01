@@ -22,10 +22,7 @@
                         
                         // has_sub? caret
                         if ($row->has_sub == 1) { $isi .= '<b class="caret"></b>'; }
-    
-                            
-                            $temp_icon_1 = str_replace('<i class="','',dmha_5_id_check_col($row->dmha_5,'fa')) ;
-                            $icon = str_replace('"></i>','',$temp_icon_1) ;
+                            $icon = dmha_5_id_check_col($row->dmha_5,'fa') ;
                             $bg_color = dmha_322_id_check_col($row->dmha_322,'nama') ;
                             $isi .= '   
                             <span>
@@ -91,7 +88,7 @@
                         
                         '.rules_link_target_blank($row->dmha_4).'
                         >
-                            '.dmha_5_id_check_col($row->dmha_5,'fa').' 
+                            <i class="'.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
                             '.$row->nama.'
                             </a></li>';
                     }                        
@@ -131,7 +128,7 @@
 
 
                     >
-                    '.dmha_5_id_check_col($row->dmha_5,'fa').'
+                    <i class="'.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
                     '.$row->nama.'
                 </a>
                 ';

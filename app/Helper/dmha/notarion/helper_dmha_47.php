@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_47;
+    use App\Models\notarion\dmha_47;
 
     function dmha_47_id_check_col($ID,$COL)
     {

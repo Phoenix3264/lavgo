@@ -145,8 +145,9 @@
             elseif($dmha_14 == 9) { $isi .= dmha_14_generate_multi_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); } 
             elseif($dmha_14 == 10) { $isi .= dmha_14_generate_textarea($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); } 
             elseif($dmha_14 == 12) { $isi .= dmha_14_generate_file_upload($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); } 
+            elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete_nik($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID); } 
 
-            else{ $isi .= dmha_40_id_check_col(5,'nama'); }
+            else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -183,8 +184,6 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-
-    
     
     function dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name)
     {
@@ -268,7 +267,6 @@
                 elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 14) { $isi_model = dmha_1_let_me_generate_data_array(null,null,'select'); }
                 elseif($dmha_13 == 44) { $isi_model = dmha_300_let_me_generate_data_array(null,null); }
-
                 
                 elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
                 elseif($dmha_13 == 22) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
@@ -457,6 +455,26 @@
                 <label for="form-'.$row_id.'">'.$label.'</label>
             </div>
             ';     
+
+            /*
+            $isi .= '
+                
+            <tr>
+            <td>
+                '.$label.'
+            </td>
+            <td>
+                '.$row_id.'
+            </td>
+            <td>
+                '.dmha_1_id_check_col($row_id,'dmha_1').'
+            </td>
+            <td>
+                '.dmha_1_id_check_col(dmha_1_id_check_col($row_id,'dmha_1'),'nama').'
+            </td>
+            </tr>
+            ';
+            */
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
@@ -476,11 +494,14 @@
                 $isi .= '<div class="col-md-2">';
                 $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'[]" value="'.dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_9,$ID.'#'.$row->id).'" >';      
                 $isi .= '</div>';
+                $isi .= '<div class="col-md-2 display-none">';
+                $isi .= '<input type="text" class="'.$class.'" id="form-dmha_13-'.$dmha_13.'" name="dmha_13[]"  value="'.$row->id.'" >';      
+                $isi .= '</div>';
                 $isi .= '<div class="col-md-2">';
-                $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="dmha_13[]"  value="'.$row->id.'" >';      
+                $isi .= '<input type="text" class="'.$class.'" id="form-urutan_tabel-'.$dmha_13.'" name="urutan_tabel[]"  value="" >';      
                 $isi .= '</div>';
 
-                $isi .= '<label class="col-md-8 col-form-label">';
+                $isi .= '<label class="col-md-6 col-form-label">';
                 $isi .= $row->nama;    
                 $isi .= ' <span class="label label-info">'.$row->name.'</span>';  
                 $isi .= '</label>';
@@ -515,6 +536,21 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="file"  name="'.$name.'" >';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    
+    function dmha_14_generate_autocomplete_nik($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_9,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="text" class="'.$class.' masked-input-nik" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_9,$DMHA_1,$ID,$name).'" >';      
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

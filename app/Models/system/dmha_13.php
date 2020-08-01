@@ -53,12 +53,12 @@ class dmha_13 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_13::whereNull('deleted_at')
-                ->orderBy('id','asc')
+                ->orderBy('nama','asc')
                 ->get();
 
             if($TIPE == 'default')
             {
-                $isi = dmha_13::orderBy('id','asc')
+                $isi = dmha_13::orderBy('nama','asc')
                     ->get();
             }
             elseif($TIPE == 'joined')
@@ -72,7 +72,7 @@ class dmha_13 extends Model
                     dmha_13.panjang
                     ')
                     ->join('dmha_14', 'dmha_14.id', '=', 'dmha_13.dmha_14')                    
-                    ->orderBy('dmha_14.id','asc')
+                    ->orderBy('dmha_14.nama','asc')
                     ->get();
             }
     

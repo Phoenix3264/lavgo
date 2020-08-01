@@ -1,14 +1,14 @@
 <?php
 
-	use App\dmha_56;
+    use App\Models\notarion\dmha_46;
 
-    function dmha_56_id_check_col($ID,$COL)
+    function dmha_46_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_56::id_check_col($ID,$COL);
+            $isi    = dmha_46::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_56_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_46_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_56::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_46::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -30,7 +30,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_56_data_table()
+    function dmha_46_data_table()
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';

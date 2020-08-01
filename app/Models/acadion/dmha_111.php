@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $nama
  * @property string $dmha_175
+ * @property string $filename
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -24,7 +25,7 @@ class dmha_111 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'dmha_175', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'dmha_175', 'filename', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -44,14 +45,14 @@ class dmha_111 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array()
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_111::whereNull('deleted_at')
-                ->orderBy('id','asc')
+                ->orderBy('nama','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -60,19 +61,24 @@ class dmha_111 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($nama,$dmha_175,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_111::create($array_data);
+            dmha_111::insert(
+                [
+                    'nama'     => $nama,
+                    'dmha_175'     => $dmha_175,
+                    'filename'     => $filename
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$nama,$dmha_175,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -81,8 +87,9 @@ class dmha_111 extends Model
             dmha_111::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
-                    'dmha_175'     => $array_data['dmha_175'],
+                    'nama'     => $nama,
+                    'dmha_175'     => $dmha_175,
+                    'filename'     => $filename,
                     'updated_at'     => now()
                 ]);
 

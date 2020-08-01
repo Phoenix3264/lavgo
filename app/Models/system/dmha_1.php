@@ -76,24 +76,29 @@ class dmha_1 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            if($TIPE == 'level1')
+            if($TIPE == 'all')
+            {
+                $isi = dmha_1::whereNull('deleted_at')							
+                    ->orderBy('nama','asc')
+                    ->get();
+            }elseif($TIPE == 'level1')
             {
                 $isi = dmha_1::whereNull('deleted_at')		
                     ->whereNull('dmha_1')										
-                    ->orderBy('id','asc')
+                    ->orderBy('nama','asc')
                     ->get();
             }
             elseif($TIPE == 'level2')
             {
                 $isi = dmha_1::where('dmha_1','=',$ID)			
                     ->whereNull('deleted_at')										
-                    ->orderBy('id','asc')
+                    ->orderBy('nama','asc')
                     ->get();
             }
             elseif($TIPE == 'select')
             {
                 $isi = dmha_1::whereNull('deleted_at')										
-                    ->orderBy('id','asc')
+                    ->orderBy('nama','asc')
                     ->get();
             }
             elseif($TIPE == 'pertanyaan_hak_akss_app_mode')
@@ -108,8 +113,6 @@ class dmha_1 extends Model
                         dmha_1.dmha_5
                     ')
 
-                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
-                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
 
                 ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
                 ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
