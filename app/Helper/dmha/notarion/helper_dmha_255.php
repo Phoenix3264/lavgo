@@ -38,10 +38,14 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(7).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+                    '.th_me('Nomor', $class_th).'
+                    '.th_me('Persil', $class_th).'
+                    '.th_me('Klas', $class_th).'
+                    '.th_me('Luas', $class_th).'
                     '.th_me('Nama', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
@@ -51,3 +55,87 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
+    
+    
+    function dmha_255_data_table_col_6($Pengurusan_ID,$Berkas_ID,$dmha)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class_th = 'text-center bold';
+
+            $isi_model = dmha_47_let_me_generate_data($Pengurusan_ID,$Berkas_ID,$dmha);
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= 
+            '<table class="table table-striped table-bordered">'.
+            general_colgroup(5).'
+            <thead>
+                <tr>
+                    '.th_me('ID', $class_th).'
+                    '.th_me('LC', $class_th).'
+                    '.th_me('Tanggal', $class_th).'
+                    '.th_me('Perolehan', $class_th).'
+                    '.th_me('Action', $class_th).'
+                </tr>
+            </thead>
+            <tbody>';
+            if(count($isi_model) == 0)
+            {   
+                $isi .= '
+                <tr>
+                    <td colspan="5" class="text-center">
+                        '.dmha_40_id_check_col(7,'nama').'
+                    </td>
+                </tr>
+                ';
+            }
+            $isi .= '
+            </tbody>
+            </table>
+            ';
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+	}
+
+    function dmha_255_create_me($array_data)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_255::create_me($array_data);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_255_update_me($id,$array_data)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_255::update_me($id,$array_data);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_255_delete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_255::delete_me($id);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

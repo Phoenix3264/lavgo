@@ -125,7 +125,13 @@ class wwform extends Controller
                     {
                         $POST_dmha_13                   = $_POST['dmha_13'][$i];
                         $POST_urutan                    = $_POST['urutan'][$i];
-                        $POST_urutan_tabel              = $_POST['urutan_tabel'][$i];
+                        
+                        if(isset($_POST['urutan_tabel'][$i])){
+                            $POST_urutan_tabel              = NULL;
+                        }else{
+                            $POST_urutan_tabel              = $_POST['urutan_tabel'][$i];
+                        }
+
 
                         if($POST_urutan != '')
                         {
@@ -311,9 +317,25 @@ class wwform extends Controller
                     if($DMHA_271 == 2) { dmha_259_create_me($request->all()); $FLASH_MESSAGE = 2; }
                     elseif($DMHA_271 == 3) { dmha_259_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
                 }
+                elseif($DMHA_1 == 263) {     
+                    if($DMHA_271 == 2) { dmha_263_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_263_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
                 elseif($DMHA_1 == 267) {     
                     if($DMHA_271 == 2) { dmha_267_create_me($request->all()); $FLASH_MESSAGE = 2; }
                     elseif($DMHA_271 == 3) { dmha_267_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
+                elseif($DMHA_1 == 275) {     
+                    if($DMHA_271 == 2) { dmha_275_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_275_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
+                elseif($DMHA_1 == 279) {     
+                    if($DMHA_271 == 2) { dmha_279_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_279_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
+                elseif($DMHA_1 == 283) {     
+                    if($DMHA_271 == 2) { dmha_283_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_283_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
                 }
 
 

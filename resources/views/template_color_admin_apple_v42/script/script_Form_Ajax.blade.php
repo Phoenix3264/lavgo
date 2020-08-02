@@ -54,8 +54,7 @@
    
    
     $(document).ready(function(){
-        $("#submit").click(function(e){           
-            alert('aa');
+        $("#submit").click(function(e){   
             e.preventDefault();   
             $.ajax({
                 type:'POST',

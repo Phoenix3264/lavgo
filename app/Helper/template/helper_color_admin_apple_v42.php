@@ -144,6 +144,30 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
+    function color_admin_apple_v42_generate_button_modal($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'btn btn-white';
+
+            $nama = replace_to_underscore(dmha_1_id_check_col($id,'nama'));
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= '
+            <div class="text-right m-b-15 m-bt-15">   
+                <a href="#'.$nama.'" class="btn btn-white" data-toggle="modal">
+                    <i class="fas fa-plus"></i> 
+                    Create
+                </a>                    
+            </div>
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }  
+
     function color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -274,14 +298,17 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_apple_v42_modal_dialog_form($AUTH_ID,$id_dmha,$dmha_2,$id_modal)
+    function color_admin_apple_v42_modal_dialog_form($AUTH_ID,$DMHA_ID,$DMHA_271,$ID_DATA)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $class  = 'table table-striped table-bordered';
+            //dmha_263_modal_form($AUTH_ID,$DMHA_ID,$DMHA_271,$ID_DATA)
 
+            
+            $class  = 'modal modal-message fade';
+            $nama = dmha_1_id_check_col($DMHA_ID,'nama');
         // ------------------------------------------------------------------------- ACTION
-            $isi = UI_modal_dialog_form($AUTH_ID,$id_dmha,$dmha_2,$id_modal);
+            $isi = UI_modal_dialog_form($AUTH_ID,$DMHA_ID,$DMHA_271,$ID_DATA,$nama,$class);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

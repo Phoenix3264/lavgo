@@ -147,6 +147,7 @@
             elseif($dmha_14 == 12) { $isi .= dmha_14_generate_file_upload($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 14) { $isi .= dmha_14_generate_masked_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete_nik($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 18) { $isi .= dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
 
             else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
@@ -223,6 +224,10 @@
                     elseif($DMHA_1 == 111) { $isi .= dmha_111_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
 
+                ///////////////////////////////////////////////////////////////////////////////// notarion
+                    elseif($DMHA_1 == 255) { $isi .= dmha_255_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 259) { $isi .= dmha_259_id_check_col($ID,$name);  }  
+
                 ///////////////////////////////////////////////////////////////////////////////// paperone
                     elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
@@ -270,28 +275,33 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
                 <select class="'.$class.'"  id="form-'.$dmha_13.'"  name="'.$name.'">';
-                //system
-                if($dmha_13 == 3) { $isi_model = dmha_14_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 9) { $isi_model = dmha_3_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 10) { $isi_model = dmha_4_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 14) { $isi_model = dmha_1_let_me_generate_data_array(null,null,'select'); }
-                elseif($dmha_13 == 44) { $isi_model = dmha_300_let_me_generate_data_array(null,null); }
-                
-                elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 22) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 23) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 24) { $isi_model = dmha_73_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 25) { $isi_model = dmha_126_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 26) { $isi_model = dmha_130_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 27) { $isi_model = dmha_134_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 28) { $isi_model = dmha_138_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 49) { $isi_model = dmha_322_let_me_generate_data_array(null,null); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////// SYSTEM  
+                    if($dmha_13 == 3) { $isi_model = dmha_14_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 8) { $isi_model = dmha_2_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 9) { $isi_model = dmha_3_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 10) { $isi_model = dmha_4_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 14) { $isi_model = dmha_1_let_me_generate_data_array(null,null,'select'); }
+                    elseif($dmha_13 == 44) { $isi_model = dmha_300_let_me_generate_data_array(null,null); }
+                    
+                    elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 22) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 23) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 24) { $isi_model = dmha_73_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 25) { $isi_model = dmha_126_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 26) { $isi_model = dmha_130_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 27) { $isi_model = dmha_134_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 28) { $isi_model = dmha_138_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 49) { $isi_model = dmha_322_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 60) { $isi_model = dmha_271_let_me_generate_data_array(null,null); }
                 
                 ////////////////////////////////////////////////////////////////////////////////////////////// ACADION                    
                     elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array(null,null); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////// NOTARION                  
+                    elseif($dmha_13 == 71) { $isi_model = dmha_279_let_me_generate_data_array(null,null); }    
 
                 // Paperone
                 elseif($dmha_13 == 35) { $isi_model = dmha_292_let_me_generate_data_array(null,null); }
@@ -471,12 +481,10 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             
-            $disabled = '';            
-            if($DMHA_271 == 4){ $disabled = 'disabled'; }
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
             <div class="checkbox checkbox-css">
-                <input type="checkbox" id="form-'.$row_id.'" value="'.$row_id.'"  name="'.$name.'[]" '.dmha_14_generate_value_checked($row_id,$DMHA_1,$ID,$row_id).' '.$disabled.'>
+                <input type="checkbox" id="form-'.$row_id.'" value="'.$row_id.'"  name="'.$name.'[]" '.dmha_14_generate_value_checked($row_id,$DMHA_1,$ID,$row_id).' >
                 <label for="form-'.$row_id.'">'.$label.'</label>
             </div>
             ';     
@@ -604,6 +612,23 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="text" class="'.$class.' masked-input-nik" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" >';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="text" class="'.$class.' masked-input-nop" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" >';      
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

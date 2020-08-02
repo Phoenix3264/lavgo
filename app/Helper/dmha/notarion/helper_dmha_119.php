@@ -57,12 +57,13 @@
     }
     
     
-
-    function dmha_119_data_table_col_6()
+    function dmha_119_data_table_col_6($Pengurusan_ID,$Berkas_ID,$dmha)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class_th = 'text-center bold';
+
+            $isi_model = dmha_47_let_me_generate_data($Pengurusan_ID,$Berkas_ID,$dmha);
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
@@ -77,7 +78,18 @@
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>
-            <tbody>
+            <tbody>';
+            if(count($isi_model) == 0)
+            {   
+                $isi .= '
+                <tr>
+                    <td colspan="5" class="text-center">
+                        '.dmha_40_id_check_col(7,'nama').'
+                    </td>
+                </tr>
+                ';
+            }
+            $isi .= '
             </tbody>
             </table>
             ';

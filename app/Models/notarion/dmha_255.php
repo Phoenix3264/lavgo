@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
+ * @property string $nomor
+ * @property string $persil
+ * @property string $klas
+ * @property int $luas
  * @property string $nama
  * @property string $created_at
  * @property string $updated_at
@@ -23,7 +27,7 @@ class dmha_255 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nomor', 'persil', 'klas', 'luas', 'nama', 'created_at', 'updated_at', 'deleted_at'];
 
     
     public static function id_check_col($ID,$COL)
@@ -49,7 +53,7 @@ class dmha_255 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_255::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -79,6 +83,10 @@ class dmha_255 extends Model
             dmha_255::where('id','=', $id)
             ->update(
                 [
+                    'nomor'     => $array_data['nomor'],
+                    'persil'     => $array_data['persil'],
+                    'klas'     => $array_data['klas'],
+                    'luas'     => $array_data['luas'],
                     'nama'     => $array_data['nama'],
                     'updated_at'     => now()
                 ]);

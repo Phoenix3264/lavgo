@@ -157,7 +157,7 @@ class dmha_1 extends Model
             {
                 $isi = dmha_1::whereNull('deleted_at')
                     ->where('dmha_1','=',$ID)										
-                    ->orderBy('id','asc')
+                    ->orderBy('nama','asc')
                     ->get();
             }
             elseif($TIPE == 'data_table')
@@ -168,13 +168,12 @@ class dmha_1 extends Model
                         dmha_1.nama,
                         dmha_1.link,
                         dmha_1.urutan,
-                        dmha_1.has_sub,
                         dmha_1.dmha_1,
                         dmha_2.nama as dmha_2,
                         dmha_3.nama as dmha_3,
                         dmha_4.nama as dmha_4,
-                        dmha_5.nama as dmha_5,
                         dmha_9.nama as dmha_9,
+                        dmha_271.nama as dmha_271,
                         dmha_300.nama as dmha_300
 
                     ')
@@ -182,7 +181,8 @@ class dmha_1 extends Model
                 ->join('dmha_3', 'dmha_3.id', '=', 'dmha_1.dmha_3')   
                 ->join('dmha_4', 'dmha_4.id', '=', 'dmha_1.dmha_4')   
                 ->join('dmha_5', 'dmha_5.id', '=', 'dmha_1.dmha_5')   
-                ->join('dmha_9', 'dmha_9.id', '=', 'dmha_1.dmha_9')  
+                ->join('dmha_9', 'dmha_9.id', '=', 'dmha_1.dmha_9')   
+                ->join('dmha_271', 'dmha_271.id', '=', 'dmha_1.dmha_271')  
                 ->join('dmha_300', 'dmha_300.id', '=', 'dmha_1.dmha_300')         
                 ->whereNull('dmha_1.deleted_at')	            
                 ->orderBy('dmha_1.id','asc')

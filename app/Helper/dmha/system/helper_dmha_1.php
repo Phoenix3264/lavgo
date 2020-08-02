@@ -43,16 +43,20 @@
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+
                     '.th_me('Nama', $class_th).'
                     '.th_me('Link', $class_th).'
                     '.th_me('Urutan', $class_th).'
-                    '.th_me('Has Sub', $class_th).'
+
                     '.th_me('DMHA 1', $class_th).'
                     '.th_me('Template', $class_th).'
                     '.th_me('Controller', $class_th).'
+
                     '.th_me('Page', $class_th).'
                     '.th_me('Kategori', $class_th).'
-                    '.th_me('Supported ID', $class_th).'
+                    '.th_me('Tipe', $class_th).'
+                    '.th_me('Support ID', $class_th).'
+
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';

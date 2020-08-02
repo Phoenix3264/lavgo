@@ -38,11 +38,15 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(7).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
+                    '.th_me('Peta Bidang Tanah', $class_th).'
+                    '.th_me('Luas', $class_th).'
+                    '.th_me('No Bidang', $class_th).'
+                    '.th_me('No. DI 302', $class_th).'
+                    '.th_me('Tanggal', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';

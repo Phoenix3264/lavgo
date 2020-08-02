@@ -146,6 +146,9 @@
 				elseif($DMHA_ID == 259){ $isi = dmha_259_data_table(); }
 				elseif($DMHA_ID == 263){ $isi = dmha_263_data_table(); }
 				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table(); }
+				elseif($DMHA_ID == 275){ $isi = dmha_275_data_table(); }
+				elseif($DMHA_ID == 279){ $isi = dmha_279_data_table(); }
+				elseif($DMHA_ID == 283){ $isi = dmha_283_data_table(); }
 			
 			// paperone			
 			elseif($DMHA_ID == 287){ $isi = dmha_287_data_table(); }
