@@ -9,9 +9,9 @@
             $isi    .= ' 
             <button 
                 type="submit" 
-                class="'.$CLASS.'"
                 value="'.$VALUE.'"
                 id="'.$SUBMIT.'"
+                class="'.$CLASS.'"
                 name="'.$NAME.'">
                     '.$LABEL.'
             </button>

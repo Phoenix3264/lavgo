@@ -33,6 +33,7 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 13) { $isi_model = dmha_13_let_me_generate_data_array($AUTH_ID, $DMHA_1,'joined'); }
                     elseif($DMHA_1 == 14) { $isi_model = dmha_14_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 15) { $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 271) { $isi_model = dmha_271_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 322) { $isi_model = dmha_322_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 326) { $isi_model = dmha_326_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     
@@ -81,6 +82,7 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 255) { $isi_model = dmha_255_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 259) { $isi_model = dmha_259_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 263) { $isi_model = dmha_263_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 267) { $isi_model = dmha_267_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PAPERONE
                     elseif($DMHA_1 == 287) { $isi_model = dmha_287_let_me_generate_data_array($AUTH_ID, $DMHA_1); }

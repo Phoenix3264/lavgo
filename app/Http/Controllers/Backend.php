@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 use Jenssegers\Agent\Agent;
 
@@ -68,6 +69,7 @@ class Backend extends Controller
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
                 $data['dmha_5']     = dmha_1_link_check_col($PARAM_1,'dmha_5');
                 $data['dmha_9']     = dmha_1_link_check_col($PARAM_1,'dmha_9');
+                $data['dmha_271']     = dmha_1_link_check_col($PARAM_1,'dmha_271');
 
                 $dmha_300           = dmha_1_link_check_col($PARAM_1,'dmha_300');
                     $data['dmha_300']   = $dmha_300;

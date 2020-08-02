@@ -96,7 +96,7 @@ use Illuminate\Support\Facades\Storage;
 		// ------------------------------------------------------------------------- ACTION
             $isi .= 
             data_tabel_open_with_id('dev-mode-'.$ID).
-            general_colgroup(10).'
+            general_colgroup(11).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
@@ -107,6 +107,7 @@ use Illuminate\Support\Facades\Storage;
                     '.th_me('Page', $class_th).'
                     '.th_me('Icon', $class_th).'
                     '.th_me('Kategori', $class_th).'
+                    '.th_me('Tipe', $class_th).'
                     '.th_me('Support ID', $class_th).'
                     '.th_me('Load Time', $class_th).'
                 </tr>
@@ -124,6 +125,7 @@ use Illuminate\Support\Facades\Storage;
                 '.td_me(dmha_4_id_check_col(dmha_1_id_check_col($ID,'dmha_4'),'nama'), '').'
                 '.td_me(dmha_5_id_check_col(dmha_1_id_check_col($ID,'dmha_5'),'nama'), '').'
                 '.td_me(dmha_9_id_check_col(dmha_1_id_check_col($ID,'dmha_9'),'nama'), '').'
+                '.td_me(dmha_271_id_check_col(dmha_1_id_check_col($ID,'dmha_271'),'nama'), '').'
                 '.td_me(dmha_300_id_check_col(dmha_1_id_check_col($ID,'dmha_300'),'nama'), '').'
                 '.td_me((microtime(true) - LARAVEL_START), 'text-center').'
                 </tr>

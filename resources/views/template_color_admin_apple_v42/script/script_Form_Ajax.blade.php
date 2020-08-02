@@ -43,35 +43,28 @@
         FormPlugins.init();
     });
     
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$PARAM_3)!!}
-       
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3)!!}
+    
+   
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-  
+   
+   
     $(document).ready(function(){
-        $("form#{{$PARAM_1}}").submit(function(e) {          
+        $("#submit").click(function(e){           
+            alert('aa');
             e.preventDefault();   
-            
-            var formData = new FormData(this);
-            
-
             $.ajax({
                 type:'POST',
-                enctype: 'multipart/form-data',
                 url:"{{ url('/') }}/wwform/postdata",
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false,
+                data: $('#{{$PARAM_1}}').serialize(),
                 success:function(data){
-                    $("#flash_message").html(data.status);
                     window.location.href = "{{url()->previous()}} ";
                 }
             });
         });
     });
-
 </script>

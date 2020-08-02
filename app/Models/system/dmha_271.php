@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,28 +11,29 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_263 extends Model
+class dmha_271 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_263';
+    protected $table = 'dmha_271';
 
     /**
      * @var array
      */
     protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
 
-    
+    public $timestamps = false;
+
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_263::where('id','=',$ID)
+            $isi = dmha_271::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -48,7 +49,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_263::whereNull('deleted_at')
+            $isi = dmha_271::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -64,7 +65,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::create($array_data);
+            dmha_271::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -76,7 +77,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_271::where('id','=', $id)
             ->update(
                 [
                     'nama'     => $array_data['nama'],
@@ -93,7 +94,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_271::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -110,7 +111,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_271::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

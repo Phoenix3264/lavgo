@@ -79,26 +79,26 @@ class dmha_1 extends Model
             if($TIPE == 'all')
             {
                 $isi = dmha_1::whereNull('deleted_at')							
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }elseif($TIPE == 'level1')
             {
                 $isi = dmha_1::whereNull('deleted_at')		
                     ->whereNull('dmha_1')										
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'level2')
             {
                 $isi = dmha_1::where('dmha_1','=',$ID)			
                     ->whereNull('deleted_at')										
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'select')
             {
                 $isi = dmha_1::whereNull('deleted_at')										
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'pertanyaan_hak_akss_app_mode')
@@ -157,7 +157,7 @@ class dmha_1 extends Model
             {
                 $isi = dmha_1::whereNull('deleted_at')
                     ->where('dmha_1','=',$ID)										
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'data_table')
@@ -193,7 +193,7 @@ class dmha_1 extends Model
                 $isi = dmha_1::whereNull('deleted_at')
                     ->where('dmha_1','=',$ID)		
                     ->where('dmha_9','=',2)											
-                    ->orderBy('nama','asc')
+                    ->orderBy('id','asc')
                     ->get();
             }
             elseif($TIPE == 'dropdown_table')
@@ -639,6 +639,23 @@ class dmha_1 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
+    public static function softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            dmha_1::where('id','=', $id)
+            ->update(
+                [
+                    'deleted_at' => now()
+                ]);
+
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
     public static function delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -646,7 +663,7 @@ class dmha_1 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             dmha_1::where('id','=', $id)
-                ->softDeletes();
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

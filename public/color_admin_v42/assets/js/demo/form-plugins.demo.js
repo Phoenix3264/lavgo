@@ -81,12 +81,12 @@ var handleIonRangeSlider = function() {
 
 var handleFormMaskedInput = function() {
 	"use strict";
-	$(".masked-input-date").mask("99-99-9999");
-	$(".masked-input-nik").mask("9999999999999999");
-	$(".masked-input-rt-rw").mask("999");
-	$(".masked-input-year").mask("9999");
-	$(".masked-input-pno").mask("aaa-9999-a");
-	$(".masked-input-pkey").mask("a*-999-a999");
+	$(".masked-input-date").unmask().mask("99-99-9999");
+	$(".masked-input-nik").unmask().mask("99999999999999999");
+	$(".masked-input-rt-rw").unmask().mask("999");
+	$(".masked-input-year").unmask().mask("9999");
+	$(".masked-input-pno").unmask().mask("aaa-9999-a");
+	$(".masked-input-pkey").unmask().mask("a*-999-a999");
 };
 
 var handleFormColorPicker = function () {

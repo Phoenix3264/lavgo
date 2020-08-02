@@ -6,7 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
+ * @property string $nik
  * @property string $nama
+ * @property string $tempat_lahir
+ * @property string $tanggal_lahir
+ * @property string $jenis_kelamin
+ * @property string $alamat
+ * @property string $rt
+ * @property string $rw
+ * @property string $desa_kelurahan
+ * @property string $kecamatan
+ * @property string $kabupaten_kota
+ * @property string $agama
+ * @property string $status_perkawinan
+ * @property string $pekerjaan
+ * @property string $kewarganegaraan
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -23,7 +37,7 @@ class dmha_119 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nik', 'nama', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin', 'alamat', 'rt', 'rw', 'desa_kelurahan', 'kecamatan', 'kabupaten_kota', 'agama', 'status_perkawinan', 'pekerjaan', 'kewarganegaraan', 'created_at', 'updated_at', 'deleted_at'];
 
     
     public static function id_check_col($ID,$COL)
@@ -87,6 +101,23 @@ class dmha_119 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
+    public static function softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            dmha_119::where('id','=', $id)
+            ->update(
+                [
+                    'deleted_at' => now()
+                ]);
+
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
     public static function delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -94,7 +125,7 @@ class dmha_119 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             dmha_119::where('id','=', $id)
-                ->softDeletes();
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

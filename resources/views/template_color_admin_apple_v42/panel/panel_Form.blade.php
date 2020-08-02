@@ -6,15 +6,8 @@
         @include($template.'.panel_heading')
     </div>
     <div class="panel-body">
-        <div id="form">
-        </div>
-        
-        <div class="form-group row">
-                <label class="col-md-4 col-form-label">Date</label>
-                <div class="col-md-8">
-                    <input type="text" class="form-control masked-input-date" id="" placeholder="dd/mm/yyyy">
-                </div>
-            </div>
+        {!!color_admin_apple_v42_hidden($dmha_1,$dmha_9,$PARAM_2,$PARAM_3)!!}
+        {!!color_admin_apple_v42_form($AUTH_ID,$dmha_1,$dmha_9,$id)!!}
     </div>
 </div>
 

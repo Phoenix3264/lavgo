@@ -6,24 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
+ * @property string $kabupaten_kota
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_263 extends Model
+class dmha_267 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_263';
+    protected $table = 'dmha_267';
 
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['kabupaten_kota', 'created_at', 'updated_at', 'deleted_at'];
 
     
     public static function id_check_col($ID,$COL)
@@ -32,7 +32,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_263::where('id','=',$ID)
+            $isi = dmha_267::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -48,8 +48,8 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_263::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+            $isi = dmha_267::whereNull('deleted_at')
+                ->orderBy('kabupaten_kota','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -64,7 +64,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::create($array_data);
+            dmha_267::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -76,10 +76,10 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_267::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'kabupaten_kota'     => $array_data['kabupaten_kota'],
                     'updated_at'     => now()
                 ]);
 
@@ -93,7 +93,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_267::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -110,7 +110,7 @@ class dmha_263 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_263::where('id','=', $id)
+            dmha_267::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

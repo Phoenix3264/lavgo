@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_314 extends Model
+class dmha_31414 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_314';
+    protected $table = 'dmha_31414';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class dmha_314 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_314::where('id','=',$ID)
+            $isi = dmha_31414::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,7 +49,7 @@ class dmha_314 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_314::whereNull('deleted_at')
+            $isi = dmha_31414::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -65,7 +65,7 @@ class dmha_314 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_314::create($array_data);
+            dmha_31414::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -80,8 +80,26 @@ class dmha_314 extends Model
             dmha_314::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'nama'     => $array_data['nama'],
+                    'updated_at'     => now()
                 ]);
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            dmha_314::where('id','=', $id)
+            ->update(
+                [
+                    'deleted_at' => now()
+                ]);
+
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -94,7 +112,7 @@ class dmha_314 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             dmha_314::where('id','=', $id)
-                ->softDeletes();
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

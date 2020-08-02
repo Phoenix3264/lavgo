@@ -43,7 +43,6 @@
         FormPlugins.init();
     });
     
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$PARAM_3)!!}
     
    
     $.ajaxSetup({
@@ -62,6 +61,7 @@
                 url:"{{ url('/') }}/wwform/postdata",
                 data: $('#{{$PARAM_1}}').serialize(),
                 success:function(data){
+                    $("#flash_message").html(data.status);
                     window.location.href = "{{url()->previous()}} ";
                 }
             });

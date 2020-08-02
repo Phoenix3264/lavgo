@@ -181,7 +181,7 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= dmha_14_generate_input_hidden($class, 'p', $DMHA_1);
-            $isi .= dmha_14_generate_input_hidden($class, 'c', $DMHA_9);
+            $isi .= dmha_14_generate_input_hidden($class, 't', $DMHA_9);
             $isi .= dmha_14_generate_input_hidden($class, 'i', $PARAM_2);
             $isi .= dmha_14_generate_input_hidden($class, 'i2', $PARAM_3);
 
@@ -191,11 +191,15 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_apple_v42_submit($VALUE,$SUBMIT,$NAME,$LABEL)
+    function color_admin_apple_v42_submit($VALUE,$SUBMIT,$NAME,$LABEL,$DMHA_271)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $CLASS  = 'btn btn-lg btn-block btn-primary m-b-15';
+            if($DMHA_271 == 4)
+            {
+                $CLASS  = 'btn btn-lg btn-block btn-danger m-b-15';
+            }
 
         // ------------------------------------------------------------------------- ACTION
             $isi    .= ' 
@@ -284,3 +288,46 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
+
+    function color_admin_apple_v42_breadcrumb($id,$yang_ke)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class = ' breadcrumb-item ';
+
+            $nama = dmha_1_id_check_col($id,'nama');
+            $link = NULL;
+
+        // ------------------------------------------------------------------------- ACTION
+            if($id != 6)
+            {
+                $isi    = UI_breadcrumb($class,$id,$nama,$link);
+            }
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_apple_v42_flash_message($status,$message)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            //$isi    .= ' $("#form'.$FORM_NAME_ID.'").html(data.isi); ' ;
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = '
+            <div class="alert alert-'.$status.' fade show col-md-8 offset-md-2 text-center">
+                <span class="close" data-dismiss="alert">×</span>
+                <strong>'.ucfirst($status).'!</strong>
+                '.$message.'
+            </div>
+            ';
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

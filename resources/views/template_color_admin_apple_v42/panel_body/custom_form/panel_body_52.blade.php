@@ -11,10 +11,14 @@
                     </div>
                     <h4 class="panel-title">
                         Pemohon
+                        
                     </h4>
                 </div>
                 <div class="panel-body">
-
+                    <!-- -->
+                    <div class="table-responsive">
+                        {!!dmha_119_data_table_col_6()!!}
+                    </div>
                 </div>
             </div>
         <!-- End Panel -->
@@ -35,6 +39,10 @@
                 </div>
                 <div class="panel-body">
 
+                    <!-- -->
+                    <div class="table-responsive">
+                        {!!dmha_119_data_table_col_6()!!}
+                    </div>
                 </div>
             </div>
         <!-- End Panel -->

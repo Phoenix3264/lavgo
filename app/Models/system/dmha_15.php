@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_1
  * @property int $dmha_13
  * @property int $urutan
+ * @property int $urutan_tabel
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -96,7 +97,7 @@ class dmha_15 extends Model
     }
     
 
-    public static function create_me($dmha_1,$dmha_13,$urutan)
+    public static function create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -105,7 +106,8 @@ class dmha_15 extends Model
                 dmha_15::create([
                     'dmha_1' => $dmha_1, 
                     'dmha_13' => $dmha_13, 
-                    'urutan' => $urutan
+                    'urutan' => $urutan, 
+                    'urutan_tabel' => $urutan_tabel
                 ]);
 
             

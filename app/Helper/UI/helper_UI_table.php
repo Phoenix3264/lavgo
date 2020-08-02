@@ -86,20 +86,21 @@
             //$isi    = $DMHA_ID;
 
 		// ------------------------------------------------------------------------- ACTION
-			// System
-			if($DMHA_ID == 1){ $isi = dmha_1_data_table(); }
-			elseif($DMHA_ID == 2){ $isi = dmha_2_data_table(); }
-			elseif($DMHA_ID == 3){ $isi = dmha_3_data_table(); }
-			elseif($DMHA_ID == 4){ $isi = dmha_4_data_table(); }
-			elseif($DMHA_ID == 5){ $isi = dmha_5_data_table(); }
-			elseif($DMHA_ID == 8){ $isi = dmha_8_data_table(); }
-			elseif($DMHA_ID == 9){ $isi = dmha_9_data_table(); }
-			elseif($DMHA_ID == 13){ $isi = dmha_13_data_table(); }
-			elseif($DMHA_ID == 14){ $isi = dmha_14_data_table(); }
-			elseif($DMHA_ID == 15){ $isi = dmha_15_data_table(); }
-			elseif($DMHA_ID == 40){ $isi = dmha_40_data_table(); }
-			elseif($DMHA_ID == 322){ $isi = dmha_322_data_table(); }
-			elseif($DMHA_ID == 326){ $isi = dmha_326_data_table(); }
+			///////////////////////////////////////////////////////////////////////////////// System
+				if($DMHA_ID == 1){ $isi = dmha_1_data_table(); }
+				elseif($DMHA_ID == 2){ $isi = dmha_2_data_table(); }
+				elseif($DMHA_ID == 3){ $isi = dmha_3_data_table(); }
+				elseif($DMHA_ID == 4){ $isi = dmha_4_data_table(); }
+				elseif($DMHA_ID == 5){ $isi = dmha_5_data_table(); }
+				elseif($DMHA_ID == 8){ $isi = dmha_8_data_table(); }
+				elseif($DMHA_ID == 9){ $isi = dmha_9_data_table(); }
+				elseif($DMHA_ID == 13){ $isi = dmha_13_data_table(); }
+				elseif($DMHA_ID == 14){ $isi = dmha_14_data_table(); }
+				elseif($DMHA_ID == 15){ $isi = dmha_15_data_table(); }
+				elseif($DMHA_ID == 40){ $isi = dmha_40_data_table(); }
+				elseif($DMHA_ID == 271){ $isi = dmha_271_data_table(); }
+				elseif($DMHA_ID == 322){ $isi = dmha_322_data_table(); }
+				elseif($DMHA_ID == 326){ $isi = dmha_326_data_table(); }
 
 			elseif($DMHA_ID == 69){ $isi = dmha_69_data_table(); }
 			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table(); }
@@ -144,6 +145,7 @@
 				elseif($DMHA_ID == 255){ $isi = dmha_255_data_table(); }
 				elseif($DMHA_ID == 259){ $isi = dmha_259_data_table(); }
 				elseif($DMHA_ID == 263){ $isi = dmha_263_data_table(); }
+				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table(); }
 			
 			// paperone			
 			elseif($DMHA_ID == 287){ $isi = dmha_287_data_table(); }
