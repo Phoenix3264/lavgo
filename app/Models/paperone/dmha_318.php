@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_31818 extends Model
+class dmha_318 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_31818';
+    protected $table = 'dmha_318';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class dmha_31818 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_31818::where('id','=',$ID)
+            $isi = dmha_318::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,7 +49,7 @@ class dmha_31818 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_31818::whereNull('deleted_at')
+            $isi = dmha_318::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -65,7 +65,7 @@ class dmha_31818 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_31818::create($array_data);
+            dmha_318::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

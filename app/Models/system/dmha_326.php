@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_32626 extends Model
+class dmha_326 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_32626';
+    protected $table = 'dmha_326';
 
     /**
      * @var array
@@ -33,7 +33,7 @@ class dmha_32626 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_32626::where('id','=',$ID)
+            $isi = dmha_326::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,7 +49,7 @@ class dmha_32626 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_32626::where('active','=',1)
+            $isi = dmha_326::where('active','=',1)
                 ->value('nama');
 
         // ------------------------------------------------------------------------- SEND
@@ -64,7 +64,7 @@ class dmha_32626 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_32626::whereNull('deleted_at')
+            $isi = dmha_326::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -80,7 +80,7 @@ class dmha_32626 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_32626::create($array_data);
+            dmha_326::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
