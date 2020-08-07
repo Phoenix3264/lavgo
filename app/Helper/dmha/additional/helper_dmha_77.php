@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_77;
+    use App\Models\additional\dmha_77;
 
     function dmha_77_id_check_col($ID,$COL)
     {

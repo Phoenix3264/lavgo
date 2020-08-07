@@ -144,11 +144,12 @@
             elseif($dmha_14 == 7) { $isi .= dmha_14_generate_checkboxes($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
             elseif($dmha_14 == 9) { $isi .= dmha_14_generate_multi_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 10) { $isi .= dmha_14_generate_textarea($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 11) { $isi .= dmha_14_generate_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 12) { $isi .= dmha_14_generate_file_upload($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 14) { $isi .= dmha_14_generate_masked_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete_nik($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 18) { $isi .= dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 14) { $isi .= dmha_14_generate_autocomplete_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }
+            elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            // elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
+            // elseif($dmha_14 == 18) { $isi .= dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
 
             else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
 
@@ -225,10 +226,14 @@
                     elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
 
                 ///////////////////////////////////////////////////////////////////////////////// notarion
+                    elseif($DMHA_1 == 55) { $isi .= dmha_55_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 60) { $isi .= dmha_60_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 185) { $isi .= dmha_185_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 255) { $isi .= dmha_255_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 259) { $isi .= dmha_259_id_check_col($ID,$name);  }  
 
-                ///////////////////////////////////////////////////////////////////////////////// paperone
+                ///////////////////////////////////////////////////////////////////////////////// scientist
+                    elseif($DMHA_1 == 287) { $isi .= dmha_287_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
@@ -303,9 +308,9 @@
                 ////////////////////////////////////////////////////////////////////////////////////////////// NOTARION                  
                     elseif($dmha_13 == 71) { $isi_model = dmha_279_let_me_generate_data_array(null,null); }    
 
-                // Paperone
-                elseif($dmha_13 == 35) { $isi_model = dmha_292_let_me_generate_data_array(null,null); }
-                elseif($dmha_13 == 36) { $isi_model = dmha_296_let_me_generate_data_array(null,null); }
+                ////////////////////////////////////////////////////////////////////////////////////////////// Scientist
+                    elseif($dmha_13 == 35) { $isi_model = dmha_292_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 36) { $isi_model = dmha_296_let_me_generate_data_array(null,null); }
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 
@@ -585,7 +590,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_14_generate_masked_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    function dmha_14_generate_autocomplete($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -594,13 +599,52 @@
             if($DMHA_271 == 4){ $disabled = 'disabled'; }
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= '<input type="text" class="'.$class.' masked-input-date" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" '.$disabled.'>';      
+            $isi .= '<input type="text" class="'.$class.' autocomplete autocomplete_'.replace_to_underscore($name).'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" >
+            <div class="list-autocomplete-'.replace_to_underscore($name).'"></div>';      
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+    
+    function dmha_14_generate_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="text" class="'.$class.' masked-'.replace_to_underscore($name).'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" >';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_14_generate_autocomplete_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="text" class="'.$class.' autocomplete-'.replace_to_underscore($name).' masked-'.replace_to_underscore($name).'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" >
+            <div class="list-autocomplete-'.replace_to_underscore($name).'"></div>';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+
+    /*
 
     function dmha_14_generate_autocomplete_nik($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
     {
@@ -636,6 +680,26 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    
+
+    function dmha_14_generate_masked_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="text" class="'.$class.' masked-input-date" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" '.$disabled.'>';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+
     function dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -652,9 +716,4 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-
-
-
-
-
-										
+    */

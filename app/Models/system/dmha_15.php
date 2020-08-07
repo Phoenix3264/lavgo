@@ -89,6 +89,18 @@ class dmha_15 extends Model
                     ->orderBy('dmha_15.urutan_tabel','asc')
                     ->get();
             }      
+            elseif($TIPE == 'masked')
+            {
+                $isi = dmha_15::selectRaw('
+                    dmha_13.id,
+                    dmha_13.name
+                    ')
+                    ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
+                    ->where('dmha_15.dmha_1','=',$ID)     
+                    ->whereIn('dmha_13.dmha_14', ['11', '14'])     
+                    ->groupby('dmha_13.id','dmha_13.name')  
+                    ->get();
+            }  
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

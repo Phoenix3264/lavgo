@@ -37,16 +37,28 @@
 <script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/form-plugins.demo.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
-<script>
-    $(document).ready(function() {
-        App.init();
-        FormPlugins.init();
-    });
-    {!!ajax_header_csrf()!!}
-   
-   
+<script>    
+    {!!ajax_header_csrf()!!}   
     $(document).ready(function(){
-
-        {!!ajax_submit($id)!!}
+        App.init();
+        FormPlugins.init();        
+        {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3,$id_data)!!} 
+        $("form#{{$PARAM_1}}").submit(function(e) {          
+            e.preventDefault();               
+            var formData = new FormData(this);   
+            $.ajax({
+                type:'POST',
+                enctype: 'multipart/form-data',
+                url:"{{ url('/') }}/wwform/postdata",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success:function(data){
+                    $("#flash_message").html(data.status);
+                    window.location.href = "{{url()->previous()}} ";
+                }
+            });
+        });
     });
 </script>

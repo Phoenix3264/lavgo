@@ -43,18 +43,8 @@ class Backend extends Controller
                   
   			// then, we check your link
                 $data['PARAM_1']    = $PARAM_1;
-
                 $data['PARAM_2']    = $PARAM_2;
-                if($PARAM_2 == '')
-                {
-                    $data['PARAM_2']    = 'NULL';
-                }
-
                 $data['PARAM_3']    = $PARAM_3;
-                if($PARAM_3 == '')
-                {
-                    $data['PARAM_3']    = 'NOP';
-                }
                 
                 $id                 = dmha_1_link_check_col($PARAM_1,'id');
                 $data['id']         = $id;
@@ -69,10 +59,21 @@ class Backend extends Controller
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
                 $data['dmha_5']     = dmha_1_link_check_col($PARAM_1,'dmha_5');
                 $data['dmha_9']     = dmha_1_link_check_col($PARAM_1,'dmha_9');
-                $data['dmha_271']     = dmha_1_link_check_col($PARAM_1,'dmha_271');
+
+                $dmha_271           = dmha_1_link_check_col($PARAM_1,'dmha_271');
+                $data['dmha_271']   = $dmha_271;
 
                 $dmha_300           = dmha_1_link_check_col($PARAM_1,'dmha_300');
                     $data['dmha_300']   = $dmha_300;
+
+            // identify data id.
+                $data['id_data'] = NULL;
+
+                $key_id_data = array(3, 4, 5, 6);                    
+                if(in_array($dmha_271, $key_id_data) && $PARAM_2 != '')
+                {
+                    $data['id_data'] = $PARAM_2;
+                }
 
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');

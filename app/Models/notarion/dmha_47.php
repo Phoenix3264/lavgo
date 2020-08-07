@@ -76,13 +76,29 @@ class dmha_47 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($dmha_46,$berkas_id,$dmha,$data_id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
+            if(is_null($berkas_id))
+            {
+                $temp_berkas_id = dmha_47::where('dmha_46','=',$dmha_46)
+                    ->max('berkas_id');
+
+                $berkas_id = $temp_berkas_id + 1;
+            }
+
         // ------------------------------------------------------------------------- ACTION
-            dmha_47::create($array_data);
+            dmha_47::insert(
+                [
+                    'dmha_46'     => $dmha_46,
+                    'berkas_id'     => $berkas_id,
+                    'dmha'     => $dmha,
+                    'data_id'     => $data_id
+
+                ]);
+
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

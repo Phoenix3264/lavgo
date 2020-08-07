@@ -37,33 +37,14 @@
 <script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/form-plugins.demo.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
-<script>
-    $(document).ready(function() {
-        App.init();
-        FormPlugins.init();
-    });
-    
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3)!!}
-    
-   
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-   
+<script>    
+    {!!ajax_header_csrf()!!}
    
     $(document).ready(function(){
-        $("#submit").click(function(e){   
-            e.preventDefault();   
-            $.ajax({
-                type:'POST',
-                url:"{{ url('/') }}/wwform/postdata",
-                data: $('#{{$PARAM_1}}').serialize(),
-                success:function(data){
-                    window.location.href = "{{url()->previous()}} ";
-                }
-            });
-        });
+        App.init();
+        FormPlugins.init();
+        {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3,$id_data)!!} 
+        {!!ajax_submit($id)!!}
+
     });
 </script>

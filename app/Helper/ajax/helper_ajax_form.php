@@ -1,27 +1,62 @@
 <?php
 
-    function ajax_form($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3)
+    function ajax_form($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    .= ' $(document).ready(function() { ' ;
             $isi    .= ' $.ajax({ ' ;
             $isi    .= ' url: "'.url('/').'/wwform/generate", ' ;
             $isi    .= ' data: { ' ;
             $isi    .= ' "a": "'.$AUTH_ID.'", ' ;
             $isi    .= ' "p": "'.$DMHA_1.'", ' ;
             $isi    .= ' "t": "'.$DMHA_271.'", ' ;
-            $isi    .= ' "i": "'.$PARAM_2.'", ' ;
-            $isi    .= ' "i2": "'.$PARAM_3.'" ' ;
+            $isi    .= ' "p2": "'.$PARAM_2.'", ' ;
+            $isi    .= ' "p3": "'.$PARAM_3.'", ' ;
+            $isi    .= ' "di": "'.$id_data.'" ' ;
             $isi    .= ' }, ' ;
             $isi    .= ' dataType: "json", ' ;
             $isi    .= ' cache: false, ' ;
             $isi    .= ' success: function(data){ ' ;
             $isi    .= ' $("#form").html(data.isi); ' ;
+            $isi    .= dmha_13_generate_masked($DMHA_1) ;	
+            
+            $isi .= '
+
+            $(".autocomplete_desa_kelurahan").on("keyup",function() {
+                var autocomplete = $(this).val(); 
+                $.ajax({
+                    url:"'.url('/').'/wwdata/autocomplete/22",
+                    type:"GET",
+                    data:{"autocomplete":autocomplete},
+                    success:function (data) {
+                        document.getElementsByClassName ("list-autocomplete-desa_kelurahan").innerHTML = data;
+                    }
+                })
+            });
+
+            $(document).on("click", "li", function(e){        
+                var value = $(this).text();
+                $(".autocomplete_desa_kelurahan").val(value);
+                $(".list-autocomplete-desa_kelurahan").appendTo("");
+            });
+            
+            ';
+
+            /*
+            $isi .= '
+            $(function() {
+                $(".autocomplete_desa_kelurahan").autocomplete({
+                  source: "'.url('/').'/wwdata/autocompletez/22",
+                  appendTo: "#form"
+                });
+            });
+            ';
+            */
+
+
             $isi    .= ' } ' ;
-            $isi    .= ' }); ' ;
             $isi    .= ' }); ' ;
 
         // ------------------------------------------------------------------------- SEND
@@ -30,24 +65,41 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function ajax_form_create_button($AUTH_ID,$ID)
+    function ajax_header_csrf()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = "";
+            $name = '"csrf-token"';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= "$.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name=".$name."]').attr('content')}});";
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+    function ajax_submit($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $model = dmha_1_let_me_generate_data_array($AUTH_ID,'button',$ID);
 
         // ------------------------------------------------------------------------- ACTION
-            foreach ($model as $row) {
-                $isi    .= '  
-                $("#'.$row->nama.'-'.$row->id.'").click(function () {
-                    $("#button-simpan").val("create-post"); //valuenya menjadi create-post
-                    $("#id").val(""); //valuenya menjadi kosong
-                    $("#form-tambah-edit").trigger("reset"); //mereset semua input dll didalamnya
-                    $("#modal-judul").html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
-                    $("#tambah-edit-modal").modal("show"); //modal tampil
+            $isi .= '
+            $(".submit").click(function(){           
+   
+                var id = $(this).attr("id");
+                $.ajax({
+                    type:"POST",
+                    url:"'.url('/').'/wwform/postdata",
+                    data: $("#form_"+id).serialize(),
+                    success:function(data){
+                        window.location.href = "'.rules_link_after_post($id).'";
+                    }
                 });
-                ' ;
-            }
+            });
+            ';
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

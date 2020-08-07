@@ -78,7 +78,8 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 119) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 148) { $isi_model = dmha_148_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 152) { $isi_model = dmha_152_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 152) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 185) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 255) { $isi_model = dmha_255_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 259) { $isi_model = dmha_259_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 263) { $isi_model = dmha_263_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -116,4 +117,62 @@ class wwdata extends Controller
 
         ////////////////////////////////////////////////////////////////////////////
     }
+
+    
+    public function autocomplete(Request $request)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $output = '';
+
+            if($request->ajax()) {
+
+        // ------------------------------------------------------------------------- ACTION
+                if($request->id == 22 )
+                { $data = dmha_81_let_me_generate_data_array(NULL,$request->autocomplete,'autocomplete'); }
+                elseif($request->id == 119 ) // Pemohon
+                { $data = dmha_119_let_me_generate_data_array_by_nik(NULL,$request->autocomplete); }
+                elseif($request->id == 263 ) // SPPT
+                { $data = dmha_263_let_me_generate_data_array_by_nop(NULL,$request->autocomplete); }
+               
+                if (count($data)>0) {
+                  
+                    $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+                  
+                    foreach ($data as $row)
+                    {
+                        if($request->id == 22 )
+                        { $output .= '<li class="list-group-item" id="'.$request->id.'" >'.$row->id.'; '.$row->nama.';</li>'; }
+                        elseif($request->id == 119 ) // Pemohon
+                        { $output .= '<li class="list-group-item" id="'.$request->id.'" >'.$row->nik.'; '.$row->nama.';</li>'; }
+                        elseif($request->id == 263 ) // SPPT
+                        { $output .= '<li class="list-group-item" id="'.$request->id.'" >'.$row->nop.'; '.$row->nama.';</li>'; }
+                    }
+                  
+                    $output .= '</ul>';
+                }
+                else {
+                 
+                    $output .= '<li class="list-group-item">'.'No results'.'</li>';
+                }
+               
+
+        // ------------------------------------------------------------------------- SEND
+                return $output;
+            }
+		//////////////////////////////////////////////////////////////////////////// 	
+        
+        
+    }
+
+    
+    public function autocompletez(Request $request,$param_1)
+    {
+
+            $isi_model = dmha_81_let_me_generate_data_array(NULL,$request->autocomplete,'autocomplete');
+            //return $isi_model;
+
+            return response()->json($isi_model);
+        
+    }
+
 }

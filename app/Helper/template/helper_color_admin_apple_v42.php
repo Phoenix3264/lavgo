@@ -197,7 +197,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_apple_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3)
+    function color_admin_apple_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3,$id_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -206,8 +206,9 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= dmha_14_generate_input_hidden($class, 'p', $DMHA_1);
             $isi .= dmha_14_generate_input_hidden($class, 't', $DMHA_9);
-            $isi .= dmha_14_generate_input_hidden($class, 'i', $PARAM_2);
-            $isi .= dmha_14_generate_input_hidden($class, 'i2', $PARAM_3);
+            $isi .= dmha_14_generate_input_hidden($class, 'p2', $PARAM_2);
+            $isi .= dmha_14_generate_input_hidden($class, 'di', $id_data);
+            $isi .= dmha_14_generate_input_hidden($class, 'p3', $PARAM_3);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -223,35 +224,33 @@
             if($DMHA_271 == 4)
             {
                 $CLASS  = 'btn btn-lg btn-block btn-danger m-b-15';
+            }            
+            elseif($DMHA_271 == 9)
+            {
+                $CLASS  = 'btn btn-md btn-primary m-b-15';
             }
 
-        // ------------------------------------------------------------------------- ACTION
-            $isi    .= ' 
-            <div class="row">  
-                <div class="col-md-8 offset-md-2">
-                    '.button_submit_form($VALUE,$SUBMIT,$NAME,$LABEL,$CLASS).'
-                </div>
-            </div>';
+            
+
+        // ------------------------------------------------------------------------- ACTION        
+            if($DMHA_271 == 9)
+            {
+                $isi  .= button_submit_form($VALUE,$SUBMIT,$NAME,$LABEL,$CLASS);
+            }
+            else
+            {
+                $isi    .= ' 
+                <div class="row">  
+                    <div class="col-md-8 offset-md-2">
+                        '.button_submit_form($VALUE,$SUBMIT,$NAME,$LABEL,$CLASS).'
+                    </div>
+                </div>';
+            }
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }    
-
-    function color_admin_apple_v42_open_form()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class  = 'form-horizontal form-bordered';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi    = open_form($class);
-            
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
 
     function color_admin_apple_v42_open_form_with_id($id)
     {
@@ -353,6 +352,36 @@
             </div>
             ';
             
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_apple_v42_generate_autocomplete($ID_FORM,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= color_admin_apple_v42_open_form_with_id($id_data);
+            $isi .= csrf_field();
+            $isi .= color_admin_apple_v42_hidden($DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+            $isi    .= '
+            <div class="form-group row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control autocomplete autocomplete_'.$id_data.' "  name="autocomplete" id="'.$id_data.'" autocomplete="off">
+                    
+                </div>
+                <div class="col-md-2">
+                    '.color_admin_apple_v42_submit('submit',$id_data,'submit','SUBMIT',$DMHA_271).'
+                </div>
+            </div>
+            </form>
+            ';
+
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

@@ -11,8 +11,9 @@
                 type="submit" 
                 value="'.$VALUE.'"
                 id="'.$SUBMIT.'"
-                class="'.$CLASS.'"
-                name="'.$NAME.'">
+                class="submit '.$CLASS.'"
+                name="'.$NAME.'"
+                formsubmit="'.$SUBMIT.'">
                     '.$LABEL.'
             </button>
             ';

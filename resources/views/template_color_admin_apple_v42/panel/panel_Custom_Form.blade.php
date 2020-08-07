@@ -1,1 +1,1 @@
-@include($template.'.panel_body.custom_form.panel_body_'.$transform_ID)
+@include($template.'.panel_body.custom_form.panel_body_'.$id)

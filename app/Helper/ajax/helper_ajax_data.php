@@ -42,8 +42,6 @@
         ////////////////////////////////////////////////////////////////////////////          
     }
 
-
-    
     function ajax_data_table_CRUD($AUTH_ID,$ID,$table_id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -74,6 +72,40 @@
                     ]
                 });
             });        
+            ' ;
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+    
+    function ajax_generate_autocomplete($AUTH_ID,$ID,$table_id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$ID,'joined');
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= '   
+            $(".autocomplete").on("keyup",function() {
+                var autocomplete = $(this).val(); 
+    
+                $.ajax({
+                
+                    url:"{{ url('/') }}/wwdata/autocomplete/119",
+            
+                    type:"GET",
+                
+                    data:{"autocomplete":autocomplete},
+                
+                    success:function (data) {
+                    
+                        $(this).$(".autocomplete_list").html(data);
+                    }
+                })
+            });
             ' ;
 
         // ------------------------------------------------------------------------- SEND

@@ -1,6 +1,6 @@
 <?php
 
-	use App\dmha_81;
+    use App\Models\additional\dmha_81;
 
     function dmha_81_id_check_col($ID,$COL)
     {
@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_81_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_81_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_81::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_81::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

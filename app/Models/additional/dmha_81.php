@@ -52,15 +52,26 @@ class dmha_81 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_81::whereNull('deleted_at')
-                ->orderBy('nama','asc')
-                ->get();
+            if($TIPE == 'default')
+            {
+                $isi = dmha_81::whereNull('deleted_at')
+                    ->orderBy('nama','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'autocomplete')
+            {
+                $isi = dmha_81::where('nama','like', $ID.'%')
+                    ->whereNull('deleted_at')
+                    ->orderBy('nama','asc')
+                    ->get();
+            }
+
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

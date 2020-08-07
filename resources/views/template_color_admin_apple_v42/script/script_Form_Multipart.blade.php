@@ -43,13 +43,8 @@
         FormPlugins.init();
     });
     
-    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$PARAM_3)!!}
-       
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_9,$PARAM_2,$id_data)!!}
+    {!!ajax_header_csrf()!!}
   
     $(document).ready(function(){
         $("form#{{$PARAM_1}}").submit(function(e) {          

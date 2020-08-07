@@ -17,6 +17,7 @@ Auth::routes();
 
 //web worker data general routes
 Route::any('/wwdata/generate/{param_1}/{param_2}/{param_3}', 'wwdata@generate');
+Route::any('/wwdata/autocomplete', 'wwdata@autocomplete');
 
 //web worker form general routes
 Route::any('/wwform/generate', 'wwform@generate');
