@@ -1,14 +1,14 @@
 <?php
 
-	use App\Models\system\dmha_15;
+	use App\Models\acadion\dmha_335;
 
-    function dmha_15_id_check_col($ID,$COL)
+    function dmha_335_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::id_check_col($ID,$COL);
+            $isi    = dmha_335::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,14 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE,$agent_name)
+    function dmha_335_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE,$agent_name);
-            
+            $isi    = dmha_335::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -31,7 +30,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_data_table()
+    function dmha_335_data_table()
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -39,10 +38,11 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+                    '.th_me('Tingkatan', $class_th).'
                     '.th_me('Nama', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
@@ -52,14 +52,14 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
-    
-    function dmha_15_generate_daftar_pertanyaan($AUTH_ID,$ID)
+
+    function dmha_335_create_me($array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$ID,'default',null);            
+            $isi    = dmha_335::create_me($array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -67,13 +67,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel)
+    function dmha_335_update_me($id,$array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel);
+            $isi    = dmha_335::update_me($id,$array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -81,27 +81,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_update_me($id,$array_data)
+    function dmha_335_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::update_me($id,$array_data);
-
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
-
-    function dmha_15_delete_me($id)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::delete_me($id);
+            $isi    = dmha_335::delete_me($id);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

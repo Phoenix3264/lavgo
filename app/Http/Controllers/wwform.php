@@ -49,7 +49,7 @@ class wwform extends Controller
                     $isi .= color_admin_apple_v42_flash_message(dmha_40_id_check_col(3,'status'),dmha_40_id_check_col(3,'nama'));
                 }
 
-                $isi .= color_admin_apple_v42_hidden($DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+                $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
                 
                 $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
             }
@@ -73,6 +73,7 @@ class wwform extends Controller
             $PARAM_2 = $request->p2;
             $PARAM_3 = $request->p3;
             $ID = $request->di;
+            $AUTH_ID = $request->a;
 
         // ------------------------------------------------------------------------- SUBMITTING DATA
             //////////////////////////////////////////////////////////////////////////////////////////// SYSTEM
@@ -234,13 +235,17 @@ class wwform extends Controller
                 }
                 elseif($DMHA_1 == 111) {     
                     
-                    $nama = $request->nama;
-                    $dmha_175 = $request->dmha_175;
-                    $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", " ", $nama);
-                    $filename = replace_to_underscore($pra_nama).'.'.$request->filename->getClientOriginalExtension();
+                    $dmha_335 = dmha_87_user_id_check_col($AUTH_ID,'dmha_335');
+
+                    $dmha_171 = $request->dmha_171;
+
+                    $dmha_336 = $request->dmha_336;
+                        $nama = dmha_336_id_check_col($dmha_336,'nama');
+                        $pra_nama = preg_replace("/[^a-zA-Z0-9\s]/", " ", $nama);
+
+                    $filename = replace_to_underscore($pra_nama).'_'.$dmha_335.'_'.$dmha_171.'.'.$request->filename->getClientOriginalExtension();
 
                     $storage_files = 'public/storage/dmha_111/';
-
                     $filename_exist  = public_path($storage_files).$filename;
 
                     if (Storage::exists($filename_exist)) {
@@ -251,8 +256,8 @@ class wwform extends Controller
                         $request->filename->storeAs($storage_files,$filename);    
                     }  
 
-                    if($DMHA_271 == 2) { dmha_111_create_me($nama,$dmha_175,$filename); $FLASH_MESSAGE = 2; }
-                    elseif($DMHA_271 == 3) { dmha_111_update_me($ID,$nama,$dmha_175,$filename); $FLASH_MESSAGE = 2; }
+                    if($DMHA_271 == 2) { dmha_111_create_me($dmha_335,$dmha_171,$dmha_336,$filename); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_111_update_me($ID,$dmha_335,$dmha_171,$dmha_336,$filename); $FLASH_MESSAGE = 2; }
                 }
                 elseif($DMHA_1 == 114) {     
                     if($DMHA_271 == 2) { dmha_114_create_me($request->all()); $FLASH_MESSAGE = 2; }
@@ -266,9 +271,21 @@ class wwform extends Controller
                     if($DMHA_271 == 2) { dmha_175_create_me($request->all()); $FLASH_MESSAGE = 2; }
                     elseif($DMHA_271 == 3) { dmha_175_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
                 }
+                elseif($DMHA_1 == 193) {     
+                    if($DMHA_271 == 2) { dmha_193_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_193_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
                 elseif($DMHA_1 == 330) {     
                     if($DMHA_271 == 2) { dmha_330_create_me($request->all()); $FLASH_MESSAGE = 2; }
                     elseif($DMHA_271 == 3) { dmha_330_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
+                elseif($DMHA_1 == 335) {     
+                    if($DMHA_271 == 2) { dmha_335_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_335_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
+                }
+                elseif($DMHA_1 == 336) {     
+                    if($DMHA_271 == 2) { dmha_336_create_me($request->all()); $FLASH_MESSAGE = 2; }
+                    elseif($DMHA_271 == 3) { dmha_336_update_me($ID,$request->all()); $FLASH_MESSAGE = 2; }
                 }
 
 

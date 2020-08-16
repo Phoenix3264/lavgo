@@ -38,13 +38,12 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(5).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
+                    '.th_me('Mata Pelajaran', $class_th).'
                     '.th_me('Kelas', $class_th).'
-                    '.th_me('Filename', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';
@@ -54,13 +53,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_111_create_me($nama,$dmha_175,$filename)
+    function dmha_111_create_me($dmha_335,$dmha_171,$dmha_336,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_111::create_me($nama,$dmha_175,$filename);
+            $isi    = dmha_111::create_me($dmha_335,$dmha_171,$dmha_336,$filename);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -68,13 +67,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_111_update_me($id,$nama,$dmha_175,$filename)
+    function dmha_111_update_me($id,$dmha_335,$dmha_171,$dmha_336,$filename)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_111::update_me($id,$nama,$dmha_175,$filename);
+            $isi    = dmha_111::update_me($id,$dmha_335,$dmha_171,$dmha_336,$filename);
 
         // ------------------------------------------------------------------------- SEND
 		//////////////////////////////////////////////////////////////////////////// 		
@@ -94,7 +93,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_111_card()
+    function dmha_111_data_card($agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -103,19 +102,7 @@
 
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= '
-
-                <a href="'.url('/').'/'.$link.'/'.$row->id.'" class="card-block col-md-3">
-                    <div class="card">
-						<img class="card-img-top" width="100%" src="'.url('/').Storage::url('app/public/storage/dmha_111/'.dmha_14_generate_value(3,111,$row->id,'filename')).'" alt="">
-						<div class="card-block">
-							<h4 class="card-title m-t-0 m-b-10">'.$row->nama.'</h4>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-                            
-						</div>
-					</div>
-                </a>
-                ';
+                $isi .= color_admin_apple_v42_card($agent,$link,$row->id,111,dmha_336_id_check_col($row->dmha_336,'nama'),dmha_171_id_check_col($row->dmha_171,'nama'));
             }
 
         // ------------------------------------------------------------------------- SEND

@@ -36,5 +36,4 @@
             });
         });
             
-        {!!ajax_data_table($AUTH_ID,$transform_ID,$PARAM_1,$PARAM_2,$agent)!!}
 	</script>

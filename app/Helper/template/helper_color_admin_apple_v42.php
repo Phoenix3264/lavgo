@@ -75,27 +75,29 @@
             $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_1,'dropdown_table');
 
         // ------------------------------------------------------------------------- ACTION
-                  
-            $isi    .= '
-            <ul class="sub-menu">
-                <div class="btn-group ">
-                    <a href="javascript:;" data-toggle="dropdown" class="btn btn-white dropdown-toggle"></a>
-                    <ul class="dropdown-menu">';
-                    foreach($model as $row)
-                    {
-                        $isi .= '
-                        <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'"
-                        
-                        '.rules_link_target_blank($row->dmha_4).'
-                        >
-                            <i class="'.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
-                            '.$row->nama.'
-                            </a></li>';
-                    }                        
-                    $isi  .= '    
-                    </ul>
-                </div>
-            </ul>';
+            if(count($model)>0)    
+            {  
+                $isi    .= '
+                <ul class="sub-menu">
+                    <div class="btn-group ">
+                        <a href="javascript:;" data-toggle="dropdown" class="btn btn-white dropdown-toggle"></a>
+                        <ul class="dropdown-menu">';
+                        foreach($model as $row)
+                        {
+                            $isi .= '
+                            <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'"
+                            
+                            '.rules_link_target_blank($row->dmha_4).'
+                            >
+                                <i class="'.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
+                                '.$row->nama.'
+                                </a></li>';
+                        }                        
+                        $isi  .= '    
+                        </ul>
+                    </div>
+                </ul>';
+            }
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -144,6 +146,41 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
+    function color_admin_apple_v42_singlebutton($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'btn btn-white';
+
+            $model = dmha_1_let_me_generate_data_array($AUTH_ID,$DMHA_1,'singlebutton');
+
+            IF($ID_DATA != 'NULL')
+            {
+                $ID_DATA = 'NULL';
+            }
+
+            $link = dmha_1_id_check_col($DMHA_1,'link');
+            $dmha_4 = dmha_1_id_check_col($DMHA_1,'dmha_4');
+            $id = $ID_DATA;
+            $dmha_5 = dmha_1_id_check_col($DMHA_1,'dmha_5');
+            $nama = dmha_1_id_check_col($DMHA_1,'nama');
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= '
+            <div class="text-right m-b-15 m-bt-15">
+                <a href="'.rules_link($link,$dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'" class="'.$class.'" id="'.$nama.'-'.$id.'">                    
+                    <i class="'.dmha_5_id_check_col($dmha_5,'fa').'"></i> 
+                    '.$nama.'
+                </a>                 
+            </div>
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }  
+
     function color_admin_apple_v42_generate_button_modal($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -168,7 +205,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_9,$ID)
+    function color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -185,7 +222,7 @@
                         '.dmha_13_id_check_col($row->dmha_13,'nama').'
                     </label>
                     <div class="col-md-'.dmha_13_id_check_col($row->dmha_13,'panjang').'">
-                        '.dmha_13_generate_pertanyaan($row->dmha_13,$class,$DMHA_1,$DMHA_9,$ID).'
+                        '.dmha_13_generate_pertanyaan($row->dmha_13,$class,$DMHA_1,$DMHA_271,$ID,$AUTH_ID).'
                     </div>
                 </div>
                 ';
@@ -197,13 +234,14 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function color_admin_apple_v42_hidden($DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3,$id_data)
+    function color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3,$id_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class  = 'form-control';
 
         // ------------------------------------------------------------------------- ACTION
+            $isi .= dmha_14_generate_input_hidden($class, 'a', $AUTH_ID);
             $isi .= dmha_14_generate_input_hidden($class, 'p', $DMHA_1);
             $isi .= dmha_14_generate_input_hidden($class, 't', $DMHA_9);
             $isi .= dmha_14_generate_input_hidden($class, 'p2', $PARAM_2);
@@ -382,6 +420,58 @@
             </form>
             ';
 
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_apple_v42_page_container($agent)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            if($agent->isDesktop() == 1){
+                $isi .= '<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">';
+            }
+            elseif($agent->isMobile() == 1){
+                $isi .= '<div id="page-container" class="fade page-sidebar-fixed show page-with-wide-sidebar">';
+            }
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_apple_v42_card($agent,$link,$id_data,$dmha,$nama,$detail)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            if($agent->isDesktop() == 1){
+                // $isi .= '<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">';
+            }
+            elseif($agent->isMobile() == 1){
+                // $isi .= '<div id="page-container" class="fade page-sidebar-fixed show page-with-wide-sidebar">';
+            }
+
+            $isi .= '
+            
+            <a href="'.url('/').'/'.$link.'/'.$id_data.'" class="card-block col-md-3">
+                <div class="card">
+                    <img class="card-img-top" width="100%" src="'.url('/').Storage::url('app/public/storage/dmha_'.$dmha.'/'.dmha_14_generate_value(3,$dmha,$id_data,'filename')).'" alt="">
+                    <div class="card-block">
+                        <h4 class="card-title m-t-0 m-b-10">'.$nama.'</h4>
+                        <p class="card-text">'.$detail.'</p>
+                    </div>
+                </div>
+            </a>
+            
+            ';
+            
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

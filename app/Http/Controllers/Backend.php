@@ -20,7 +20,8 @@ class Backend extends Controller
   	{
         // Make me Smooth
             if($PARAM_1 == 'js'){ return redirect('dashboard'); }
-            
+
+
         // Set Rules
             // Unknown Param, Redirect to
                 if($PARAM_1 == ''){return redirect('dashboard');}
@@ -34,13 +35,16 @@ class Backend extends Controller
 
             // Define User agent                
                 $agent = new Agent();
+    		    $data['agent']      = $agent;
                 $template_agent = 'browser';
 
   			// Whats ur name, again            
     		    $data['AUTH_NAME']      = Auth::user()->name;
-    		    $data['AUTH_ID']        = Auth::user()->id;
-    		    $data['AUTH_ROLE']        = dmha_122_id_check_col(user_id_check_col(Auth::user()->id,'dmha_122'),'nama');
-                  
+    		    $AUTH_ID                = Auth::user()->id;
+    		    $data['AUTH_ID']        = $AUTH_ID ;
+    		    $AUTH_ID_ROLE           = Auth::user()->dmha_122;
+                $data['AUTH_ROLE']      = dmha_122_id_check_col($AUTH_ID_ROLE,'nama');
+                
   			// then, we check your link
                 $data['PARAM_1']    = $PARAM_1;
                 $data['PARAM_2']    = $PARAM_2;
@@ -75,6 +79,13 @@ class Backend extends Controller
                     $data['id_data'] = $PARAM_2;
                 }
 
+            // Flash Message   
+                if(dmha_162_id_check($AUTH_ID_ROLE,$id) == false)   
+                {      
+                    Session::flash('message',8);
+                    return redirect('dashboard');
+                }
+                
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');
                 $data['root']   = replace_to_underscore($root);

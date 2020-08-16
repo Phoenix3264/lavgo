@@ -16,6 +16,20 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    function dmha_87_user_id_check_col($ID,$COL)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_87::user_id_check_col($ID,$COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
     function dmha_87_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -30,21 +44,40 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_87_data_table()
+    function dmha_87_data_table($agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class_th = 'text-center bold';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(4).'
+            if($agent->isDesktop() == 1 )
+            {
+                $isi .= general_colgroup(4);
+            }
+            if($agent->isMobile() == 1 )
+            {
+                $isi .= general_colgroup(3);
+            }
+
+            $isi .='
             <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('NIP', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
+                <tr>';
+                $isi .= th_me('ID', $class_th);
+
+                if($agent->isDesktop() == 1 )
+                {
+                    $isi .= th_me('NIP', $class_th);
+                    $isi .= th_me('Nama', $class_th);
+                }
+                if($agent->isMobile() == 1 )
+                {
+                    $isi .= th_me('Nama', $class_th);
+                }
+                
+                $isi .= th_me('Action', $class_th);
+                
+                $isi .='
                 </tr>
             </thead>';
         // ------------------------------------------------------------------------- SEND

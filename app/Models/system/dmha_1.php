@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_4
  * @property int $dmha_5
  * @property int $dmha_9
+ * @property int $dmha_271
  * @property int $dmha_300
  * @property int $dmha_322
  * @property string $created_at
@@ -34,7 +35,7 @@ class dmha_1 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_300', 'dmha_322', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'link', 'urutan', 'has_sub', 'dmha_1', 'dmha_2', 'dmha_3', 'dmha_4', 'dmha_5', 'dmha_9', 'dmha_271', 'dmha_300', 'dmha_322', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -198,19 +199,97 @@ class dmha_1 extends Model
             }
             elseif($TIPE == 'dropdown_table')
             {
-                $isi = dmha_1::whereNull('deleted_at')
-                    ->where('dmha_1','=',$ID)		
-                    ->where('dmha_9','=',3)											
-                    ->orderBy('urutan','asc')
-                    ->get();
+                    
+                $isi = dmha_1::
+                selectRaw('
+                    dmha_1.id,
+                    dmha_1.nama,
+                    dmha_1.link,
+                    dmha_1.urutan,
+                    dmha_1.has_sub,
+                    dmha_1.dmha_5,
+                    dmha_1.dmha_322
+                ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                //
+                ->where('dmha_1.dmha_1','=',$ID)		
+                ->where('dmha_1.dmha_9','=',3)	
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->whereNull('dmha_1.deleted_at')	
+
+                ->get();
             }
             elseif($TIPE == 'button')
             {
-                $isi = dmha_1::whereNull('deleted_at')
-                    ->where('dmha_1','=',$ID)		
-                    ->where('dmha_9','=',2)												
-                    ->orderBy('urutan','asc')
-                    ->get();
+                $isi = dmha_1::
+                selectRaw('
+                    dmha_1.id,
+                    dmha_1.nama,
+                    dmha_1.link,
+                    dmha_1.urutan,
+                    dmha_1.has_sub,
+                    dmha_1.dmha_5,
+                    dmha_1.dmha_322
+                ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                //
+                ->where('dmha_1.dmha_1','=',$ID)		
+                ->where('dmha_1.dmha_9','=',2)	
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->whereNull('dmha_1.deleted_at')	
+
+                ->get();
+            }
+            elseif($TIPE == 'singlebutton')
+            {
+                $isi = dmha_1::
+                selectRaw('
+                    dmha_1.id,
+                    dmha_1.nama,
+                    dmha_1.link,
+                    dmha_1.urutan,
+                    dmha_1.has_sub,
+                    dmha_1.dmha_5,
+                    dmha_1.dmha_322
+                ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                //
+                ->where('dmha_1.id','=',$ID)		
+                ->where('dmha_1.dmha_9','=',2)	
+
+                ->where('dmha_1.dmha_3','=',1)
+                ->whereNull('dmha_1.deleted_at')	
+
+                ->get();
             }
             elseif($TIPE == 'kelas')
             {          
@@ -351,6 +430,7 @@ class dmha_1 extends Model
                     'dmha_4' => 1,
                     'dmha_5' => 1, 
                     'dmha_9' => 1,
+                    'dmha_271' => 1,
                     'dmha_300' => 1,
                 ]);
 
@@ -368,6 +448,7 @@ class dmha_1 extends Model
                     'dmha_4' => 2,
                     'dmha_5' => 2, 
                     'dmha_9' => 2,
+                    'dmha_271' => 2,
                     'dmha_300' => 2,
                 ]);
 
@@ -383,6 +464,7 @@ class dmha_1 extends Model
                     'dmha_4' => 2,
                     'dmha_5' => 3, 
                     'dmha_9' => 3,
+                    'dmha_271' => 3,
                     'dmha_300' => 2,
                 ]);
 
@@ -398,6 +480,7 @@ class dmha_1 extends Model
                     'dmha_4' => 2,
                     'dmha_5' => 4,
                     'dmha_9' => 3, 
+                    'dmha_271' => 4,
                     'dmha_300' => 2,
                 ]);
 

@@ -153,6 +153,40 @@ use Illuminate\Support\Facades\Storage;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dev_mode_show_agent_detail($agent)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class_th = 'text-center bold';
+
+		// ------------------------------------------------------------------------- ACTION
+            $isi .= 
+            data_tabel_open_with_id('dev-mode-agent').
+            general_colgroup(2).'
+            <thead>
+                <tr>
+                    '.th_me('Desktop', $class_th).'
+                    '.th_me('Mobile', $class_th).'
+                </tr>
+            </thead>
+            <tbody>
+            ';     
+                $isi .= '
+                <tr>
+                '.td_me($agent->isDesktop(), 'text-center').'
+                '.td_me($agent->isMobile(), 'text-center').'
+                </tr>
+                ';
+                
+            $isi .= '
+            </tbody>'.
+            UI_tabel_close();
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
     
     function rules_for_label_form()
     {

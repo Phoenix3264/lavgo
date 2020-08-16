@@ -128,26 +128,26 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
     
-    function dmha_14_generate_input_type($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    function dmha_14_generate_input_type($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = ''; 
             $is_foreach = true;
 
         // ------------------------------------------------------------------------- ACTION
-            if($dmha_14 == 1) { $isi .= dmha_14_generate_input_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 2) { $isi .= dmha_14_generate_input_number($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 3) { $isi .= dmha_14_generate_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 4) { $isi .= dmha_14_generate_radio_horizontal($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 5) { $isi .= dmha_14_generate_input_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 6) { $isi .= dmha_14_generate_switcher($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 7) { $isi .= dmha_14_generate_checkboxes($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }  
-            elseif($dmha_14 == 9) { $isi .= dmha_14_generate_multi_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 10) { $isi .= dmha_14_generate_textarea($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 11) { $isi .= dmha_14_generate_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 12) { $isi .= dmha_14_generate_file_upload($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
-            elseif($dmha_14 == 14) { $isi .= dmha_14_generate_autocomplete_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); }
-            elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            if($dmha_14 == 1) { $isi .= dmha_14_generate_input_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 2) { $isi .= dmha_14_generate_input_number($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 3) { $isi .= dmha_14_generate_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 4) { $isi .= dmha_14_generate_radio_horizontal($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 5) { $isi .= dmha_14_generate_input_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 6) { $isi .= dmha_14_generate_switcher($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 7) { $isi .= dmha_14_generate_checkboxes($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 9) { $isi .= dmha_14_generate_multi_text($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
+            elseif($dmha_14 == 10) { $isi .= dmha_14_generate_textarea($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
+            elseif($dmha_14 == 11) { $isi .= dmha_14_generate_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
+            elseif($dmha_14 == 12) { $isi .= dmha_14_generate_file_upload($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
+            elseif($dmha_14 == 14) { $isi .= dmha_14_generate_autocomplete_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }
+            elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
             // elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
             // elseif($dmha_14 == 18) { $isi .= dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
 
@@ -224,6 +224,7 @@
                 ///////////////////////////////////////////////////////////////////////////////// acadion
                     elseif($DMHA_1 == 111) { $isi .= dmha_111_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 171) { $isi .= dmha_171_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 335) { $isi .= dmha_335_id_check_col($ID,$name);  }  
 
                 ///////////////////////////////////////////////////////////////////////////////// notarion
                     elseif($DMHA_1 == 55) { $isi .= dmha_55_id_check_col($ID,$name);  }  
@@ -267,7 +268,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
     
-    function dmha_14_generate_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    function dmha_14_generate_select($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -303,7 +304,9 @@
                     elseif($dmha_13 == 60) { $isi_model = dmha_271_let_me_generate_data_array(null,null); }
                 
                 ////////////////////////////////////////////////////////////////////////////////////////////// ACADION                    
-                    elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array($AUTH_ID,null); }        
+                    elseif($dmha_13 == 76) { $isi_model = dmha_193_let_me_generate_data_array(null,null); }     
+                    elseif($dmha_13 == 77) { $isi_model = dmha_336_let_me_generate_data_array(null,null); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////// NOTARION                  
                     elseif($dmha_13 == 71) { $isi_model = dmha_279_let_me_generate_data_array(null,null); }    
@@ -490,7 +493,12 @@
             $isi .= '
             <div class="checkbox checkbox-css">
                 <input type="checkbox" id="form-'.$row_id.'" value="'.$row_id.'"  name="'.$name.'[]" '.dmha_14_generate_value_checked($row_id,$DMHA_1,$ID,$row_id).' >
-                <label for="form-'.$row_id.'">'.$label.'</label>
+                <label for="form-'.$row_id.'">';
+                $isi .= $label;
+                // $isi .= '-'.$row_id.'-'.$DMHA_1.'-'.$ID.'-'.$row_id;
+
+
+                $isi .= '</label>
             </div>
             ';     
 

@@ -1,10 +1,21 @@
 <?php
 
-    function ajax_data_table($AUTH_ID,$DMHA_ID,$table_id,$PARAM_2)
+    function ajax_data_table($AUTH_ID,$DMHA_ID,$table_id,$PARAM_2,$agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$DMHA_ID,'joined');
+            $agent_name = '';
+
+            if($agent->isDesktop() == 1)
+            {
+                $agent_name = 'desktop';
+            }
+            elseif($agent->isMobile() == 1)
+            {
+                $agent_name = 'mobile';
+            }
+
+            $isi_model = dmha_15_let_me_generate_data_array($AUTH_ID,$DMHA_ID,'joined',$agent_name);
             
             if($PARAM_2 == '')
             {
@@ -34,7 +45,7 @@
                     ]
                 });
             });        
-            ' ;
+            '.$agent_name ;
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

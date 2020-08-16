@@ -30,20 +30,40 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_171_data_table()
+    function dmha_171_data_table($agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class_th = 'text-center bold';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
+            if($agent->isDesktop() == 1 )
+            {
+                $isi .= general_colgroup(4);
+            }
+            if($agent->isMobile() == 1 )
+            {
+                $isi .= general_colgroup(3);
+            }
+
+            $isi .='
             <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
+                <tr>';
+                $isi .= th_me('ID', $class_th);
+
+                if($agent->isDesktop() == 1 )
+                {
+                    $isi .= th_me('Tingkatan Pendidikan', $class_th);
+                    $isi .= th_me('Nama', $class_th);
+                }
+                if($agent->isMobile() == 1 )
+                {
+                    $isi .= th_me('Nama', $class_th);
+                }
+                
+                $isi .= th_me('Action', $class_th);
+                
+                $isi .='
                 </tr>
             </thead>';
         // ------------------------------------------------------------------------- SEND
