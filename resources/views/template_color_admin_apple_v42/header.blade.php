@@ -1,7 +1,8 @@
 <div id="header" class="header navbar-inverse">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> <b>Color</b> Admin</a>
+        <a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> 
+        <b>{!!dmha_8_is_it_dev_mode()!!}</b> Admin</a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -12,6 +13,7 @@
     
     <!-- begin header-nav -->
     <ul class="navbar-nav navbar-right">
+        <!--
         <li>
             <form class="navbar-form">
                 <div class="form-group">
@@ -20,6 +22,8 @@
                 </div>
             </form>
         </li>
+        -->
+        <!--
         <li class="dropdown">
             <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle icon">
                 <i class="ion-ios-notifications"></i>
@@ -92,18 +96,22 @@
                 </li>
             </ul>
         </li>
+        
+        -->
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-13.jpg" alt="" /> 
                 <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
+                <!--
                 <a href="javascript:;" class="dropdown-item">Edit Profile</a>
                 <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>
                 <a href="javascript:;" class="dropdown-item">Calendar</a>
                 <a href="javascript:;" class="dropdown-item">Setting</a>
                 <div class="dropdown-divider"></div>
-                <a href="javascript:;" class="dropdown-item">Log Out</a>
+                -->
+                <a href="{{url('/')}}/logout" class="dropdown-item">Log Out</a>
             </div>
         </li>
     </ul>
