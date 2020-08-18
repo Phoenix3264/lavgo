@@ -5,15 +5,14 @@
 			<!-- begin brand -->
 			<div class="login-header">
 				<div class="brand">
-					<span class="logo"><i class="ion-ios-cloud"></i></span> <b>Demo</b> Admin
-					<small>responsive system </small>
+					<span class="logo"><i class="ion-ios-cloud"></i></span> <b>System</b> Admin
+					<small>responsive admin </small>
 				</div>
 				<div class="icon">
 					<i class="fa fa-lock"></i>
 				</div>
 			</div>
 			<!-- end brand -->
-			<!-- begin login-content -->
 			<div class="login-content">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -45,22 +44,6 @@
 			<!-- end login-content -->
 
             
-			<!-- begin login-content -->
-			<div class="login-content">
-				<form action="index.html" method="GET" class="margin-bottom-0">
-					<div class="form-group m-b-20">
-						<input type="text" class="form-control form-control-lg" placeholder="Email Address" required />
-					</div>
-					<div class="form-group m-b-20">
-						<input type="password" class="form-control form-control-lg" placeholder="Password" required />
-					</div>
-					<div class="login-buttons">
-						<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in as Admin</button>
-					</div>
-				</form>
-			</div>
-			<!-- end login-content -->
-
 		</div>
 		<!-- end login -->
         

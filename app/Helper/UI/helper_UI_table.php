@@ -162,6 +162,12 @@
 			elseif($DMHA_ID == 314){ $isi = dmha_314_data_table($AGENT); }
 			elseif($DMHA_ID == 318){ $isi = dmha_318_data_table($AGENT); }
 
+			///////////////////////////////////////////////////////////////////////////////// Penelitian
+				elseif($DMHA_ID == 344){ $isi = dmha_344_data_table($AGENT); }
+				elseif($DMHA_ID == 348){ $isi = dmha_348_data_table($AGENT); }
+				elseif($DMHA_ID == 352){ $isi = dmha_352_data_table($AGENT); }
+				elseif($DMHA_ID == 356){ $isi = dmha_356_data_table($AGENT); }
+
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

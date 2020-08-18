@@ -29,11 +29,8 @@
 		<div class="login-cover-bg"></div>
 	</div>
 
-	<!-- begin #page-container -->
     @include($template.'.panel.panel_'.$page) 
-	<!-- end page container -->
 	
-	<!-- end page container -->
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
