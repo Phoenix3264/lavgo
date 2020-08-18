@@ -1,28 +1,8 @@
 
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
+<html>
 <head>
     @include('general_layout.title')
     @include('general_layout.meta_backend')
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
->>>>>>> parent of 1178d3f2... stuck in here
-=======
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
->>>>>>> parent of 1178d3f2... stuck in here
-=======
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
->>>>>>> parent of 1178d3f2... stuck in here
-=======
->>>>>>> parent of 8b9e03ba... coba
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/font-awesome/5.14/css/all.min.css" rel="stylesheet" />
@@ -85,23 +65,7 @@
 		<!-- end scroll to top btn -->
 	</div>
 	<!-- end page container -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 8b9e03ba... coba
-	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.js"></script>
-=======
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
->>>>>>> parent of 1178d3f2... stuck in here
-=======
-	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
->>>>>>> parent of 1178d3f2... stuck in here
-=======
-	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
->>>>>>> parent of 1178d3f2... stuck in here
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>

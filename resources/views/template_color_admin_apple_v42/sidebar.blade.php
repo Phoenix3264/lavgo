@@ -19,6 +19,7 @@
                     </div>
                 </a>
             </li>
+            <!--
             <li>
                 <ul class="nav nav-profile">
                     <li><a href="javascript:;"><i class="ion-ios-cog"></i> Settings</a></li>
@@ -26,6 +27,7 @@
                     <li><a href="javascript:;"><i class="ion-ios-help"></i> Helps</a></li>
                 </ul>
             </li>
+            -->
         </ul>
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
