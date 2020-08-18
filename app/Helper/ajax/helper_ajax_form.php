@@ -90,15 +90,11 @@
             $(".submit").click(function(){           
    
                 var id = $(this).attr("id");
-                
-                alert(id);
-
                 $.ajax({
                     type:"POST",
                     url:"'.url('/').'/wwform/postdata",
                     data: $("#form_"+id).serialize(),
                     success:function(data){
-                        console.log(data);
                         window.location.href = "'.rules_link_after_post($id).'";
                     }
                 });

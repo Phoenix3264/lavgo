@@ -100,15 +100,6 @@ class wwdata extends Controller
                     elseif($DMHA_1 == 310) { $isi_model = dmha_310_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 314) { $isi_model = dmha_314_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 318) { $isi_model = dmha_318_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////// PENELITIAN
-                    elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
-
-
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
 

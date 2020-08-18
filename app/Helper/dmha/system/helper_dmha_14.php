@@ -163,12 +163,8 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $type = 'hidden';
-
-            if(dmha_8_is_it_dev_mode() == ' Development')
-            {
-                $type = 'type';
-            }
+             $type = 'type';
+            // $type = 'hidden';
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="'.$type.'" class="'.$class.'"  name="'.$name.'"  value="'.$value.'"  >';       

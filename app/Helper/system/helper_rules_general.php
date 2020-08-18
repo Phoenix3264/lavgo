@@ -148,18 +148,8 @@ use Illuminate\Support\Facades\Storage;
             $isi .= '
             </tbody>'.
             UI_tabel_close();
-
-            
         // ------------------------------------------------------------------------- SEND
-            if(dmha_8_is_it_dev_mode() == ' Development')
-            {
-                $word = $isi;
-            }
-            else
-            {
-                $word = '';
-            }
-
+            $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
@@ -192,17 +182,8 @@ use Illuminate\Support\Facades\Storage;
             $isi .= '
             </tbody>'.
             UI_tabel_close();
-            
         // ------------------------------------------------------------------------- SEND
-            if(dmha_8_is_it_dev_mode() == ' Development')
-            {
-                $word = $isi;
-            }
-            else
-            {
-                $word = '';
-            }
-
+            $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
