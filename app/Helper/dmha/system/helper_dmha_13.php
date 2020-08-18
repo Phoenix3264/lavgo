@@ -55,7 +55,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_13_generate_pertanyaan($dmha_13,$class,$DMHA_1,$dmha_271,$ID,$AUTH_ID)
+    function dmha_13_generate_pertanyaan($dmha_13,$class,$DMHA_1,$dmha_9,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -63,7 +63,7 @@
             $name = dmha_13_id_check_col($dmha_13,'name');
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_14_generate_input_type($dmha_14,$class,$dmha_13,$name,$DMHA_1,$dmha_271,$ID,$AUTH_ID);
+            $isi    = dmha_14_generate_input_type($dmha_14,$class,$dmha_13,$name,$DMHA_1,$dmha_9,$ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -76,7 +76,7 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             
-            $isi_model = dmha_15_let_me_generate_data_array(NULL,$PARAM_ID,'masked',null);
+            $isi_model = dmha_15_let_me_generate_data_array(NULL,$PARAM_ID,'masked');
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
                 if($row->id == 15) { $isi .= ' $(".masked-'.$row->name.'").unmask().mask("9999999999999999"); '; }

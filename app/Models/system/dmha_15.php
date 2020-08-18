@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_13
  * @property int $urutan
  * @property int $urutan_tabel
- * @property int $urutan_tabel_mobile
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -27,7 +26,7 @@ class dmha_15 extends Model
     /**
      * @var array 
      */
-    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'urutan_tabel', 'urutan_tabel_mobile', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['dmha_1', 'dmha_13', 'urutan', 'urutan_tabel', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -66,7 +65,7 @@ class dmha_15 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE,$agent_name)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -81,30 +80,14 @@ class dmha_15 extends Model
             }
             elseif($TIPE == 'joined')
             {
-                
-                if($agent_name == 'desktop')
-                {
-                    $isi = dmha_15::selectRaw('
-                        dmha_13.name
-                        ')
-                        ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
-                        ->where('dmha_15.dmha_1','=',$ID)     
-                        ->whereNotNull('urutan_tabel')                            
-                        ->orderBy('dmha_15.urutan_tabel','asc')
-                        ->get();
-                }
-                elseif($agent_name == 'mobile')
-                {
-                    $isi = dmha_15::selectRaw('
-                        dmha_13.name
-                        ')
-                        ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
-                        ->where('dmha_15.dmha_1','=',$ID)     
-                        ->whereNotNull('urutan_tabel_mobile')                            
-                        ->orderBy('dmha_15.urutan_tabel_mobile','asc')
-                        ->get();
-                }
-
+                $isi = dmha_15::selectRaw('
+                    dmha_13.name
+                    ')
+                    ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
+                    ->where('dmha_15.dmha_1','=',$ID)     
+                    ->whereNotNull('urutan_tabel')                            
+                    ->orderBy('dmha_15.urutan_tabel','asc')
+                    ->get();
             }      
             elseif($TIPE == 'masked')
             {

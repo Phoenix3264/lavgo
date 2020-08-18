@@ -68,11 +68,8 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 167) { $isi_model = dmha_167_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 171) { $isi_model = dmha_171_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 175) { $isi_model = dmha_175_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 193) { $isi_model = dmha_193_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 203) { $isi_model = dmha_203_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 330) { $isi_model = dmha_330_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 335) { $isi_model = dmha_335_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 336) { $isi_model = dmha_336_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// Notarion
                     elseif($DMHA_1 == 46) { $isi_model = dmha_46_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -131,72 +128,6 @@ class WwdataController extends Controller
     }
 
     
-    public function accordion()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';            
-            $AUTH_ID    = $_GET['a'];
-            $DMHA_1     = $_GET['p'];
-            $DMHA_271     = $_GET['t'];
-            $PARAM_2         = $_GET['p2'];
-            $PARAM_3         = $_GET['p3'];
-            $id_data         = $_GET['di'];
-
-            $dmha_2  = dmha_1_id_check_col($DMHA_1,'dmha_2');
-        // ------------------------------------------------------------------------- ACTION
-
-            if($dmha_2 == 1)
-            {
-                $isi .= color_admin_v42_hidden($AUTH_ID,$DMHA_1);
-                $isi .= color_admin_v42_form($AUTH_ID,$DMHA_1);
-            }
-            elseif($dmha_2 == 2)
-            {
-                $isi .= color_admin_material_v42_hidden($DMHA_1,$DMHA_271,$PARAM_2,$id_data);
-                
-                $isi .= color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
-            }
-            elseif($dmha_2 == 4)
-            {
-                if($DMHA_271 == 4)
-                {
-                    $isi .= color_admin_apple_v42_flash_message(dmha_40_id_check_col(3,'status'),dmha_40_id_check_col(3,'nama'));
-                }
-
-                //$isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
-                
-                //$isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
-
-
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////// ACADION     
-                    if($DMHA_1 == 251) { $isi_model = dmha_251_let_me_generate_data_array($AUTH_ID, $DMHA_1); }     
-                $isi .= '
-                <div class="card">
-                    <div class="card-header bg-black text-white pointer-cursor collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">
-                        Collapsible Group Item #1
-                    </div>
-                    <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
-                            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
-                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                ';
-
-
-            }
-            
-        // ------------------------------------------------------------------------- SEND
-            die(json_encode(array(
-                "isi" => $isi
-            )));
-        ////////////////////////////////////////////////////////////////////////////
-    }
-
     public function autocomplete(Request $request)
     {
         // ------------------------------------------------------------------------- INITIALIZE

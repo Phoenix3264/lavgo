@@ -20,9 +20,9 @@
 	<!-- end #page-loader -->
 	
 	<!-- begin #page-container -->
-	{!!color_admin_apple_v42_page_container($agent)!!}
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
 		<!-- begin #header -->
-		<div id="header" class="header navbar-inverse">         
+		<div id="header" class="header navbar-default">         
 			@include($template.'.header')
 		</div>
 		<!-- end #header -->
@@ -32,7 +32,8 @@
 		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
-		<div id="content" class="content">			
+		<div id="content" class="content">
+            
 			<!-- begin breadcrumb -->            
             @include($template.'.breadcrumb')
 			<!-- end breadcrumb -->
@@ -41,18 +42,12 @@
             	@include($template.'.page_header')
 			<!-- end page-header -->
 			
-			@if(Session::has('message'))
-				{!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
-			@endif
 			<!-- begin panel -->
             	@include($template.'.panel.panel_'.$page) 
 			<!-- end panel -->
             
 			<?php
 			  echo dev_mode_show_page_detail($AUTH_ID,$id);
-			?>
-			<?php
-			  echo dev_mode_show_agent_detail($agent);
 			?>
 		</div>
 		<!-- end #content -->

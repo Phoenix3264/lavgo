@@ -79,7 +79,7 @@
 		////////////////////////////////////////////////////////////////////////////
 	}
 
-    function general_colgroup_thead($DMHA_ID,$AGENT)
+    function general_colgroup_thead($DMHA_ID)
     {
 		// ------------------------------------------------------------------------- INITIALIZE
 			$isi = '';
@@ -87,80 +87,77 @@
 
 		// ------------------------------------------------------------------------- ACTION
 			///////////////////////////////////////////////////////////////////////////////// System
-				if($DMHA_ID == 1){ $isi = dmha_1_data_table($AGENT); }
-				elseif($DMHA_ID == 2){ $isi = dmha_2_data_table($AGENT); }
-				elseif($DMHA_ID == 3){ $isi = dmha_3_data_table($AGENT); }
-				elseif($DMHA_ID == 4){ $isi = dmha_4_data_table($AGENT); }
-				elseif($DMHA_ID == 5){ $isi = dmha_5_data_table($AGENT); }
-				elseif($DMHA_ID == 8){ $isi = dmha_8_data_table($AGENT); }
-				elseif($DMHA_ID == 9){ $isi = dmha_9_data_table($AGENT); }
-				elseif($DMHA_ID == 13){ $isi = dmha_13_data_table($AGENT); }
-				elseif($DMHA_ID == 14){ $isi = dmha_14_data_table($AGENT); }
-				elseif($DMHA_ID == 15){ $isi = dmha_15_data_table($AGENT); }
-				elseif($DMHA_ID == 40){ $isi = dmha_40_data_table($AGENT); }
-				elseif($DMHA_ID == 271){ $isi = dmha_271_data_table($AGENT); }
-				elseif($DMHA_ID == 322){ $isi = dmha_322_data_table($AGENT); }
-				elseif($DMHA_ID == 326){ $isi = dmha_326_data_table($AGENT); }
+				if($DMHA_ID == 1){ $isi = dmha_1_data_table(); }
+				elseif($DMHA_ID == 2){ $isi = dmha_2_data_table(); }
+				elseif($DMHA_ID == 3){ $isi = dmha_3_data_table(); }
+				elseif($DMHA_ID == 4){ $isi = dmha_4_data_table(); }
+				elseif($DMHA_ID == 5){ $isi = dmha_5_data_table(); }
+				elseif($DMHA_ID == 8){ $isi = dmha_8_data_table(); }
+				elseif($DMHA_ID == 9){ $isi = dmha_9_data_table(); }
+				elseif($DMHA_ID == 13){ $isi = dmha_13_data_table(); }
+				elseif($DMHA_ID == 14){ $isi = dmha_14_data_table(); }
+				elseif($DMHA_ID == 15){ $isi = dmha_15_data_table(); }
+				elseif($DMHA_ID == 40){ $isi = dmha_40_data_table(); }
+				elseif($DMHA_ID == 271){ $isi = dmha_271_data_table(); }
+				elseif($DMHA_ID == 322){ $isi = dmha_322_data_table(); }
+				elseif($DMHA_ID == 326){ $isi = dmha_326_data_table(); }
 
-			elseif($DMHA_ID == 69){ $isi = dmha_69_data_table($AGENT); }
-			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table($AGENT); }
-			elseif($DMHA_ID == 77){ $isi = dmha_77_data_table($AGENT); }
-			elseif($DMHA_ID == 81){ $isi = dmha_81_data_table($AGENT); }
-			elseif($DMHA_ID == 91){ $isi = dmha_91_data_table($AGENT); }
-			elseif($DMHA_ID == 95){ $isi = dmha_95_data_table($AGENT); }
-			elseif($DMHA_ID == 99){ $isi = dmha_99_data_table($AGENT); }
-			elseif($DMHA_ID == 103){ $isi = dmha_103_data_table($AGENT); }
-			elseif($DMHA_ID == 107){ $isi = dmha_107_data_table($AGENT); }
-			elseif($DMHA_ID == 122){ $isi = dmha_122_data_table($AGENT); }
-			elseif($DMHA_ID == 126){ $isi = dmha_126_data_table($AGENT); }
-			elseif($DMHA_ID == 130){ $isi = dmha_130_data_table($AGENT); }
-			elseif($DMHA_ID == 134){ $isi = dmha_134_data_table($AGENT); }
-			elseif($DMHA_ID == 138){ $isi = dmha_138_data_table($AGENT); }
-			elseif($DMHA_ID == 144){ $isi = dmha_144_data_table($AGENT); }
-			elseif($DMHA_ID == 158){ $isi = user_data_table($AGENT); }
+			elseif($DMHA_ID == 69){ $isi = dmha_69_data_table(); }
+			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table(); }
+			elseif($DMHA_ID == 77){ $isi = dmha_77_data_table(); }
+			elseif($DMHA_ID == 81){ $isi = dmha_81_data_table(); }
+			elseif($DMHA_ID == 91){ $isi = dmha_91_data_table(); }
+			elseif($DMHA_ID == 95){ $isi = dmha_95_data_table(); }
+			elseif($DMHA_ID == 99){ $isi = dmha_99_data_table(); }
+			elseif($DMHA_ID == 103){ $isi = dmha_103_data_table(); }
+			elseif($DMHA_ID == 107){ $isi = dmha_107_data_table(); }
+			elseif($DMHA_ID == 122){ $isi = dmha_122_data_table(); }
+			elseif($DMHA_ID == 126){ $isi = dmha_126_data_table(); }
+			elseif($DMHA_ID == 130){ $isi = dmha_130_data_table(); }
+			elseif($DMHA_ID == 134){ $isi = dmha_134_data_table(); }
+			elseif($DMHA_ID == 138){ $isi = dmha_138_data_table(); }
+			elseif($DMHA_ID == 144){ $isi = dmha_144_data_table(); }
+			elseif($DMHA_ID == 158){ $isi = user_data_table(); }
 
 
 			//additional
-			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table($AGENT); }
+			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table(); }
 
 			///////////////////////////////////////////////////////////////////////////////// Acadion
-				elseif($DMHA_ID == 87){ $isi = dmha_87_data_table($AGENT); }
-				elseif($DMHA_ID == 111){ $isi = dmha_111_data_table($AGENT); }
-				elseif($DMHA_ID == 114){ $isi = dmha_114_data_table($AGENT); }
-				elseif($DMHA_ID == 167){ $isi = dmha_167_data_table($AGENT); }
-				elseif($DMHA_ID == 171){ $isi = dmha_171_data_table($AGENT); }
-				elseif($DMHA_ID == 175){ $isi = dmha_175_data_table($AGENT); }
-				elseif($DMHA_ID == 193){ $isi = dmha_193_data_table($AGENT); }
-				elseif($DMHA_ID == 203){ $isi = dmha_203_data_table($AGENT); }
-				elseif($DMHA_ID == 330){ $isi = dmha_330_data_table($AGENT); }
-				elseif($DMHA_ID == 335){ $isi = dmha_335_data_table($AGENT); }
-				elseif($DMHA_ID == 336){ $isi = dmha_336_data_table($AGENT); }
+				elseif($DMHA_ID == 87){ $isi = dmha_87_data_table(); }
+				elseif($DMHA_ID == 111){ $isi = dmha_111_data_table(); }
+				elseif($DMHA_ID == 114){ $isi = dmha_114_data_table(); }
+				elseif($DMHA_ID == 167){ $isi = dmha_167_data_table(); }
+				elseif($DMHA_ID == 171){ $isi = dmha_171_data_table(); }
+				elseif($DMHA_ID == 175){ $isi = dmha_175_data_table(); }
+				elseif($DMHA_ID == 203){ $isi = dmha_203_data_table(); }
+				elseif($DMHA_ID == 330){ $isi = dmha_330_data_table(); }
 
 			///////////////////////////////////////////////////////////////////////////////// Notarion
-				elseif($DMHA_ID == 46){ $isi = dmha_46_data_table($AGENT); }
-				elseif($DMHA_ID == 47){ $isi = dmha_47_data_table($AGENT); }
-				elseif($DMHA_ID == 51){ $isi = dmha_51_data_table($AGENT); }
-				elseif($DMHA_ID == 55){ $isi = dmha_55_data_table($AGENT); }
-				elseif($DMHA_ID == 60){ $isi = dmha_60_data_table($AGENT); }
-				elseif($DMHA_ID == 119){ $isi = dmha_119_data_table($AGENT); }
-				elseif($DMHA_ID == 148){ $isi = dmha_148_data_table($AGENT); }
-				elseif($DMHA_ID == 152){ $isi = dmha_152_data_table($AGENT); }
-				elseif($DMHA_ID == 255){ $isi = dmha_255_data_table($AGENT); }
-				elseif($DMHA_ID == 259){ $isi = dmha_259_data_table($AGENT); }
-				elseif($DMHA_ID == 263){ $isi = dmha_263_data_table($AGENT); }
-				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table($AGENT); }
-				elseif($DMHA_ID == 275){ $isi = dmha_275_data_table($AGENT); }
-				elseif($DMHA_ID == 279){ $isi = dmha_279_data_table($AGENT); }
-				elseif($DMHA_ID == 283){ $isi = dmha_283_data_table($AGENT); }
+				elseif($DMHA_ID == 46){ $isi = dmha_46_data_table(); }
+				elseif($DMHA_ID == 47){ $isi = dmha_47_data_table(); }
+				elseif($DMHA_ID == 51){ $isi = dmha_51_data_table(); }
+				elseif($DMHA_ID == 55){ $isi = dmha_55_data_table(); }
+				elseif($DMHA_ID == 60){ $isi = dmha_60_data_table(); }
+				elseif($DMHA_ID == 119){ $isi = dmha_119_data_table(); }
+				elseif($DMHA_ID == 148){ $isi = dmha_148_data_table(); }
+				elseif($DMHA_ID == 152){ $isi = dmha_152_data_table(); }
+				elseif($DMHA_ID == 255){ $isi = dmha_255_data_table(); }
+				elseif($DMHA_ID == 259){ $isi = dmha_259_data_table(); }
+				elseif($DMHA_ID == 263){ $isi = dmha_263_data_table(); }
+				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table(); }
+				elseif($DMHA_ID == 275){ $isi = dmha_275_data_table(); }
+				elseif($DMHA_ID == 279){ $isi = dmha_279_data_table(); }
+				elseif($DMHA_ID == 283){ $isi = dmha_283_data_table(); }
 			
 			// paperone			
-			elseif($DMHA_ID == 287){ $isi = dmha_287_data_table($AGENT); }
-			elseif($DMHA_ID == 288){ $isi = dmha_288_data_table($AGENT); }
-			elseif($DMHA_ID == 292){ $isi = dmha_292_data_table($AGENT); }
-			elseif($DMHA_ID == 296){ $isi = dmha_296_data_table($AGENT); }
-			elseif($DMHA_ID == 310){ $isi = dmha_310_data_table($AGENT); }
-			elseif($DMHA_ID == 314){ $isi = dmha_314_data_table($AGENT); }
-			elseif($DMHA_ID == 318){ $isi = dmha_318_data_table($AGENT); }
+			elseif($DMHA_ID == 287){ $isi = dmha_287_data_table(); }
+			elseif($DMHA_ID == 288){ $isi = dmha_288_data_table(); }
+			elseif($DMHA_ID == 292){ $isi = dmha_292_data_table(); }
+			elseif($DMHA_ID == 296){ $isi = dmha_296_data_table(); }
+			elseif($DMHA_ID == 310){ $isi = dmha_310_data_table(); }
+			elseif($DMHA_ID == 314){ $isi = dmha_314_data_table(); }
+			elseif($DMHA_ID == 318){ $isi = dmha_318_data_table(); }
 
 			///////////////////////////////////////////////////////////////////////////////// Penelitian
 				elseif($DMHA_ID == 344){ $isi = dmha_344_data_table($AGENT); }

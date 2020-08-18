@@ -1,42 +1,40 @@
 <?php
 
-namespace App\Models\acadion;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
- * @property string $dmha_175
- * @property string $filename
+ * @property int $dmha_122
+ * @property int $dmha_1
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_336 extends Model
+class dmha_162 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_336';
+    protected $table = 'dmha_162';
 
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'dmha_175', 'filename', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['dmha_122', 'dmha_1', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
-
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_336::where('id','=',$ID)
-                ->whereNull('deleted_at')
+            $isi = dmha_162::where('dmha_122','=',$ID)
                 ->value($COL);
 
         // ------------------------------------------------------------------------- SEND
@@ -45,13 +43,35 @@ class dmha_336 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array()
+    
+    public static function id_check($dmha_122,$dmha_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = false;
+
+        // ------------------------------------------------------------------------- ACTION
+            $temp = dmha_162::where('dmha_122','=',$dmha_122)
+                ->where('dmha_1','=',$dmha_1)
+                ->first();
+            
+            if(!empty($temp))
+            {
+                $isi = 1;
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function let_me_generate_data_array($AUTH_ID,$ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_336::whereNull('deleted_at')
+            $isi = dmha_162::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -61,54 +81,30 @@ class dmha_336 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($nama,$dmha_175,$filename)
+    public static function create_me($dmha_122,$dmha_1)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_336::insert(
-                [
-                    'nama'     => $nama,
-                    'dmha_175'     => $dmha_175,
-                    'filename'     => $filename
+            //foreach ($array_data as $row) {
+                dmha_162::create([
+                    'dmha_122' => $dmha_122, 
+                    'dmha_1' => $dmha_1
                 ]);
+            //}
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$nama,$dmha_175,$filename)
+    public static function update_me($id,$array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_336::where('id','=', $id)
-            ->update(
-                [
-                    'nama'     => $nama,
-                    'dmha_175'     => $dmha_175,
-                    'filename'     => $filename,
-                    'updated_at'     => now()
-                ]);
-
-        // ------------------------------------------------------------------------- SEND
-        ////////////////////////////////////////////////////////////////////////////
-    }
-
-    public static function softdelete_me($id)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            dmha_336::where('id','=', $id)
-            ->update(
-                [
-                    'deleted_at' => now()
-                ]);
-
+            dmha_162::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -120,11 +116,12 @@ class dmha_336 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_336::where('id','=', $id)
+            dmha_162::where('dmha_122','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
+
 
 }

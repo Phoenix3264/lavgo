@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $nama
- * @property int $dmha_193
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -24,7 +23,7 @@ class dmha_171 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'dmha_193', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -49,24 +48,10 @@ class dmha_171 extends Model
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
-            $id_sekolah = dmha_87_user_id_check_col($AUTH_ID,'dmha_335');
-            $id_tingkatan = dmha_335_id_check_col($id_sekolah,'dmha_193');
-
         // ------------------------------------------------------------------------- ACTION
-            if(!empty($id_sekolah))
-            {
-                $isi = dmha_171::where('dmha_193','=', $id_tingkatan)
-                    ->whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
-            }
-            else
-            {
-                $isi = dmha_171::whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
-
-            }
+            $isi = dmha_171::whereNull('deleted_at')
+                ->orderBy('nama','asc')
+                ->get();
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -95,7 +80,6 @@ class dmha_171 extends Model
             dmha_171::where('id','=', $id)
             ->update(
                 [
-                    'dmha_193'     => $array_data['dmha_193'],
                     'nama'     => $array_data['nama'],
                     'updated_at'     => now()
                 ]);

@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE,$agent_name)
+    function dmha_15_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE,$agent_name);
+            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE);
             
 
         // ------------------------------------------------------------------------- SEND
@@ -59,7 +59,7 @@
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$ID,'default',null);            
+            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$ID,'default');            
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
