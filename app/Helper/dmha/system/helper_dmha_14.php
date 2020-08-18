@@ -238,6 +238,11 @@
                     elseif($DMHA_1 == 288) { $isi .= dmha_288_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 292) { $isi .= dmha_292_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 296) { $isi .= dmha_296_id_check_col($ID,$name);  }  
+                ///////////////////////////////////////////////////////////////////////////////// Penelitian
+                    elseif($DMHA_1 == 344) { $isi .= dmha_344_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 348) { $isi .= dmha_348_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 352) { $isi .= dmha_352_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 356) { $isi .= dmha_356_id_check_col($ID,$name);  }  
 
                 else{ $isi .= dmha_40_id_check_col(6,'nama'); }
                 
@@ -291,7 +296,6 @@
                     elseif($dmha_13 == 12) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 14) { $isi_model = dmha_1_let_me_generate_data_array(null,null,'select'); }
                     elseif($dmha_13 == 44) { $isi_model = dmha_300_let_me_generate_data_array(null,null); }
-                    
                     elseif($dmha_13 == 18) { $isi_model = dmha_144_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 22) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 23) { $isi_model = dmha_9_let_me_generate_data_array(null,null); }
@@ -302,6 +306,7 @@
                     elseif($dmha_13 == 28) { $isi_model = dmha_138_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 49) { $isi_model = dmha_322_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 60) { $isi_model = dmha_271_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 78) { $isi_model = dmha_360_let_me_generate_data_array(null,null); }
                 
                 ////////////////////////////////////////////////////////////////////////////////////////////// ACADION                    
                     elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array($AUTH_ID,null); }        

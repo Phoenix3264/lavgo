@@ -79,8 +79,8 @@
             {  
                 $isi    .= '
                 <ul class="sub-menu">
-                    <div class="btn-group ">
-                        <a href="javascript:;" data-toggle="dropdown" class="btn btn-white dropdown-toggle"></a>
+                    <div class="">
+                        <a href="javascript:;" data-toggle="dropdown" class="btn btn-white"> <i class="fas fa-caret-down"></i> </a>
                         <ul class="dropdown-menu">';
                         foreach($model as $row)
                         {
@@ -89,7 +89,7 @@
                             
                             '.rules_link_target_blank($row->dmha_4).'
                             >
-                                <i class="'.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
+                                <i class="  '.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
                                 '.$row->nama.'
                                 </a></li>';
                         }                        

@@ -1,9 +1,10 @@
 <?php
     
  
-    function UI_FORM_open_form($class){
+    function UI_FORM_open_form($class)
+    {        
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '<form class="'.$class.'"  method="POST">';
+            $isi = '<form class="'.$class.'" action="'.url('/').'/wwform/postdata" method="POST">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND
@@ -12,9 +13,10 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
  
-    function UI_FORM_open_form_with_id($class,$id){
+    function UI_FORM_open_form_with_id($class,$id)
+    {
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '<form class="'.$class.'" method="POST" id="form_'.$id.'">';
+            $isi = '<form class="'.$class.'" action="'.url('/').'/wwform/postdata" method="POST" id="form_'.$id.'">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND

@@ -56,13 +56,20 @@ use Illuminate\Support\Facades\Storage;
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function rules_link_after_post($dmha_id)
+    function rules_link_after_post($dmha_id,$tipe)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
-        // ------------------------------------------------------------------------- ACTION   
-            $isi = url('/').'/'.dmha_1_id_check_col(dmha_1_id_check_col($dmha_id,'dmha_1'),'link');          
+        // ------------------------------------------------------------------------- ACTION  
+            if($tipe == 'url') 
+            {
+                $isi = url('/').'/'.dmha_1_id_check_col(dmha_1_id_check_col($dmha_id,'dmha_1'),'link');  
+            }     
+            elseif(is_null($tipe)) 
+            {
+                $isi = url('/').'/'.dmha_1_id_check_col($dmha_id,'link');  
+            }          
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

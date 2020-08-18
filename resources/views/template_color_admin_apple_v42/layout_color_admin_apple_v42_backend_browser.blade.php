@@ -1,8 +1,12 @@
-
-<html>
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
     @include('general_layout.title')
     @include('general_layout.meta_backend')
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/font-awesome/5.14/css/all.min.css" rel="stylesheet" />
@@ -40,10 +44,10 @@
 			<!-- begin page-header -->
             	@include($template.'.page_header')
 			<!-- end page-header -->
-			
 			@if(Session::has('message'))
 				{!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
 			@endif
+
 			<!-- begin panel -->
             	@include($template.'.panel.panel_'.$page) 
 			<!-- end panel -->

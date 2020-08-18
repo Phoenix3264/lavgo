@@ -80,60 +80,65 @@
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function ajax_submit($id)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
+    /* Obsolete
+        Flash data yang tidak selalu muncul
+        
+        function ajax_submit($id)
+        {
+            // ------------------------------------------------------------------------- INITIALIZE
+                $isi    = '';
 
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= '
-            $(".submit").click(function(){           
-   
-                var id = $(this).attr("id");
-                $.ajax({
-                    type:"POST",
-                    url:"'.url('/').'/wwform/postdata",
-                    data: $("#form_"+id).serialize(),
-                    success:function(data){
-                        window.location.href = "'.rules_link_after_post($id).'";
-                    }
+            // ------------------------------------------------------------------------- ACTION
+                $isi .= '
+                $(".submit").click(function(){           
+    
+                    var id = $(this).attr("id");
+                    $.ajax({
+                        type:"POST",
+                        url:"'.url('/').'/wwform/postdata",
+                        data: $("#form_"+id).serialize(),
+                        success:function(data){
+                            window.location.href = "'.rules_link_after_post($id).'";
+                        }
+                    });
                 });
-            });
-            ';
+                ';
 
-        // ------------------------------------------------------------------------- SEND
-            $words = $isi;
-            return $words;
-        ////////////////////////////////////////////////////////////////////////////        
-    }
+            // ------------------------------------------------------------------------- SEND
+                $words = $isi;
+                return $words;
+            ////////////////////////////////////////////////////////////////////////////        
+        }
 
-    function ajax_submit_multipart($id)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
+        function ajax_submit_multipart($id)
+        {
+            // ------------------------------------------------------------------------- INITIALIZE
+                $isi    = '';
 
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= '                
-            $("form#form_'.$id.'").submit(function(e){     
-                e.preventDefault();               
-                var formData = new FormData(this);     
-                $.ajax({
-                    type:"POST",
-                    enctype: "multipart/form-data",
-                    url:"'.url('/').'/wwform/postdata",
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success:function(data){
-                        window.location.href = "'.rules_link_after_post($id).'";
-                    }
+            // ------------------------------------------------------------------------- ACTION
+                $isi .= '                
+                $("form#form_'.$id.'").submit(function(e){     
+                    e.preventDefault();               
+                    var formData = new FormData(this);     
+                    $.ajax({
+                        type:"POST",
+                        enctype: "multipart/form-data",
+                        url:"'.url('/').'/wwform/postdata",
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success:function(data){
+                            window.location.href = "'.rules_link_after_post($id).'";
+                        }
+                    });
                 });
-            });
-            ';
+                ';
 
-        // ------------------------------------------------------------------------- SEND
-            $words = $isi;
-            return $words;
-        ////////////////////////////////////////////////////////////////////////////        
-    }
+            // ------------------------------------------------------------------------- SEND
+                $words = $isi;
+                return $words;
+            ////////////////////////////////////////////////////////////////////////////        
+        }
+
+    */

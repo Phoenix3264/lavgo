@@ -28,7 +28,9 @@ $(document).ready(function(){
     App.init();
     FormPlugins.init();
     {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3,$id_data)!!} 
-    {!!ajax_submit($id)!!}
+    <?php 
+        // echo ajax_submit($id); 
+    ?>
 
 });
 </script>
