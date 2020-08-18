@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 <div class="row">
@@ -62,6 +63,8 @@
 =======
 =======
 >>>>>>> parent of 1178d3f2... stuck in here
+=======
+>>>>>>> parent of 1178d3f2... stuck in here
 <div id='map' style='width: 400px; height: 300px;'></div>
 
 
@@ -74,6 +77,10 @@ center: [-74.5, 40], // starting position [lng, lat]
 zoom: 9 // starting zoom
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
+</script>
+>>>>>>> parent of 1178d3f2... stuck in here
+=======
 </script>
 >>>>>>> parent of 1178d3f2... stuck in here
 =======

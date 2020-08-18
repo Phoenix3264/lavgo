@@ -27,6 +27,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	<!-- end page container -->
+>>>>>>> parent of 1178d3f2... stuck in here
 =======
 	<!-- end page container -->
 >>>>>>> parent of 1178d3f2... stuck in here

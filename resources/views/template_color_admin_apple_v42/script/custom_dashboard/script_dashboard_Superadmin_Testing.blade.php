@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 =======
 <!-- ================== BEGIN BASE JS ================== -->
@@ -19,6 +20,8 @@
 <!-- ================== END BASE JS ================== -->
 >>>>>>> parent of 6ecbe59a... up
 
+=======
+>>>>>>> parent of 1178d3f2... stuck in here
 =======
 >>>>>>> parent of 1178d3f2... stuck in here
 =======
