@@ -34,6 +34,7 @@ class BackendController extends Controller
 
             // Define User agent                
                 $agent = new Agent();
+    		    $data['agent']      = $agent;
                 $template_agent = 'browser';
 
   			// Whats ur name, again            

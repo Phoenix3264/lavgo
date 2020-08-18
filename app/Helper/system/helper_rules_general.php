@@ -163,7 +163,6 @@ use Illuminate\Support\Facades\Storage;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-<<<<<<< HEAD
 
     function dev_mode_show_agent_detail($agent)
     {
@@ -207,8 +206,6 @@ use Illuminate\Support\Facades\Storage;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-=======
->>>>>>> parent of aa0b3412... up
     
     function rules_for_label_form()
     {

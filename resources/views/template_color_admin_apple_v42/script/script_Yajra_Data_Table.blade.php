@@ -16,22 +16,7 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
-<<<<<<< HEAD
 	});
 		
 	{!!ajax_data_table($AUTH_ID,$transform_ID,$PARAM_1,$PARAM_2,$agent)!!}
 </script>
-=======
-
-        
-        $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-        });
-            
-        {!!ajax_data_table($AUTH_ID,$transform_ID,$PARAM_1,$PARAM_2)!!}
-	</script>
->>>>>>> parent of aa0b3412... up
