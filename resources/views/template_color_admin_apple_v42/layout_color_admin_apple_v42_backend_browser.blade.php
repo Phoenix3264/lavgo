@@ -9,6 +9,10 @@
     @include('general_layout.meta_backend')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+>>>>>>> parent of 1178d3f2... stuck in here
 =======
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 >>>>>>> parent of 1178d3f2... stuck in here
@@ -78,7 +82,11 @@
 	<!-- end page container -->
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.js"></script>
+=======
+	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+>>>>>>> parent of 1178d3f2... stuck in here
 =======
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 >>>>>>> parent of 1178d3f2... stuck in here
