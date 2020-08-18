@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <div class="row">
@@ -54,3 +55,5 @@
 
 	</div>
 </div>
+=======
+>>>>>>> parent of 6ecbe59a... up
