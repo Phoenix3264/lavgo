@@ -2,6 +2,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8b9e03ba... coba
 
 
 <div class="row">
@@ -57,6 +60,7 @@
 
 
 	</div>
+<<<<<<< HEAD
 </div>
 =======
 >>>>>>> parent of 6ecbe59a... up
@@ -86,3 +90,6 @@ zoom: 9 // starting zoom
 =======
 </script>
 >>>>>>> parent of 1178d3f2... stuck in here
+=======
+</div>
+>>>>>>> parent of 8b9e03ba... coba

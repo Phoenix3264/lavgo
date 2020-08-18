@@ -11,6 +11,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 >>>>>>> parent of 1178d3f2... stuck in here
@@ -20,6 +21,8 @@
 =======
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 >>>>>>> parent of 1178d3f2... stuck in here
+=======
+>>>>>>> parent of 8b9e03ba... coba
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="{{ asset('/public/').'/'.$root }}/assets/plugins/font-awesome/5.14/css/all.min.css" rel="stylesheet" />
@@ -27,8 +30,6 @@
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/theme/default.css" rel="stylesheet" id="theme" />
-=======
->>>>>>> parent of 6ecbe59a... up
     @include($template.'.css.css_'.$page)    
     <link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/pace/pace.min.js"></script>
@@ -88,6 +89,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8b9e03ba... coba
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.js"></script>
 =======
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
@@ -110,9 +114,6 @@
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/js-cookie/js.cookie.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/theme/apple.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/apps.min.js"></script>
-=======
-	
->>>>>>> parent of 6ecbe59a... up
     @include($template.'.script.script_'.$script)
 </body>
 </html>

@@ -16,21 +16,21 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //web worker data general routes
-Route::any('/wwdata/generate/{param_1}/{param_2}/{param_3}', 'wwdata@generate');
-Route::any('/wwdata/autocomplete', 'wwdata@autocomplete');
-Route::any('/wwdata/accordion', 'wwdata@accordion');
+Route::any('/wwdata/generate/{param_1}/{param_2}/{param_3}', 'WwdataController@generate');
+Route::any('/wwdata/autocomplete', 'WwdataController@autocomplete');
+Route::any('/wwdata/accordion', 'WwdataController@accordion');
 
 //web worker form general routes
-Route::any('/wwform/generate', 'wwform@generate');
-Route::post('/wwform/postdata', 'wwform@postdata');
+Route::any('/wwform/generate', 'WwformController@generate');
+Route::post('/wwform/postdata', 'WwformController@postdata');
 
 // default routes
-Route::any('/', 'backend@index');
+Route::any('/', 'BackendController@index');
 
 
-Route::any('/{param_1}', 'backend@index');
-Route::any('/{param_1}/{param_2}', 'backend@index');
-Route::any('/{param_1}/{param_2}/{param_3}', 'backend@index');
+Route::any('/{param_1}', 'BackendController@index');
+Route::any('/{param_1}/{param_2}', 'BackendController@index');
+Route::any('/{param_1}/{param_2}/{param_3}', 'BackendController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
