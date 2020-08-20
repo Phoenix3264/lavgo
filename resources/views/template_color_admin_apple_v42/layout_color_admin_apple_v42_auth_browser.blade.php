@@ -24,10 +24,6 @@
 	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
-	<div class="login-cover">
-		<div class="login-cover-image" style="background-image: url({{ asset('/public/').'/'.$root }}/assets/img/login-bg/login-bg-17.jpg)" data-id="login-cover-image"></div>
-		<div class="login-cover-bg"></div>
-	</div>
 
 	<!-- begin #page-container -->
     @include($template.'.panel.panel_'.$page) 

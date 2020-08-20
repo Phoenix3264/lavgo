@@ -67,13 +67,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_15_create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel)
+    function dmha_15_create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel,$urutan_tabel_mobile)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_15::create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel);
+            $isi    = dmha_15::create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel,$urutan_tabel_mobile);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

@@ -126,7 +126,7 @@ class dmha_15 extends Model
     }
     
 
-    public static function create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel)
+    public static function create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel,$urutan_tabel_mobile)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -136,7 +136,8 @@ class dmha_15 extends Model
                     'dmha_1' => $dmha_1, 
                     'dmha_13' => $dmha_13, 
                     'urutan' => $urutan, 
-                    'urutan_tabel' => $urutan_tabel
+                    'urutan_tabel' => $urutan_tabel, 
+                    'urutan_tabel_mobile' => $urutan_tabel_mobile
                 ]);
 
             

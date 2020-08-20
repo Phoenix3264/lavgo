@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
+ * @property string $filename
+ * @property string $latitude
+ * @property string $longitude
+ * @property int $dmha_356
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -23,7 +26,7 @@ class dmha_344 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'latitude', 'longitude', 'dmha_356', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -50,7 +53,7 @@ class dmha_344 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_344::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -59,13 +62,20 @@ class dmha_344 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($filename,$latitude,$longitude,$jalan,$dmha_356)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_344::create($array_data);
+            dmha_344::insert(
+                [
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'jalan'     => $jalan,
+                    'dmha_356'     => $dmha_356
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -80,7 +90,11 @@ class dmha_344 extends Model
             dmha_344::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'jalan'     => $jalan,
+                    'dmha_356'     => $dmha_356,
                     'updated_at'     => now()
                 ]);
 

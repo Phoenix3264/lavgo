@@ -149,7 +149,8 @@
             elseif($dmha_14 == 14) { $isi .= dmha_14_generate_autocomplete_masked($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }
             elseif($dmha_14 == 15) { $isi .= dmha_14_generate_autocomplete($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
             // elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
-            // elseif($dmha_14 == 18) { $isi .= dmha_14_generate_masked_rt_rw($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
+            elseif($dmha_14 == 18) { $isi .= dmha_14_generate_camera($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 19) { $isi .= dmha_14_generate_locate_by_mapbox($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
 
             else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
 
@@ -210,9 +211,13 @@
                     elseif($DMHA_1 == 9) { $isi .= DMHA_271_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 13) { $isi .= dmha_13_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 14) { $isi .= dmha_14_id_check_col($ID,$name);  }  
-                    elseif($DMHA_1 == 15) { $isi .= $ID;  }  
                     // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col($ID,$name);  }  
-                    // elseif($DMHA_1 == 15) { $isi .= dmha_15_id_check_col(dmha_15_nama_check_col($ID,'id'),$name);  }  
+                    elseif($DMHA_1 == 15) { 
+                        $isi .= dmha_15_id_check_col($ID,$name);  
+                        //$isi .= $ID;  
+                        //$isi .= $name;  
+                        //$isi .= $DMHA_271;  
+                    }  
 
                     elseif($DMHA_1 == 40) { $isi .= dmha_40_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 122) { $isi .= dmha_122_id_check_col($ID,$name);  }  
@@ -243,6 +248,7 @@
                     elseif($DMHA_1 == 348) { $isi .= dmha_348_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 352) { $isi .= dmha_352_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 356) { $isi .= dmha_356_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 364) { $isi .= dmha_364_id_check_col($ID,$name);  }  
 
                 else{ $isi .= dmha_40_id_check_col(6,'nama'); }
                 
@@ -319,6 +325,9 @@
                 ////////////////////////////////////////////////////////////////////////////////////////////// Scientist
                     elseif($dmha_13 == 35) { $isi_model = dmha_292_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 36) { $isi_model = dmha_296_let_me_generate_data_array(null,null); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////// PEnelitian
+                    elseif($dmha_13 == 82) { $isi_model = dmha_356_let_me_generate_data_array(null,null); }
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 
@@ -543,22 +552,52 @@
             if($dmha_13 == 34) { $isi_model = dmha_13_let_me_generate_data_array(null,null,'default'); }
 
         // ------------------------------------------------------------------------- ACTION
+                $isi .= '<div class="row m-b-5">';
+                $isi .= '<label class="col-md-2 col-form-label text-center">';
+                $isi .= 'Form';    
+                $isi .= '</label>';
+                $isi .= '<label class="col-md-2 col-form-label text-center">';
+                $isi .= 'Tabel';     
+                $isi .= '</label>';
+                $isi .= '<label class="col-md-2 col-form-label text-center">';
+                $isi .= 'Mobile';     
+                $isi .= '</label>';
+
+                $isi .= '</div>';
             foreach ($isi_model as $row) {
                 $isi .= '<div class="row m-b-5">';
-                $isi .= '<div class="col-md-2">';
-                $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'[]" value="'.dmha_14_generate_value($dmha_14,$name,$DMHA_1,$DMHA_271,$ID.'#'.$row->id).'" '.$disabled.'>';      
-                $isi .= '</div>';
-                $isi .= '<div class="col-md-2 display-none">';
-                $isi .= '<input type="text" class="'.$class.'" id="form-dmha_13-'.$dmha_13.'" name="dmha_13[]"  value="'.$row->id.'" '.$disabled.'>';      
-                $isi .= '</div>';
-                $isi .= '<div class="col-md-2">';
-                $isi .= '<input type="text" class="'.$class.'" id="form-urutan_tabel-'.$dmha_13.'" name="urutan_tabel[]"  value="" '.$disabled.'>';      
-                $isi .= '</div>';
 
-                $isi .= '<label class="col-md-6 col-form-label">';
-                $isi .= $row->nama;    
-                $isi .= ' <span class="label label-info">'.$row->name.'</span>';  
-                $isi .= '</label>';
+                // urutan_tabel
+                    $isi .= '<div class="col-md-2">';
+                        $isi .= '<input type="text" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'[]" 
+                        value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID.'#'.$row->id,'urutan').'" '.$disabled.'>';      
+                    $isi .= '</div>';
+
+                // dmha_13
+                    $isi .= '<div class="col-md-2 display-none">';
+                        $isi .= '<input type="text" class="'.$class.'" id="form-dmha_13-'.$dmha_13.'" name="dmha_13[]"  value="'.$row->id.'" '.$disabled.'>';      
+                    $isi .= '</div>';
+
+                // urutan_tabel
+                    $isi .= '<div class="col-md-2">';
+                        $isi .= '<input type="text" class="'.$class.'" id="form-urutan_tabel-'.$dmha_13.'" name="urutan_tabel[]"  value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID.'#'.$row->id,'urutan_tabel').'" '.$disabled.'>';      
+                    $isi .= '</div>';
+
+                // 	urutan_tabel_mobile
+                    $isi .= '<div class="col-md-2">';
+                        $isi .= '<input type="text" class="'.$class.'" id="form-urutan_tabel_mobile-'.$dmha_13.'" name="urutan_tabel_mobile[]"  value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID.'#'.$row->id,'urutan_tabel_mobile').'" '.$disabled.'>';      
+                    $isi .= '</div>';
+
+                // Label Nama
+                    $isi .= '<label class="col-md-4 col-form-label">';
+                        $isi .= $row->nama;     
+                    $isi .= '</label>';
+
+                // Label name
+                    $isi .= '<label class="col-md-2 col-form-label">';
+                        //$isi .= $row->name;  
+                        $isi .= $DMHA_271.'-'.$DMHA_1.'-'.$ID.'-'.$row->id;
+                    $isi .= '</label>';
 
                 $isi .= '</div>';
             }
@@ -656,6 +695,40 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    
+    function dmha_14_generate_camera($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="file"  name="'.$name.'" accept="image/*;capture=camera"   '.$disabled.' >';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_14_generate_locate_by_mapbox($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<div id="map"></div>';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
 
     /*
 

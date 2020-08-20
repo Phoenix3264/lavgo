@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(7);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(6);
             }
 
             $isi .='
@@ -53,11 +53,18 @@
 
                 if($agent->isDesktop() == 1 )
                 {
-                    $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Filename', $class_th);
+                    $isi .= th_me('Stasiun', $class_th);
+                    $isi .= th_me('Fasilitas', $class_th);
+                    $isi .= th_me('Latitude', $class_th);
+                    $isi .= th_me('Longitude', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
-                    $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Stasiun', $class_th);
+                    $isi .= th_me('Fasilitas', $class_th);
+                    $isi .= th_me('Latitude', $class_th);
+                    $isi .= th_me('Longitude', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);
@@ -130,6 +137,25 @@
         // ------------------------------------------------------------------------- ACTION
             $isi    = dmha_348::delete_me($id);
 
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_348_show_dashboard_widget_stats()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $dmha = 348;
+
+            $isi_model    = dmha_348::let_me_generate_data_array(null,null);
+            $color = dmha_322_id_check_col(dmha_1_id_check_col($dmha,'dmha_322'),'nama');
+            $icon = dmha_5_id_check_col_icon(dmha_1_id_check_col($dmha,'dmha_5'),'fa');
+            $nama = dmha_1_id_check_col($dmha,'nama');
+        // ------------------------------------------------------------------------- ACTION
+
+            $isi    .= UI_dashboard_widget_stats($color,$icon,$nama,count($isi_model));
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
+ * @property string $filename
+ * @property string $latitude
+ * @property string $longitude
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -23,7 +25,7 @@ class dmha_352 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -50,7 +52,7 @@ class dmha_352 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_352::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -80,7 +82,9 @@ class dmha_352 extends Model
             dmha_352::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'filename'     => $array_data['filename'],
+                    'latitude'     => $array_data['latitude'],
+                    'longitude'     => $array_data['longitude'],
                     'updated_at'     => now()
                 ]);
 

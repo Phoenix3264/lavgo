@@ -20,14 +20,43 @@
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/clipboard/clipboard.min.js"></script>
 <script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/form-plugins.demo.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 
 <script>    
-    {!!ajax_header_csrf()!!}   
-    $(document).ready(function(){
-        App.init();
-        FormPlugins.init();        
-        {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3,$id_data)!!} 
+{!!ajax_header_csrf()!!}
+
+$(document).ready(function(){
+    App.init();
+    FormPlugins.init();
+    {!!ajax_form($AUTH_ID,$transform_ID,$dmha_271,$PARAM_2,$PARAM_3,$id_data)!!} 
+});
+
+</script>
 
 
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoic3VwZXJhcnlhIiwiYSI6ImNrZHgwYmwyMTBrZWUyem53N3dyMzJsdDUifQ.RO9aoTj1u51IGq1OyeaUjA';
+
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [112.740972, -7.271391], // starting position [lng, lat]
+        zoom: 11.5 // starting zoom
     });
+
+    
+    var geolocate = new mapboxgl.GeolocateControl();
+
+map.addControl(geolocate);
+
+geolocate.on('geolocate', function(e) {
+    var lon = e.coords.longitude;
+    var lat = e.coords.latitude
+    var position = [lon, lat];
+    console.log(position);
+    document.getElementById('form-80').value= lat;
+
+    document.getElementById('form-81').value=lon;
+    
+});
 </script>

@@ -1,19 +1,43 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 
+{{ url('/').'/'.Storage::url('app/public/storage/dmha_364/QLI6WirZu10pLNA.jpg') }}
 <script>
     $(document).ready(function() {
         App.init();
     });
 </script>
 
-
-
 <script>
-	mapboxgl.accessToken = 'pk.eyJ1Ijoic3VwZXJhcnlhIiwiYSI6ImNrZHgwYmwyMTBrZWUyem53N3dyMzJsdDUifQ.RO9aoTj1u51IGq1OyeaUjA';
-var map = new mapboxgl.Map({
-container: 'map', // container id
-style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [112.723525, -7.332499], // starting position [lng, lat]
-zoom: 11 // starting zoom
-});
+
+    {!!helper_mapbox_generate_map()!!}
+
+    var geojson = {
+        'type': 'FeatureCollection',
+        'features': 
+        [
+            {!!dmha_364_show_mapbox_marker()!!}
+            {!!dmha_344_show_mapbox_marker()!!}
+        ]
+    };
+	
+    // add markers to map
+    geojson.features.forEach(function(marker) {
+        // create a DOM element for the marker
+        var el = document.createElement('div');
+
+        el.className = 'marker';
+        el.style.backgroundImage = 'url(http://localhost/lavgo/storage/app/public/storage/dmha_'+marker.properties.dmha+'/'+marker.properties.filename+')';
+        el.style.width = marker.properties.iconSize[1] + 'px';
+        el.style.height = marker.properties.iconSize[1] + 'px';
+        
+        el.addEventListener('click', function() {
+            window.alert(marker.properties.message);
+        });
+        
+        // add marker to map
+        new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
+    });
+    
 </script>

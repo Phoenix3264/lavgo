@@ -6,26 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $filename
+ * @property string $nama
  * @property string $latitude
  * @property string $longitude
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_348 extends Model
+class dmha_364 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_348';
+    protected $table = 'dmha_364';
 
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'nama', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -35,7 +35,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::where('id','=',$ID)
+            $isi = dmha_364::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -51,8 +51,8 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::whereNull('deleted_at')
-                ->orderBy('id','asc')
+            $isi = dmha_364::whereNull('deleted_at')
+                ->orderBy('nama','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -61,30 +61,37 @@ class dmha_348 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($filename,$latitude,$longitude,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::create($array_data);
+            dmha_344::insert(
+                [
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'nama'     => $nama
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$filename,$latitude,$longitude,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_364::where('id','=', $id)
             ->update(
                 [
-                    'filename'     => $array_data['filename'],
-                    'latitude'     => $array_data['latitude'],
-                    'longitude'     => $array_data['longitude'],
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'nama'     => $nama,
                     'updated_at'     => now()
                 ]);
 
@@ -98,7 +105,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_364::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -115,7 +122,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_364::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

@@ -27,7 +27,7 @@
 
     function UI_FORM_open_form_enctype($class,$id){
         // ------------------------------------------------------------------------- INITIALIZE
-            $isi = '<form class="'.$class.'" method="POST" id="form_'.$id.'" enctype="multipart/form-data">';
+            $isi = '<form class="'.$class.'" action="'.url('/').'/wwform/postdata" method="POST" id="form_'.$id.'" enctype="multipart/form-data">';
         // ------------------------------------------------------------------------- ACTION
 
         // ------------------------------------------------------------------------- SEND

@@ -1,31 +1,29 @@
 <?php
 
-namespace App\Models\penelitian;
+namespace App\Models\data_pendukung;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $filename
- * @property string $latitude
- * @property string $longitude
+ * @property string $nama
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_348 extends Model
+class dmha_356 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_348';
+    protected $table = 'dmha_356';
 
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -35,7 +33,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::where('id','=',$ID)
+            $isi = dmha_356::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -51,8 +49,8 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::whereNull('deleted_at')
-                ->orderBy('id','asc')
+            $isi = dmha_356::whereNull('deleted_at')
+                ->orderBy('nama','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -67,7 +65,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::create($array_data);
+            dmha_356::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -79,12 +77,10 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_356::where('id','=', $id)
             ->update(
                 [
-                    'filename'     => $array_data['filename'],
-                    'latitude'     => $array_data['latitude'],
-                    'longitude'     => $array_data['longitude'],
+                    'nama'     => $array_data['nama'],
                     'updated_at'     => now()
                 ]);
 
@@ -98,7 +94,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_356::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -115,7 +111,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_356::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

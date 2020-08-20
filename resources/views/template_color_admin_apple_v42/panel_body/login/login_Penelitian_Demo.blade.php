@@ -1,4 +1,9 @@
 
+	<div class="login-cover">
+		<div class="login-cover-image" style="background-image: url({{ asset('/public/').'/'.$root }}/assets/img/login-bg/login-bg-17.jpg)" data-id="login-cover-image"></div>
+		<div class="login-cover-bg"></div>
+	</div>
+	
 	<div id="page-container" class="fade">
 		<!-- begin login -->
 		<div class="login login-v2" data-pageload-addclass="animated fadeIn">
@@ -27,7 +32,7 @@
 
 					</div>
 					<div class="form-group m-b-20">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
+                        <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Password') }}">
 
                         @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -36,7 +41,7 @@
                         @enderror
 					</div>
 					<div class="login-buttons">
-						<button type="submit" class="btn btn-success btn-block btn-lg">Log in</button>
+						<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>
                         
 					</div>
 				</form>

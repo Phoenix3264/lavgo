@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Models\penelitian;
+namespace App\Models\data_pendukung;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $filename
- * @property string $latitude
- * @property string $longitude
+ * @property string $nama
+ * @property string $deskripsi
+ * @property int $tahun
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_348 extends Model
+class dmha_373 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_348';
+    protected $table = 'dmha_373';
 
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'deskripsi', 'tahun', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -35,9 +35,24 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::where('id','=',$ID)
+            $isi = dmha_373::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////
+    }
+    
+    public static function what_is_my_penelitian($col)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi = dmha_373::where('active','=',1)
+                ->value($col);
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -51,8 +66,8 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::whereNull('deleted_at')
-                ->orderBy('id','asc')
+            $isi = dmha_373::whereNull('deleted_at')
+                ->orderBy('nama','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -67,7 +82,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::create($array_data);
+            dmha_373::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -79,12 +94,10 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_373::where('id','=', $id)
             ->update(
                 [
-                    'filename'     => $array_data['filename'],
-                    'latitude'     => $array_data['latitude'],
-                    'longitude'     => $array_data['longitude'],
+                    'nama'     => $array_data['nama'],
                     'updated_at'     => now()
                 ]);
 
@@ -98,7 +111,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_373::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -115,7 +128,7 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
+            dmha_373::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

@@ -106,7 +106,12 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data PEndukung
                     elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 372) { $isi_model = dmha_372_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 373) { $isi_model = dmha_373_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
 
 

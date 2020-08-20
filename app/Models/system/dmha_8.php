@@ -125,11 +125,6 @@ class dmha_8 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_8::update(
-                [
-                    'active' => 0
-                ]);
-
             dmha_8::where('id','=', $id)
             ->update(
                 [
