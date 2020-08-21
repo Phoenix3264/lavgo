@@ -101,7 +101,10 @@
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-13.jpg" alt="" /> 
-                <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
+                <span class="d-none d-md-inline">
+                    {{ $AUTH_NAME }} 
+                </span> 
+                {!!dmha_5_id_check_col_icon(125,'fa')!!}
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <!--

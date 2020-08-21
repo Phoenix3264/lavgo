@@ -85,8 +85,7 @@
                         foreach($model as $row)
                         {
                             $isi .= '
-                            <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'"
-                            
+                            <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'"                            
                             '.rules_link_target_blank($row->dmha_4).'
                             >
                                 <i class="  '.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 

@@ -326,8 +326,10 @@
                     elseif($dmha_13 == 35) { $isi_model = dmha_292_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 36) { $isi_model = dmha_296_let_me_generate_data_array(null,null); }
 
-                ////////////////////////////////////////////////////////////////////////////////////////////// PEnelitian
+                ////////////////////////////////////////////////////////////////////////////////////////////// Penelitian
                     elseif($dmha_13 == 82) { $isi_model = dmha_356_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 85) { $isi_model = dmha_364_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 86) { $isi_model = dmha_372_let_me_generate_data_array(null,null); }
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 
@@ -395,7 +397,7 @@
                 <div class="radio radio-css radio-inline col-md-1">
                     <input type="radio" name="'.$name.'" id="form'.$dmha_13.$row->id.'" value="'.$row->id.'"
                     '.dmha_14_generate_value_checked_checked($row->id,dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name)).' >
-                    <label for="form'.$dmha_13.$row->id.'"><i class="'.$row->fa.' fa-2x"></i></label>
+                    <label for="form'.$dmha_13.$row->id.'"><i class="'.$row->fa.' fa-2x"></i> '.$row->nama.' </label>
                 </div>
             </div>';
             }

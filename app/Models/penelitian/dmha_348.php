@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $filename
  * @property string $latitude
  * @property string $longitude
+ * @property int $dmha_364
+ * @property int $dmha_372
+ * @property int $jumlah
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -25,7 +28,7 @@ class dmha_348 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'latitude', 'longitude', 'dmha_364', 'dmha_372', 'jumlah', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -61,19 +64,27 @@ class dmha_348 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_348::create($array_data);
+            dmha_348::insert(
+                [
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'dmha_364'     => $dmha_364,
+                    'dmha_372'     => $dmha_372,
+                    'jumlah'     => $jumlah
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -82,9 +93,12 @@ class dmha_348 extends Model
             dmha_348::where('id','=', $id)
             ->update(
                 [
-                    'filename'     => $array_data['filename'],
-                    'latitude'     => $array_data['latitude'],
-                    'longitude'     => $array_data['longitude'],
+                    'filename'     => $filename,
+                    'latitude'     => $latitude,
+                    'longitude'     => $longitude,
+                    'dmha_364'     => $dmha_364,
+                    'dmha_372'     => $dmha_372,
+                    'jumlah'     => $jumlah,
                     'updated_at'     => now()
                 ]);
 

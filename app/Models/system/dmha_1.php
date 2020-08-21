@@ -156,10 +156,33 @@ class dmha_1 extends Model
             }
             elseif($TIPE == 'sidebar_2')
             {
-                $isi = dmha_1::whereNull('deleted_at')
-                    ->where('dmha_1','=',$ID)										
-                    ->orderBy('nama','asc')
-                    ->get();
+
+                $isi = dmha_1::
+                selectRaw('
+                    dmha_1.id,
+                    dmha_1.nama,
+                    dmha_1.link,
+                    dmha_1.urutan,
+                    dmha_1.has_sub,
+                    dmha_1.dmha_5,
+                    dmha_1.dmha_322
+                ')
+
+                ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
+                ->join('users', 'users.dmha_122', '=', 'dmha_162.dmha_122') //  role - users
+
+                ->join('dmha_157', 'dmha_157.dmha_1', '=', 'dmha_1.id') // Appmode
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_157.dmha_8') //  Appmode - active                
+
+                ->where('users.id','=',$AUTH_ID)
+                ->where('dmha_8.active','=',1)
+
+                ->where('dmha_1.dmha_1','=',$ID)	
+                ->where('dmha_1.dmha_271','=',1)			
+                ->whereNull('dmha_1.deleted_at')	
+									
+                ->orderBy('dmha_1.nama','asc')
+                ->get();
             }
             elseif($TIPE == 'data_table')
             {                    
@@ -208,7 +231,8 @@ class dmha_1 extends Model
                     dmha_1.urutan,
                     dmha_1.has_sub,
                     dmha_1.dmha_5,
-                    dmha_1.dmha_322
+                    dmha_1.dmha_322,
+                    dmha_1.dmha_4
                 ')
 
                 ->join('dmha_162', 'dmha_162.dmha_1', '=', 'dmha_1.id') // daftar role
@@ -225,7 +249,8 @@ class dmha_1 extends Model
                 ->where('dmha_1.dmha_9','=',3)	
 
                 ->where('dmha_1.dmha_3','=',1)
-                ->whereNull('dmha_1.deleted_at')	
+                ->whereNull('dmha_1.deleted_at')	            
+                ->orderBy('dmha_1.urutan','asc')
 
                 ->get();
             }
@@ -713,6 +738,7 @@ class dmha_1 extends Model
                         'dmha_4'     => $array_data['dmha_4'],
                         'dmha_5'     => $array_data['dmha_5'],
                         'dmha_9'     => $array_data['dmha_9'],
+                        'dmha_271'     => $array_data['dmha_271'],
                         'dmha_300'     => $array_data['dmha_300'],
                         'dmha_322'     => $array_data['dmha_322'],
                         'updated_at'     => now()

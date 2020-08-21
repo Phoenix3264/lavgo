@@ -11,12 +11,25 @@ use Illuminate\Support\Facades\Storage;
             $template           = replace_to_underscore(dmha_2_id_check_col(dmha_1_link_check_col($link,'dmha_2'),'nama'));            
             $controller         = replace_to_underscore(dmha_3_id_check_col(dmha_1_link_check_col($link,'dmha_3'),'nama'));
 
+            $tipe               = dmha_1_link_check_col($link,'dmha_271');  
+
+            // for landing page
             if($link == 'welcome')
             {
                 $additional = '_'.replace_to_underscore(dmha_8_what_is_my_app_mode());
             } 
+            
         // ------------------------------------------------------------------------- ACTION
-            $isi    .= 'template_'.$template.'.layout_'.$template.'_'.$controller.$additional.'_'.$template_agent;
+            // for print
+            if($tipe == 10)
+            {
+                $root    = replace_to_underscore(dmha_2_id_check_col(dmha_1_link_check_col($link,'dmha_2'),'root')); 
+                $isi    .= 'template_'.$template.'.layout_'.$template;
+            }
+            else
+            {
+                $isi    .= 'template_'.$template.'.layout_'.$template.'_'.$controller.$additional.'_'.$template_agent;
+            }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -233,12 +246,16 @@ use Illuminate\Support\Facades\Storage;
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
+        
+            $data = array(10, 20, 22);
             
         // ------------------------------------------------------------------------- ACTION
-            if($DMHA_4 == 10)
+            if (in_array($DMHA_4, $data)) 
             {
                 $isi    .= ' target="_blank" ';
             }
+
+            $isi .= $DMHA_4;
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

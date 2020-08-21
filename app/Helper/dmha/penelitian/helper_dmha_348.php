@@ -101,13 +101,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
     
-    function dmha_348_create_me($array_data)
+    function dmha_348_create_me($filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_348::create_me($array_data);
+            $isi    = dmha_348::create_me($filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -115,13 +115,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_348_update_me($id,$array_data)
+    function dmha_348_update_me($id,$filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_348::update_me($id,$array_data);
+            $isi    = dmha_348::update_me($id,$filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

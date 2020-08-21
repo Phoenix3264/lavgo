@@ -138,6 +138,7 @@
             "app/Helper/UI/helper_UI_dashboard.php",
             "app/Helper/UI/helper_UI_dropdown.php",
             "app/Helper/UI/helper_UI_form.php",
+            "app/Helper/UI/helper_UI_image.php",
             "app/Helper/UI/helper_UI_input_type.php",
             "app/Helper/UI/helper_UI_modal_dialog.php",
             "app/Helper/UI/helper_UI_sidebar.php",

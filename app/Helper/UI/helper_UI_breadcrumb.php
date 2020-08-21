@@ -7,7 +7,7 @@
             $gabungan = '';
 
         // ------------------------------------------------------------------------- ACTION
-            if(!is_null($id))
+            if(!is_null($id) && $link != 'javascript:;')
             {
                 if(is_null($link)){
                     $isi = '<li class="'.$class.' active">'.$nama.'</li>';

@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nama
  * @property string $latitude
  * @property string $longitude
+ * @property int $id
+ * @property int $id
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -67,7 +69,7 @@ class dmha_364 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_344::insert(
+            dmha_364::insert(
                 [
                     'filename'     => $filename,
                     'latitude'     => $latitude,
