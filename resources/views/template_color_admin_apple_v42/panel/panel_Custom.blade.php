@@ -1,1 +1,0 @@
-@include($template.'.panel_body.custom.panel_body_'.$id)

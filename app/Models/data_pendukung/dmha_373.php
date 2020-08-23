@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nama
  * @property string $deskripsi
  * @property int $tahun
+ * @property int $active
+ * @property string $filename_exist_logo_instansi
+ * @property string $filename_exist_logo_investor
+ * @property string $deskripsi
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -25,7 +29,7 @@ class dmha_373 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'deskripsi', 'tahun', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'deskripsi', 'tahun', 'active', 'filename_exist_logo_instansi', 'filename_exist_logo_investor', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -76,19 +80,27 @@ class dmha_373 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($peneliti,$nama,$deskripsi,$tahun,$filename_logo_instansi,$filename_logo_investor)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_373::create($array_data);
+            dmha_373::insert(
+                [
+                    'nama'     => $peneliti,
+                    'nama'     => $nama,
+                    'deskripsi'     => $deskripsi,
+                    'tahun'     => $tahun,
+                    'filename_logo_instansi'     => $filename_logo_instansi,
+                    'filename_logo_investor'     => $filename_logo_investor
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$peneliti,$nama,$deskripsi,$tahun,$filename_logo_instansi,$filename_logo_investor)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -97,7 +109,12 @@ class dmha_373 extends Model
             dmha_373::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'nama'     => $peneliti,
+                    'nama'     => $nama,
+                    'deskripsi'     => $deskripsi,
+                    'tahun'     => $tahun,
+                    'filename_logo_instansi'     => $filename_logo_instansi,
+                    'filename_logo_investor'     => $filename_logo_investor,
                     'updated_at'     => now()
                 ]);
 

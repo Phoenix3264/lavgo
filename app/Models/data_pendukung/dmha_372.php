@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $nama
+ * @property int $dmha_395
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -23,7 +24,7 @@ class dmha_372 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'dmha_395', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -51,6 +52,18 @@ class dmha_372 extends Model
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_372::whereNull('deleted_at')
                 ->orderBy('nama','asc')
+                ->get();
+
+            $isi = dmha_372::
+                selectRaw('
+                    dmha_372.id,
+                    dmha_372.nama,
+                    dmha_395.nama as dmha_395
+                ')
+                ->join('dmha_395', 'dmha_395.id', '=', 'dmha_372.dmha_395') 
+
+                ->whereNull('dmha_372.deleted_at')
+                ->orderBy('dmha_372.id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -81,6 +94,7 @@ class dmha_372 extends Model
             ->update(
                 [
                     'nama'     => $array_data['nama'],
+                    'dmha_395'     => $array_data['dmha_395'],
                     'updated_at'     => now()
                 ]);
 

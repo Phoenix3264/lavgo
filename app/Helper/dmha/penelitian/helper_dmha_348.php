@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_348_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_348_let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_348::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_348::let_me_generate_data_array($AUTH_ID,$PARAM_ID,$TIPE);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -79,29 +79,6 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
-
-
-    function dmha_348_data_table_data_siswa_per_kelas()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
     
     function dmha_348_create_me($filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah)
     {
@@ -158,6 +135,26 @@
         // ------------------------------------------------------------------------- ACTION
 
             $isi    .= UI_dashboard_widget_stats($color,$icon,$nama,count($isi_model));
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_348_show_mapbox_marker()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $isi_model    = dmha_348_let_me_generate_data_array(null,null,'script');
+
+        // ------------------------------------------------------------------------- ACTION
+            foreach ($isi_model as $row) {
+                $isi .= helper_mapbox_geojson($row->dmha_372,$row->latitude,$row->longitude,$row->filename,348,$row->maki);
+            }
+
+            //dmha_395_id_check_col(dmha_372_id_check_col($row->dmha_372,'dmha_395'),'nama')
+            // dmha_395_id_check_col(dmha_372_id_check_col(dmha_348_id_check_col($row->dmha_348,'dmha_372'),'dmha_395'),'nama')
+
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.5",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
@@ -98,6 +99,14 @@
             "app/Helper/dmha/acadion/helper_dmha_335.php",
             "app/Helper/dmha/acadion/helper_dmha_336.php",
 
+            "app/Helper/dmha/data_pendukung/helper_dmha_356.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_364.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_372.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_373.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_382.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_386.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_395.php",
+            
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_126.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_130.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_134.php",
@@ -122,14 +131,8 @@
             "app/Helper/dmha/penelitian/helper_dmha_344.php",
             "app/Helper/dmha/penelitian/helper_dmha_348.php",
             "app/Helper/dmha/penelitian/helper_dmha_352.php",
-            "app/Helper/dmha/penelitian/helper_dmha_364.php",
 
             
-            "app/Helper/dmha/data_pendukung/helper_dmha_356.php",
-            "app/Helper/dmha/data_pendukung/helper_dmha_372.php",
-            "app/Helper/dmha/data_pendukung/helper_dmha_373.php",
-            "app/Helper/dmha/data_pendukung/helper_dmha_382.php",
-            "app/Helper/dmha/data_pendukung/helper_dmha_386.php",
 
             "app/Helper/php/helper_php_modification.php",
             "app/Helper/system/helper_rules_general.php",

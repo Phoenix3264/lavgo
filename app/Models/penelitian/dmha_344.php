@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $dmha_356
  * @property int $dmha_382
  * @property int $dmha_386
+ * @property int $dmha_390
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -31,7 +32,7 @@ class dmha_344 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'jalan', 'lebar', 'tebal', 'dmha_356', 'dmha_382', 'dmha_386', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'latitude', 'longitude', 'jalan', 'lebar', 'tebal', 'dmha_356', 'dmha_382', 'dmha_386', 'dmha_390', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -72,12 +73,14 @@ class dmha_344 extends Model
                 dmha_356.nama as dmha_356,
                 dmha_382.nama as dmha_382,
                 dmha_386.nama as dmha_386,
+                dmha_390.nama as dmha_390,
                 dmha_344.latitude,
                 dmha_344.longitude
             ')
             ->join('dmha_356', 'dmha_356.id', '=', 'dmha_344.dmha_356') 
             ->join('dmha_382', 'dmha_382.id', '=', 'dmha_344.dmha_382') 
             ->join('dmha_386', 'dmha_386.id', '=', 'dmha_344.dmha_386') 
+            ->join('dmha_390', 'dmha_390.id', '=', 'dmha_344.dmha_390') 
 
             ->whereNull('dmha_344.deleted_at')
             ->orderBy('dmha_344.id','asc')

@@ -14,7 +14,7 @@
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/theme/default.css" rel="stylesheet" id="theme" />
-    @include($template.'.css.css_'.$page)    
+    @include($template.'.'.$controller.'.css.css_'.$page)    
     <link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/pace/pace.min.js"></script>
 </head>
@@ -27,29 +27,30 @@
 	{!!color_admin_apple_v42_page_container($agent)!!}
 		<!-- begin #header -->
 		<div id="header" class="header navbar-inverse">         
-			@include($template.'.header')
+			@include($template.'.'.$controller.'.header')
 		</div>
 		<!-- end #header -->
 		
 		<!-- begin #sidebar -->            
-        @include($template.'.sidebar')
+        @include($template.'.'.$controller.'.sidebar')
 		<!-- end #sidebar -->
 		
 		<!-- begin #content -->
 		<div id="content" class="content">			
 			<!-- begin breadcrumb -->            
-            @include($template.'.breadcrumb')
+            @include($template.'.'.$controller.'.breadcrumb')
 			<!-- end breadcrumb -->
 
 			<!-- begin page-header -->
-            	@include($template.'.page_header')
+            	@include($template.'.'.$controller.'.page_header')
 			<!-- end page-header -->
+			
 			@if(Session::has('message'))
 				{!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
 			@endif
 
 			<!-- begin panel -->
-            	@include($template.'.panel.panel_'.$page) 
+            	@include($template.'.'.$controller.'.panel.panel_'.$page) 
 			<!-- end panel -->
             
 			<?php
@@ -82,6 +83,6 @@
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/js-cookie/js.cookie.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/theme/apple.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/apps.min.js"></script>
-    @include($template.'.script.script_'.$script)
+    @include($template.'.'.$controller.'.script.script_'.$script)
 </body>
 </html>

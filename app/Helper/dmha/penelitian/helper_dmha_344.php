@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(11);
+                $isi .= general_colgroup(12);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(9);
+                $isi .= general_colgroup(11);
             }
 
             $isi .='
@@ -57,9 +57,12 @@
                     $isi .= th_me('Jalan', $class_th);
                     $isi .= th_me('Lebar', $class_th);
                     $isi .= th_me('Tebal', $class_th);
+
                     $isi .= th_me('Lapisan', $class_th);
                     $isi .= th_me('Rambu', $class_th);
                     $isi .= th_me('Marka', $class_th);
+                    $isi .= th_me('Traffic', $class_th);
+
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
                 }
@@ -69,9 +72,11 @@
                     $isi .= th_me('Jalan', $class_th);
                     $isi .= th_me('Lebar', $class_th);
                     $isi .= th_me('Tebal', $class_th);
+
                     $isi .= th_me('Lapisan', $class_th);
                     $isi .= th_me('Rambu', $class_th);
                     $isi .= th_me('Marka', $class_th);
+                    $isi .= th_me('Traffic', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);
@@ -84,29 +89,6 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
-
-
-    function dmha_344_data_table_data_siswa_per_kelas()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
     
     function dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386)
     {
@@ -158,7 +140,7 @@
 
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= helper_mapbox_geojson(dmha_356_id_check_col($row->dmha_356,'nama'),$row->latitude,$row->longitude,$row->filename,344);
+                $isi .= helper_mapbox_geojson(dmha_356_id_check_col($row->dmha_356,'nama'),$row->latitude,$row->longitude,$row->filename,344,null);
             }
 
         // ------------------------------------------------------------------------- SEND

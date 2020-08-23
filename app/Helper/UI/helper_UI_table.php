@@ -208,6 +208,7 @@
 				elseif($DMHA_ID == 373){ $isi = dmha_373_data_table($AGENT); }
 				elseif($DMHA_ID == 382){ $isi = dmha_382_data_table($AGENT); }
 				elseif($DMHA_ID == 386){ $isi = dmha_386_data_table($AGENT); }
+				elseif($DMHA_ID == 395){ $isi = dmha_395_data_table($AGENT); }
 
 
         // ------------------------------------------------------------------------- SEND

@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(4);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(4);
             }
 
             $isi .='
@@ -54,10 +54,12 @@
                 if($agent->isDesktop() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Icon', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Icon', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);
@@ -70,29 +72,6 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
-
-
-    function dmha_372_data_table_data_siswa_per_kelas()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
     
     function dmha_372_create_me($array_data)
     {
@@ -143,6 +122,41 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi    = dmha_372::delete_me($id);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_372_show_header_backend()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = '
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" width="200px">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>
+                        '.dmha_373_what_is_my_penelitian("nama").'
+                    </h3>
+                    <h4 id="surabayamaps">
+                        '.dmha_373_what_is_my_penelitian("deskripsi").'
+                    </h4>
+                    <h5>
+                        Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                    </h5>
+                    
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" width="75px">
+                </div>
+            </div>
+            ';
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

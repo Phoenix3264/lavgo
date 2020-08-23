@@ -15,7 +15,7 @@
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/theme/default.css" rel="stylesheet" id="theme" />
-    @include($template.'.css.css_'.$page)    
+    @include($template.'.'.$controller.'.css.css_'.$page)    
     <link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/pace/pace.min.js"></script>
 </head>
@@ -25,8 +25,12 @@
 	<!-- end #page-loader -->
 	
 
+
+	@if(Session::has('message'))
+		{!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
+	@endif
 	<!-- begin #page-container -->
-    @include($template.'.panel.panel_'.$page) 
+    @include($template.'.'.$controller.'.panel.panel_'.$page) 
 	<!-- end page container -->
 	
 	<!-- end page container -->
@@ -43,6 +47,6 @@
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/js-cookie/js.cookie.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/theme/apple.min.js"></script>
 	<script src="{{ asset('/public/').'/'.$root }}/assets/js/apps.min.js"></script>
-    @include($template.'.script.script_'.$script)
+    @include($template.'.'.$controller.'.script.script_'.$script)
 </body>
 </html>

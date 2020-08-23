@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
     
     //
@@ -39,15 +39,6 @@ class MainController extends Controller
     		    $data['agent']      = $agent;
                 $template_agent = 'browser';
 
-  			// Whats ur name, again            
-    		    $data['AUTH_NAME']      = Auth::user()->name;
-    		    $AUTH_ID                = Auth::user()->id;
-    		    $data['AUTH_ID']        = $AUTH_ID ;
-    		    $AUTH_ID_ROLE           = Auth::user()->dmha_122;
-                $data['AUTH_ROLE']      = dmha_122_id_check_col($AUTH_ID_ROLE,'nama');
-
-                
-                
   			// then, we check your link
                 $data['PARAM_1']    = $PARAM_1;
                 $data['PARAM_2']    = $PARAM_2;
@@ -62,7 +53,30 @@ class MainController extends Controller
                     $data['dmha_1']     = $dmha_1;
 
                 $data['dmha_2']     = dmha_1_link_check_col($PARAM_1,'dmha_2');
-                $data['dmha_3']     = dmha_1_link_check_col($PARAM_1,'dmha_3');
+
+                $dmha_3              = dmha_1_link_check_col($PARAM_1,'dmha_3');
+                $data['dmha_3']     = $dmha_3;
+
+                if($dmha_3 == 1)
+                {
+                    if(Auth::check())
+                    {
+                        // Whats ur name, again            
+                            $data['AUTH_NAME']      = Auth::user()->name;
+                            $AUTH_ID                = Auth::user()->id;
+                            $data['AUTH_ID']        = $AUTH_ID ;
+                            $AUTH_ID_ROLE           = Auth::user()->dmha_122;
+                            $data['AUTH_ROLE']      = dmha_122_id_check_col($AUTH_ID_ROLE,'nama');
+                        
+                    }
+                    else
+                    {
+                        Session::flash('message',8);
+                        return redirect('login');
+                    }
+                }
+
+                    
                 $data['dmha_4']     = dmha_1_link_check_col($PARAM_1,'dmha_4');
                 $data['dmha_5']     = dmha_1_link_check_col($PARAM_1,'dmha_5');
                 $data['dmha_9']     = dmha_1_link_check_col($PARAM_1,'dmha_9');

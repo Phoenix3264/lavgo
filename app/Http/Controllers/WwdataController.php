@@ -104,7 +104,7 @@ class WwdataController extends Controller
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PENELITIAN
                     elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
-                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
+                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1,null); $modify_datatable = 'picture'; }
                     elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
 
@@ -114,6 +114,7 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 373) { $isi_model = dmha_373_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 382) { $isi_model = dmha_382_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 395) { $isi_model = dmha_395_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
 
 

@@ -41,7 +41,7 @@
         //////////////////////////////////////////////////////////////////////////// 		
     }  
 
-    function helper_mapbox_geojson($nama,$lat,$long,$filename,$dmha)
+    function helper_mapbox_geojson($nama,$lat,$long,$filename,$dmha,$icon)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -51,18 +51,44 @@
             {
                 "type": "Feature",
                 "properties": 
-                {
-                    "message": "'.$nama.'",
-                    "iconSize": [60, 60],
+                 {
+                    "description": "'.$nama.'",
                     "dmha": "'.$dmha.'",
-                    "filename": "'.$filename.'"
+                    "filename": "'.$filename.'",
+                    "icon": "'.$icon.'"
                 },
-                "geometry": 
+                "geometry":  
                 {
                     "type": "Point",
                     "coordinates": ['.$long.', '.$lat.']
                 }
             },
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+        //////////////////////////////////////////////////////////////////////////// 		
+    }     
+
+    function helper_mapbox_script_mapbox_flyto($nama,$lat,$long)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            $isi = '
+            document.getElementById("'.$nama.'").addEventListener("click", function() {
+                map.flyTo({
+                    center: [
+                        '.$long.',
+                        '.$lat.'
+                    ],
+                    
+                    essential: true ,
+                    zoom: 17
+                });
+            });
             ';
 
         // ------------------------------------------------------------------------- SEND

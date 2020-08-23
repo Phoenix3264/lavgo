@@ -1,0 +1,1 @@
+<title>Color Admin | One Page Parallax Front End Theme</title>

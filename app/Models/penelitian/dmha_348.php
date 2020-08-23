@@ -48,7 +48,7 @@ class dmha_348 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$TIPE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -71,6 +71,26 @@ class dmha_348 extends Model
                 ->orderBy('dmha_348.id','asc')
                 ->get();
 
+            if($TIPE == 'script'){
+                $isi = dmha_348::
+                    selectRaw('
+                        dmha_348.id,
+                        dmha_348.filename,
+                        dmha_364.nama as dmha_364,
+                        dmha_372.nama as dmha_372,
+                        dmha_348.jumlah,
+                        dmha_348.latitude,
+                        dmha_348.longitude,
+                        dmha_395.nama as maki
+                    ')
+                    ->join('dmha_364', 'dmha_364.id', '=', 'dmha_348.dmha_364') 
+                    ->join('dmha_372', 'dmha_372.id', '=', 'dmha_348.dmha_372') 
+                    ->join('dmha_395', 'dmha_395.id', '=', 'dmha_372.dmha_395') 
+
+                    ->whereNull('dmha_348.deleted_at')
+                    ->orderBy('dmha_348.id','asc')
+                    ->get();
+            }
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;

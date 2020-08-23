@@ -1,1 +1,0 @@
-@include($template.'.css.custom_dashboard.css_dashboard_'.replace_to_underscore($AUTH_ROLE))

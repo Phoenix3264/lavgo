@@ -1,0 +1,1 @@
+@include($template.'.'.$controller.'.script.custom_form.script_custom_form_'.$id)
