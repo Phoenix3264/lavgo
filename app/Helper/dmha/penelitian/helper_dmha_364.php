@@ -153,3 +153,63 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dmha_364_show_table_print($ID,$PARAM_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $isi_model    = dmha_348_let_me_generate_data_array(null,null);
+
+            $nama_stasiun = dmha_364_id_check_col($ID,'nama');
+
+            $DMHA_1 = 348;
+
+            $DMHA_4 = dmha_1_link_check_col($PARAM_1,'dmha_4');
+            
+            $class    = 'table table-bordered bg-white';
+            $class_th    = '';
+            $class_td    = 'text-center text-middle';
+
+            $counter = 0;
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '
+            <div class="font-size-13 bold underline text-center">
+                Data Prasarana Sarana '.$nama_stasiun.'
+            </div>
+
+            <br/>
+            ';
+
+            $isi .= UI_table_open_table_width_100($class);
+            
+            
+            $isi .= general_colgroup_no(6);
+
+            $isi .= '<thead>';
+            $isi .= th_me('No.', $class_th);
+            $isi .= th_me('Foto', $class_th);
+            $isi .= th_me('Fasilitas', $class_th);
+            $isi .= th_me('Jumlah', $class_th);
+            $isi .= th_me('Latitude', $class_th);
+            $isi .= th_me('Longitude', $class_th);
+            $isi .= '</thead>';
+
+            foreach ($isi_model as $row) {
+                $counter++;
+                $isi .= td_me($counter, $class_td);
+                $isi .= td_me(general_image($PARAM_1,$DMHA_4,$row->id,$DMHA_1,null,'150px'), $class_td);
+                $isi .= td_me(dmha_372_id_check_col($row->dmha_372,'nama'), $class_td);
+                $isi .= td_me($row->jumlah, $class_td);
+                $isi .= td_me($row->latitude, $class_td);
+                $isi .= td_me($row->longitude, $class_td);
+            }
+
+            $isi .= UI_tabel_close();
+            
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $latitude
  * @property string $longitude
  * @property int $id
- * @property int $id
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -54,7 +53,7 @@ class dmha_364 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_364::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND

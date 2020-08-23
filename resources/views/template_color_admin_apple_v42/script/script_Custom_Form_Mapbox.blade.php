@@ -47,16 +47,15 @@ $(document).ready(function(){
     
     var geolocate = new mapboxgl.GeolocateControl();
 
-map.addControl(geolocate);
+    map.addControl(geolocate);
 
-geolocate.on('geolocate', function(e) {
-    var lon = e.coords.longitude;
-    var lat = e.coords.latitude
-    var position = [lon, lat];
-    console.log(position);
-    document.getElementById('form-80').value= lat;
+    geolocate.on('geolocate', function(e) {
+        var lon = e.coords.longitude;
+        var lat = e.coords.latitude;
+        var position = [lon, lat];
+        document.getElementById('form-80').value = lat;
+        document.getElementById('form-81').value = lon;        
+    });
 
-    document.getElementById('form-81').value=lon;
     
-});
 </script>

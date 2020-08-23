@@ -75,6 +75,15 @@ class dmha_15 extends Model
             if($TIPE == 'default')
             {
                 $isi = dmha_15::where('dmha_1','=',$ID)
+                    ->whereNotNull('urutan')
+                    ->whereNull('deleted_at')
+                    ->orderBy('urutan','asc')
+                    ->get();
+            }
+            elseif($TIPE == 'pertanyaan')
+            {
+                $isi = dmha_15::where('dmha_1','=',$ID)
+                    ->whereNotNull('urutan')
                     ->whereNull('deleted_at')
                     ->orderBy('urutan','asc')
                     ->get();
@@ -85,7 +94,8 @@ class dmha_15 extends Model
                 if($agent_name == 'desktop')
                 {
                     $isi = dmha_15::selectRaw('
-                        dmha_13.name
+                        dmha_13.name,
+                        dmha_15.align
                         ')
                         ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
                         ->where('dmha_15.dmha_1','=',$ID)     
@@ -96,7 +106,8 @@ class dmha_15 extends Model
                 elseif($agent_name == 'mobile')
                 {
                     $isi = dmha_15::selectRaw('
-                        dmha_13.name
+                        dmha_13.name,
+                        dmha_15.align
                         ')
                         ->join('dmha_13', 'dmha_13.id', '=', 'dmha_15.dmha_13')    
                         ->where('dmha_15.dmha_1','=',$ID)     

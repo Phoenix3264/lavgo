@@ -103,15 +103,17 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 318) { $isi_model = dmha_318_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PENELITIAN
-                    elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
+                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
                     elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data PEndukung
                     elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 372) { $isi_model = dmha_372_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 373) { $isi_model = dmha_373_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 382) { $isi_model = dmha_382_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
 
 
@@ -129,6 +131,25 @@ class WwdataController extends Controller
                         return $dropdown;
                     })
                     ->rawColumns(['action'])
+                    ->addIndexColumn()
+                    ->toJson();
+            }
+            elseif($modify_datatable == 'picture')
+            {
+                $DMHA_4 = 'pictures';
+                $link = dmha_1_id_check_col($DMHA_1,'link');
+
+                return datatables()
+                    ->of($isi_model)
+                    ->addColumn('filename', function($data) use ($link,$DMHA_4,$DMHA_1){                        
+                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,'150px');
+                        return $image;
+                    })
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                        return $dropdown;
+                    })
+                    ->rawColumns(['filename','action'])
                     ->addIndexColumn()
                     ->toJson();
             }

@@ -149,3 +149,23 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dmha_356_show_dashboard_widget_stats()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $dmha = 356;
+
+            $isi_model    = dmha_356::let_me_generate_data_array(null,null);
+            
+            $color = dmha_322_id_check_col(dmha_1_id_check_col($dmha,'dmha_322'),'nama');
+            $icon = dmha_5_id_check_col_icon(dmha_1_id_check_col($dmha,'dmha_5'),'fa');
+            $nama = dmha_1_id_check_col($dmha,'nama');
+        // ------------------------------------------------------------------------- ACTION
+
+            $isi    .= UI_dashboard_widget_stats($color,$icon,$nama,count($isi_model));
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

@@ -47,13 +47,26 @@ use Illuminate\Support\Facades\Storage;
         // ------------------------------------------------------------------------- ACTION    
             if (!in_array($link, $exc_link)) 
             {
-                if($DMHA_4 == 10)
-                {
-                    if($DMHA_1 == 288)
-                    {
+                $exc_DMHA_4 = array(10, 20, 22);
+                if (in_array($DMHA_4, $exc_DMHA_4)) {
+
+                    $exc_DMHA_1 = array(288, 348, 364);
+                    if (in_array($DMHA_1, $exc_DMHA_1)) {
                         $name = 'filename';
                     }
-                    $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.$PARAM_2.'/'.dmha_14_generate_value(3,$DMHA_1,$ID_DATA,$name));
+
+                    if(is_null($PARAM_2))
+                    {
+                        $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.$PARAM_2.'/'.dmha_14_generate_value(3,$DMHA_1,$ID_DATA,$name));
+                    }
+                    else{
+                        $isi = url('/').'/'.Storage::url('app/public/storage/dmha_'.$DMHA_1.dmha_14_generate_value(3,$DMHA_1,$ID_DATA,$name));
+                    }
+                }
+                elseif($DMHA_4 == 'pictures'){
+                    
+                    $name = 'filename';
+                    $isi = url('/').Storage::url('app/public/storage/dmha_'.$DMHA_1.'/'.dmha_14_generate_value(3,$DMHA_1,$ID_DATA,$name));
                 }
                 else
                 {

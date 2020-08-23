@@ -54,8 +54,21 @@ class dmha_348 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_348::whereNull('deleted_at')
-                ->orderBy('id','asc')
+            $isi = dmha_348::
+                selectRaw('
+                    dmha_348.id,
+                    dmha_348.filename,
+                    dmha_364.nama as dmha_364,
+                    dmha_372.nama as dmha_372,
+                    dmha_348.jumlah,
+                    dmha_348.latitude,
+                    dmha_348.longitude
+                ')
+                ->join('dmha_364', 'dmha_364.id', '=', 'dmha_348.dmha_364') 
+                ->join('dmha_372', 'dmha_372.id', '=', 'dmha_348.dmha_372') 
+
+                ->whereNull('dmha_348.deleted_at')
+                ->orderBy('dmha_348.id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND

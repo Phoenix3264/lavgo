@@ -34,8 +34,14 @@ class dmha_162 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_162::where('dmha_122','=',$ID)
-                ->value($COL);
+            if(dmha_1_id_check_col($ID,'dmha_3') != 1)
+            {
+                $isi = true;
+            }
+            else{
+                $isi = dmha_162::where('dmha_122','=',$ID)
+                    ->value($COL);
+            }
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

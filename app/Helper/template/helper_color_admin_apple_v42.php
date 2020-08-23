@@ -78,7 +78,7 @@
             if(count($model)>0)    
             {  
                 $isi    .= '
-                <ul class="sub-menu">
+                <div class="sub-menu">
                     <div class="">
                         <a href="javascript:;" data-toggle="dropdown" class="btn btn-white"> <i class="fas fa-caret-down"></i> </a>
                         <ul class="dropdown-menu">';
@@ -95,7 +95,7 @@
                         $isi  .= '    
                         </ul>
                     </div>
-                </ul>';
+                </div>';
             }
 
         // ------------------------------------------------------------------------- SEND
@@ -210,7 +210,7 @@
             $isi    = '';
             $class  = 'form-control';
 
-            $model = dmha_15_generate_daftar_pertanyaan($AUTH_ID,$DMHA_1,'default');
+            $model = dmha_15_generate_daftar_pertanyaan($AUTH_ID,$DMHA_1,'pertanyaan',null);
 
         // ------------------------------------------------------------------------- ACTION
             foreach($model as $row)

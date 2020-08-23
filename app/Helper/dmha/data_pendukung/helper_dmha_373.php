@@ -145,3 +145,49 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dmha_373_header_login()
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = '
+            <div class="row m-t-40">
+                <div class="col-md-3 text-center">
+                    <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" width="200px">
+                </div>
+                <div class="col-md-6 text-center">
+                    <h3>
+                        '.dmha_373_what_is_my_penelitian("nama").'
+                    </h3>
+                    <h4>
+                        '.dmha_373_what_is_my_penelitian("deskripsi").'
+                    </h4>
+                    <h5>
+                        Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                    </h5>
+                    
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" width="100px">
+                </div>
+            </div>
+
+            <div class="row m-t-10">
+                <div class="col-md-3 text-center">
+                        © '.dmha_373_what_is_my_penelitian("peneliti").'
+                </div>
+                <div class="col-md-6 text-center">
+                    
+                </div>
+                <div class="col-md-3 text-center">
+                </div>
+            </div>
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }

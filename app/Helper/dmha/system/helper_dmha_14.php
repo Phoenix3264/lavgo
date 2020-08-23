@@ -249,6 +249,9 @@
                     elseif($DMHA_1 == 352) { $isi .= dmha_352_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 356) { $isi .= dmha_356_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 364) { $isi .= dmha_364_id_check_col($ID,$name);  }  
+                ///////////////////////////////////////////////////////////////////////////////// Data Pendukung
+                    elseif($DMHA_1 == 382) { $isi .= dmha_382_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 386) { $isi .= dmha_386_id_check_col($ID,$name);  }  
 
                 else{ $isi .= dmha_40_id_check_col(6,'nama'); }
                 
@@ -330,6 +333,8 @@
                     elseif($dmha_13 == 82) { $isi_model = dmha_356_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 85) { $isi_model = dmha_364_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 86) { $isi_model = dmha_372_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 89) { $isi_model = dmha_382_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 90) { $isi_model = dmha_386_let_me_generate_data_array(null,null); }
 
                 $isi .= '<option value="">Pilihan '.dmha_13_id_check_col($dmha_13,'nama').'</option>';
 

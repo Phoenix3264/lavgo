@@ -25,19 +25,13 @@ Route::any('/wwform/generate', 'WwformController@generate');
 Route::post('/wwform/postdata', 'WwformController@postdata');
 
 // default routes
-Route::any('/', 'BackendController@index');
+Route::any('/', 'MainController@index');
 
 
-Route::any('/{param_1}', 'BackendController@index');
-Route::any('/{param_1}/{param_2}', 'BackendController@index');
-Route::any('/{param_1}/{param_2}/{param_3}', 'BackendController@index');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
+Route::any('/{param_1}', 'MainController@index');
+Route::any('/{param_1}/{param_2}', 'MainController@index');
+Route::any('/{param_1}/{param_2}/{param_3}', 'MainController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

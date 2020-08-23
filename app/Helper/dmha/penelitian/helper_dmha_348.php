@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(7);
+                $isi .= general_colgroup(8);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(6);
+                $isi .= general_colgroup(7);
             }
 
             $isi .='
@@ -56,6 +56,7 @@
                     $isi .= th_me('Filename', $class_th);
                     $isi .= th_me('Stasiun', $class_th);
                     $isi .= th_me('Fasilitas', $class_th);
+                    $isi .= th_me('Jumlah', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
                 }
@@ -63,6 +64,7 @@
                 {
                     $isi .= th_me('Stasiun', $class_th);
                     $isi .= th_me('Fasilitas', $class_th);
+                    $isi .= th_me('Jumlah', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
                 }

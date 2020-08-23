@@ -8,7 +8,7 @@ use Session;
 
 use Jenssegers\Agent\Agent;
 
-class BackendController extends Controller
+class MainController extends Controller
 {
     public function __construct()
     {
@@ -20,6 +20,7 @@ class BackendController extends Controller
   	{
         // Make me Smooth
             if($PARAM_1 == 'js'){ return redirect('dashboard'); }
+            if($PARAM_1 == ''){ return redirect('home'); }
 
 
         // Set Rules
@@ -44,6 +45,8 @@ class BackendController extends Controller
     		    $data['AUTH_ID']        = $AUTH_ID ;
     		    $AUTH_ID_ROLE           = Auth::user()->dmha_122;
                 $data['AUTH_ROLE']      = dmha_122_id_check_col($AUTH_ID_ROLE,'nama');
+
+                
                 
   			// then, we check your link
                 $data['PARAM_1']    = $PARAM_1;
@@ -80,11 +83,13 @@ class BackendController extends Controller
                 }
 
             // Flash Message   
+            /*
                 if(dmha_162_id_check($AUTH_ID_ROLE,$id) == false)   
                 {      
                     Session::flash('message',8);
                     return redirect('dashboard');
                 }
+                */
                 
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');

@@ -1,93 +1,35 @@
-<div class="borderer"></div>
-<div class="padding-20 font-roman yellow line-onehalf">
-    <div class="bold underline text-center font-size-16">
-        BERITA ACARA PEMASANGAN TUGU / TANDA BATAS
-    </div>
+<div class="borderer-A4-Portrait"></div>
 
-    <br/>
+<div class="A4-Portrait-padding-10 font-roman yellow line-onehalf">
+    <div class="">
+        <div class="width-20 float-left text-center">
+            <img src="{{ asset('/public/')}}/logo/unnar.png" alt="unnar" width="120px">
+        </div>
 
-    <div class="text-justify">
-
-    </div>
-
-    <table>
-        <colgroup>
-            <col width="">
-            <col width="20">
-            <col width="">
-        </colgroup>
+        <div class="width-60 float-left text-center">
+            <div class="font-size-13 bold">
+                {!!dmha_373_what_is_my_penelitian('nama')!!}
+            </div>
+            <div>
+                {!!dmha_373_what_is_my_penelitian('deskripsi')!!}
+            </div>
+            <div>
+                Tahun {!!dmha_373_what_is_my_penelitian('tahun')!!}
+            </div>
+        </div>
         
-        <tr>
-            <td class="menjorok">Nama</td>
-            <td class="text-center">:</td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="menjorok">Umur</td>
-            <td class="text-center">:</td>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td class="menjorok">Alamat</td>
-            <td class="text-center">:</td>
-            <td>
-            </td>
-        </tr>
-    </table>
-
-    <div class="text-justify">
-        Saya selaku pemilik tanah telah melaksanakan pemasangan tanda-tanda batas berupa (Tugu-tugu/besi) pada semua sudut bidang tanah terletak di :
-    </div>
-
-    <ol class="text-justify">
-        <li>
-            Bahwa tanda-tanda batas yang telah terpasang telah mendapat persetujuan dari pemilik tanah yang berbatasan.
-        </li>
-        <li>
-            Bahwa untuk kesaksian tersebut para pemilik tanah yang berbatasan menandatangani Berita Acara ini.
-        </li>
-        <li>
-            Bahwa tanah tersebut belum pernah diajukan permohonan sertipikat baik sebagian atau seluruhnya.
-        </li>        
-    </ol>
-
-    <div>
-        Demikian Berita Acara ini, dibuat dengan sebenar-benarnya tanpa paksaan.
-    </div>
-
-    <br/>
-
-    
-
-    <div class="float-left width-60">
-        <div class="text-center">
-            Para pemilik tanah yang berbatasan
+        <div class="width-20 float-left text-center">
+            <img src="{{ asset('/public/')}}/logo/dikti_brin.png" alt="dikti_brin" width="50px">
         </div>
 
-        <br/>
-
-        <div>
-            Saksi-saksi / Perangkat Desa
-        </div>
-
-    </div>
-
-    <div class="float-right width-40">
-        <div class="text-center">
-            Pemohon,
-        </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <div class="bold uppercase text-center"></div>
     </div>
 
     <div class="clear"></div>
-    <br/>
-    
+    <hr>
+
+    <br>
+
+    {!!dmha_364_show_table_print($PARAM_2,$PARAM_1)!!}
 
     <div class="clear"></div>
 </div>

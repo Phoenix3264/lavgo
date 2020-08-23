@@ -32,12 +32,13 @@
                         type: "GET"
                     },
                     columns: [                        
-                        { data: "id", name: "id" },';
+                        { data: "id", name: "id", className: "text-right" },';
+                        
                         foreach ($isi_model as $row) {                            
-                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'"},';
+                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'", className: "text-'.$row->align.'"},';
                         }
                         $isi .= '
-                        { data: "action", name: "action" },
+                        { data: "action", name: "action", className: "text-center"  },
     
                     ],
                     order: [
