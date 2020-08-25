@@ -39,7 +39,7 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(6);
+                $isi .= general_colgroup(7);
             }
             if($agent->isMobile() == 1 )
             {
@@ -57,6 +57,7 @@
                     $isi .= th_me('Nama', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
@@ -106,6 +107,21 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+
+    function dmha_364_softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_364::softdelete_me($id);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+    
     function dmha_364_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -234,7 +250,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_364_show_header_backend()
+    function dmha_364_show_header_backend($tipe)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -243,9 +259,17 @@
             // $class = 'btn btn-white';
             $class = 'btnstasiun';
 
+            $icon = dmha_5_id_check_col_icon(dmha_1_id_check_col(364,'dmha_5'),'fa');
+
+            $href = '#surabayamaps';
+            if($tipe == 'form')
+            {
+                $href='javascript:;';
+            }
+
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= color_admin_apple_v42_ahref_small('#surabayamaps','Stasiun Kereta Api '.$row->nama,replace_to_underscore($row->nama),' nilai="'.$row->id.'" ',$class);
+                $isi .= color_admin_apple_v42_ahref_small($href,$icon.' Stasiun Kereta Api '.$row->nama,replace_to_underscore($row->nama),' nilai="'.$row->id.'" ',$class);
             }
 
         // ------------------------------------------------------------------------- SEND

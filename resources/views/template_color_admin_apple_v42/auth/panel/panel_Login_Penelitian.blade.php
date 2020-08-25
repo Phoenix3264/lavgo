@@ -1,9 +1,8 @@
 {!!dmha_373_header_login()!!}
 
-<div  class=" ">
-	<div class="login ">
+	<div class="row ">
 
-		<div class="login-content">
+		<div class="col-md-4 offset-md-4">
 			<form method="POST" action="{{ route('login') }}">
 				@csrf
 				<div class="form-group m-b-20">                        
@@ -34,4 +33,3 @@
 		
 	</div>
 	
-</div>

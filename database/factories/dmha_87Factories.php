@@ -4,7 +4,7 @@
 
 use Faker\Generator as Faker;
 use App\Models\acadion\dmha_87;
-
+use Illuminate\Support\Str;
 $factory->define(dmha_87::class, function (Faker $faker) {
     return [
         //

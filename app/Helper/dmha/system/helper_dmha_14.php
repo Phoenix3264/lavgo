@@ -296,7 +296,7 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
-                <select class="'.$class.'"  id="form-'.$dmha_13.'"  name="'.$name.'">';
+                <select class="'.$class.'"  id="form-'.$dmha_13.'"  name="'.$name.'"  '.$disabled.' >';
 
                 ////////////////////////////////////////////////////////////////////////////////////////////// SYSTEM  
                     if($dmha_13 == 3) { $isi_model = dmha_14_let_me_generate_data_array(null,null); }
@@ -335,8 +335,10 @@
                     elseif($dmha_13 == 82) { $isi_model = dmha_356_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 85) { $isi_model = dmha_364_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 86) { $isi_model = dmha_372_let_me_generate_data_array(null,null); }
-                    elseif($dmha_13 == 89) { $isi_model = dmha_382_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 89) { $isi_model = dmha_390_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 90) { $isi_model = dmha_386_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 94) { $isi_model = dmha_382_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 97) { $isi_model = dmha_352_let_me_generate_data_array(null,null); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////// Data Pendukung
                     elseif($dmha_13 == 93) { $isi_model = dmha_395_let_me_generate_data_array(null,null); }

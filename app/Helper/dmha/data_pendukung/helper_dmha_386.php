@@ -39,7 +39,7 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(4);
             }
             if($agent->isMobile() == 1 )
             {
@@ -54,6 +54,7 @@
                 if($agent->isDesktop() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {

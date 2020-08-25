@@ -1,14 +1,14 @@
 <?php
 
-	use App\Models\data_pendukung\dmha_356;
+	use App\Models\penelitian\dmha_378;
 
-    function dmha_356_id_check_col($ID,$COL)
+    function dmha_378_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::id_check_col($ID,$COL);
+            $isi    = dmha_378::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_356_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_378_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_378::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -30,7 +30,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_356_data_table($agent)
+    function dmha_378_data_table($agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -39,7 +39,7 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(4);
+                $isi .= general_colgroup(8);
             }
             if($agent->isMobile() == 1 )
             {
@@ -54,7 +54,12 @@
                 if($agent->isDesktop() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
-                    $isi .= th_me('Tanggal', $class_th);
+                    $isi .= th_me('Nopol', $class_th);
+                    $isi .= th_me('Tempat Parkir', $class_th);
+                    
+                    $isi .= th_me('Pesan', $class_th);
+                    $isi .= th_me('Tiba', $class_th);
+                    $isi .= th_me('Keluar', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
@@ -71,37 +76,14 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
-
-
-    function dmha_356_data_table_data_siswa_per_kelas()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
     
-    function dmha_356_create_me($array_data)
+    function dmha_378_create_me($array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::create_me($array_data);
+            $isi    = dmha_378::create_me($array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -109,13 +91,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_356_update_me($id,$array_data)
+    function dmha_378_update_me($id,$array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::update_me($id,$array_data);
+            $isi    = dmha_378::update_me($id,$array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -123,13 +105,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_356_softdelete_me($id)
+    function dmha_378_softdelete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::softdelete_me($id);
+            $isi    = dmha_378::softdelete_me($id);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -137,34 +119,14 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_356_delete_me($id)
+    function dmha_378_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_356::delete_me($id);
+            $isi    = dmha_378::delete_me($id);
 
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
-
-    function dmha_356_show_dashboard_widget_stats()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $dmha = 356;
-
-            $isi_model    = dmha_356::let_me_generate_data_array(null,null);
-            
-            $color = dmha_322_id_check_col(dmha_1_id_check_col($dmha,'dmha_322'),'nama');
-            $icon = dmha_5_id_check_col_icon(dmha_1_id_check_col($dmha,'dmha_5'),'fa');
-            $nama = dmha_1_id_check_col($dmha,'nama');
-        // ------------------------------------------------------------------------- ACTION
-
-            $isi    .= UI_dashboard_widget_stats($color,$icon,$nama,count($isi_model));
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

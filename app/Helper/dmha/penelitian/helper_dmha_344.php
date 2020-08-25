@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(12);
+                $isi .= general_colgroup(11);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(11);
+                $isi .= general_colgroup(10);
             }
 
             $isi .='
@@ -63,8 +63,8 @@
                     $isi .= th_me('Marka', $class_th);
                     $isi .= th_me('Traffic', $class_th);
 
-                    $isi .= th_me('Latitude', $class_th);
-                    $isi .= th_me('Longitude', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
+
                 }
                 if($agent->isMobile() == 1 )
                 {
@@ -90,13 +90,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
     
-    function dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386)
+    function dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_344::create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386);
+            $isi    = dmha_344::create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -104,13 +104,27 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_344_update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386)
+    function dmha_344_update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_344::update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386);
+            $isi    = dmha_344::update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function dmha_344_softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_344::softdelete_me($id);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -136,11 +150,11 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            $isi_model    = dmha_344::let_me_generate_data_array(null,null);
-
+            $isi_model    = dmha_344_let_me_generate_data_array(null,null,'script');
+            $deskripsi = '<strong>Make it Mount Pleasant</strong><p>hai</p>';
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= helper_mapbox_geojson(dmha_356_id_check_col($row->dmha_356,'nama'),$row->latitude,$row->longitude,$row->filename,344,null);
+                $isi .= helper_mapbox_geojson(dmha_344_show_deskripsi($row->jalan,$row->filename,$row->lebar,$row->tebal,$row->dmha_356,$row->dmha_382,$row->dmha_386,$row->dmha_390),$row->latitude,$row->longitude,$row->filename,348,'marker');
             }
 
         // ------------------------------------------------------------------------- SEND
@@ -148,6 +162,21 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+
+    function dmha_344_show_deskripsi($nama,$filename,$lebar,$tebal,$lapisan,$rambu,$marka,$traffic)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+        // ------------------------------------------------------------------------- ACTION
+            $isi = "<strong>".$nama."</strong><hr/><img src='".asset("/")."/storage/app/public/storage/dmha_344/".$filename."' alt='logo_gabungan' width='200px'><hr/>Lebar : ".$lebar."; Tebal : ".$tebal.";<hr/>".$lapisan."; ".$rambu."; ".$marka.";".$traffic;
+
+            //<img src="http://localhost/lavgo/storage/app/public/storage/dmha_344/fDW9jQmBhcFSfd1.jpg" width="150px">
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
 
     function dmha_344_show_dashboard_widget_stats()
     {

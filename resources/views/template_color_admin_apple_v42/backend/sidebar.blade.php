@@ -8,7 +8,7 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-13.jpg" alt="" />
+                        <img src="{{asset('/')}}/public/logo/unnar_logo.jpg" alt="unnar_logo" >
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>

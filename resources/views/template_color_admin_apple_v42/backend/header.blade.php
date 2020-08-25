@@ -1,8 +1,9 @@
-<div id="header" class="header navbar-inverse">
+<div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <a href="index.html" class="navbar-brand"><span class="navbar-logo"><i class="ion-ios-cloud"></i></span> 
-        <b>{!!dmha_8_is_it_dev_mode()!!}</b> Admin</a>
+        <a href="{{url('/')}}/dashboard" class="navbar-brand">
+            <img src="{{asset('/')}}/public/logo/logo_gabungan.png" alt="logo_gabungan" >
+        </a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -100,7 +101,8 @@
         -->
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="{{ asset('/public/').'/'.$root }}/assets/img/user/user-13.jpg" alt="" /> 
+                
+                <img src="{{asset('/')}}/public/logo/unnar_logo.jpg" alt="unnar_logo" >
                 <span class="d-none d-md-inline">
                     {{ $AUTH_NAME }} 
                 </span> 

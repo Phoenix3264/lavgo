@@ -487,6 +487,7 @@ class WwformController extends Controller
                     $dmha_356 = $request->dmha_356;
                     $dmha_382 = $request->dmha_382;
                     $dmha_386 = $request->dmha_386;
+                    $dmha_390 = $request->dmha_390;
 
                     $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
 
@@ -502,8 +503,8 @@ class WwformController extends Controller
                     }  
 
 
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_344_update_me($ID,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386); }
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_344_update_me($ID,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_344_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 348) {   
@@ -530,16 +531,40 @@ class WwformController extends Controller
                         }  
                     }
 
-                    
-
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_348_create_me($filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_348_update_me($ID,$filename,$latitude,$longitude,$dmha_364,$dmha_372,$jumlah); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_348_softdelete_me($ID); }
                 }
-                elseif($DMHA_1 == 352) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_352_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_352_update_me($ID,$request->all()); }
+                elseif($DMHA_1 == 352) {   
+
+                    $latitude = $request->latitude;
+                    $longitude = $request->longitude;
+                    $dmha_364 = $request->dmha_364;
+                    
+                    $filename = null;
+                    if(isset($request->filename))
+                    {
+                        $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
+                        $storage_files = 'public/storage/dmha_352/';
+                        $filename_exist  = public_path($storage_files).$filename;
+
+                        if (Storage::exists($filename_exist)) {
+                            Storage::delete($filename_exist);
+                        }     
+
+                        if (!is_null($filename_exist)) {
+                            $request->filename->storeAs($storage_files,$filename);    
+                        }  
+                    }
+
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_352_create_me($filename,$latitude,$longitude,$dmha_364); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_352_update_me($ID,$filename,$latitude,$longitude,$dmha_364); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_352_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 378) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_378_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_378_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_378_softdelete_me($ID); }
                 }
 
                 
@@ -555,18 +580,21 @@ class WwformController extends Controller
                     $longitude = $request->longitude;
                     $nama = $request->nama;
 
-                    $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
+                    $filename = null;
+                    if(isset($request->filename))
+                    {
+                        $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
+                        $storage_files = 'public/storage/dmha_364/';
+                        $filename_exist  = public_path($storage_files).$filename;
 
-                    $storage_files = 'public/storage/dmha_364/';
-                    $filename_exist  = public_path($storage_files).$filename;
+                        if (Storage::exists($filename_exist)) {
+                            Storage::delete($filename_exist);
+                        }     
 
-                    if (Storage::exists($filename_exist)) {
-                        Storage::delete($filename_exist);
-                    }     
-
-                    if (!is_null($filename_exist)) {
-                        $request->filename->storeAs($storage_files,$filename);    
-                    }   
+                        if (!is_null($filename_exist)) {
+                            $request->filename->storeAs($storage_files,$filename);    
+                        }  
+                    }  
                     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_364_create_me($filename,$latitude,$longitude,$nama); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_364_update_me($ID,$filename,$latitude,$longitude,$nama); }
@@ -618,6 +646,11 @@ class WwformController extends Controller
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_386_create_me($request->all()); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_386_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_386_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 390) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_390_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_390_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_390_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 395) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_395_create_me($request->all()); }

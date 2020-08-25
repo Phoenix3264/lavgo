@@ -37,7 +37,7 @@ $(document).ready(function(){
 <script>
 
     {!!helper_mapbox_generate_map()!!}
-    
+
     var geolocate = new mapboxgl.GeolocateControl();
 
     map.addControl(geolocate);
@@ -54,7 +54,7 @@ $(document).ready(function(){
             var coordinates = e.lngLat;
             var lon = coordinates.lng;
             var lat = coordinates.lat;
-
+            console.log(coordinates);
             document.getElementById('form-80').value = lat;
             document.getElementById('form-81').value = lon; 
 
@@ -68,7 +68,7 @@ $(document).ready(function(){
             'data': {
                 'type': 'FeatureCollection',
                 'features': [
-                    {!!dmha_348_show_mapbox_marker()!!}
+                    {!!dmha_344_show_mapbox_marker()!!}
                 ]
             }
         });
@@ -110,4 +110,6 @@ $(document).ready(function(){
             map.getCanvas().style.cursor = '';
         });
     });
+    
+    map.addControl(new mapboxgl.NavigationControl());
 </script>

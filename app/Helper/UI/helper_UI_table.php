@@ -201,6 +201,8 @@
 				elseif($DMHA_ID == 352){ $isi = dmha_352_data_table($AGENT); }
 				elseif($DMHA_ID == 356){ $isi = dmha_356_data_table($AGENT); }
 				elseif($DMHA_ID == 364){ $isi = dmha_364_data_table($AGENT); }
+				elseif($DMHA_ID == 378){ $isi = dmha_378_data_table($AGENT); }
+				
 				
 			///////////////////////////////////////////////////////////////////////////////// Data Pendukung
 				elseif($DMHA_ID == 356){ $isi = dmha_356_data_table($AGENT); }
@@ -208,6 +210,7 @@
 				elseif($DMHA_ID == 373){ $isi = dmha_373_data_table($AGENT); }
 				elseif($DMHA_ID == 382){ $isi = dmha_382_data_table($AGENT); }
 				elseif($DMHA_ID == 386){ $isi = dmha_386_data_table($AGENT); }
+				elseif($DMHA_ID == 390){ $isi = dmha_390_data_table($AGENT); }
 				elseif($DMHA_ID == 395){ $isi = dmha_395_data_table($AGENT); }
 
 

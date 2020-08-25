@@ -1,1 +1,1 @@
-<div id='map' style='width:auto; height: 768px;'></div>
+<div id='map' class="fullscreen"></div>

@@ -62,7 +62,8 @@ class dmha_348 extends Model
                     dmha_372.nama as dmha_372,
                     dmha_348.jumlah,
                     dmha_348.latitude,
-                    dmha_348.longitude
+                    dmha_348.longitude,
+                    dmha_348.created_at
                 ')
                 ->join('dmha_364', 'dmha_364.id', '=', 'dmha_348.dmha_364') 
                 ->join('dmha_372', 'dmha_372.id', '=', 'dmha_348.dmha_372') 
@@ -122,18 +123,34 @@ class dmha_348 extends Model
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
-        // ------------------------------------------------------------------------- ACTION
-            dmha_348::where('id','=', $id)
-            ->update(
-                [
-                    'filename'     => $filename,
-                    'latitude'     => $latitude,
-                    'longitude'     => $longitude,
-                    'dmha_364'     => $dmha_364,
-                    'dmha_372'     => $dmha_372,
-                    'jumlah'     => $jumlah,
-                    'updated_at'     => now()
-                ]);
+        // ------------------------------------------------------------------------- ACTION                
+            if(!is_null($filename))
+            {
+                dmha_348::where('id','=', $id)
+                ->update(
+                    [
+                        'filename'     => $filename,
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'dmha_364'     => $dmha_364,
+                        'dmha_372'     => $dmha_372,
+                        'jumlah'     => $jumlah,
+                        'updated_at'     => now()
+                    ]);
+            }
+            else
+            {
+                dmha_348::where('id','=', $id)
+                ->update(
+                    [
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'dmha_364'     => $dmha_364,
+                        'dmha_372'     => $dmha_372,
+                        'jumlah'     => $jumlah,
+                        'updated_at'     => now()
+                    ]);
+            }
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

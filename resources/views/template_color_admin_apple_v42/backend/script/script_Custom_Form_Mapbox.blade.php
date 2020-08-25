@@ -77,6 +77,7 @@ $(document).ready(function(){
                 'type': 'FeatureCollection',
                 'features': [
                     {!!dmha_348_show_mapbox_marker()!!}
+                    {!!dmha_352_show_mapbox_marker()!!}
                 ]
             }
         });
@@ -118,4 +119,6 @@ $(document).ready(function(){
             map.getCanvas().style.cursor = '';
         });
     });
+    
+    map.addControl(new mapboxgl.NavigationControl());
 </script>

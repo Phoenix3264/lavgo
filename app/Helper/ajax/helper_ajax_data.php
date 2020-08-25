@@ -35,7 +35,9 @@
                         { data: "id", name: "id", className: "text-right" },';
                         
                         foreach ($isi_model as $row) {                            
-                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'", className: "text-'.$row->align.'"},';
+                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'", className: "text-'.$row->align.'"},
+                            
+                            ';
                         }
                         $isi .= '
                         { data: "action", name: "action", className: "text-center"  },
@@ -46,7 +48,7 @@
                     ]
                 });
             });        
-            '.$agent_name ;
+            ' ;
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -73,7 +75,8 @@
                     columns: [                        
                         { data: "id", name: "id" },';
                         foreach ($isi_model as $row) {                            
-                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'"},';
+                            $isi .= '{ data: "'.$row->name.'", name: "'.$row->name.'"},
+                            ';
                         }
                         $isi .= '
                         { data: "action", name: "action" },

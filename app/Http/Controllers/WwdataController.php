@@ -103,17 +103,19 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 318) { $isi_model = dmha_318_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PENELITIAN
-                    elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
-                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1,null); $modify_datatable = 'picture'; }
-                    elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture'; }
+                    elseif($DMHA_1 == 344) { $isi_model = dmha_344_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture_date'; }
+                    elseif($DMHA_1 == 348) { $isi_model = dmha_348_let_me_generate_data_array($AUTH_ID, $DMHA_1,null); $modify_datatable = 'picture_date'; }
+                    elseif($DMHA_1 == 352) { $isi_model = dmha_352_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture_date'; }
+                    elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture_date'; }
+                    elseif($DMHA_1 == 378) { $isi_model = dmha_378_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data PEndukung
-                    elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 372) { $isi_model = dmha_372_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
+                    elseif($DMHA_1 == 372) { $isi_model = dmha_372_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 373) { $isi_model = dmha_373_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 382) { $isi_model = dmha_382_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 382) { $isi_model = dmha_382_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
+                    elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
+                    elseif($DMHA_1 == 390) { $isi_model = dmha_390_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 395) { $isi_model = dmha_395_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
 
@@ -151,6 +153,48 @@ class WwdataController extends Controller
                         return $dropdown;
                     })
                     ->rawColumns(['filename','action'])
+                    ->addIndexColumn()
+                    ->toJson();
+            }
+            elseif($modify_datatable == 'picture_date')
+            {
+                $DMHA_4 = 'pictures';
+                $link = dmha_1_id_check_col($DMHA_1,'link');
+
+                return datatables()
+                    ->of($isi_model)
+                    ->addColumn('filename', function($data) use ($link,$DMHA_4,$DMHA_1){                        
+                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,'150px');
+                        return $image;
+                    })
+                    ->addColumn('created_at', function($data) use ($link,$DMHA_4,$DMHA_1){                        
+                        $tanggal = date("d-m-Y", strtotime($data->created_at));
+                        return $tanggal;
+                    })
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                        return $dropdown;
+                    })
+                    ->rawColumns(['filename','created_at','action'])
+                    ->addIndexColumn()
+                    ->toJson();
+            }
+            elseif($modify_datatable == 'date')
+            {
+                $DMHA_4 = 'pictures';
+                $link = dmha_1_id_check_col($DMHA_1,'link');
+
+                return datatables()
+                    ->of($isi_model)
+                    ->addColumn('created_at', function($data) use ($link,$DMHA_4,$DMHA_1){                        
+                        $tanggal = date("d-m-Y", strtotime($data->created_at));
+                        return $tanggal;
+                    })
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                        return $dropdown;
+                    })
+                    ->rawColumns(['created_at','action'])
                     ->addIndexColumn()
                     ->toJson();
             }
@@ -270,7 +314,6 @@ class WwdataController extends Controller
         
     }
 
-    
     public function autocompletez(Request $request,$param_1)
     {
 

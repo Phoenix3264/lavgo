@@ -9,18 +9,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.html" class="navbar-brand">
-                <span class="brand-logo"></span>
-                <span class="brand-text">
-                    <span class="text-theme">Color</span> Admin
-                </span>
-            </a>
         </div>
         <!-- end navbar-header -->
         <!-- begin navbar-collapse -->
         <div class="collapse navbar-collapse" id="header-navbar">
             <ul class="nav navbar-nav navbar-right">
-                {!!dmha_364_show_header()!!}
+                <li class="">
+                    <a class="" href="{{url('/')}}/login" >
+                            LOGIN
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- end navbar-collapse -->

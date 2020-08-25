@@ -39,7 +39,7 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(8);
+                $isi .= general_colgroup(9);
             }
             if($agent->isMobile() == 1 )
             {
@@ -59,6 +59,7 @@
                     $isi .= th_me('Jumlah', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
@@ -108,6 +109,20 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    function dmha_348_softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_348::softdelete_me($id);
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
     function dmha_348_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -146,15 +161,26 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $isi_model    = dmha_348_let_me_generate_data_array(null,null,'script');
-
+            
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= helper_mapbox_geojson($row->dmha_372,$row->latitude,$row->longitude,$row->filename,348,$row->maki);
+                $isi .= helper_mapbox_geojson(dmha_348_show_deskripsi($row->dmha_372,$row->filename),$row->latitude,$row->longitude,$row->filename,348,$row->maki);
             }
 
-            //dmha_395_id_check_col(dmha_372_id_check_col($row->dmha_372,'dmha_395'),'nama')
-            // dmha_395_id_check_col(dmha_372_id_check_col(dmha_348_id_check_col($row->dmha_348,'dmha_372'),'dmha_395'),'nama')
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
 
+    function dmha_348_show_deskripsi($nama,$filename)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+        // ------------------------------------------------------------------------- ACTION
+            $isi = "<strong>".$nama."</strong><hr/><img src='".asset("/")."/storage/app/public/storage/dmha_348/".$filename."' alt='logo_gabungan' width='200px'>";
+
+            //<img src="http://localhost/lavgo/storage/app/public/storage/dmha_344/fDW9jQmBhcFSfd1.jpg" width="150px">
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;

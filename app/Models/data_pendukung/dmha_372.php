@@ -50,15 +50,12 @@ class dmha_372 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_372::whereNull('deleted_at')
-                ->orderBy('nama','asc')
-                ->get();
-
             $isi = dmha_372::
                 selectRaw('
                     dmha_372.id,
                     dmha_372.nama,
-                    dmha_395.nama as dmha_395
+                    dmha_395.nama as dmha_395,
+                    dmha_372.created_at
                 ')
                 ->join('dmha_395', 'dmha_395.id', '=', 'dmha_372.dmha_395') 
 

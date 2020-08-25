@@ -39,7 +39,7 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(4);
             }
             if($agent->isMobile() == 1 )
             {
@@ -54,6 +54,7 @@
                 if($agent->isDesktop() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 if($agent->isMobile() == 1 )
                 {
@@ -71,28 +72,6 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-
-    function dmha_382_data_table_data_siswa_per_kelas()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            general_colgroup(3).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
     
     function dmha_382_create_me($array_data)
     {

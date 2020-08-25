@@ -57,12 +57,7 @@ class dmha_344 extends Model
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
-        // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_344::whereNull('deleted_at')
-                ->orderBy('id','asc')
-                ->get();
-
-                
+        // ------------------------------------------------------------------------- ACTION                
             $isi = dmha_344::
             selectRaw('
                 dmha_344.id,
@@ -75,7 +70,8 @@ class dmha_344 extends Model
                 dmha_386.nama as dmha_386,
                 dmha_390.nama as dmha_390,
                 dmha_344.latitude,
-                dmha_344.longitude
+                dmha_344.longitude,
+                dmha_344.created_at
             ')
             ->join('dmha_356', 'dmha_356.id', '=', 'dmha_344.dmha_356') 
             ->join('dmha_382', 'dmha_382.id', '=', 'dmha_344.dmha_382') 
@@ -92,7 +88,7 @@ class dmha_344 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386)
+    public static function create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -108,14 +104,15 @@ class dmha_344 extends Model
                     'tebal'     => $tebal,
                     'dmha_356'     => $dmha_356,
                     'dmha_382'     => $dmha_382,
-                    'dmha_386'     => $dmha_386
+                    'dmha_386'     => $dmha_386,
+                    'dmha_390'     => $dmha_390
                 ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386)
+    public static function update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -133,6 +130,7 @@ class dmha_344 extends Model
                     'dmha_356'     => $dmha_356,
                     'dmha_382'     => $dmha_382,
                     'dmha_386'     => $dmha_386,
+                    'dmha_390'     => $dmha_390,
                     'updated_at'     => now()
                 ]);
 
