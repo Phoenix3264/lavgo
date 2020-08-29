@@ -19,6 +19,13 @@
                     </div>
                 </a>
             </li>
+            @if($agent->isDesktop() != 1)
+            <li>
+                <ul class="nav nav-profile">
+                    <li><a href="{{url('/')}}/logout">Logout</a></li>
+                </ul>
+            </li>
+            @endif
             <!--
             <li>
                 <ul class="nav nav-profile">

@@ -146,45 +146,164 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_373_header_login()
+    function dmha_373_header_login($agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = '
-            <div class="row m-t-40">
-                <div class="col-md-3 text-center">
-                    <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" width="200px">
+            if($agent->isDesktop() == 1)
+            {
+                $height = 70;
+                $isi    = '
+                <div class="row row-login p-t-40">
+                    <div class="col-md-3 text-center">
+                        <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" height="'.$height.'px">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h3>
+                            '.dmha_373_what_is_my_penelitian("nama").'
+                        </h3>
+                        <h4>
+                            '.dmha_373_what_is_my_penelitian("deskripsi").'
+                        </h4>
+                        <h5>
+                            Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                        </h5>
+                        
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" height="'.$height.'px">
+                    </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <h3>
-                        '.dmha_373_what_is_my_penelitian("nama").'
-                    </h3>
-                    <h4>
-                        '.dmha_373_what_is_my_penelitian("deskripsi").'
-                    </h4>
-                    <h5>
-                        Tahun '.dmha_373_what_is_my_penelitian("tahun").'
-                    </h5>
-                    
-                </div>
-                <div class="col-md-3 text-center">
-                    <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" width="100px">
-                </div>
-            </div>
 
-            <div class="row m-t-10">
-                <div class="col-md-3 text-center">
-                        © '.dmha_373_what_is_my_penelitian("peneliti").'
+                <div class="row row-login p-t-10  p-b-20">
+                    <div class="col-md-12 text-center">
+                            © '.dmha_373_what_is_my_penelitian("peneliti").'
+                    </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    
+
+                ';
+            }
+            else
+            {
+                $height = 50;
+                $isi    = '
+                <div class="row row-login m-t-40">
+                    <div class="col-6 text-center">
+                        <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" height="'.$height.'px">
+                    </div>
+                    <div class="col-6 text-center">
+                        <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" height="'.$height.'px">
+                    </div>
                 </div>
-                <div class="col-md-3 text-center">
+
+                
+                <div class="row row-login m-t-20">
+                    <div class="col-12 text-center">
+                        <h4>
+                            '.dmha_373_what_is_my_penelitian("nama").'
+                        </h4>
+                        <h5>
+                            '.dmha_373_what_is_my_penelitian("deskripsi").'
+                        </h5>
+                        <h5>
+                            Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                        </h5>
+                        
+                    </div>
                 </div>
-            </div>
-            ';
+
+                <div class="row m-t-10 m-b-20">
+                    <div class="col-md-12 text-center">
+                            © '.dmha_373_what_is_my_penelitian("peneliti").'
+                    </div>
+                </div>
+                ';
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    
+    function dmha_373_show_header_backend($agent)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+        // ------------------------------------------------------------------------- ACTION
+            if($agent->isDesktop() == 1)
+            {
+                $height = 70;
+    
+                $isi    = '
+                <div class="row m-t-40">
+                    <div class="col-md-3 text-center">
+                        <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" height="'.$height.'px">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h3>
+                            '.dmha_373_what_is_my_penelitian("nama").'
+                        </h3>
+                        <h4>
+                            '.dmha_373_what_is_my_penelitian("deskripsi").'
+                        </h4>
+                        <h5>
+                            Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                        </h5>
+                        
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" height="'.$height.'px">
+                    </div>
+                </div>
+
+                <div class="row m-t-10 m-b-20">
+                    <div class="col-md-12 text-center" id="surabayamaps">
+                            © '.dmha_373_what_is_my_penelitian("peneliti").'
+                    </div>
+                </div>
+                ';
+            }
+            else
+            {
+                $height = 50;
+    
+                $isi    = '
+                <div class="row m-t-40">
+                    <div class="col-4 offset-1 text-center">
+                        <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" height="'.$height.'px">
+                    </div>
+                    <div class="col-4 offset-1 text-center">
+                        <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" height="'.$height.'px">
+                    </div>
+                </div>
+
+                
+                <div class="row m-t-20">
+                    <div class="col-12 text-center">
+                        <h4>
+                            '.dmha_373_what_is_my_penelitian("nama").'
+                        </h4>
+                        <h5>
+                            '.dmha_373_what_is_my_penelitian("deskripsi").'
+                        </h5>
+                        <h5>
+                            Tahun '.dmha_373_what_is_my_penelitian("tahun").'
+                        </h5>
+                        
+                    </div>
+                </div>
+
+                <div class="row m-t-10 m-b-20">
+                    <div class="col-md-12 text-center">
+                            © '.dmha_373_what_is_my_penelitian("peneliti").'
+                    </div>
+                </div>
+                ';
+            }
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

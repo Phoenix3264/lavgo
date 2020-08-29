@@ -383,9 +383,8 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi = '
-            <div class="alert alert-'.$status.' fade show col-md-8 offset-md-2 text-center">
+            <div class="alert '.$status.' fade show col-md-8 offset-md-2 text-center">
                 <span class="close" data-dismiss="alert">×</span>
-                <strong>'.ucfirst($status).'!</strong>
                 '.$message.'
             </div>
             ';
@@ -503,6 +502,8 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
+
+
             $class  = 'btn btn-sm btn-white m-b-10 text-right '.$class;
 
 

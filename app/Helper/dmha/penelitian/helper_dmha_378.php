@@ -43,7 +43,7 @@
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(3);
+                $isi .= general_colgroup(8);
             }
 
             $isi .='
@@ -64,6 +64,12 @@
                 if($agent->isMobile() == 1 )
                 {
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Nopol', $class_th);
+                    $isi .= th_me('Tempat Parkir', $class_th);
+                    
+                    $isi .= th_me('Pesan', $class_th);
+                    $isi .= th_me('Tiba', $class_th);
+                    $isi .= th_me('Keluar', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);

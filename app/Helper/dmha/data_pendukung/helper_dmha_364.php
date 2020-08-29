@@ -43,7 +43,7 @@
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(5);
+                $isi .= general_colgroup(7);
             }
 
             $isi .='
@@ -61,9 +61,11 @@
                 }
                 if($agent->isMobile() == 1 )
                 {
+                    $isi .= th_me('Filename', $class_th);
                     $isi .= th_me('Nama', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);
@@ -191,7 +193,7 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
             <div class="font-size-13 bold underline text-center">
-                Data Prasarana Sarana '.$nama_stasiun.'
+                Data Prasarana Sarana Stasiun Kereta Api '.$nama_stasiun.'
             </div>
 
             <br/>
@@ -207,18 +209,16 @@
             $isi .= th_me('Foto', $class_th);
             $isi .= th_me('Fasilitas', $class_th);
             $isi .= th_me('Jumlah', $class_th);
-            $isi .= th_me('Latitude', $class_th);
-            $isi .= th_me('Longitude', $class_th);
             $isi .= '</thead>';
 
             foreach ($isi_model as $row) {
                 $counter++;
+                $isi .= '<tr>';
                 $isi .= td_me($counter, $class_td);
                 $isi .= td_me(general_image($PARAM_1,$DMHA_4,$row->id,$DMHA_1,null,'150px'), $class_td);
-                $isi .= td_me(dmha_372_id_check_col($row->dmha_372,'nama'), $class_td);
+                $isi .= td_me($row->dmha_372, $class_td);
                 $isi .= td_me($row->jumlah, $class_td);
-                $isi .= td_me($row->latitude, $class_td);
-                $isi .= td_me($row->longitude, $class_td);
+                $isi .= '</tr>';
             }
 
             $isi .= UI_tabel_close();
@@ -250,7 +250,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_364_show_header_backend($tipe)
+    function dmha_364_show_header_backend($tipe,$agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -267,9 +267,18 @@
                 $href='javascript:;';
             }
 
+            if($agent->isDesktop() == 1)
+            {
+                $additional_name = $icon.' Stasiun Kereta Api ';
+            }
+            else
+            {
+                $additional_name = $icon.' ';
+            }
+
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
-                $isi .= color_admin_apple_v42_ahref_small($href,$icon.' Stasiun Kereta Api '.$row->nama,replace_to_underscore($row->nama),' nilai="'.$row->id.'" ',$class);
+                $isi .= color_admin_apple_v42_ahref_small($href,$additional_name.$row->nama,replace_to_underscore($row->nama),' nilai="'.$row->id.'" ',$class);
             }
 
         // ------------------------------------------------------------------------- SEND
@@ -287,6 +296,91 @@
         // ------------------------------------------------------------------------- ACTION
             foreach ($isi_model as $row) {
                 $isi .= helper_mapbox_script_mapbox_flyto(replace_to_underscore($row->nama),$row->latitude,$row->longitude);
+            }
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+
+    
+    function dmha_364_header_frontend($agent)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            if($agent->isDesktop() == 1)
+            {
+                $isi    = '
+                    <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+                        <!-- begin container -->
+                        <div class="container">
+                            <!-- begin navbar-header -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- end navbar-header -->
+                            <!-- begin navbar-collapse -->
+                            <div class="collapse navbar-collapse" id="header-navbar">
+                                <ul class="nav navbar-nav navbar-right">
+                                    '.dmha_364_show_header().'
+                                    <li class="">
+                                        <a class="" href="'.url('/').'/login" >
+                                                LOGIN
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end navbar-collapse -->
+                        </div>
+                        <!-- end container -->
+                    </div>            
+                ';
+            }
+            else
+            {
+                $isi    = '
+                    <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+                        <!-- begin container -->
+                        <div class="container">
+                            <!-- begin navbar-header -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a href="index.html" class="navbar-brand">
+                                    '.dmha_5_id_check_col_icon(dmha_1_id_check_col(364,'dmha_5'),'fa').'
+                                    <span class="brand-text">
+                                        Stasiun Kereta Api
+                                    </span>
+                                </a>
+                            </div>
+                            <!-- end navbar-header -->
+                            <!-- begin navbar-collapse -->
+                            <div class="collapse navbar-collapse navbar-transparent" id="header-navbar">
+                                <ul class="nav navbar-nav navbar-right navbar-transparent">
+                                    '.dmha_364_show_header().'
+                                    <li class="">
+                                        <a class="" href="'.url('/').'/login" >
+                                                LOGIN
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end navbar-collapse -->
+                        </div>
+                        <!-- end container -->
+                    </div>            
+                ';
             }
 
         // ------------------------------------------------------------------------- SEND

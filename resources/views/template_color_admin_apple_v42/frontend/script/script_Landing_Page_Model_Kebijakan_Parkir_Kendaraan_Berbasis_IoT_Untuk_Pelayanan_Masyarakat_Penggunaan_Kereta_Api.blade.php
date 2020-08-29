@@ -73,6 +73,6 @@
         });
     });
     
-    map.addControl(new mapboxgl.NavigationControl());
+    {!!helper_mapbox_NavigationControl($agent)!!}
 
 </script>

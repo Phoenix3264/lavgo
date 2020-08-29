@@ -43,7 +43,7 @@
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(10);
+                $isi .= general_colgroup(11);
             }
 
             $isi .='
@@ -77,6 +77,8 @@
                     $isi .= th_me('Rambu', $class_th);
                     $isi .= th_me('Marka', $class_th);
                     $isi .= th_me('Traffic', $class_th);
+
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);

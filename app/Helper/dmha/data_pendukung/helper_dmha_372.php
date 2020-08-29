@@ -129,38 +129,3 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
-
-    function dmha_372_show_header_backend()
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi    = '
-            <div class="row">
-                <div class="col-md-3 text-center">
-                    <img src="'.asset('/').'/public/logo/unnar.png" alt="unnar" width="200px">
-                </div>
-                <div class="col-md-6 text-center">
-                    <h3>
-                        '.dmha_373_what_is_my_penelitian("nama").'
-                    </h3>
-                    <h4 id="surabayamaps">
-                        '.dmha_373_what_is_my_penelitian("deskripsi").'
-                    </h4>
-                    <h5>
-                        Tahun '.dmha_373_what_is_my_penelitian("tahun").'
-                    </h5>
-                    
-                </div>
-                <div class="col-md-3 text-center">
-                    <img src="'.asset('/').'/public/logo/dikti_brin.png" alt="dikti_brin" width="75px">
-                </div>
-            </div>
-            ';
-
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }

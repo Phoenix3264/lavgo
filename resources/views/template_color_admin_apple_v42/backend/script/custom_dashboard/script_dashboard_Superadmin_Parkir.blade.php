@@ -1,6 +1,5 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 
-{{ url('/').'/'.Storage::url('app/public/storage/dmha_364/QLI6WirZu10pLNA.jpg') }}
 <script>
     $(document).ready(function() {
         App.init();

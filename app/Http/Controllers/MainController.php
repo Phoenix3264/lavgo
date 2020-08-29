@@ -22,7 +22,6 @@ class MainController extends Controller
             if($PARAM_1 == 'js'){ return redirect('dashboard'); }
             if($PARAM_1 == ''){ return redirect('home'); }
 
-
         // Set Rules
             // Unknown Param, Redirect to
                 if($PARAM_1 == ''){return redirect('dashboard');}
@@ -47,6 +46,13 @@ class MainController extends Controller
                 $id                 = dmha_1_link_check_col($PARAM_1,'id');
                 $data['id']         = $id;
 
+                // page not found
+                if($id == '')
+                {
+                    Session::flash('message',9);
+                    return redirect('dashboard');
+                }
+
                 $data['nama']         = dmha_1_link_check_col($PARAM_1,'nama');
 
                 $dmha_1             = dmha_1_link_check_col($PARAM_1,'dmha_1');
@@ -67,6 +73,13 @@ class MainController extends Controller
                             $data['AUTH_ID']        = $AUTH_ID ;
                             $AUTH_ID_ROLE           = Auth::user()->dmha_122;
                             $data['AUTH_ROLE']      = dmha_122_id_check_col($AUTH_ID_ROLE,'nama');
+
+                        // Flash Message   
+                            if(dmha_162_id_check($AUTH_ID_ROLE,$id) == false)   
+                            {      
+                                Session::flash('message',8);
+                                return redirect('dashboard');
+                            }
                         
                     }
                     else
@@ -96,15 +109,6 @@ class MainController extends Controller
                     $data['id_data'] = $PARAM_2;
                 }
 
-            // Flash Message   
-            /*
-                if(dmha_162_id_check($AUTH_ID_ROLE,$id) == false)   
-                {      
-                    Session::flash('message',8);
-                    return redirect('dashboard');
-                }
-                */
-                
   			// We check your root and template
                 $root           = dmha_2_id_check_col(dmha_1_link_check_col($PARAM_1,'dmha_2'),'root');
                 $data['root']   = replace_to_underscore($root);

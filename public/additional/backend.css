@@ -35,3 +35,15 @@ body{
     top: 0;
     bottom: 0;
 }
+
+@media (max-width: 767px) {
+    .header.navbar-small.navbar-transparent .navbar-collapse, .navbar-transparent .navbar-collapse {
+        background: transparent; 
+    }
+}
+
+
+.row-login {
+    margin-left: 0px;
+    margin-right: 0px;
+}

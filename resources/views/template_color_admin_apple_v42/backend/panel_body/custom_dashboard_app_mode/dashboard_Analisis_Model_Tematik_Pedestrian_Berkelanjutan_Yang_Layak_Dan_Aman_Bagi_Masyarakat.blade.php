@@ -1,4 +1,4 @@
-{!!dmha_372_show_header_backend()!!}
+{!!dmha_373_show_header_backend($agent)!!}
 
 <div class="row">
     <div class="col-md-12">

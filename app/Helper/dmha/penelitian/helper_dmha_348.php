@@ -43,7 +43,7 @@
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(7);
+                $isi .= general_colgroup(9);
             }
 
             $isi .='
@@ -63,11 +63,13 @@
                 }
                 if($agent->isMobile() == 1 )
                 {
+                    $isi .= th_me('Filename', $class_th);
                     $isi .= th_me('Stasiun', $class_th);
                     $isi .= th_me('Fasilitas', $class_th);
                     $isi .= th_me('Jumlah', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
+                    $isi .= th_me('Tanggal', $class_th);
                 }
                 
                 $isi .= th_me('Action', $class_th);
