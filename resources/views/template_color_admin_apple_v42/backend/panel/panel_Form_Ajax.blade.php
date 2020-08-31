@@ -1,3 +1,6 @@
+
+
+
 {!!color_admin_apple_v42_open_form_with_id($id)!!}
 @csrf
 
@@ -10,6 +13,8 @@
         </div>
     </div>
 </div>
+
+
 
 {!!color_admin_apple_v42_submit('submit',$id,'submit','SUBMIT',$dmha_271)!!}
 

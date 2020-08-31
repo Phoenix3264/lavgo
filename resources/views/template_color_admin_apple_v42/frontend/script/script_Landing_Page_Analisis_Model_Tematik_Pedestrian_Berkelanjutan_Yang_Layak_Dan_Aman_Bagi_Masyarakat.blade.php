@@ -23,6 +23,9 @@
 <script>
 
     {!!helper_mapbox_generate_map()!!}
+    document.getElementById("activitySelector").addEventListener("change", function() {
+        {!!dmha_344_script_mapbox_flyto()!!}
+    });
     
     map.on('load', function() {
         map.addSource('places', {
@@ -41,7 +44,7 @@
             'type': 'symbol',
             'source': 'places',
             'layout': {
-                'icon-image': '{icon}-15',
+                'icon-image': '{icon}',
                 'icon-allow-overlap': true
             }
         });

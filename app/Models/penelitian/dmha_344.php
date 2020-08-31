@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $latitude
  * @property string $longitude
  * @property string $jalan
+ * @property string $kota
  * @property string $lebar
  * @property string $tebal
  * @property int $dmha_356
@@ -32,7 +33,7 @@ class dmha_344 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'latitude', 'longitude', 'jalan', 'lebar', 'tebal', 'dmha_356', 'dmha_382', 'dmha_386', 'dmha_390', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'latitude', 'longitude', 'jalan', 'kota', 'lebar', 'tebal', 'dmha_356', 'dmha_382', 'dmha_386', 'dmha_390', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -63,6 +64,7 @@ class dmha_344 extends Model
                 dmha_344.id,
                 dmha_344.filename,
                 dmha_344.jalan,
+                dmha_344.kota,
                 dmha_344.lebar,
                 dmha_344.tebal,
                 dmha_356.nama as dmha_356,
@@ -79,7 +81,7 @@ class dmha_344 extends Model
             ->join('dmha_390', 'dmha_390.id', '=', 'dmha_344.dmha_390') 
 
             ->whereNull('dmha_344.deleted_at')
-            ->orderBy('dmha_344.id','asc')
+            ->orderBy('dmha_344.jalan','asc')
             ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -88,51 +90,97 @@ class dmha_344 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
+    public static function create_me($filename,$latitude,$longitude,$jalan,$kota,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_344::insert(
-                [
-                    'filename'     => $filename,
-                    'latitude'     => $latitude,
-                    'longitude'     => $longitude,
-                    'jalan'     => $jalan,
-                    'lebar'     => $lebar,
-                    'tebal'     => $tebal,
-                    'dmha_356'     => $dmha_356,
-                    'dmha_382'     => $dmha_382,
-                    'dmha_386'     => $dmha_386,
-                    'dmha_390'     => $dmha_390
-                ]);
+
+                          
+            if(!is_null($filename))
+            {
+                dmha_344::insert(
+                    [
+                        'filename'     => $filename,
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'jalan'     => $jalan,
+                        'kota'     => $kota,
+                        'lebar'     => $lebar,
+                        'tebal'     => $tebal,
+                        'dmha_356'     => $dmha_356,
+                        'dmha_382'     => $dmha_382,
+                        'dmha_386'     => $dmha_386,
+                        'dmha_390'     => $dmha_390
+                    ]);
+            }
+            else
+            {
+                dmha_344::insert(
+                    [
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'jalan'     => $jalan,
+                        'kota'     => $kota,
+                        'lebar'     => $lebar,
+                        'tebal'     => $tebal,
+                        'dmha_356'     => $dmha_356,
+                        'dmha_382'     => $dmha_382,
+                        'dmha_386'     => $dmha_386,
+                        'dmha_390'     => $dmha_390
+                    ]);
+            }
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
+    public static function update_me($id,$filename,$latitude,$longitude,$jalan,$kota,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_344::where('id','=', $id)
-            ->update(
-                [
-                    'filename'     => $filename,
-                    'latitude'     => $latitude,
-                    'longitude'     => $longitude,
-                    'jalan'     => $jalan,
-                    'lebar'     => $lebar,
-                    'tebal'     => $tebal,
-                    'dmha_356'     => $dmha_356,
-                    'dmha_382'     => $dmha_382,
-                    'dmha_386'     => $dmha_386,
-                    'dmha_390'     => $dmha_390,
-                    'updated_at'     => now()
-                ]);
+
+                          
+            if(!is_null($filename))
+            {
+                dmha_344::where('id','=', $id)
+                ->update(
+                    [
+                        'filename'     => $filename,
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'jalan'     => $jalan,
+                        'kota'     => $kota,
+                        'lebar'     => $lebar,
+                        'tebal'     => $tebal,
+                        'dmha_356'     => $dmha_356,
+                        'dmha_382'     => $dmha_382,
+                        'dmha_386'     => $dmha_386,
+                        'dmha_390'     => $dmha_390,
+                        'updated_at'     => now()
+                    ]);
+            }
+            else
+            {
+                dmha_344::where('id','=', $id)
+                ->update(
+                    [
+                        'latitude'     => $latitude,
+                        'longitude'     => $longitude,
+                        'jalan'     => $jalan,
+                        'kota'     => $kota,
+                        'lebar'     => $lebar,
+                        'tebal'     => $tebal,
+                        'dmha_356'     => $dmha_356,
+                        'dmha_382'     => $dmha_382,
+                        'dmha_386'     => $dmha_386,
+                        'dmha_390'     => $dmha_390,
+                        'updated_at'     => now()
+                    ]);
+            }
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////

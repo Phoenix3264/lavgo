@@ -14,7 +14,19 @@
         <!-- begin navbar-collapse -->
         <div class="collapse navbar-collapse" id="header-navbar">
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                <div class="form-group form-group-helper-header">
+							
+                    <select id="activitySelector" class="form-control form-control-select">
+                            {!!dmha_344_show_option()!!}
+                        </select>
+                    </div>
+
+                        
+                </li>
                 <li class="">
+
+                
                     <a class="" href="{{url('/')}}/login" >
                             LOGIN
                     </a>

@@ -18,7 +18,7 @@
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js"></script>
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker.js"></script>
 <script src="{{ asset('/public/').'/'.$root }}/assets/plugins/clipboard/clipboard.min.js"></script>
-<script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/form-plugins.demo.js"></script>
+<script src="{{ asset('/public/').'/'.$root }}/assets/js/demo/form-plugins.demo.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 
 <script>    

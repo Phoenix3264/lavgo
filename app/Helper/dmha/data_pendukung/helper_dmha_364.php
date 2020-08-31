@@ -191,25 +191,25 @@
             $counter = 0;
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= '
-            <div class="font-size-13 bold underline text-center">
-                Data Prasarana Sarana Stasiun Kereta Api '.$nama_stasiun.'
-            </div>
+            // $isi .= '
+            // <div class="font-size-13 bold underline text-center">
+            //     Data Prasarana Sarana Stasiun Kereta Api '.$nama_stasiun.'
+            // </div>
 
-            <br/>
-            ';
+            // <br/>
+            // ';
 
-            $isi .= UI_table_open_table_width_100($class);
+            // $isi .= UI_table_open_table_width_100($class);
             
             
-            $isi .= general_colgroup_no(6);
+            // $isi .= general_colgroup_no(6);
 
-            $isi .= '<thead>';
-            $isi .= th_me('No.', $class_th);
-            $isi .= th_me('Foto', $class_th);
-            $isi .= th_me('Fasilitas', $class_th);
-            $isi .= th_me('Jumlah', $class_th);
-            $isi .= '</thead>';
+            // $isi .= '<thead>';
+            // $isi .= th_me('No.', $class_th);
+            // $isi .= th_me('Foto', $class_th);
+            // $isi .= th_me('Fasilitas', $class_th);
+            // $isi .= th_me('Jumlah', $class_th);
+            // $isi .= '</thead>';
 
             foreach ($isi_model as $row) {
                 $counter++;
@@ -221,7 +221,7 @@
                 $isi .= '</tr>';
             }
 
-            $isi .= UI_tabel_close();
+            //$isi .= UI_tabel_close();
             
 
         // ------------------------------------------------------------------------- SEND

@@ -236,6 +236,7 @@ class WwformController extends Controller
                         $POST_dmha_1           = $_POST['dmha_1'][$i];
                         dmha_157_create_me($ID,$POST_dmha_1);
                     }
+                    $FLASH_MESSAGE = 2;
                 }
                 elseif($DMHA_1 == 158) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; user_create_me($request->all()); }
@@ -247,6 +248,15 @@ class WwformController extends Controller
                     {
                         $POST_dmha_1           = $_POST['dmha_1'][$i];
                         dmha_162_create_me($ID,$POST_dmha_1);
+                    }
+                    $FLASH_MESSAGE = 2;
+                }
+                elseif($DMHA_1 == 401) {     
+                    dmha_401_delete_me($ID);
+                    for ($i=0; $i<count($_POST['dmha_122']); $i++)
+                    {
+                        $POST_dmha_122           = $_POST['dmha_122'][$i];
+                        dmha_401_create_me($ID,$POST_dmha_122);
                     }
                     $FLASH_MESSAGE = 2;
                 }
@@ -482,6 +492,7 @@ class WwformController extends Controller
                     $latitude = $request->latitude;
                     $longitude = $request->longitude;
                     $jalan = $request->jalan;
+                    $kota = $request->kota;
                     $lebar = $request->lebar;
                     $tebal = $request->tebal;
                     $dmha_356 = $request->dmha_356;
@@ -489,22 +500,27 @@ class WwformController extends Controller
                     $dmha_386 = $request->dmha_386;
                     $dmha_390 = $request->dmha_390;
 
-                    $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
 
-                    $storage_files = 'public/storage/dmha_344/';
-                    $filename_exist  = public_path($storage_files).$filename;
+                    $filename = null;
+                    if(isset($request->filename))
+                    {
+                        $filename = Str::random(15).'.'.$request->filename->getClientOriginalExtension();
+                        $storage_files = 'public/storage/dmha_344/';
+                        $filename_exist  = public_path($storage_files).$filename;
 
-                    if (Storage::exists($filename_exist)) {
-                        Storage::delete($filename_exist);
-                    }     
+                        if (Storage::exists($filename_exist)) {
+                            Storage::delete($filename_exist);
+                        }     
 
-                    if (!is_null($filename_exist)) {
-                        $request->filename->storeAs($storage_files,$filename);    
-                    }  
+                        if (!is_null($filename_exist)) {
+                            $request->filename->storeAs($storage_files,$filename);    
+                        }  
+                    }
 
+                    
 
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_344_create_me($filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_344_update_me($ID,$filename,$latitude,$longitude,$jalan,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_344_create_me($filename,$latitude,$longitude,$jalan,$kota,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_344_update_me($ID,$filename,$latitude,$longitude,$jalan,$kota,$lebar,$tebal,$dmha_356,$dmha_382,$dmha_386,$dmha_390); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_344_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 348) {   

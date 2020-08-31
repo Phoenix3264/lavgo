@@ -63,6 +63,15 @@
 	page-break-after: always;
 }
 
+.A4-Portrait-padding-5{
+	width:190mm;
+	height:277mm;
+	padding:10mm;	
+	margin:auto;
+	page-break-after: always;
+}
+
+
 .padding-portrait{
 	width:205mm;
 	padding:10mm;	

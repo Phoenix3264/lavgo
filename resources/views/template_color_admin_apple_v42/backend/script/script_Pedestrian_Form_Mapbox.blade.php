@@ -54,9 +54,25 @@ $(document).ready(function(){
             var coordinates = e.lngLat;
             var lon = coordinates.lng;
             var lat = coordinates.lat;
-            console.log(coordinates);
+
+
+
             document.getElementById('form-80').value = lat;
             document.getElementById('form-81').value = lon; 
+
+            //https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=37.42159&longitude=-122.0837&localityLanguage=id
+            ///54bbe0c03f3c3ca95b198afefe2d1910
+
+            axios.get('http://api.positionstack.com/v1/reverse?access_key=54bbe0c03f3c3ca95b198afefe2d1910&query='+lat+','+lon+'&types=street')
+            .then(({data}) => {
+                console.log(data);
+                
+                document.getElementById('form-84').value = data.data[0].street; 
+                document.getElementById('form-102').value = data.data[0].locality; 
+
+            });
+
+            
 
         });
     });
@@ -79,7 +95,7 @@ $(document).ready(function(){
             'type': 'symbol',
             'source': 'places',
             'layout': {
-                'icon-image': '{icon}-15',
+                'icon-image': '{icon}',
                 'icon-allow-overlap': true
             }
         });

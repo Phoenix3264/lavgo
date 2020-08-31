@@ -500,25 +500,37 @@
             elseif($dmha_13 == 48) { 
                 $isi_model = dmha_1_let_me_generate_data_array(null,null,'pertanyaan_hak_akss_app_mode'); 
             }
+            elseif($dmha_13 == 101) { 
+                $isi_model = dmha_122_let_me_generate_data_array(null,null,null); 
+            }
             
-
-            foreach ($isi_model as $row) {
-                $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
-                
-                $isi_model2 = dmha_1_let_me_generate_data_array(null,$row->id,'level2'); 
-
-                foreach ($isi_model2 as $row2) {
-                    $isi .= dmha_14_generate_checkboxes_field($row2->id,$name,'&nbsp; &nbsp; '.$row2->nama,$DMHA_1,$ID);
+            if($dmha_13 == 101)
+            {
+                foreach ($isi_model as $row) 
+                {
+                    $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
+                }
+            }
+            else
+            {
+                foreach ($isi_model as $row) {
+                    $isi .= dmha_14_generate_checkboxes_field($row->id,$name,$row->nama,$DMHA_1,$ID);
                     
-                    $isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
-                    
-                    foreach ($isi_model3 as $row3) {
-                        $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
+                    $isi_model2 = dmha_1_let_me_generate_data_array(null,$row->id,'level2'); 
+
+                    foreach ($isi_model2 as $row2) {
+                        $isi .= dmha_14_generate_checkboxes_field($row2->id,$name,'&nbsp; &nbsp; '.$row2->nama,$DMHA_1,$ID);
                         
-                        $isi_model4 = dmha_1_let_me_generate_data_array(null,$row3->id,'level2'); 
+                        $isi_model3 = dmha_1_let_me_generate_data_array(null,$row2->id,'level2'); 
+                        
+                        foreach ($isi_model3 as $row3) {
+                            $isi .= dmha_14_generate_checkboxes_field($row3->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; '.$row3->nama,$DMHA_1,$ID);
+                            
+                            $isi_model4 = dmha_1_let_me_generate_data_array(null,$row3->id,'level2'); 
 
-                        foreach ($isi_model4 as $row4) {
-                            $isi .= dmha_14_generate_checkboxes_field($row4->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '.$row4->nama,$DMHA_1,$ID);
+                            foreach ($isi_model4 as $row4) {
+                                $isi .= dmha_14_generate_checkboxes_field($row4->id,$name,'&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; '.$row4->nama,$DMHA_1,$ID);
+                            }
                         }
                     }
                 }

@@ -29,7 +29,7 @@
 
             var map = new mapboxgl.Map({
                 container: "map",
-                style: "mapbox://styles/mapbox/streets-v11",
+                style: "mapbox://styles/mapbox/streets-v9",
                 center: [112.740972, -7.271391],
                 zoom: 11.5 
             });
@@ -79,16 +79,31 @@
         // ------------------------------------------------------------------------- ACTION
             $isi = '
             document.getElementById("'.$nama.'").addEventListener("click", function() {
+                '.helper_mapbox_script_mapbox_mapflyto($lat,$long).'
+            });
+            ';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+        //////////////////////////////////////////////////////////////////////////// 		
+    }   
+
+    function helper_mapbox_script_mapbox_mapflyto($lat,$long)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            $isi = '
                 map.flyTo({
                     center: [
                         '.$long.',
                         '.$lat.'
                     ],
-                    
                     essential: true ,
                     zoom: 17
                 });
-            });
             ';
 
         // ------------------------------------------------------------------------- SEND

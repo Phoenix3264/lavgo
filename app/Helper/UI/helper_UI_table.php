@@ -134,6 +134,7 @@
 				elseif($DMHA_ID == 322){ $isi = dmha_322_data_table($AGENT); }
 				elseif($DMHA_ID == 326){ $isi = dmha_326_data_table($AGENT); }
 				elseif($DMHA_ID == 360){ $isi = dmha_360_data_table($AGENT); }
+				elseif($DMHA_ID == 401){ $isi = dmha_401_data_table($AGENT); }
 
 			elseif($DMHA_ID == 69){ $isi = dmha_69_data_table($AGENT); }
 			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table($AGENT); }

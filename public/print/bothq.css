@@ -1,6 +1,7 @@
 @media print{
-	.bg-yellow{
-	}
+		
+
+	thead {display: table-header-group;}
 }
 
 /* ::  test inputan
@@ -641,3 +642,4 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 
 tr:nth-child(odd) {background: #E6E6FA}
+

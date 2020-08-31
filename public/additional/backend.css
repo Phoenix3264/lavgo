@@ -47,3 +47,10 @@ body{
     margin-left: 0px;
     margin-right: 0px;
 }
+
+@media (min-width: 768px)
+{
+    .header.navbar .navbar-nav>li>.form-group-helper-header {
+        padding: 18px 10px;
+    }
+}
