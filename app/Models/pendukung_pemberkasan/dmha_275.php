@@ -1,38 +1,42 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\pendukung_pemberkasan;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property string $nama
+ * @property int $luas_pengajuan
+ * @property int $penggunaan
+ * @property string $batas_utara
+ * @property string $batas_timur
+ * @property string $batas_selatan
+ * @property string $batas_barat
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_279 extends Model
+class dmha_275 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_279';
+    protected $table = 'dmha_275';
 
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
-
-    
+    protected $fillable = ['luas_pengajuan', 'penggunaan', 'batas_utara', 'batas_timur', 'batas_selatan', 'batas_barat', 'created_at', 'updated_at', 'deleted_at'];
+  
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_279::where('id','=',$ID)
+            $isi = dmha_275::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -48,8 +52,8 @@ class dmha_279 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_279::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+            $isi = dmha_275::whereNull('deleted_at')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -64,7 +68,7 @@ class dmha_279 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_279::create($array_data);
+            dmha_275::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -76,10 +80,15 @@ class dmha_279 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_279::where('id','=', $id)
+            dmha_275::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'luas_pengajuan'     => $array_data['luas_pengajuan'],
+                    'penggunaan'     => $array_data['penggunaan'],
+                    'batas_utara'     => $array_data['batas_utara'],
+                    'batas_timur'     => $array_data['batas_timur'],
+                    'batas_selatan'     => $array_data['batas_selatan'],
+                    'batas_barat'     => $array_data['batas_barat'],
                     'updated_at'     => now()
                 ]);
 
@@ -93,7 +102,7 @@ class dmha_279 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_279::where('id','=', $id)
+            dmha_275::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -110,7 +119,7 @@ class dmha_279 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_279::where('id','=', $id)
+            dmha_275::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

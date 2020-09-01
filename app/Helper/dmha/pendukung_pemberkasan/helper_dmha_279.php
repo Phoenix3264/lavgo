@@ -1,6 +1,6 @@
 <?php
 
-    use App\Models\notarion\dmha_279;
+    use App\Models\pendukung_pemberkasan\dmha_279;
 
     function dmha_279_id_check_col($ID,$COL)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\pihak_pemberkasan;
 
 use Illuminate\Database\Eloquent\Model;
 
