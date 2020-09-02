@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\pendukung_pemberkasan;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_148 extends Model
+class dmha_279 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_148';
+    protected $table = 'dmha_279';
 
     /**
      * @var array
@@ -32,7 +32,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_148::where('id','=',$ID)
+            $isi = dmha_279::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -48,7 +48,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_148::whereNull('deleted_at')
+            $isi = dmha_279::whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -64,7 +64,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_148::create($array_data);
+            dmha_279::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -76,7 +76,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_148::where('id','=', $id)
+            dmha_279::where('id','=', $id)
             ->update(
                 [
                     'nama'     => $array_data['nama'],
@@ -93,7 +93,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_148::where('id','=', $id)
+            dmha_279::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -110,7 +110,7 @@ class dmha_148 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_148::where('id','=', $id)
+            dmha_279::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

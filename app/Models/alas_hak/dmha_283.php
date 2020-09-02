@@ -1,39 +1,42 @@
 <?php
 
-namespace App;
+namespace App\Models\alas_hak;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
+ * @property string $nomor
+ * @property string $persil
+ * @property string $klas
+ * @property int $luas
  * @property string $nama
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_122 extends Model
+class dmha_283 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_122';
+    protected $table = 'dmha_283';
 
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nomor', 'persil', 'klas', 'luas', 'nama', 'created_at', 'updated_at', 'deleted_at'];
 
-    public $timestamps = false;
-
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_122::where('id','=',$ID)
+            $isi = dmha_283::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -49,8 +52,8 @@ class dmha_122 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_122::whereNull('deleted_at')
-                ->orderBy('nama','asc')
+            $isi = dmha_283::whereNull('deleted_at')
+                ->orderBy('id','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
@@ -65,7 +68,7 @@ class dmha_122 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_122::create($array_data);
+            dmha_283::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -77,11 +80,33 @@ class dmha_122 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_122::where('id','=', $id)
+            dmha_283::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'nomor'     => $array_data['nomor'],
+                    'persil'     => $array_data['persil'],
+                    'klas'     => $array_data['klas'],
+                    'luas'     => $array_data['luas'],
+                    'nama'     => $array_data['nama'],
+                    'updated_at'     => now()
                 ]);
+
+        // ------------------------------------------------------------------------- SEND
+        ////////////////////////////////////////////////////////////////////////////
+    }
+
+    public static function softdelete_me($id)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            dmha_283::where('id','=', $id)
+            ->update(
+                [
+                    'deleted_at' => now()
+                ]);
+
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -93,11 +118,10 @@ class dmha_122 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_122::where('id','=', $id)
-                ->softDeletes();
+            dmha_283::where('id','=', $id)
+                ->delete();
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
-
 }

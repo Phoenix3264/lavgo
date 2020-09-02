@@ -80,6 +80,13 @@ class MainController extends Controller
                                 Session::flash('message',8);
                                 return redirect('dashboard');
                             }
+
+                            if($AUTH_ID_ROLE == 2)
+                            {
+                                Auth::logout();
+                                Session::flash('message',10);
+                                return redirect('login');
+                            }
                         
                     }
                     else
@@ -87,6 +94,11 @@ class MainController extends Controller
                         Session::flash('message',8);
                         return redirect('login');
                     }
+                }
+                else
+                {
+                    return redirect('login');
+
                 }
 
                     
@@ -129,9 +141,9 @@ class MainController extends Controller
 
             // Transform ID
                 $data['transform_ID'] = rules_transform_ID($id,$dmha_300);
+
         // Show View
             $final_view = rules_for_layout($PARAM_1,$template_agent);
 	        return view($final_view,$data);
-
     }
 }

@@ -24,11 +24,6 @@
 	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
 	<!-- end #page-loader -->
 	
-
-
-	@if(Session::has('message'))
-		{!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
-	@endif
 	<!-- begin #page-container -->
     @include($template.'.'.$controller.'.panel.panel_'.$page) 
 	<!-- end page container -->

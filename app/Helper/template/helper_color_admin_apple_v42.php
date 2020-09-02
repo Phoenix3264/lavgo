@@ -1,6 +1,6 @@
 <?php
 
-    function color_admin_apple_v42_sidebar($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    function color_admin_apple_v42_sidebar($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -18,7 +18,7 @@
                     $isi .= rules_active_sidebar($DMHA_1,$row->id,'level1');
                     $isi .= '
                     ">
-                        <a href="'.rules_link($row->link,$row->dmha_4,'NULL',$DMHA_1,'NULL').'">';
+                        <a href="'.rules_link($row->link,$row->dmha_4,'NULL',$DMHA_1,'NULL','NULL').'">';
                         
                         // has_sub? caret
                         if ($row->has_sub == 1) { $isi .= '<b class="caret"></b>'; }
@@ -30,7 +30,7 @@
                                 '.$row->nama.'
                             </span>
                         </a>
-                        '.color_admin_apple_v42_sidebar2($AUTH_ID,$row->id,$DMHA_1,$PARAM_2).'
+                        '.color_admin_apple_v42_sidebar2($AUTH_ID,$row->id,$DMHA_1,$PARAM_2,$PARAM_3).'
                     </li>                
                 ';
             }
@@ -41,7 +41,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_apple_v42_sidebar2($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    function color_admin_apple_v42_sidebar2($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -53,7 +53,7 @@
             {
                 $isi .= '
                     <li class="'.rules_active_sidebar($DMHA_1,$row->id,'level2').'">
-                        <a href="'.rules_link($row->link,$row->dmha_4,'NULL',$DMHA_1,'NULL').'">
+                        <a href="'.rules_link($row->link,$row->dmha_4,'NULL',$DMHA_1,'NULL','NULL').'">
                             '.$row->nama.' 
                         </a>
                     </li>                          
@@ -68,7 +68,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_apple_v42_dropdown($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    function color_admin_apple_v42_dropdown($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -85,7 +85,7 @@
                         foreach($model as $row)
                         {
                             $isi .= '
-                            <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'"                            
+                            <li><a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3).'"                            
                             '.rules_link_target_blank($row->dmha_4).'
                             >
                                 <i class="  '.dmha_5_id_check_col($row->dmha_5,'fa').'"></i> 
@@ -104,7 +104,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function color_admin_apple_v42_button($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    function color_admin_apple_v42_button($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -117,13 +117,14 @@
                 $ID_DATA = 'NULL';
             }
 
+            // rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '
             <div class="text-right m-b-15 m-bt-15">';
             foreach($model as $row)
             {
                 $isi .= '
-                <a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'" 
+                <a href="'.rules_link($row->link,$row->dmha_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3).'" 
                     class="'.$class.'" 
                     id="'.$row->nama.'-'.$row->id.'"
 
@@ -146,7 +147,7 @@
     }  
 
 
-    function color_admin_apple_v42_singlebutton($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2)
+    function color_admin_apple_v42_singlebutton($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -168,7 +169,7 @@
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '
             <div class="text-right m-b-15 m-bt-15">
-                <a href="'.rules_link($link,$dmha_4,$ID_DATA,$DMHA_1,$PARAM_2).'" class="'.$class.'" id="'.$nama.'-'.$id.'">                    
+                <a href="'.rules_link($link,$dmha_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3).'" class="'.$class.'" id="'.$nama.'-'.$id.'">                    
                     <i class="'.dmha_5_id_check_col($dmha_5,'fa').'"></i> 
                     '.$nama.'
                 </a>                 
@@ -409,8 +410,7 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8">
-                    <input type="text" class="form-control autocomplete autocomplete_'.$id_data.' "  name="autocomplete" id="'.$id_data.'" autocomplete="off">
-                    
+                    <input type="text" class="form-control autocomplete autocomplete_'.$id_data.' "  name="autocomplete" id="'.$id_data.'" autocomplete="off">   
                 </div>
                 <div class="col-md-2">
                     '.color_admin_apple_v42_submit('submit',$id_data,'submit','SUBMIT',$DMHA_271).'

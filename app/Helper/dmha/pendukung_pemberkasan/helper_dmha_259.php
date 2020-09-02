@@ -1,14 +1,14 @@
 <?php
 
-    use App\Models\notarion\dmha_119;
+    use App\Models\pendukung_pemberkasan\dmha_259;
 
-    function dmha_119_id_check_col($ID,$COL)
+    function dmha_259_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::id_check_col($ID,$COL);
+            $isi    = dmha_259::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_119_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_259_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_259::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -30,21 +30,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_119_let_me_generate_data_array_by_nik($AUTH_ID,$NIK)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::let_me_generate_data_array_by_nik($AUTH_ID,$NIK);
-
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
-    }
-
-    function dmha_119_data_table()
+    function dmha_259_data_table()
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -56,11 +42,11 @@
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
-                    '.th_me('NIK', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Tempat', $class_th).'
+                    '.th_me('Peta Bidang Tanah', $class_th).'
+                    '.th_me('Luas', $class_th).'
+                    '.th_me('No Bidang', $class_th).'
+                    '.th_me('No. DI 302', $class_th).'
                     '.th_me('Tanggal', $class_th).'
-                    '.th_me('Desa', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';
@@ -68,58 +54,15 @@
             $word = $isi;
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
-    }
-    
-    
-    function dmha_119_data_table_col_6($Pengurusan_ID,$Berkas_ID,$dmha)
-    {
-        // ------------------------------------------------------------------------- INITIALIZE
-            $isi    = '';
-            $class_th = 'text-center bold';
-
-            $isi_model = dmha_47_let_me_generate_data($Pengurusan_ID,$Berkas_ID,$dmha);
-
-        // ------------------------------------------------------------------------- ACTION
-            $isi .= 
-            '<table class="table table-striped table-bordered">'.
-            general_colgroup(5).'
-            <thead>
-                <tr>
-                    '.th_me('ID', $class_th).'
-                    '.th_me('Nama', $class_th).'
-                    '.th_me('Tempat', $class_th).'
-                    '.th_me('Tanggal', $class_th).'
-                    '.th_me('Action', $class_th).'
-                </tr>
-            </thead>
-            <tbody>';
-            if(count($isi_model) == 0)
-            {   
-                $isi .= '
-                <tr>
-                    <td colspan="5" class="text-center">
-                        '.dmha_40_id_check_col(7,'nama').'
-                    </td>
-                </tr>
-                ';
-            }
-            $isi .= '
-            </tbody>
-            </table>
-            ';
-        // ------------------------------------------------------------------------- SEND
-            $word = $isi;
-            return $word;
-		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_119_create_me($array_data)
+    function dmha_259_create_me($array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::create_me($array_data);
+            $isi    = dmha_259::create_me($array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -127,13 +70,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_119_update_me($id,$array_data)
+    function dmha_259_update_me($id,$array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::update_me($id,$array_data);
+            $isi    = dmha_259::update_me($id,$array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -141,13 +84,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_119_delete_me($id)
+    function dmha_259_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_119::delete_me($id);
+            $isi    = dmha_259::delete_me($id);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

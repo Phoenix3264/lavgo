@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\pendukung_pemberkasan;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +29,8 @@ class dmha_259 extends Model
      */
     protected $fillable = ['peta_bidang_tanah', 'luas_hasil_ukur', 'no_bidang', 'no_di_302', 'tanggal', 'created_at', 'updated_at', 'deleted_at'];
   
+    public $timestamps = false;
+
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -67,7 +69,16 @@ class dmha_259 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_259::create($array_data);
+            $temp_exp = explode('-',$array_data['tanggal']);
+
+            dmha_259::insert(
+                [
+                    'peta_bidang_tanah'     => $array_data['peta_bidang_tanah'],
+                    'luas_hasil_ukur'     => $array_data['luas_hasil_ukur'],
+                    'no_bidang'     => $array_data['no_bidang'],
+                    'no_di_302'     => $array_data['no_di_302'],
+                    'tanggal'     => $temp_exp[2].'-'.$temp_exp[1].'-'.$temp_exp[0]
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -79,6 +90,8 @@ class dmha_259 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
+            $temp_exp = explode('-',$array_data['tanggal']);
+            
             dmha_259::where('id','=', $id)
             ->update(
                 [
@@ -86,7 +99,7 @@ class dmha_259 extends Model
                     'luas_hasil_ukur'     => $array_data['luas_hasil_ukur'],
                     'no_bidang'     => $array_data['no_bidang'],
                     'no_di_302'     => $array_data['no_di_302'],
-                    'tanggal'     => $array_data['tanggal'],
+                    'tanggal'     => $temp_exp[2].'-'.$temp_exp[1].'-'.$temp_exp[0],
                     'updated_at'     => now()
                 ]);
 

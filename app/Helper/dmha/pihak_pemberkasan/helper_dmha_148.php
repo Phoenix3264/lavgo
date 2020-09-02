@@ -1,14 +1,14 @@
 <?php
 
-    use App\Models\notarion\dmha_259;
+    use App\Models\pihak_pemberkasan\dmha_119;
 
-    function dmha_259_id_check_col($ID,$COL)
+    function dmha_148_id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_259::id_check_col($ID,$COL);
+            $isi    = dmha_148::id_check_col($ID,$COL);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -16,13 +16,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_259_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
+    function dmha_148_let_me_generate_data_array($AUTH_ID,$PARAM_ID)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_259::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
+            $isi    = dmha_148::let_me_generate_data_array($AUTH_ID,$PARAM_ID);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -30,7 +30,7 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_259_data_table()
+    function dmha_148_data_table()
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -38,15 +38,11 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(7).'
+            general_colgroup(3).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
-                    '.th_me('Peta Bidang Tanah', $class_th).'
-                    '.th_me('Luas', $class_th).'
-                    '.th_me('No Bidang', $class_th).'
-                    '.th_me('No. DI 302', $class_th).'
-                    '.th_me('Tanggal', $class_th).'
+                    '.th_me('Nama', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';
@@ -56,13 +52,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_259_create_me($array_data)
+    function dmha_148_create_me($array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_259::create_me($array_data);
+            $isi    = dmha_148::create_me($array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -70,13 +66,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_259_update_me($id,$array_data)
+    function dmha_148_update_me($id,$array_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_259::update_me($id,$array_data);
+            $isi    = dmha_148::update_me($id,$array_data);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -84,13 +80,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_259_delete_me($id)
+    function dmha_148_delete_me($id)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_259::delete_me($id);
+            $isi    = dmha_148::delete_me($id);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

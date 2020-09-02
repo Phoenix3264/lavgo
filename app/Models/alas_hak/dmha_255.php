@@ -1,42 +1,42 @@
 <?php
 
-namespace App\Models\notarion;
+namespace App\Models\alas_hak;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
- * @property int $luas_pengajuan
- * @property int $penggunaan
- * @property string $batas_utara
- * @property string $batas_timur
- * @property string $batas_selatan
- * @property string $batas_barat
+ * @property string $nomor
+ * @property string $persil
+ * @property string $klas
+ * @property int $luas
+ * @property string $nama
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
  */
-class dmha_275 extends Model
+class dmha_255 extends Model
 {
     /**
      * The table associated with the model.
      * 
      * @var string
      */
-    protected $table = 'dmha_275';
+    protected $table = 'dmha_255';
 
     /**
      * @var array
      */
-    protected $fillable = ['luas_pengajuan', 'penggunaan', 'batas_utara', 'batas_timur', 'batas_selatan', 'batas_barat', 'created_at', 'updated_at', 'deleted_at'];
-  
+    protected $fillable = ['nomor', 'persil', 'klas', 'luas', 'nama', 'created_at', 'updated_at', 'deleted_at'];
+
+    
     public static function id_check_col($ID,$COL)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_275::where('id','=',$ID)
+            $isi = dmha_255::where('id','=',$ID)
                 ->whereNull('deleted_at')
                 ->value($COL);
 
@@ -52,7 +52,7 @@ class dmha_275 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_275::whereNull('deleted_at')
+            $isi = dmha_255::whereNull('deleted_at')
                 ->orderBy('id','asc')
                 ->get();
 
@@ -68,7 +68,7 @@ class dmha_275 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_275::create($array_data);
+            dmha_255::create($array_data);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
@@ -80,15 +80,14 @@ class dmha_275 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_275::where('id','=', $id)
+            dmha_255::where('id','=', $id)
             ->update(
                 [
-                    'luas_pengajuan'     => $array_data['luas_pengajuan'],
-                    'penggunaan'     => $array_data['penggunaan'],
-                    'batas_utara'     => $array_data['batas_utara'],
-                    'batas_timur'     => $array_data['batas_timur'],
-                    'batas_selatan'     => $array_data['batas_selatan'],
-                    'batas_barat'     => $array_data['batas_barat'],
+                    'nomor'     => $array_data['nomor'],
+                    'persil'     => $array_data['persil'],
+                    'klas'     => $array_data['klas'],
+                    'luas'     => $array_data['luas'],
+                    'nama'     => $array_data['nama'],
                     'updated_at'     => now()
                 ]);
 
@@ -102,7 +101,7 @@ class dmha_275 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_275::where('id','=', $id)
+            dmha_255::where('id','=', $id)
             ->update(
                 [
                     'deleted_at' => now()
@@ -119,7 +118,7 @@ class dmha_275 extends Model
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_275::where('id','=', $id)
+            dmha_255::where('id','=', $id)
                 ->delete();
 
         // ------------------------------------------------------------------------- SEND

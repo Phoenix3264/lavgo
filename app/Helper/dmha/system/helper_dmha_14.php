@@ -152,6 +152,7 @@
             // elseif($dmha_14 == 16) { $isi .= dmha_14_generate_autocomplete_nop($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } OFF
             elseif($dmha_14 == 18) { $isi .= dmha_14_generate_camera($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 19) { $isi .= dmha_14_generate_locate_by_mapbox($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 21) { $isi .= dmha_14_generate_input_number_centimeter($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
 
             else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
 
@@ -165,8 +166,14 @@
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
-            //$type = 'type';
-            $type = 'hidden';
+            $type = 'type';
+            
+            $check = dmha_8_is_it_dev_mode();
+
+            if($check != ' Development')
+            {
+                $type = 'hidden';
+            }
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<input type="'.$type.'" class="'.$class.'"  name="'.$name.'"  value="'.$value.'"  >';       
@@ -339,6 +346,7 @@
                     elseif($dmha_13 == 49) { $isi_model = dmha_322_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 60) { $isi_model = dmha_271_let_me_generate_data_array(null,null); }
                     elseif($dmha_13 == 78) { $isi_model = dmha_360_let_me_generate_data_array(null,null); }
+                    elseif($dmha_13 == 103) { $isi_model = dmha_8_let_me_generate_data_array(null,null); }
                 
                 ////////////////////////////////////////////////////////////////////////////////////////////// ACADION                    
                     elseif($dmha_13 == 46) { $isi_model = dmha_171_let_me_generate_data_array($AUTH_ID,null); }        
@@ -771,6 +779,30 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= '<div id="map"></div>';      
 
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    
+    function dmha_14_generate_input_number_centimeter($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $type = 'type';
+            // $type = 'hidden';
+
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<div class="input-group m-b-10">';
+            $isi .= '<input type="number" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" '.$disabled.'>';      
+
+            $isi .= '
+                <div class="input-group-append"><span class="input-group-text">cm</div>
+            </div>';
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
             return $word;
