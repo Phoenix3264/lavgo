@@ -1,5 +1,5 @@
-<table class="A4-Portrait-margin-10-5">
-    <thead>
+<table>
+    <thead class="text-right m-t-20">
         <tr>
             <th>Month</th>
             <th>Savings</th>
