@@ -37,7 +37,7 @@ use Illuminate\Support\Facades\Storage;
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2)
+    function rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -71,7 +71,8 @@ use Illuminate\Support\Facades\Storage;
                 else
                 {
                     $isi = url('/').'/'.$link;
-                    if($PARAM_2 != 'NULL'){$isi .= '/'.$PARAM_2;}
+                    if($PARAM_3 != 'NULL'){$isi .= '/'.$PARAM_2.'/'.$PARAM_3;}
+                    elseif($PARAM_2 != 'NULL'){$isi .= '/'.$PARAM_2;}
                     if($ID_DATA != 'NULL'){$isi .= '/'.$ID_DATA;} 
                 }
             }                
@@ -82,10 +83,11 @@ use Illuminate\Support\Facades\Storage;
         ////////////////////////////////////////////////////////////////////////////        
     }
 
-    function rules_link_after_post($dmha_id,$tipe)
+    function rules_link_after_post($dmha_id,$tipe,$PARAM_2,$PARAM_3,$DMHA_271)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
+            $link_tambahan = '';
 
         // ------------------------------------------------------------------------- ACTION  
             if($tipe == 'url') 
@@ -94,7 +96,28 @@ use Illuminate\Support\Facades\Storage;
             }     
             elseif(is_null($tipe)) 
             {
-                $isi = url('/').'/'.dmha_1_id_check_col($dmha_id,'link');  
+                if($PARAM_3 != '')
+                {
+                    if($DMHA_271 == 2)
+                    {
+                        $link_tambahan .= '/'.$PARAM_2.'/'.$PARAM_3;
+                        $link_tambahan .= '/tes';
+                    }
+                    else
+                    {
+                        $link_tambahan .= '/'.$PARAM_2;
+                        $link_tambahan .= '/tes2';
+                    }
+                }
+                elseif($PARAM_2 != '')
+                {
+                    if($DMHA_271 == 2)
+                    {
+                        $link_tambahan .= '/'.$PARAM_2;
+                        $link_tambahan .= '/tes3';
+                    }
+                }
+                $isi = url('/').'/'.dmha_1_id_check_col($dmha_id,'link').$link_tambahan;  
             }          
 
         // ------------------------------------------------------------------------- SEND

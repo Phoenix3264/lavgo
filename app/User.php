@@ -58,6 +58,7 @@ class User extends Authenticatable
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
+            $dmha_8 = dmha_8_what_is_my_app_mode_id();
 
         // ------------------------------------------------------------------------- ACTION
                 $isi = user::
@@ -67,12 +68,33 @@ class User extends Authenticatable
                         users.email,
                         dmha_122.nama as dmha_122
                     ')
-                ->join('dmha_122', 'dmha_122.id', '=', 'users.dmha_122')             
+                ->join('dmha_122', 'dmha_122.id', '=', 'users.dmha_122')    
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_122.dmha_8')   
+
+                ->where('dmha_122.dmha_8','=',$dmha_8)
+                ->orWhere('users.dmha_122','=',2)
+
+                ->orderBy('users.id','desc')
+                ->get();
+
+                
+                $isi2 = user::
+                    selectRaw('
+                        users.id,
+                        users.name,
+                        users.email,
+                        dmha_122.nama as dmha_122
+                    ')
+                ->join('dmha_122', 'dmha_122.id', '=', 'users.dmha_122')  
+
+                ->orWhere('users.dmha_122','=',2)
+
                 ->orderBy('users.id','desc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
-            $words = $isi;
+            $words = $isi->merge($isi2)->all();
+            //$words = $isi2;
             return $words;
         ////////////////////////////////////////////////////////////////////////////
     }
@@ -98,7 +120,7 @@ class User extends Authenticatable
             user::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'dmha_122'     => $array_data['dmha_122']
                 ]);
 
         // ------------------------------------------------------------------------- SEND

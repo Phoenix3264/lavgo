@@ -16,13 +16,11 @@
                 </div>
                 <div class="panel-body">
                     
-                    {!!color_admin_apple_v42_generate_autocomplete('Pemohon',$transform_ID,9,$PARAM_2,$PARAM_3,119)!!}
                     <div id="autocomplete_list_119"></div>
                     <!-- -->
                     <div class="table-responsive">
-                        {!!color_admin_apple_v42_generate_button_modal(119)!!}
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,406,$PARAM_2,$PARAM_3)!!}
                         {!!dmha_119_data_table_col_6($PARAM_2,null,119)!!}
-                        {!!color_admin_apple_v42_modal_dialog_form($AUTH_ID,119,$dmha_271,NULL)!!}
                     </div>
                 </div>
             </div>
@@ -46,6 +44,8 @@
 
                     <!-- -->
                     <div class="table-responsive">
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,407,$PARAM_2,$PARAM_3)!!}
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,408,$PARAM_2,$PARAM_3)!!}
                         {!!dmha_119_data_table_col_6($PARAM_2,null,119)!!}
                     </div>
                 </div>
@@ -69,6 +69,7 @@
 
                     <!-- -->
                     <div class="table-responsive">
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,411,$PARAM_2,$PARAM_3)!!}
                     </div>
                 </div>
             </div>
@@ -91,11 +92,14 @@
                 </div>
                 <div class="panel-body">
                 
-                    {!!color_admin_apple_v42_generate_autocomplete('Pemohon',$transform_ID,9,$PARAM_2,$PARAM_3,263)!!}
                     <div id="autocomplete_list_263"></div>
-                    {!!color_admin_apple_v42_generate_button_modal(263)!!}
-                    {!!dmha_263_data_table_col_6($PARAM_2,null,263)!!}
-                    {!!color_admin_apple_v42_modal_dialog_form($AUTH_ID,263,$dmha_271,NULL)!!}
+
+                    <!-- -->
+                    <div class="table-responsive">
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,409,$PARAM_2,$PARAM_3)!!}
+                        {!!dmha_263_data_table_col_6($PARAM_2,null,263)!!}
+                    </div>
+                    
 
                 </div>
             </div>
@@ -115,9 +119,11 @@
                     </h4>
                 </div>
                 <div class="panel-body">
-                    {!!color_admin_apple_v42_generate_button_modal(255)!!}
-                    {!!dmha_255_data_table_col_6($PARAM_2,null,255)!!}
-                    {!!color_admin_apple_v42_modal_dialog_form($AUTH_ID,255,$dmha_271,NULL)!!}
+                    <!-- -->
+                    <div class="table-responsive">
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,410,$PARAM_2,$PARAM_3)!!}
+                        {!!dmha_263_data_table_col_6($PARAM_2,null,263)!!}
+                    </div>
                 </div>
             </div>
         <!-- End Panel -->
@@ -136,6 +142,11 @@
                     </h4>
                 </div>
                 <div class="panel-body">
+                    <!-- -->
+                    <div class="table-responsive">
+                        {!!color_admin_apple_v42_singlebutton($AUTH_ID,$PARAM_2,412,$PARAM_2,$PARAM_3)!!}
+                        {!!dmha_263_data_table_col_6($PARAM_2,null,263)!!}
+                    </div>
                 </div>
             </div>
         <!-- End Panel -->

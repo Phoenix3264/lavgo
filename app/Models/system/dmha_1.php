@@ -151,7 +151,8 @@ class dmha_1 extends Model
                 ->where('dmha_1.dmha_3','=',1)
                 ->whereNull('dmha_1.deleted_at')	
                 ->whereNull('dmha_1.dmha_1')										
-                ->orderBy('dmha_1.urutan','asc')
+                ->orderBy('dmha_1.urutan','asc')									
+                ->orderBy('dmha_1.nama','asc')
 
                 ->get();
             }
@@ -251,7 +252,8 @@ class dmha_1 extends Model
 
                 ->where('dmha_1.dmha_3','=',1)
                 ->whereNull('dmha_1.deleted_at')	            
-                ->orderBy('dmha_1.urutan','asc')
+                ->orderBy('dmha_1.urutan','asc')								
+                ->orderBy('dmha_1.nama','asc')
 
                 ->get();
             }
@@ -283,6 +285,9 @@ class dmha_1 extends Model
 
                 ->where('dmha_1.dmha_3','=',1)
                 ->whereNull('dmha_1.deleted_at')	
+                	            
+                ->orderBy('dmha_1.urutan','asc')								
+                ->orderBy('dmha_1.nama','asc')
 
                 ->get();
             }

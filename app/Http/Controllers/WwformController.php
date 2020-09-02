@@ -30,6 +30,8 @@ class WwformController extends Controller
             $id_data         = $_GET['di'];
 
             $dmha_2  = dmha_1_id_check_col($DMHA_1,'dmha_2');
+            
+            $check = dmha_8_is_it_dev_mode();
         // ------------------------------------------------------------------------- ACTION
 
             if($dmha_2 == 1)
@@ -50,7 +52,12 @@ class WwformController extends Controller
                     $isi .= color_admin_apple_v42_flash_message(dmha_40_id_check_col(3,'status'),dmha_40_id_check_col(3,'nama'));
                 }
 
-                $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+                // $isi.= $check;
+                if($check == ' Development')
+                {
+                    $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+                }
+
                 
                 $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
             }
@@ -204,31 +211,6 @@ class WwformController extends Controller
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_122_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_122_softdelete_me($ID); }
                 }
-                elseif($DMHA_1 == 126) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_126_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_126_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_126_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 130) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_130_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_130_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_130_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 134) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_134_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_134_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_134_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 138) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_138_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_138_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_138_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 144) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_144_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_144_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_144_softdelete_me($ID); }
-                }
                 elseif($DMHA_1 == 157) {     
                     dmha_157_delete_me($ID);
                     for ($i=0; $i<count($_POST['dmha_1']); $i++)
@@ -263,11 +245,6 @@ class WwformController extends Controller
 
 
                 // Additional
-                elseif($DMHA_1 == 247) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_247_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_247_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_247_softdelete_me($ID); }
-                }
 
             //////////////////////////////////////////////////////////////////////////////////////////// acadion
                 elseif($DMHA_1 == 87) {     
@@ -368,30 +345,39 @@ class WwformController extends Controller
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_55_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 60) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_60_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_60_update_me($ID,$request->all()); }
+                    $nama = $request->nama;
+
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_60_create_me($PARAM_2,$nama); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_60_update_me($ID,$PARAM_2,$nama); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_60_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 60) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_60_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_60_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_60_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 119 || $DMHA_1 == 152 || $DMHA_1 == 185) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_119_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_119_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_119_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 148) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_148_create_me($request->all()); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_148_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_148_softdelete_me($ID); }
                 }
-                elseif($DMHA_1 == 255) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_255_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_255_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_255_softdelete_me($ID); }
+                elseif($DMHA_1 == 188) {     
+                    $nama = $request->nama;
+                    $link = replace_to_underscore($nama);
+
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_188_create_me($PARAM_3,$nama,$link); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_188_update_me($ID,$PARAM_3,$nama,$link); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_188_softdelete_me($ID); }
                 }
+                elseif($DMHA_1 == 267) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_267_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_267_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_267_softdelete_me($ID); }
+                }
+            
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Pihak Pemberkasan
+                elseif($DMHA_1 == 119 || $DMHA_1 == 148 || $DMHA_1 == 152 || $DMHA_1 == 334) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_119_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_119_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_119_softdelete_me($ID); }
+                }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Pendukung Pemberkasan
                 elseif($DMHA_1 == 259) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_259_create_me($request->all()); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_259_update_me($ID,$request->all()); }
@@ -401,11 +387,6 @@ class WwformController extends Controller
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_263_create_me($request->all()); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_263_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_263_softdelete_me($ID); }
-                }
-                elseif($DMHA_1 == 267) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_267_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_267_update_me($ID,$request->all()); }
-                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_267_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 275) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_275_create_me($request->all()); }
@@ -417,12 +398,52 @@ class WwformController extends Controller
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_279_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_279_softdelete_me($ID); }
                 }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data Pendukung KTP
+                elseif($DMHA_1 == 126) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_126_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_126_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_126_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 130) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_130_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_130_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_130_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 134) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_134_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_134_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_134_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 138) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_138_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_138_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_138_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 144) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_144_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_144_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_144_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 247) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_247_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_247_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_247_softdelete_me($ID); }
+                }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Alas Hak
+                elseif($DMHA_1 == 255) {     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_255_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_255_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_255_softdelete_me($ID); }
+                }   
                 elseif($DMHA_1 == 283) {     
                     if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_283_create_me($request->all()); }
                     elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_283_update_me($ID,$request->all()); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_283_softdelete_me($ID); }
                 }
 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Wilayah
 
             // paperone
                 elseif($DMHA_1 == 287) {     
@@ -595,6 +616,7 @@ class WwformController extends Controller
                     $latitude = $request->latitude;
                     $longitude = $request->longitude;
                     $nama = $request->nama;
+                    $kapasitas = $request->kapasitas;
 
                     $filename = null;
                     if(isset($request->filename))
@@ -612,8 +634,8 @@ class WwformController extends Controller
                         }  
                     }  
                     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_364_create_me($filename,$latitude,$longitude,$nama); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_364_update_me($ID,$filename,$latitude,$longitude,$nama); }
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_364_create_me($filename,$latitude,$longitude,$nama,$kapasitas); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_364_update_me($ID,$filename,$latitude,$longitude,$nama,$kapasitas); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_364_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 372) {     
@@ -677,6 +699,7 @@ class WwformController extends Controller
 
         // ------------------------------------------------------------------------- SEND
             Session::flash('message',$FLASH_MESSAGE);
-            return redirect(rules_link_after_post($DMHA_1,null));
+            return redirect(rules_link_after_post($DMHA_1,null,$PARAM_2,$PARAM_3,$DMHA_271));
+            //return back();
     }
 }

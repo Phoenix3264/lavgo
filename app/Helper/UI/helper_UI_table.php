@@ -136,26 +136,15 @@
 				elseif($DMHA_ID == 360){ $isi = dmha_360_data_table($AGENT); }
 				elseif($DMHA_ID == 401){ $isi = dmha_401_data_table($AGENT); }
 
-			elseif($DMHA_ID == 69){ $isi = dmha_69_data_table($AGENT); }
-			elseif($DMHA_ID == 73){ $isi = dmha_73_data_table($AGENT); }
-			elseif($DMHA_ID == 77){ $isi = dmha_77_data_table($AGENT); }
-			elseif($DMHA_ID == 81){ $isi = dmha_81_data_table($AGENT); }
-			elseif($DMHA_ID == 91){ $isi = dmha_91_data_table($AGENT); }
-			elseif($DMHA_ID == 95){ $isi = dmha_95_data_table($AGENT); }
-			elseif($DMHA_ID == 99){ $isi = dmha_99_data_table($AGENT); }
-			elseif($DMHA_ID == 103){ $isi = dmha_103_data_table($AGENT); }
-			elseif($DMHA_ID == 107){ $isi = dmha_107_data_table($AGENT); }
-			elseif($DMHA_ID == 122){ $isi = dmha_122_data_table($AGENT); }
-			elseif($DMHA_ID == 126){ $isi = dmha_126_data_table($AGENT); }
-			elseif($DMHA_ID == 130){ $isi = dmha_130_data_table($AGENT); }
-			elseif($DMHA_ID == 134){ $isi = dmha_134_data_table($AGENT); }
-			elseif($DMHA_ID == 138){ $isi = dmha_138_data_table($AGENT); }
-			elseif($DMHA_ID == 144){ $isi = dmha_144_data_table($AGENT); }
-			elseif($DMHA_ID == 158){ $isi = user_data_table($AGENT); }
+				elseif($DMHA_ID == 91){ $isi = dmha_91_data_table($AGENT); }
+				elseif($DMHA_ID == 95){ $isi = dmha_95_data_table($AGENT); }
+				elseif($DMHA_ID == 99){ $isi = dmha_99_data_table($AGENT); }
+				elseif($DMHA_ID == 103){ $isi = dmha_103_data_table($AGENT); }
+				elseif($DMHA_ID == 107){ $isi = dmha_107_data_table($AGENT); }
+				elseif($DMHA_ID == 122){ $isi = dmha_122_data_table($AGENT); }
+				elseif($DMHA_ID == 158){ $isi = user_data_table($AGENT); }
 
 
-			//additional
-			elseif($DMHA_ID == 247){ $isi = dmha_247_data_table($AGENT); }
 
 			///////////////////////////////////////////////////////////////////////////////// Acadion
 				elseif($DMHA_ID == 87){ $isi = dmha_87_data_table($AGENT); }
@@ -176,25 +165,47 @@
 				elseif($DMHA_ID == 51){ $isi = dmha_51_data_table($AGENT); }
 				elseif($DMHA_ID == 55){ $isi = dmha_55_data_table($AGENT); }
 				elseif($DMHA_ID == 60){ $isi = dmha_60_data_table($AGENT); }
+				elseif($DMHA_ID == 188){ $isi = dmha_188_data_table($AGENT); }
+				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table($AGENT); }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////// Pihak Pemberkasan
 				elseif($DMHA_ID == 119){ $isi = dmha_119_data_table($AGENT); }
-				elseif($DMHA_ID == 148){ $isi = dmha_148_data_table($AGENT); }
-				elseif($DMHA_ID == 152){ $isi = dmha_152_data_table($AGENT); }
-				elseif($DMHA_ID == 255){ $isi = dmha_255_data_table($AGENT); }
+				elseif($DMHA_ID == 148){ $isi = dmha_119_data_table($AGENT); }
+				elseif($DMHA_ID == 152){ $isi = dmha_119_data_table($AGENT); }
+				elseif($DMHA_ID == 334){ $isi = dmha_119_data_table($AGENT); }
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////// Pendukung Pemberkasan
 				elseif($DMHA_ID == 259){ $isi = dmha_259_data_table($AGENT); }
 				elseif($DMHA_ID == 263){ $isi = dmha_263_data_table($AGENT); }
-				elseif($DMHA_ID == 267){ $isi = dmha_267_data_table($AGENT); }
 				elseif($DMHA_ID == 275){ $isi = dmha_275_data_table($AGENT); }
 				elseif($DMHA_ID == 279){ $isi = dmha_279_data_table($AGENT); }
-				elseif($DMHA_ID == 283){ $isi = dmha_283_data_table($AGENT); }
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////// Data Pendukung KTP
+				elseif($DMHA_ID == 126){ $isi = dmha_126_data_table($AGENT); }
+				elseif($DMHA_ID == 130){ $isi = dmha_130_data_table($AGENT); }
+				elseif($DMHA_ID == 134){ $isi = dmha_134_data_table($AGENT); }
+				elseif($DMHA_ID == 138){ $isi = dmha_138_data_table($AGENT); }
+				elseif($DMHA_ID == 144){ $isi = dmha_144_data_table($AGENT); }
+				elseif($DMHA_ID == 247){ $isi = dmha_247_data_table($AGENT); }
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////// Alas Hak
+				elseif($DMHA_ID == 255){ $isi = dmha_255_data_table($AGENT); }
+				elseif($DMHA_ID == 283){ $isi = dmha_283_data_table($AGENT); }  
+
+			////////////////////////////////////////////////////////////////////////////////////////////////////////// Wilayah
+				elseif($DMHA_ID == 69){ $isi = dmha_69_data_table($AGENT); }
+				elseif($DMHA_ID == 73){ $isi = dmha_73_data_table($AGENT); }
+				elseif($DMHA_ID == 77){ $isi = dmha_77_data_table($AGENT); }
+				elseif($DMHA_ID == 81){ $isi = dmha_81_data_table($AGENT); }
 			
-			// paperone			
-			elseif($DMHA_ID == 287){ $isi = dmha_287_data_table($AGENT); }
-			elseif($DMHA_ID == 288){ $isi = dmha_288_data_table($AGENT); }
-			elseif($DMHA_ID == 292){ $isi = dmha_292_data_table($AGENT); }
-			elseif($DMHA_ID == 296){ $isi = dmha_296_data_table($AGENT); }
-			elseif($DMHA_ID == 310){ $isi = dmha_310_data_table($AGENT); }
-			elseif($DMHA_ID == 314){ $isi = dmha_314_data_table($AGENT); }
-			elseif($DMHA_ID == 318){ $isi = dmha_318_data_table($AGENT); }
+			///////////////////////////////////////////////////////////////////////////////// paperone			
+				elseif($DMHA_ID == 287){ $isi = dmha_287_data_table($AGENT); }
+				elseif($DMHA_ID == 288){ $isi = dmha_288_data_table($AGENT); }
+				elseif($DMHA_ID == 292){ $isi = dmha_292_data_table($AGENT); }
+				elseif($DMHA_ID == 296){ $isi = dmha_296_data_table($AGENT); }
+				elseif($DMHA_ID == 310){ $isi = dmha_310_data_table($AGENT); }
+				elseif($DMHA_ID == 314){ $isi = dmha_314_data_table($AGENT); }
+				elseif($DMHA_ID == 318){ $isi = dmha_318_data_table($AGENT); }
 
 			///////////////////////////////////////////////////////////////////////////////// Penelitian
 				elseif($DMHA_ID == 344){ $isi = dmha_344_data_table($AGENT); }
@@ -203,7 +214,6 @@
 				elseif($DMHA_ID == 356){ $isi = dmha_356_data_table($AGENT); }
 				elseif($DMHA_ID == 364){ $isi = dmha_364_data_table($AGENT); }
 				elseif($DMHA_ID == 378){ $isi = dmha_378_data_table($AGENT); }
-				
 				
 			///////////////////////////////////////////////////////////////////////////////// Data Pendukung
 				elseif($DMHA_ID == 356){ $isi = dmha_356_data_table($AGENT); }

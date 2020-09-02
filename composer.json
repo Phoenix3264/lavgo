@@ -105,6 +105,7 @@
             "app/Helper/dmha/notarion/helper_dmha_51.php",
             "app/Helper/dmha/notarion/helper_dmha_55.php",
             "app/Helper/dmha/notarion/helper_dmha_60.php",
+            "app/Helper/dmha/notarion/helper_dmha_188.php",
             "app/Helper/dmha/notarion/helper_dmha_267.php",
 
             "app/Helper/dmha/alas_hak/helper_dmha_255.php",
@@ -124,7 +125,6 @@
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_134.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_138.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_144.php",
-
             
             "app/Helper/dmha/pendukung_pemberkasan/helper_dmha_259.php",
             "app/Helper/dmha/pendukung_pemberkasan/helper_dmha_263.php",

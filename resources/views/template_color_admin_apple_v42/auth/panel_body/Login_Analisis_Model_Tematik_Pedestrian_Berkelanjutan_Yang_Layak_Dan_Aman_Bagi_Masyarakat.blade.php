@@ -1,7 +1,10 @@
-
 {!!dmha_373_header_login($agent)!!}
 
 <div class="row row-login">
+
+@if(Session::has('message'))
+    {!!color_admin_apple_v42_flash_message(dmha_40_id_check_col( Session::get('message'),'status'),dmha_40_id_check_col( Session::get('message'),'nama'))!!}
+@endif
 
     <div class="col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-10 offset-1">
         <form method="POST" action="{{ route('login') }}">
@@ -30,7 +33,9 @@
                 
             </div>
             <div class="m-t-20">
-                Not a member yet? Click <a href="{{url('/')}}/register">here</a> to register.
+                <h5>
+                    Not a member yet? Click <a href="{{url('/')}}/register">here</a> to register.
+                </h4>
             </div>
         </form>
     </div>

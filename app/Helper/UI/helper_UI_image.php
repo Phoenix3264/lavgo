@@ -1,12 +1,12 @@
 <?php
 
-    function general_image($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2,$width)
+    function general_image($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3,$width)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi .= '<img src="'.rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2).'" width="'.$width.'">';
+            $isi .= '<img src="'.rules_link($link,$DMHA_4,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3).'" width="'.$width.'">';
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

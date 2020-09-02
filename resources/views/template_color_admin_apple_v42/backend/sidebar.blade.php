@@ -40,7 +40,7 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>            
-            {!!color_admin_apple_v42_sidebar($AUTH_ID,NULL,$id,NULL)!!}
+            {!!color_admin_apple_v42_sidebar($AUTH_ID,NULL,$id,NULL,NULL,NULL)!!}
             
             <!-- begin sidebar minify button -->
             <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="ion-ios-arrow-back"></i> <span>Collapse</span></a></li>

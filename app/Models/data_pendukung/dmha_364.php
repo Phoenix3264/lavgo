@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $nama
+ * @property int $kapasitas
  * @property string $latitude
  * @property string $longitude
  * @property int $icon
@@ -26,7 +27,7 @@ class dmha_364 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['filename', 'nama', 'latitude', 'longitude', 'icon', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['filename', 'nama', 'kapasitas', 'latitude', 'longitude', 'icon', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -62,7 +63,7 @@ class dmha_364 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($filename,$latitude,$longitude,$nama)
+    public static function create_me($filename,$latitude,$longitude,$nama,$kapasitas)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -73,14 +74,15 @@ class dmha_364 extends Model
                     'filename'     => $filename,
                     'latitude'     => $latitude,
                     'longitude'     => $longitude,
-                    'nama'     => $nama
+                    'nama'     => $nama,
+                    'kapasitas'     => $kapasitas
                 ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$filename,$latitude,$longitude,$nama)
+    public static function update_me($id,$filename,$latitude,$longitude,$nama,$kapasitas)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -95,6 +97,7 @@ class dmha_364 extends Model
                         'latitude'     => $latitude,
                         'longitude'     => $longitude,
                         'nama'     => $nama,
+                        'kapasitas'     => $kapasitas,
                         'updated_at'     => now()
                     ]);
             }
@@ -106,6 +109,7 @@ class dmha_364 extends Model
                         'latitude'     => $latitude,
                         'longitude'     => $longitude,
                         'nama'     => $nama,
+                        'kapasitas'     => $kapasitas,
                         'updated_at'     => now()
                     ]);
             }

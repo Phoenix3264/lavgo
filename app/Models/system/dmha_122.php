@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models\system;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
  * @property string $nama
+ * @property int $dmha_8
  * @property string $created_at
  * @property string $updated_at
  * @property string $deleted_at
@@ -23,7 +24,7 @@ class dmha_122 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['nama', 'dmha_8', 'created_at', 'updated_at', 'deleted_at'];
 
     public $timestamps = false;
 
@@ -47,9 +48,11 @@ class dmha_122 extends Model
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
+            $dmha_8 = dmha_8_what_is_my_app_mode_id();
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_122::whereNull('deleted_at')
+            $isi = dmha_122::where('dmha_8','=',$dmha_8)
+                ->whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -80,7 +83,8 @@ class dmha_122 extends Model
             dmha_122::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama']
+                    'nama'     => $array_data['nama'],
+                    'dmha_8'     => $array_data['dmha_8']
                 ]);
 
         // ------------------------------------------------------------------------- SEND

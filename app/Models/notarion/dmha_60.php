@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int $id
+ * @property int $dmha_55
  * @property string $nama
  * @property string $created_at
  * @property string $updated_at
@@ -23,7 +24,7 @@ class dmha_60 extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nama', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = ['dmha_55', 'nama', 'created_at', 'updated_at', 'deleted_at'];
 
     
     public static function id_check_col($ID,$COL)
@@ -42,13 +43,14 @@ class dmha_60 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function let_me_generate_data_array($AUTH_ID,$ID)
+    public static function let_me_generate_data_array($AUTH_ID,$ID,$dmha_55)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_60::whereNull('deleted_at')
+            $isi = dmha_60::where('dmha_55','=',$dmha_55)
+                ->whereNull('deleted_at')
                 ->orderBy('nama','asc')
                 ->get();
 
@@ -58,19 +60,23 @@ class dmha_60 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($dmha_55,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_60::create($array_data);
+            dmha_60::insert(
+                [
+                    'dmha_55'     => $dmha_55,
+                    'nama'     => $nama
+                ]);
 
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$dmha_55,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -79,7 +85,8 @@ class dmha_60 extends Model
             dmha_60::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'dmha_55'     => $dmha_55,
+                    'nama'     => $nama,
                     'updated_at'     => now()
                 ]);
 

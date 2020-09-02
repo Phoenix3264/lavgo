@@ -1,6 +1,6 @@
 <?php
 
-    function ajax_data_table($AUTH_ID,$DMHA_ID,$table_id,$PARAM_2,$agent)
+    function ajax_data_table($AUTH_ID,$DMHA_ID,$table_id,$PARAM_2,$PARAM_3,$agent)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -21,6 +21,10 @@
             {
                 $PARAM_2 = 'NULL';
             }
+            if($PARAM_3 == '')
+            {
+                $PARAM_3 = 'NULL';
+            }
         // ------------------------------------------------------------------------- ACTION
             $isi    .= '   
             $(document).ready(function () {
@@ -28,7 +32,7 @@
                     processing: true,
                     serverSide: true,
                     ajax: {
-                        url: " '.url('/').'/wwdata/generate/'.$AUTH_ID.'/'.$DMHA_ID.'/'.$PARAM_2.'",
+                        url: " '.url('/').'/wwdata/generate/'.$AUTH_ID.'/'.$DMHA_ID.'/'.$PARAM_2.'/'.$PARAM_3.'",
                         type: "GET"
                     },
                     columns: [                        

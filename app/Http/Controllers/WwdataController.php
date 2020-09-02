@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 class WwdataController extends Controller
 {
     //
-    public function generate(Request $request,$param_1,$param_2,$param_3)
+    public function generate(Request $request,$param_1,$param_2,$param_3,$param_4)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';     
             $AUTH_ID = $param_1;  
             $DMHA_1 = $param_2;  
             $PARAM_2 = $param_3;  
+            $PARAM_3 = $param_4;  
             
             $modify_datatable = false;
 
@@ -38,29 +39,14 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 326) { $isi_model = dmha_326_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 360) { $isi_model = dmha_360_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     
-                elseif($DMHA_1 == 40) { $isi_model = dmha_40_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
-                elseif($DMHA_1 == 91) { $isi_model = dmha_91_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 95) { $isi_model = dmha_95_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 99) { $isi_model = dmha_99_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 103) { $isi_model = dmha_103_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 107) { $isi_model = dmha_107_let_me_generate_data_array($AUTH_ID, $DMHA_1); }                
-                elseif($DMHA_1 == 122) { $isi_model = dmha_122_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 126) { $isi_model = dmha_126_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 130) { $isi_model = dmha_130_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 134) { $isi_model = dmha_134_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 138) { $isi_model = dmha_138_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 144) { $isi_model = dmha_144_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 158) { $isi_model = user_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
-                // additional
-                elseif($DMHA_1 == 247) { $isi_model = dmha_247_let_me_generate_data_array($AUTH_ID, $DMHA_1); } // status dalam keluarga
-                
-                elseif($DMHA_1 == 69) { $isi_model = dmha_69_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 73) { $isi_model = dmha_73_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 77) { $isi_model = dmha_77_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                elseif($DMHA_1 == 81) { $isi_model = dmha_81_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
+                    elseif($DMHA_1 == 40) { $isi_model = dmha_40_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 91) { $isi_model = dmha_91_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 95) { $isi_model = dmha_95_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 99) { $isi_model = dmha_99_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 103) { $isi_model = dmha_103_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 107) { $isi_model = dmha_107_let_me_generate_data_array($AUTH_ID, $DMHA_1); }                
+                    elseif($DMHA_1 == 122) { $isi_model = dmha_122_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 158) { $isi_model = user_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// ACADION     
                     elseif($DMHA_1 == 87) { $isi_model = dmha_87_let_me_generate_data_array($AUTH_ID, $DMHA_1); }     
@@ -79,18 +65,42 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 46) { $isi_model = dmha_46_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 47) { $isi_model = dmha_47_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 55) { $isi_model = dmha_55_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 119) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 60) { $isi_model = dmha_60_let_me_generate_data_array($AUTH_ID, $DMHA_1, $PARAM_2); }
                     elseif($DMHA_1 == 148) { $isi_model = dmha_148_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 152) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 185) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 255) { $isi_model = dmha_255_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 188) { $isi_model = dmha_188_let_me_generate_data_array($AUTH_ID, $DMHA_1, $PARAM_3); }
+                    elseif($DMHA_1 == 267) { $isi_model = dmha_267_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Pihak Pemberkasan
+                    elseif($DMHA_1 == 119) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 148) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 152) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 334) { $isi_model = dmha_119_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Pendukung Pemberkasan
                     elseif($DMHA_1 == 259) { $isi_model = dmha_259_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 263) { $isi_model = dmha_263_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 267) { $isi_model = dmha_267_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 275) { $isi_model = dmha_275_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 279) { $isi_model = dmha_279_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 283) { $isi_model = dmha_283_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data Pendukung KTP
+                    elseif($DMHA_1 == 126) { $isi_model = dmha_126_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 130) { $isi_model = dmha_130_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 134) { $isi_model = dmha_134_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 138) { $isi_model = dmha_138_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 144) { $isi_model = dmha_144_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 247) { $isi_model = dmha_247_let_me_generate_data_array($AUTH_ID, $DMHA_1); } 
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Alas Hak
+                    elseif($DMHA_1 == 255) { $isi_model = dmha_255_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 283) { $isi_model = dmha_283_let_me_generate_data_array($AUTH_ID, $DMHA_1); }   
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Wilayah
+                    elseif($DMHA_1 == 69) { $isi_model = dmha_69_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 73) { $isi_model = dmha_73_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 77) { $isi_model = dmha_77_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 81) { $isi_model = dmha_81_let_me_generate_data_array($AUTH_ID, $DMHA_1); }                  
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// PAPERONE
                     elseif($DMHA_1 == 287) { $isi_model = dmha_287_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -109,7 +119,7 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 364) { $isi_model = dmha_364_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'picture_date'; }
                     elseif($DMHA_1 == 378) { $isi_model = dmha_378_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
-                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data PEndukung
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// Data Pendukung
                     elseif($DMHA_1 == 356) { $isi_model = dmha_356_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 372) { $isi_model = dmha_372_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 373) { $isi_model = dmha_373_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
@@ -117,8 +127,6 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 390) { $isi_model = dmha_390_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 395) { $isi_model = dmha_395_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-
-
 
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
@@ -129,8 +137,8 @@ class WwdataController extends Controller
             {
                 return datatables()
                     ->of($isi_model)
-                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2,$PARAM_3){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2,$PARAM_3);
                         return $dropdown;
                     })
                     ->rawColumns(['action'])
@@ -141,15 +149,15 @@ class WwdataController extends Controller
             {
                 $DMHA_4 = 'pictures';
                 $link = dmha_1_id_check_col($DMHA_1,'link');
-
+                //param 3
                 return datatables()
                     ->of($isi_model)
                     ->addColumn('filename', function($data) use ($link,$DMHA_4,$DMHA_1){                        
-                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,'150px');
+                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,null,'150px');
                         return $image;
                     })
-                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2,$PARAM_3){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2,$PARAM_3);
                         return $dropdown;
                     })
                     ->rawColumns(['filename','action'])
@@ -164,15 +172,15 @@ class WwdataController extends Controller
                 return datatables()
                     ->of($isi_model)
                     ->addColumn('filename', function($data) use ($link,$DMHA_4,$DMHA_1){                        
-                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,'150px');
+                        $image = general_image($link,$DMHA_4,$data->id,$DMHA_1,null,null,'150px');
                         return $image;
                     })
                     ->addColumn('created_at', function($data) use ($link,$DMHA_4,$DMHA_1){                        
                         $tanggal = date("d-m-Y", strtotime($data->created_at));
                         return $tanggal;
                     })
-                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2,$PARAM_3){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2,$PARAM_3);
                         return $dropdown;
                     })
                     ->rawColumns(['filename','created_at','action'])
@@ -190,8 +198,8 @@ class WwdataController extends Controller
                         $tanggal = date("d-m-Y", strtotime($data->created_at));
                         return $tanggal;
                     })
-                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2){                        
-                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2);
+                    ->addColumn('action', function($data) use ($AUTH_ID, $DMHA_1, $PARAM_2,$PARAM_3){                        
+                        $dropdown = color_admin_apple_v42_dropdown($AUTH_ID,$data->id,$DMHA_1,$PARAM_2,$PARAM_3);
                         return $dropdown;
                     })
                     ->rawColumns(['created_at','action'])

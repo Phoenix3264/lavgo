@@ -39,11 +39,11 @@
         // ------------------------------------------------------------------------- ACTION
             if($agent->isDesktop() == 1 )
             {
-                $isi .= general_colgroup(7);
+                $isi .= general_colgroup(8);
             }
             if($agent->isMobile() == 1 )
             {
-                $isi .= general_colgroup(7);
+                $isi .= general_colgroup(8);
             }
 
             $isi .='
@@ -55,6 +55,7 @@
                 {
                     $isi .= th_me('Filename', $class_th);
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Kapasitas', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
                     $isi .= th_me('Tanggal', $class_th);
@@ -63,6 +64,7 @@
                 {
                     $isi .= th_me('Filename', $class_th);
                     $isi .= th_me('Nama', $class_th);
+                    $isi .= th_me('Kapasitas', $class_th);
                     $isi .= th_me('Latitude', $class_th);
                     $isi .= th_me('Longitude', $class_th);
                     $isi .= th_me('Tanggal', $class_th);
@@ -81,13 +83,13 @@
 
 
     
-    function dmha_364_create_me($filename,$latitude,$longitude,$nama)
+    function dmha_364_create_me($filename,$latitude,$longitude,$nama,$kapasitas)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_364::create_me($filename,$latitude,$longitude,$nama);
+            $isi    = dmha_364::create_me($filename,$latitude,$longitude,$nama,$kapasitas);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -95,13 +97,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_364_update_me($id,$filename,$latitude,$longitude,$nama)
+    function dmha_364_update_me($id,$filename,$latitude,$longitude,$nama,$kapasitas)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_364::update_me($id,$filename,$latitude,$longitude,$nama);
+            $isi    = dmha_364::update_me($id,$filename,$latitude,$longitude,$nama,$kapasitas);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

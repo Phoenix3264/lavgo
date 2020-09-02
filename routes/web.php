@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //web worker data general routes
-Route::any('/wwdata/generate/{param_1}/{param_2}/{param_3}', 'WwdataController@generate');
+Route::any('/wwdata/generate/{param_1}/{param_2}/{param_3}/{param_4}', 'WwdataController@generate');
 Route::any('/wwdata/autocomplete', 'WwdataController@autocomplete');
 Route::any('/wwdata/accordion', 'WwdataController@accordion');
 
