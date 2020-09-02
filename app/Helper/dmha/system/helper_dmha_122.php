@@ -38,11 +38,12 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
                     '.th_me('Nama', $class_th).'
+                    '.th_me('App Mode', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
             </thead>';

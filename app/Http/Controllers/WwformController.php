@@ -31,7 +31,7 @@ class WwformController extends Controller
 
             $dmha_2  = dmha_1_id_check_col($DMHA_1,'dmha_2');
             
-            $check = dmha_8_is_it_dev_mode();
+            //$check = dmha_8_is_it_dev_mode();
         // ------------------------------------------------------------------------- ACTION
 
             if($dmha_2 == 1)
@@ -53,10 +53,7 @@ class WwformController extends Controller
                 }
 
                 // $isi.= $check;
-                if($check == ' Development')
-                {
                     $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
-                }
 
                 
                 $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
@@ -701,5 +698,7 @@ class WwformController extends Controller
             Session::flash('message',$FLASH_MESSAGE);
             return redirect(rules_link_after_post($DMHA_1,null,$PARAM_2,$PARAM_3,$DMHA_271));
             //return back();
+
+            //return redirect('hai');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-	use App\user;
+	use App\User;
 
     function user_id_check_col($ID,$COL)
     {

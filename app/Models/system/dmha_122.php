@@ -51,9 +51,18 @@ class dmha_122 extends Model
             $dmha_8 = dmha_8_what_is_my_app_mode_id();
 
         // ------------------------------------------------------------------------- ACTION
-            $isi = dmha_122::where('dmha_8','=',$dmha_8)
-                ->whereNull('deleted_at')
-                ->orderBy('nama','asc')
+            $isi = dmha_122::
+                selectRaw('
+                    dmha_122.id,
+                    dmha_122.nama,
+                    dmha_8.nama as dmha_8
+                ')
+                ->where('dmha_122.dmha_8','=',$dmha_8)
+
+            
+                ->join('dmha_8', 'dmha_8.id', '=', 'dmha_122.dmha_8') // daftar role
+                ->whereNull('dmha_122.deleted_at')
+                ->orderBy('dmha_122.nama','asc')
                 ->get();
 
         // ------------------------------------------------------------------------- SEND
