@@ -26,11 +26,9 @@ Route::any('/wwdata/accordion', 'WwdataController@accordion');
 Route::any('/wwform/generate', 'WwformController@generate');
 
 
-
+Route::any('/', 'MainController@index');
 Route::any('/{param_1}', 'MainController@index');
 Route::any('/{param_1}/{param_2}', 'MainController@index');
 Route::any('/{param_1}/{param_2}/{param_3}', 'MainController@index');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
