@@ -3,6 +3,6 @@
         @include($template.'.'.$controller.'.panel_heading') 
     </div>
     <div class="panel-body">
-    
+        hai
     </div>
 </div>
