@@ -97,7 +97,7 @@ class MainController extends Controller
                 }
                 else
                 {
-                    return redirect('login');
+                    //return redirect('login');
 
                 }
 

@@ -1,0 +1,57 @@
+
+
+.subtitle{
+    font-family: CrimsonRoman;
+    color: #B01F24;
+    font-size: 46pt;
+}
+
+.subtitle-img-desc{
+    font-family: CrimsonRoman;
+    color: #B01F24;
+    font-size: 46pt;
+}
+
+.paragraf{
+    padding-top:30px;
+    font-family: GothamLight;
+    font-size:15px;
+    line-height: 40px;
+}
+
+.button-boncafe{    
+    background-color: #B01F24;
+    padding: 10px 40px;
+    color:white;
+    text-transform: capitalize;
+}
+
+.ahref-boncafe{
+    color: black;
+    padding: 0px 20px;
+    font-size: 14pt;
+}
+
+.nav-link{
+    color:white;
+    text-transform: uppercase;
+    font-family: CrimsonRoman;
+    padding:0px;
+    letter-spacing: 2.2px;
+    margin-right: 18px;
+    margin-left: 18px;
+}
+
+
+
+.navbar{
+    padding:55px 0px;
+}
+
+.container-boncafe{
+    width:1750px;
+}
+
+
+
+

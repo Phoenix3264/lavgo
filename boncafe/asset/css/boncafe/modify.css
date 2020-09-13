@@ -1,0 +1,86 @@
+@font-face {
+    font-family: CrimsonRoman;
+    src: url(font/Crimson-Roman.otf);
+}
+
+@font-face {
+    font-family: GothamLight;
+    src: url(font/Gotham-Light.otf);
+}
+
+@font-face {
+    font-family: GothamMedium;
+    src: url(font/Gotham-Medium.otf);
+}
+
+@media (min-width: 992px) {
+    .container {
+      max-width: 1730px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-md {
+      max-width: 1600px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-md {
+      max-width: 1600px;
+    }
+}
+
+body{
+    background-color: #F1F2F2;
+    font-family: CrimsonRoman;
+}
+
+nav,footer{
+    background-color: #B01F24;
+    font-family: GothamLight;
+}
+
+footer{
+    padding:90px 0px 60px 0px;
+    color: white;
+    font-size: 12px;
+    margin-top:130px;
+}
+
+
+input[type=text] {
+    display: block;
+}
+
+small{
+    display: block;
+    color: #9C9C9C;
+    font-family: GothamLight;
+    font-style: italic;
+}
+
+a{
+    color: black;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section{
+    margin-top:115px;
+}
+
+.row{
+    margin: 0;
+}
+
+.red{
+    color: #B01F24;
+}
+
+.grey{
+    color: #8e8e8e;
+}
