@@ -16,7 +16,7 @@
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/style-responsive.min.css" rel="stylesheet" />
 <link href="{{ asset('/public/').'/'.$root }}/assets/css/apple/theme/default.css" rel="stylesheet" id="theme" />
     @include($template.'.'.$controller.'.css.css_'.$page)    
-    <link href="{{ asset('/public/').'/additional' }}/backend.css" rel="stylesheet" />
+    <link href="{{ asset('/public/').'/additional' }}/auth.css" rel="stylesheet" />
 	<script src="{{ asset('/public/').'/'.$root }}/assets/plugins/pace/pace.min.js"></script>
 </head>
 <body class="pace-top">

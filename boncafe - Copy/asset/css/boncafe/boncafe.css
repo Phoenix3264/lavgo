@@ -1,0 +1,135 @@
+@font-face {
+    font-family: CrimsonRoman;
+    src: url(font/Crimson-Roman.otf);
+}
+
+@font-face {
+    font-family: GothamLight;
+    src: url(font/Gotham-Light.otf);
+}
+
+@font-face {
+    font-family: GothamMedium;
+    src: url(font/Gotham-Medium.otf);
+}
+
+
+@media (min-width: 992px) {
+    .container, .container-sm, .container-md, .container-lg {
+      max-width: 1730px;
+    }
+}
+
+body{
+    background-color: #F1F2F2;
+    font-family: CrimsonRoman;
+}
+
+nav,footer{
+    background-color: #B01F24;
+    font-family: GothamLight;
+}
+
+footer{
+    padding:60px 0px;
+    color: white;
+    font-size: 12px;
+}
+
+
+input[type=text] {
+    display: block;
+}
+
+small{
+    display: block;
+    color: #9C9C9C;
+    font-family: GothamLight;
+    font-style: italic;
+}
+
+a{
+    color: black;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+section{
+    margin-top:115px;
+}
+
+
+.row{
+    margin: 0;
+}
+
+.subtitle{
+    font-family: CrimsonRoman;
+    color: #B01F24;
+    font-size: 46pt;
+}
+
+.subtitle-img-desc{
+    font-family: CrimsonRoman;
+    color: #B01F24;
+    font-size: 46pt;
+}
+
+.paragraf{
+    padding-top:30px;
+    font-family: GothamLight;
+    font-size:15px;
+    line-height: 40px;
+}
+
+.button-boncafe{    
+    background-color: #B01F24;
+    padding: 10px 40px;
+    color:white;
+    text-transform: capitalize;
+}
+
+.ahref-boncafe{
+    color: black;
+    padding: 0px 20px;
+    font-size: 14pt;
+}
+
+.nav-link{
+    color:white;
+    text-transform: uppercase;
+    font-family: CrimsonRoman;
+    padding:0px;
+    letter-spacing: 2.2px;
+    margin-right: 18px;
+    margin-left: 18px;
+}
+
+.section-img-desc{
+    padding:0 30px;
+}
+
+.img-desc{
+    background-color:white;
+    padding:22px 75px 53px 35px;
+    font-family: GothamLight;
+    font-size:11pt;
+    margin-bottom: 90px;
+    text-align: justify;
+    line-height: 29px;
+}
+
+.navbar{
+    padding:55px 0px;
+}
+
+.container-boncafe{
+    width:1750px;
+}
+
+
+
+

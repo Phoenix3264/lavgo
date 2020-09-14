@@ -1,0 +1,135 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2.5",
+        "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "intervention/image": "^2.5",
+        "jenssegers/agent": "^2.6",
+        "laravel/framework": "^7.0",
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "^2.1",
+        "maatwebsite/excel": "^3.1",
+        "yajra/laravel-datatables-oracle": "~9.0"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.0",
+        "fzaninotto/faker": "^1.9.1",
+        "mockery/mockery": "^1.3.1",
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^8.5"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files":[
+        
+            "app/Helper/ajax/helper_ajax_data.php",
+            "app/Helper/ajax/helper_ajax_form.php",
+
+            "app/Helper/dmha/system/helper_dmha_1.php",
+            "app/Helper/dmha/system/helper_dmha_2.php",
+            "app/Helper/dmha/system/helper_dmha_3.php",
+            "app/Helper/dmha/system/helper_dmha_4.php",
+            "app/Helper/dmha/system/helper_dmha_5.php",
+            "app/Helper/dmha/system/helper_dmha_8.php",
+            "app/Helper/dmha/system/helper_dmha_9.php",
+            "app/Helper/dmha/system/helper_dmha_13.php",
+            "app/Helper/dmha/system/helper_dmha_14.php",
+            "app/Helper/dmha/system/helper_dmha_15.php",
+            "app/Helper/dmha/system/helper_dmha_40.php",   
+            "app/Helper/dmha/system/helper_dmha_122.php",  
+            "app/Helper/dmha/system/helper_dmha_157.php",   
+            "app/Helper/dmha/system/helper_dmha_158.php",    
+            "app/Helper/dmha/system/helper_dmha_162.php",   
+            "app/Helper/dmha/system/helper_dmha_271.php",   
+            "app/Helper/dmha/system/helper_dmha_300.php",  
+            "app/Helper/dmha/system/helper_dmha_322.php",   
+            "app/Helper/dmha/system/helper_dmha_326.php",    
+            "app/Helper/dmha/system/helper_dmha_360.php",   
+            "app/Helper/dmha/system/helper_dmha_401.php",      
+
+
+
+            "app/Helper/dmha/data_pendukung/helper_dmha_356.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_364.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_372.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_373.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_382.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_386.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_390.php",
+            "app/Helper/dmha/data_pendukung/helper_dmha_395.php",
+            
+            
+
+            "app/Helper/dmha/penelitian/helper_dmha_344.php",
+            "app/Helper/dmha/penelitian/helper_dmha_348.php",
+            "app/Helper/dmha/penelitian/helper_dmha_352.php",
+            "app/Helper/dmha/penelitian/helper_dmha_378.php",
+
+            
+
+            "app/Helper/php/helper_php_modification.php",
+            "app/Helper/system/helper_rules_general.php",
+
+            "app/Helper/UI/helper_UI_breadcrumb.php",
+            "app/Helper/UI/helper_UI_button.php",
+            "app/Helper/UI/helper_UI_card.php",
+            "app/Helper/UI/helper_UI_dashboard.php",
+            "app/Helper/UI/helper_UI_dropdown.php",
+            "app/Helper/UI/helper_UI_form.php",
+            "app/Helper/UI/helper_UI_image.php",
+            "app/Helper/UI/helper_UI_input_type.php",
+            "app/Helper/UI/helper_UI_modal_dialog.php",
+            "app/Helper/UI/helper_UI_sidebar.php",
+            "app/Helper/UI/helper_UI_table.php",
+  
+            "app/Helper/template/helper_color_admin_apple_v42.php",     
+
+            "app/Helper/vendor/helper_mapbox.php"     
+                         
+        ],
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    }
+}
