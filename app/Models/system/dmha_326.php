@@ -65,8 +65,7 @@ class dmha_326 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_326::whereNull('deleted_at')
-                ->orderBy('nama','asc')
-                ->get();
+                ->orderBy('nama','asc');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
@@ -74,19 +73,22 @@ class dmha_326 extends Model
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function create_me($array_data)
+    public static function create_me($filename,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
 
         // ------------------------------------------------------------------------- ACTION
-            dmha_326::create($array_data);
-
+            dmha_326::insert(
+                [
+                    'banner'     => $filename,
+                    'nama'     => $nama
+                ]);
         // ------------------------------------------------------------------------- SEND
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    public static function update_me($id,$array_data)
+    public static function update_me($id,$filename,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi = '';
@@ -95,7 +97,8 @@ class dmha_326 extends Model
             dmha_326::where('id','=', $id)
             ->update(
                 [
-                    'nama'     => $array_data['nama'],
+                    'banner'        => $filename,
+                    'nama'          => $nama,
                     'updated_at'     => now()
                 ]);
 

@@ -57,14 +57,12 @@ class dmha_171 extends Model
             {
                 $isi = dmha_171::where('dmha_193','=', $id_tingkatan)
                     ->whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
+                    ->orderBy('nama','asc');
             }
             else
             {
                 $isi = dmha_171::whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
+                    ->orderBy('nama','asc');
 
             }
 

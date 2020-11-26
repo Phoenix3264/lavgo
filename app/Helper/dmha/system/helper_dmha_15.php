@@ -66,6 +66,20 @@
             return $word;
 		//////////////////////////////////////////////////////////////////////////// 		
     }
+    
+    function dmha_15_generate_daftar_pertanyaan_form_wizard($AUTH_ID,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = dmha_15::let_me_generate_data_array($AUTH_ID,$ID,'form_wizard',null);            
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
 
     function dmha_15_create_me($dmha_1,$dmha_13,$urutan,$urutan_tabel,$urutan_tabel_mobile)
     {

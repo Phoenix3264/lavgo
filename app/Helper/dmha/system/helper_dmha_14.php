@@ -153,6 +153,8 @@
             elseif($dmha_14 == 18) { $isi .= dmha_14_generate_camera($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 19) { $isi .= dmha_14_generate_locate_by_mapbox($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
             elseif($dmha_14 == 21) { $isi .= dmha_14_generate_input_number_centimeter($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID); } 
+            elseif($dmha_14 == 22) { $isi .= dmha_14_generate_input_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); }  
+            elseif($dmha_14 == 23) { $isi .= dmha_14_generate_textarea_double($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID,$AUTH_ID); } 
 
             else{ $isi .= dmha_40_id_check_col(5,'nama').' - '.$dmha_14; }
 
@@ -252,6 +254,7 @@
                     elseif($DMHA_1 == 326) { $isi .= dmha_326_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 322) { $isi .= dmha_322_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 158) { $isi .= user_id_check_col($ID,$name);  }  
+                    elseif($DMHA_1 == 431) { $isi .= dmha_431_id_check_col($ID,$name);  }  
 
                 ///////////////////////////////////////////////////////////////////////////////// acadion
                     elseif($DMHA_1 == 111) { $isi .= dmha_111_id_check_col($ID,$name);  }  
@@ -281,6 +284,9 @@
                     elseif($DMHA_1 == 382) { $isi .= dmha_382_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 386) { $isi .= dmha_386_id_check_col($ID,$name);  }  
                     elseif($DMHA_1 == 395) { $isi .= dmha_395_id_check_col($ID,$name);  }  
+                    
+                ///////////////////////////////////////////////////////////////////////////////// Mind Suhu
+                    elseif($DMHA_1 == 426) { $isi .= dmha_426_id_check_col($ID,$name);  }  
 
                 else{ $isi .= dmha_40_id_check_col(6,'nama'); }
                 
@@ -385,6 +391,25 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
+    
+    function dmha_14_generate_input_date($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $type = 'type';
+            // $type = 'hidden';
+
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '<input type="date" class="'.$class.'" id="form-'.$dmha_13.'" name="'.$name.'" value="'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'" '.$disabled.'>';      
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
     function dmha_14_generate_value_selected($ROW_ID,$VALUE)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -673,6 +698,24 @@
         // ------------------------------------------------------------------------- ACTION
             $isi .= '
             <textarea class="'.$class.'" rows="3" id="form-'.$dmha_13.'" name="'.$name.'" >'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'</textarea>';
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+    
+    function dmha_14_generate_textarea_double($dmha_14,$class,$dmha_13,$name,$DMHA_1,$DMHA_271,$ID)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+            $disabled = '';            
+            if($DMHA_271 == 4){ $disabled = 'disabled'; }
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi .= '
+            <textarea class="'.$class.'" rows="6" id="form-'.$dmha_13.'" name="'.$name.'" >'.dmha_14_generate_value($DMHA_271,$DMHA_1,$ID,$name).'</textarea>';
             
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

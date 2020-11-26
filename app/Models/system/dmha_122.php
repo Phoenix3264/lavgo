@@ -62,8 +62,7 @@ class dmha_122 extends Model
             
                 ->join('dmha_8', 'dmha_8.id', '=', 'dmha_122.dmha_8') // daftar role
                 ->whereNull('dmha_122.deleted_at')
-                ->orderBy('dmha_122.nama','asc')
-                ->get();
+                ->orderBy('dmha_122.nama','asc');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

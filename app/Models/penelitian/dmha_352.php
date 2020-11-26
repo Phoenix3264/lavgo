@@ -64,8 +64,7 @@ class dmha_352 extends Model
                 ->join('dmha_364', 'dmha_364.id', '=', 'dmha_352.dmha_364') 
     
                 ->whereNull('dmha_352.deleted_at')
-                ->orderBy('dmha_352.id','asc')
-                ->get();
+                ->orderBy('dmha_352.id','asc');
         // ------------------------------------------------------------------------- SEND
             $words = $isi;
             return $words;

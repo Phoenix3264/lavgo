@@ -20,7 +20,7 @@ class MainController extends Controller
   	{
         // Make me Smooth
             if($PARAM_1 == 'js'){ return redirect('dashboard'); }
-            if($PARAM_1 == ''){ return redirect('home'); }
+            if($PARAM_1 == ''){ return redirect('Pendaftaran_Para_Suhu'); }
 
         // Set Rules
             // Unknown Param, Redirect to
@@ -28,10 +28,14 @@ class MainController extends Controller
                 elseif($PARAM_1 == 'logout'){ Auth::logout(); return redirect('login');}
             // Timezone
                 date_default_timezone_set('Asia/Jakarta');
+            
 
   		// Initialize
   			// lets start the array
                 $data = array();
+                
+            // initialize Auth
+                $data['AUTH_ID']        = Null ;
 
             // Define User agent                
                 $agent = new Agent();

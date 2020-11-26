@@ -61,8 +61,7 @@ class dmha_81 extends Model
             if($TIPE == 'default')
             {
                 $isi = dmha_81::whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
+                    ->orderBy('nama','asc');
             }
             elseif($TIPE == 'autocomplete')
             {

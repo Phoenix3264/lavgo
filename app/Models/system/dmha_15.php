@@ -88,6 +88,17 @@ class dmha_15 extends Model
                     ->orderBy('urutan','asc')
                     ->get();
             }
+            elseif($TIPE == 'form_wizard')
+            {
+                $isi = dmha_15::select('dmha_431')
+                    ->join('dmha_431', 'dmha_431.id', '=', 'dmha_15.dmha_431')    
+                    ->where('dmha_15.dmha_1','=',$ID)
+                    ->whereNotNull('dmha_15.urutan')
+                    ->whereNull('dmha_15.deleted_at')   
+                    ->groupby('dmha_15.dmha_431')  
+                    ->orderBy('dmha_431.urutan','asc')
+                    ->get();
+            }
             elseif($TIPE == 'joined')
             {
                 

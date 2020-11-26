@@ -28,8 +28,9 @@ class WwformController extends Controller
             $PARAM_2         = $_GET['p2'];
             $PARAM_3         = $_GET['p3'];
             $id_data         = $_GET['di'];
+            $page         = $_GET['pg'];
 
-            $dmha_2  = dmha_1_id_check_col($DMHA_1,'dmha_2');
+            $dmha_2     = dmha_1_id_check_col($DMHA_1,'dmha_2');
             
             //$check = dmha_8_is_it_dev_mode();
         // ------------------------------------------------------------------------- ACTION
@@ -45,6 +46,19 @@ class WwformController extends Controller
                 
                 $isi .= color_admin_material_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
             }
+            elseif($dmha_2 == 3)
+            {
+                if($DMHA_271 == 4)
+                {
+                    $isi .= unify_v263_flash_message(dmha_40_id_check_col(3,'status'),dmha_40_id_check_col(3,'nama'));
+                }
+
+                // $isi.= $check;
+                    $isi .= unify_v263_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+
+                
+                $isi .= unify_v263_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
+            }            
             elseif($dmha_2 == 4)
             {
                 if($DMHA_271 == 4)
@@ -52,13 +66,21 @@ class WwformController extends Controller
                     $isi .= color_admin_apple_v42_flash_message(dmha_40_id_check_col(3,'status'),dmha_40_id_check_col(3,'nama'));
                 }
 
-                // $isi.= $check;
-                    $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+                if($page == 'wz')
+                {
+                    
 
-                
-                $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
+                    $isi .= color_admin_apple_v42_form_wizard($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
+                }
+                else
+                {
+                    // $isi.= $check;
+                        $isi .= color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data);
+    
+                    $isi .= color_admin_apple_v42_form($AUTH_ID,$DMHA_1,$DMHA_271,$id_data);
+                }
             }
-            
+            //$isi .= $page;
         // ------------------------------------------------------------------------- SEND
             die(json_encode(array(
                 "isi" => $isi
@@ -197,9 +219,28 @@ class WwformController extends Controller
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_322_softdelete_me($ID); }
                 }
                 elseif($DMHA_1 == 326) {     
-                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_326_create_me($request->all()); }
-                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_326_update_me($ID,$request->all()); }
+                    $nama = $request->nama;
+                    
+                    $filename = null;
+                    if(isset($request->banner))
+                    {
+                        $filename = Str::random(15).'.'.$request->banner->getClientOriginalExtension();
+                        $storage_files = 'public/storage/dmha_326/';
+                        $filename_exist  = public_path($storage_files).$filename;
+
+                        if (Storage::exists($filename_exist)) {
+                            Storage::delete($filename_exist);
+                        }     
+
+                        if (!is_null($filename_exist)) {
+                            $request->filename->storeAs($storage_files,$filename);    
+                        }  
+                    }
+
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_326_create_me($filename,$nama); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_326_update_me($ID,$filename,$nama); }
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_326_softdelete_me($ID); }
+
                 }
 
 
@@ -238,6 +279,11 @@ class WwformController extends Controller
                         dmha_401_create_me($ID,$POST_dmha_122);
                     }
                     $FLASH_MESSAGE = 2;
+                }
+                elseif($DMHA_1 == 431) {    
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_431_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_431_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_431_softdelete_me($ID); }
                 }
 
 
@@ -693,7 +739,17 @@ class WwformController extends Controller
                     elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_395_softdelete_me($ID); }
                 }
 
-
+            
+            //////////////////////////////////////////////////////////////////////////////////////////// Mind Suhu
+                elseif($DMHA_1 == 426) {  $FLASH_MESSAGE = 2;     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_426_create_me($request->all()); }
+                    elseif($DMHA_271 == 3) {  $FLASH_MESSAGE = 2; dmha_426_update_me($ID,$request->all()); }
+                    elseif($DMHA_271 == 4) {  $FLASH_MESSAGE = 4; dmha_426_softdelete_me($ID); }
+                }
+                elseif($DMHA_1 == 430) {  $FLASH_MESSAGE = 2;     
+                    if($DMHA_271 == 2) {  $FLASH_MESSAGE = 2; dmha_426_create_me($request->all()); }
+                }
+                
         // ------------------------------------------------------------------------- SEND
             Session::flash('message',$FLASH_MESSAGE);
             return redirect(rules_link_after_post($DMHA_1,null,$PARAM_2,$PARAM_3,$DMHA_271));

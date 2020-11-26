@@ -39,7 +39,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         },
         "files":[
         
@@ -66,7 +68,8 @@
             "app/Helper/dmha/system/helper_dmha_322.php",   
             "app/Helper/dmha/system/helper_dmha_326.php",    
             "app/Helper/dmha/system/helper_dmha_360.php",   
-            "app/Helper/dmha/system/helper_dmha_401.php",      
+            "app/Helper/dmha/system/helper_dmha_401.php",  
+            "app/Helper/dmha/system/helper_dmha_431.php",        
 
             "app/Helper/dmha/acadion/helper_dmha_87.php",
             "app/Helper/dmha/acadion/helper_dmha_91.php",
@@ -125,6 +128,9 @@
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_134.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_138.php",
             "app/Helper/dmha/data_pendukung_ktp/helper_dmha_144.php",
+
+            
+            "app/Helper/dmha/parasuhu/helper_dmha_426.php",
             
             "app/Helper/dmha/pendukung_pemberkasan/helper_dmha_259.php",
             "app/Helper/dmha/pendukung_pemberkasan/helper_dmha_263.php",
@@ -140,8 +146,8 @@
 
             
 
-            "app/Helper/php/helper_php_modification.php",
             "app/Helper/system/helper_rules_general.php",
+            "app/Helper/php/helper_php_modification.php",
 
             "app/Helper/UI/helper_UI_breadcrumb.php",
             "app/Helper/UI/helper_UI_button.php",
@@ -162,10 +168,6 @@
 
             "app/Helper/vendor/helper_mapbox.php"     
                          
-        ],
-        "classmap": [
-            "database/seeds",
-            "database/factories"
         ]
     },
     "autoload-dev": {

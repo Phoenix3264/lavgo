@@ -69,8 +69,7 @@ class dmha_348 extends Model
                 ->join('dmha_372', 'dmha_372.id', '=', 'dmha_348.dmha_372') 
 
                 ->whereNull('dmha_348.deleted_at')
-                ->orderBy('dmha_348.id','asc')
-                ->get();
+                ->orderBy('dmha_348.id','asc');
 
             if($TIPE == 'script'){
                 $isi = dmha_348::

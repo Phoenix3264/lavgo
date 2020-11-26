@@ -81,8 +81,7 @@ class dmha_344 extends Model
             ->join('dmha_390', 'dmha_390.id', '=', 'dmha_344.dmha_390') 
 
             ->whereNull('dmha_344.deleted_at')
-            ->orderBy('dmha_344.jalan','asc')
-            ->get();
+            ->orderBy('dmha_344.jalan','asc');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

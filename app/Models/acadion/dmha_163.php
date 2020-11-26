@@ -80,15 +80,13 @@ class dmha_163 extends Model
             if($TIPE == 'default')
             {
                 $isi = dmha_163::whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
+                    ->orderBy('nama','asc');
             }
             else
             {
                 $isi = dmha_163::where('kelas','=',$TIPE)
                     ->whereNull('deleted_at')
-                    ->orderBy('nama','asc')
-                    ->get();
+                    ->orderBy('nama','asc');
             }
 
         // ------------------------------------------------------------------------- SEND

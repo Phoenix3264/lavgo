@@ -46,7 +46,8 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 103) { $isi_model = dmha_103_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
                     elseif($DMHA_1 == 107) { $isi_model = dmha_107_let_me_generate_data_array($AUTH_ID, $DMHA_1); }                
                     elseif($DMHA_1 == 122) { $isi_model = dmha_122_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
-                    elseif($DMHA_1 == 158) { $isi_model = user_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                    elseif($DMHA_1 == 158) { $isi_model = user_let_me_generate_data_array($AUTH_ID, $DMHA_1); }              
+                    elseif($DMHA_1 == 431) { $isi_model = dmha_431_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
 
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////// ACADION     
                     elseif($DMHA_1 == 87) { $isi_model = dmha_87_let_me_generate_data_array($AUTH_ID, $DMHA_1); }     
@@ -127,7 +128,13 @@ class WwdataController extends Controller
                     elseif($DMHA_1 == 386) { $isi_model = dmha_386_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 390) { $isi_model = dmha_390_let_me_generate_data_array($AUTH_ID, $DMHA_1); $modify_datatable = 'date'; }
                     elseif($DMHA_1 == 395) { $isi_model = dmha_395_let_me_generate_data_array($AUTH_ID, $DMHA_1); }
+                             
 
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////// PARA SUHU
+                    elseif($DMHA_1 == 426) { $isi_model = dmha_426_let_me_generate_data_array($AUTH_ID, $DMHA_1,'all'); }
+                    elseif($DMHA_1 == 435) { $isi_model = dmha_426_let_me_generate_data_array($AUTH_ID, $DMHA_1,'diri'); }
+                    elseif($DMHA_1 == 436) { $isi_model = dmha_426_let_me_generate_data_array($AUTH_ID, $DMHA_1,'strategi'); }
+                    elseif($DMHA_1 == 437) { $isi_model = dmha_426_let_me_generate_data_array($AUTH_ID, $DMHA_1,'sosmed'); }
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
 
@@ -210,7 +217,6 @@ class WwdataController extends Controller
         ////////////////////////////////////////////////////////////////////////////
     }
 
-    
     public function accordion()
     {
         // ------------------------------------------------------------------------- INITIALIZE

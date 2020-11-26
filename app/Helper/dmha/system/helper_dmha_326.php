@@ -52,10 +52,11 @@
 
         // ------------------------------------------------------------------------- ACTION
             $isi .= 
-            general_colgroup(3).'
+            general_colgroup(4).'
             <thead>
                 <tr>
                     '.th_me('ID', $class_th).'
+                    '.th_me('Banner', $class_th).'
                     '.th_me('Nama', $class_th).'
                     '.th_me('Action', $class_th).'
                 </tr>
@@ -66,13 +67,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
 	}
 
-    function dmha_326_create_me($array_data)
+    function dmha_326_create_me($filename,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_326::create_me($array_data);
+            $isi    = dmha_326::create_me($filename,$nama);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;
@@ -80,13 +81,13 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }
 
-    function dmha_326_update_me($id,$array_data)
+    function dmha_326_update_me($id,$filename,$nama)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
-            $isi    = dmha_326::update_me($id,$array_data);
+            $isi    = dmha_326::update_me($id,$filename,$nama);
 
         // ------------------------------------------------------------------------- SEND
             $word = $isi;

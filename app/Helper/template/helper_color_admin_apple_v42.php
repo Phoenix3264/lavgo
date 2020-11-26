@@ -1,6 +1,8 @@
 <?php
 
-    function color_admin_apple_v42_sidebar($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
+use App\Models\system\dmha_1;
+
+function color_admin_apple_v42_sidebar($AUTH_ID,$ID_DATA,$DMHA_1,$PARAM_2,$PARAM_3)
     {
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
@@ -235,6 +237,133 @@
 		//////////////////////////////////////////////////////////////////////////// 		
     }  
 
+
+    function color_admin_apple_v42_form_wizard($DMHA_1)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            $class  = 'form-control';
+            // $AUTH_ID,$DMHA_1,$DMHA_271,$ID
+            $DMHA_271 = dmha_1_id_check_col($DMHA_1,'dmha_271');
+            $ID = $AUTH_ID = null;
+
+            $model = dmha_15_generate_daftar_pertanyaan_form_wizard(NULL,$DMHA_1,'pertanyaan',null);
+            $model2 = dmha_15_generate_daftar_pertanyaan(NULL,$DMHA_1,'pertanyaan',null);
+
+        // ------------------------------------------------------------------------- ACTION
+            $counter = 0;
+            $isi .= '<ul>';
+            foreach ($model as $row) 
+            {
+                $counter ++;
+                $isi .= 
+                '
+                <li class="col-md-2 col-sm-4 col-6">
+                    <a href="#step-'.$counter.'">
+                        <span class="number">'.$row->dmha_431.'</span> 
+                        <span class="info text-ellipsis">
+                            '.dmha_431_id_check_col($row->dmha_431,'nama').'
+                            <small class="text-ellipsis">
+                            '.dmha_431_id_check_col($row->dmha_431,'deskripsi').'
+                            </small>
+                        </span>
+                    </a>
+                </li>
+                ';
+            }
+
+
+                $isi .= 
+                '
+                <li class="col-md-4 col-sm-4 col-6">
+                    <a href="#step-5">
+                        <span class="number">5</span> 
+                        <span class="info text-ellipsis">
+                            Finish Regristration
+                            <small class="text-ellipsis">
+                                Submit data anda
+                            </small>
+
+                        </span>
+                    </a>
+                </li>
+                ';
+            $isi .= '</ul>';
+
+            $counter = 0;
+            $isi .= '<div>';
+            foreach ($model as $row) 
+            {
+                $counter ++;
+                $isi .= 
+                '
+                <div id="step-'.$counter.'">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">    
+                                <h2 class="text-inverse">'.dmha_431_id_check_col($row->dmha_431,'nama').'</h2>        
+                                ';    
+
+                            foreach ($model2 as $row2) 
+                            {
+                                if($row2->dmha_431 == $row->dmha_431)
+                                {
+                                    $isi .= 
+                                    '
+                                    <div class="form-group row m-b-10">
+                                        <label class="col-md-3 text-md-right col-form-label">                                    
+                                            '.dmha_13_id_check_col($row2->dmha_13,'nama').'
+                                        </label>
+                                        <div class="col-md-'.(dmha_13_id_check_col($row2->dmha_13,'panjang')+2).'">
+                                            '.dmha_13_generate_pertanyaan($row2->dmha_13,$class,$DMHA_1,$DMHA_271,$ID,$AUTH_ID).'
+                                        </div>
+                                    </div>
+                                    ';
+                                }
+                            }
+                                $isi .= 
+                                '
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                ';
+            }
+
+            
+                $isi .= 
+                '
+                <div id="step-5">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">  
+                                <div class="card">
+                                    <div class="card-block">
+                                        <blockquote class="card-blockquote">
+                                            <p>
+                                                Semoga kita bersama tumbuh semakin berwenang untuk mendampingi upaya sesama mencapai keindahan dari impian-impian mereka.
+                                            </p>
+                                            <footer class="text-muted f-s-12">
+                                                <cite title="Source Title">
+                                                    Mario Teguh
+                                                </cite>
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                                '.color_admin_apple_v42_submit('submit','submit','submit','Daftar',$DMHA_271).'
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                ';
+            $isi .= '</div>';
+
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }  
     function color_admin_apple_v42_hidden($AUTH_ID,$DMHA_1,$DMHA_9,$PARAM_2,$PARAM_3,$id_data)
     {
         // ------------------------------------------------------------------------- INITIALIZE
@@ -296,6 +425,20 @@
         // ------------------------------------------------------------------------- INITIALIZE
             $isi    = '';
             $class  = 'form-horizontal form-bordered';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    = UI_FORM_open_form_with_id($class,$id);
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+    function color_admin_apple_v42_open_form_with_id_and_class($id,$class)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
 
         // ------------------------------------------------------------------------- ACTION
             $isi    = UI_FORM_open_form_with_id($class,$id);
@@ -436,6 +579,26 @@
             }
             elseif($agent->isMobile() == 1){
                 $isi .= '<div id="page-container" class="fade page-sidebar-fixed show page-with-wide-sidebar">';
+            }
+            
+        // ------------------------------------------------------------------------- SEND
+            $word = $isi;
+            return $word;
+		//////////////////////////////////////////////////////////////////////////// 		
+    }
+
+
+    function color_admin_apple_v42_page_container_without_sidebar($agent)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+            
+        // ------------------------------------------------------------------------- ACTION
+            if($agent->isDesktop() == 1){
+                $isi .= '<div id="page-container" class="fade page-without-sidebar page-header-fixed">';
+            }
+            elseif($agent->isMobile() == 1){
+                $isi .= '<div id="page-container" class="fade page-without-sidebar page-header-fixed">';
             }
             
         // ------------------------------------------------------------------------- SEND

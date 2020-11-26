@@ -14,7 +14,8 @@
             $isi    .= ' "t": "'.$DMHA_271.'", ' ;
             $isi    .= ' "p2": "'.$PARAM_2.'", ' ;
             $isi    .= ' "p3": "'.$PARAM_3.'", ' ;
-            $isi    .= ' "di": "'.$id_data.'" ' ;
+            $isi    .= ' "di": "'.$id_data.'", ' ;
+            $isi    .= ' "pg": "df" ' ;
             $isi    .= ' }, ' ;
             $isi    .= ' dataType: "json", ' ;
             $isi    .= ' cache: false, ' ;
@@ -43,7 +44,137 @@
             });
             
             ';
+            /*
+            $isi .= '
+            $(function() {
+                $(".autocomplete_desa_kelurahan").autocomplete({
+                  source: "'.url('/').'/wwdata/autocompletez/22",
+                  appendTo: "#form"
+                });
+            });
+            ';
+            */
 
+
+            $isi    .= ' } ' ;
+            $isi    .= ' }); ' ;
+
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+    function ajax_form_multipart($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= ' $.ajax({ ' ;
+            $isi    .= ' type:"POST", ' ;
+            $isi    .= ' enctype: "multipart/form-data", ' ;
+            $isi    .= ' url: "'.url('/').'/wwform/generate", ' ;
+            $isi    .= ' data: { ' ;
+            $isi    .= ' "a": "'.$AUTH_ID.'", ' ;
+            $isi    .= ' "p": "'.$DMHA_1.'", ' ;
+            $isi    .= ' "t": "'.$DMHA_271.'", ' ;
+            $isi    .= ' "p2": "'.$PARAM_2.'", ' ;
+            $isi    .= ' "p3": "'.$PARAM_3.'", ' ;
+            $isi    .= ' "di": "'.$id_data.'", ' ;
+            $isi    .= ' "pg": "df" ' ;
+            $isi    .= ' }, ' ;
+            $isi    .= ' dataType: "json", ' ;
+            $isi    .= ' cache: false, ' ;
+            $isi    .= ' success: function(data){ ' ;
+                $isi    .= ' $("#form").html(data.isi); ' ;
+                $isi    .= dmha_13_generate_masked($DMHA_1) ;	
+                
+                $isi .= '
+    
+                $(".autocomplete_desa_kelurahan").on("keyup",function() {
+                    var autocomplete = $(this).val(); 
+                    $.ajax({
+                        url:"'.url('/').'/wwdata/autocomplete/22",
+                        type:"GET",
+                        data:{"autocomplete":autocomplete},
+                        success:function (data) {
+                            document.getElementsByClassName ("list-autocomplete-desa_kelurahan").innerHTML = data;
+                        }
+                    })
+                });
+    
+                $(document).on("click", "li", function(e){        
+                    var value = $(this).text();
+                    $(".autocomplete_desa_kelurahan").val(value);
+                    $(".list-autocomplete-desa_kelurahan").appendTo("");
+                });
+                
+                ';
+                /*
+                $isi .= '
+                $(function() {
+                    $(".autocomplete_desa_kelurahan").autocomplete({
+                      source: "'.url('/').'/wwdata/autocompletez/22",
+                      appendTo: "#form"
+                    });
+                });
+                ';
+                */
+    
+    
+                $isi    .= ' } ' ;
+                $isi    .= ' }); ' ;
+        // ------------------------------------------------------------------------- SEND
+            $words = $isi;
+            return $words;
+        ////////////////////////////////////////////////////////////////////////////        
+    }
+
+    function ajax_form_wizard($AUTH_ID,$DMHA_1,$DMHA_271,$PARAM_2,$PARAM_3,$id_data)
+    {
+        // ------------------------------------------------------------------------- INITIALIZE
+            $isi    = '';
+
+        // ------------------------------------------------------------------------- ACTION
+            $isi    .= ' $.ajax({ ' ;
+            $isi    .= ' url: "'.url('/').'/wwform/generate", ' ;
+            $isi    .= ' data: { ' ;
+            $isi    .= ' "a": "'.$AUTH_ID.'", ' ;
+            $isi    .= ' "p": "'.$DMHA_1.'", ' ;
+            $isi    .= ' "t": "'.$DMHA_271.'", ' ;
+            $isi    .= ' "p2": "'.$PARAM_2.'", ' ;
+            $isi    .= ' "p3": "'.$PARAM_3.'", ' ;
+            $isi    .= ' "di": "'.$id_data.'", ' ;
+            $isi    .= ' "pg": "wz" ' ;
+            $isi    .= ' }, ' ;
+            $isi    .= ' dataType: "json", ' ;
+            $isi    .= ' cache: false, ' ;
+            $isi    .= ' success: function(data){ ' ;
+            $isi    .= ' $("#form").html(data.isi); ' ;
+            $isi    .= dmha_13_generate_masked($DMHA_1) ;	
+            
+            $isi .= '
+
+            $(".autocomplete_desa_kelurahan").on("keyup",function() {
+                var autocomplete = $(this).val(); 
+                $.ajax({
+                    url:"'.url('/').'/wwdata/autocomplete/22",
+                    type:"GET",
+                    data:{"autocomplete":autocomplete},
+                    success:function (data) {
+                        document.getElementsByClassName ("list-autocomplete-desa_kelurahan").innerHTML = data;
+                    }
+                })
+            });
+
+            $(document).on("click", "li", function(e){        
+                var value = $(this).text();
+                $(".autocomplete_desa_kelurahan").val(value);
+                $(".list-autocomplete-desa_kelurahan").appendTo("");
+            });
+            
+            ';
             /*
             $isi .= '
             $(function() {

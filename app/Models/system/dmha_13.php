@@ -58,8 +58,7 @@ class dmha_13 extends Model
 
             if($TIPE == 'default')
             {
-                $isi = dmha_13::orderBy('nama','asc')
-                    ->get();
+                $isi = dmha_13::orderBy('nama','asc');
             }
             elseif($TIPE == 'joined')
             {

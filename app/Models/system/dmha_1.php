@@ -80,8 +80,7 @@ class dmha_1 extends Model
             if($TIPE == 'all')
             {
                 $isi = dmha_1::whereNull('deleted_at')							
-                    ->orderBy('id','asc')
-                    ->get();
+                    ->orderBy('id','asc');
             }elseif($TIPE == 'level1')
             {
                 $isi = dmha_1::whereNull('deleted_at')		
@@ -211,8 +210,7 @@ class dmha_1 extends Model
                 ->join('dmha_271', 'dmha_271.id', '=', 'dmha_1.dmha_271')  
                 ->join('dmha_300', 'dmha_300.id', '=', 'dmha_1.dmha_300')         
                 ->whereNull('dmha_1.deleted_at')	            
-                ->orderBy('dmha_1.id','asc')
-                ->get();
+                ->orderBy('dmha_1.id','asc');
             }
             elseif($TIPE == 'button_panel_header')
             {

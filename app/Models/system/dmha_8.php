@@ -113,8 +113,7 @@ class dmha_8 extends Model
 
         // ------------------------------------------------------------------------- ACTION
             $isi = dmha_8::whereNull('deleted_at')
-                ->orderBy('nama','asc')
-                ->get();
+                ->orderBy('nama','asc');
 
         // ------------------------------------------------------------------------- SEND
             $words = $isi;

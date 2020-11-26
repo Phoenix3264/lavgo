@@ -143,6 +143,7 @@
 				elseif($DMHA_ID == 107){ $isi = dmha_107_data_table($AGENT); }
 				elseif($DMHA_ID == 122){ $isi = dmha_122_data_table($AGENT); }
 				elseif($DMHA_ID == 158){ $isi = user_data_table($AGENT); }
+				elseif($DMHA_ID == 431){ $isi = dmha_431_data_table($AGENT); }
 
 
 
@@ -223,6 +224,13 @@
 				elseif($DMHA_ID == 386){ $isi = dmha_386_data_table($AGENT); }
 				elseif($DMHA_ID == 390){ $isi = dmha_390_data_table($AGENT); }
 				elseif($DMHA_ID == 395){ $isi = dmha_395_data_table($AGENT); }
+
+			///////////////////////////////////////////////////////////////////////////////// Mind Suhu
+				elseif($DMHA_ID == 426){ $isi = dmha_426_data_table($AGENT); }
+				elseif($DMHA_ID == 435){ $isi = dmha_435_data_table($AGENT); }
+				elseif($DMHA_ID == 436){ $isi = dmha_436_data_table($AGENT); }
+				elseif($DMHA_ID == 437){ $isi = dmha_437_data_table($AGENT); }
+				elseif($DMHA_ID == 438){ $isi = dmha_438_data_table($AGENT); }
 
 
         // ------------------------------------------------------------------------- SEND
